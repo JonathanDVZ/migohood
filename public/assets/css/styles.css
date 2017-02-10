@@ -1,20 +1,29 @@
+html{ 
+  width: 100%;
+  height: 100%;
+  }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
+   }
 
 body{
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
+   font-family: 'Quicksand', sans-serif;
+   width: 100%;
+   height: auto;
+   min-height: 100%;
 }
 
+.barra{
+     font-weight: bold;
+}
 .barra .navbar-brand {
   height: 85px;
 }
 
 .barra .navbar-brand img{
-    margin-left: 2em;
     margin-top:0;
     padding-top:0;
     width: 225px;
@@ -40,6 +49,7 @@ body{
 
 #navibar li a{
   color:#fff;
+  height: 30px;
 }
 
 #navibar li .nav-link:hover{
@@ -52,7 +62,40 @@ display: block;
 top: 20px;
 }
 
-body #bodyhome{
-  background-image: url("/assets/img/Fondo.png");
-  width: 100%;
+#Div1, #Div2{
+color: #fff;
+  position: relative;
+}
+
+#Div2{
+  margin-top:49%;
+}
+#img1{
+  position:absolute;
+  margin-top: -5%;
+  z-index:-1;
+}
+
+#img2{
+  position:absolute;
+  padding: 0;
+  margin-bottom: 0;
+
+}
+
+#formBuscar{
+  background-color:#00223C;
+  opacity: 0.95;
+  height: 120px;
+  width: 60%;
+  margin:5% auto;
+  display:block;
+  border-radius: 10px;
+  box-shadow: 8px 8px 8px rgba(0,0, 0, 0.45);
+}
+
+#divSearch{
+  display: block;
+  position:relative;
+  margin: 0 auto; 
 }

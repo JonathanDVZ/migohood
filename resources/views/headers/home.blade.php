@@ -19,9 +19,7 @@
           <li><a class="nav-link" href="#">Featured</a></li>
           <li><a class="nav-link" href="#">Sign in</a></li>
           <li>
-            <div class="regButton">
-            <a href="#" class="btn btn-info btn-md navbar-btn center-block" role="button">Register</a>
-          </div>
+            <a href="#" class="btn btn-info btn-md navbar-btn" role="button">Register</a>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">USD<span class="caret"></span></a>
