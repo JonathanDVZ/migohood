@@ -12,3 +12,11 @@
 */
 
 Route::get('/','IndexController@index');
+
+Route::get('/registeruser', function () {
+    return view('register-user-front');
+});
+
+Route::get('/accessuser', function () {
+    return view('access-user-front');
+});

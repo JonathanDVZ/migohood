@@ -99,3 +99,55 @@ color: #fff;
   position:relative;
   margin: 0 auto; 
 }
+/**************************STYLES FOR REGISTER AND ACCESS FRONT****************************/
+.btngmail{
+border-radius: 57px 57px 57px 57px;
+-moz-border-radius: 57px 57px 57px 57px;
+-webkit-border-radius: 57px 57px 57px 57px;
+border: 1px solid #FFFFFF;
+background-color: #1B94B5;
+height: 34px;
+padding: 6px 12px;
+}
+.singup{
+ border-radius: 15px 15px 15px 15px;
+-moz-border-radius: 15px 15px 15px 15px;
+-webkit-border-radius: 15px 15px 15px 15px;
+background-color: #1B94B5;
+height: 34px;
+padding: 6px 12px;
+}
+.miimagen{
+    margin: 0 auto;
+    padding: 0px 0px 0px 0px;
+    /*float: left;*/
+}
+.colortext{
+    color:#023859;
+}
+.separation{
+    padding-top:25px;
+}
+.separation-element-form{
+    margin-bottom: 25px;
+}
+.t1{
+ font-size: 18px;
+}
+.check1{
+border: 1px solid #1B94B5;
+}
+.intro-header-page1  {
+    margin-top: -5%;
+    z-index:-1; 
+    padding-top: 20px; 
+    padding-bottom: 70px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/fondo-azul.png) no-repeat center center;
+    background-size: cover;
+}
+.intro-message1 {
+    position: relative;
+    padding-top: 5%;
+}
