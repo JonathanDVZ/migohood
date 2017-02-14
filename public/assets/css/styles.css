@@ -1,152 +1,190 @@
-html{ 
-  width: 100%;
-  height: 100%;
-  }
+html {
+    width: 100%;
+    height: 100%;
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-   }
-
-body{
-   font-family: 'Quicksand', sans-serif;
-   width: 100%;
-   height: auto;
-   min-height: 100%;
 }
 
-.barra{
-     font-weight: bold;
+body {
+    font-family: 'Quicksand', sans-serif;
+    width: 100%;
+    height: auto;
+    min-height: 100%;
 }
+
+.barra {
+    font-weight: bold;
+}
+
 .barra .navbar-brand {
-  height: 85px;
+    height: 85px;
 }
 
-.barra .navbar-brand img{
-    margin-top:0;
-    padding-top:0;
+.barra .navbar-brand img {
+    margin-top: 0;
+    padding-top: 0;
     width: 225px;
-} 
-
-.barra .nav >li >a {
-  padding-top: 30px;
-  padding-bottom: 30px;
 }
+
+.barra .nav>li>a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
 .barra .navbar-toggle {
-  padding: 10px;
-  margin: 25px 15px 25px 0;
+    padding: 10px;
+    margin: 25px 15px 25px 0;
 }
 
-#navibar{
-  color:#fff;
-  background: #00223C;
-  box-shadow: 0px 3px 5px rgba(0,0, 0, 0.75);
-  font-size: 15px;
-  font-family: 'Quicksand', sans-serif;
-  font-weight: bold;
+#navibar {
+    color: #fff;
+    background: #00223C;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.75);
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
-#navibar li a{
-  color:#fff;
-  height: 30px;
+#navibar li a {
+    color: #fff;
+    height: 30px;
 }
 
-#navibar li .nav-link:hover{
-  color:#0093B4;
+#navibar li .nav-link:hover {
+    color: #0093B4;
 }
 
-#navibar li #regButton{
-
-display: block;
-top: 20px;
+#navibar li #regButton {
+    display: block;
+    top: 20px;
 }
 
-#Div1, #Div2{
-color: #fff;
-  position: relative;
+.este {
+    margin-top: 2.5%;
 }
 
-#Div2{
-  margin-top:49%;
-}
-#img1{
-  position:absolute;
-  margin-top: -5%;
-  z-index:-1;
-}
-
-#img2{
-  position:absolute;
-  padding: 0;
-  margin-bottom: 0;
-
+.intro-header {
+    text-align: center;
+    margin-top: -4%;
+    height: 1000px;
+    color: #f8f8f8;
+    background: url(../img/Fondo.png) no-repeat center center;
+    background-size: cover;
 }
 
-#formBuscar{
-  background-color:#00223C;
-  opacity: 0.95;
-  height: 120px;
-  width: 60%;
-  margin:5% auto;
-  display:block;
-  border-radius: 10px;
-  box-shadow: 8px 8px 8px rgba(0,0, 0, 0.45);
+#Div1,
+{
+    color: #fff;
+    position: relative;
 }
 
-#divSearch{
-  display: block;
-  position:relative;
-  margin: 0 auto; 
+#formBuscar {
+    background-color: #00223C;
+    opacity: 0.95;
+    height: 120px;
+    width: 60%;
+    margin: 5% auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.45);
 }
+
+#divSearch {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+.divbtnbar {
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.btnbar {
+    border-radius: 20px;
+    background: #0093B4;
+}
+
+.works {
+    border-radius: 0;
+    background: #0093B4;
+    color: #fff;
+}
+
+.works:hover {
+    color: #fff;
+}
+
+.imgs {
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+    margin-bottom: 1%;
+}
+
+
 /**************************STYLES FOR REGISTER AND ACCESS FRONT****************************/
-.btngmail{
-border-radius: 57px 57px 57px 57px;
--moz-border-radius: 57px 57px 57px 57px;
--webkit-border-radius: 57px 57px 57px 57px;
-border: 1px solid #FFFFFF;
-background-color: #1B94B5;
-height: 34px;
-padding: 6px 12px;
+
+.btngmail {
+    border-radius: 57px 57px 57px 57px;
+    -moz-border-radius: 57px 57px 57px 57px;
+    -webkit-border-radius: 57px 57px 57px 57px;
+    border: 1px solid #FFFFFF;
+    background-color: #1B94B5;
+    height: 34px;
+    padding: 6px 12px;
 }
-.singup{
- border-radius: 15px 15px 15px 15px;
--moz-border-radius: 15px 15px 15px 15px;
--webkit-border-radius: 15px 15px 15px 15px;
-background-color: #1B94B5;
-height: 34px;
-padding: 6px 12px;
+
+.singup {
+    border-radius: 15px 15px 15px 15px;
+    -moz-border-radius: 15px 15px 15px 15px;
+    -webkit-border-radius: 15px 15px 15px 15px;
+    background-color: #1B94B5;
+    height: 34px;
+    padding: 6px 12px;
 }
-.miimagen{
+
+.miimagen {
     margin: 0 auto;
     padding: 0px 0px 0px 0px;
     /*float: left;*/
 }
-.colortext{
-    color:#023859;
+
+.colortext {
+    color: #023859;
 }
-.separation{
-    padding-top:25px;
+
+.separation {
+    padding-top: 25px;
 }
-.separation-element-form{
+
+.separation-element-form {
     margin-bottom: 25px;
 }
-.t1{
- font-size: 18px;
+
+.t1 {
+    font-size: 18px;
 }
-.check1{
-border: 1px solid #1B94B5;
+
+.check1 {
+    border: 1px solid #1B94B5;
 }
-.intro-header-page1  {
+
+.intro-header-page1 {
     margin-top: -5%;
-    z-index:-1; 
-    padding-top: 20px; 
+    z-index: -1;
+    padding-top: 20px;
     padding-bottom: 70px;
     text-align: center;
     color: #f8f8f8;
     background: url(../img/fondo-azul.png) no-repeat center center;
     background-size: cover;
 }
+
 .intro-message1 {
     position: relative;
     padding-top: 5%;
