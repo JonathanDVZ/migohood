@@ -14,9 +14,9 @@
 Route::get('/','IndexController@index');
 
 Route::get('/registeruser', function () {
-    return view('register-user-front');
+    return view('register.register-user-front');
 });
 
 Route::get('/accessuser', function () {
-    return view('access-user-front');
+    return view('login.access-user-front');
 });
