@@ -5,6 +5,38 @@
         <div class="row este">
             <div class="col-lg-12">
                 <h1 class="text-center">YOUR IDEAL <strong>PLACE</strong></h1>
+                <div id="divSearch">
+
+
+                    <form id="formBuscar" class="form-inline text-center">
+                        <div class="row buscar">
+                            <div class="col-lg-6 col-md-6 col-sm-12 text-center searchforms">
+                                <div class="input-group">
+                                    <div class="input-group-btn">
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Action</a></li>
+                                            <li><a href="#">Another action</a></li>
+                                            <li><a href="#">Something else here</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a href="#">Separated link</a></li>
+                                        </ul>
+                                    </div>
+                                    <input type="text" class="form-control" aria-label="...">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 text-center searchforms">
+                                <input type="text" class="form-control" placeholder="APARTMENTS,HOUSE, B&B">
+                                <button type="button" class="btn btn-md works"><i class="fa fa-search" aria-hidden="true"></i> SEARCH</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-center"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-center"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 text-center"></div>
+                    </div>
+                </div>
                 <a type="button" class="btn btn-lg works" href=""><strong>     HOW IT WORKS     </strong></a>
                 <div class="row headerRow">
                     <div class="col-lg-4 col-md-4 col-sm-12 text-center ">

@@ -95,7 +95,6 @@ body {
 
 #divSearch {
     display: block;
-    position: relative;
     margin: 0 auto;
 }
 
@@ -122,8 +121,16 @@ body {
 .imgs {
     margin-left: auto;
     margin-right: auto;
-    height: 200px;
+    height: 180px;
     margin-bottom: 1%;
+}
+
+.searchforms {
+    margin-right: -50px;
+}
+
+.buscar {
+    padding-top: 40px;
 }
 
 
