@@ -26,8 +26,8 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 text-center searchforms">
-                                <input type="text" class="form-control" placeholder="APARTMENTS,HOUSE, B&B">
-                                <button type="button" class="btn btn-md works"><i class="fa fa-search" aria-hidden="true"></i> SEARCH</button>
+                                <input type="text" class="form-control control2" placeholder="APARTMENTS,HOUSE, B&B">
+                                <button type="button" class="btn btn-md works control3"><i class="fa fa-search" aria-hidden="true"></i> SEARCH</button>
                             </div>
                         </div>
                     </form>

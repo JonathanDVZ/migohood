@@ -203,6 +203,13 @@ body {
 	margin-left: 20%;
    	margin-right: 20%;
    }
+  
+   .searchforms {
+    margin-right: 0px;
+}
+
+
+
   }
 @media (max-width: 480px){
    .custom-control{
@@ -211,3 +218,20 @@ body {
    	margin-right: 10%;
    }
   }
+  /***********************AGREGADOS*******************************/
+ 
+@media  (max-width:767px) {
+     .searchforms {
+    margin-right: 1%;
+    margin-left: 3%;
+}
+
+.control2{
+   	width: 50%;
+   	display: inline-block;
+   }
+.control3{
+   	width: 30%;
+   	display: inline-block;
+   }
+}
