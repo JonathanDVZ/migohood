@@ -13,26 +13,26 @@
                     </p>
                     <form class="form-horizontal">
                         <div class="form-group separation-element-form">
-                            <label for="name" class="col-sm-offset-3 col-sm-3 col-md-offset-4 col-md-2 control-labell" style="text-align:left; color:#023859">Name</label>
-                            <div class="col-sm-4 col-sm-pull-1 col-md-pull-1 col-md-3">
+                            <label for="name" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Name</label>
+                            <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
                                   <input type="text" class="custom-control form-control" id="name" placeholder="Name">
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
-                            <label for="email" class="col-sm-offset-3 col-sm-3 col-md-offset-4 col-md-2 control-labell" style="text-align:left; color:#023859">Email</label>
-                            <div class="col-sm-4 col-sm-pull-1 col-md-pull-1 col-md-3">
+                            <label for="email" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Email</label>
+                            <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
                                   <input type="email" class="custom-control form-control" id="email" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
-                            <label for="password" class="col-sm-offset-3 col-sm-3 col-md-offset-4 col-md-2 control-label" style="text-align:left; color:#023859">Password</label>
-                            <div class="col-sm-4 col-sm-pull-1 col-md-pull-1 col-md-3">
+                            <label for="password" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-label" style="text-align:left; color:#023859">Password</label>
+                            <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
                                   <input type="password" class="custom-control form-control" id="password" placeholder="Password">
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
-                            <label for="confirmpassword" class="col-sm-offset-3 col-sm-3 col-md-offset-4 col-md-3 control-label" style="text-align:left; color:#023859">Confirm Password</label>
-                            <div class="col-sm-4 col-sm-pull-1  col-md-3">
+                            <label for="confirmpassword" class="col-sm-offset-3 col-sm-2 control-label" style="text-align:left; color:#023859">Confirm Password</label>
+                            <div class="col-sm-4">
                                   <input type="password" class="custom-control form-control" id="confirmpassword" placeholder="Password">
                             </div>
                         </div>
