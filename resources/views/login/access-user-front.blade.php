@@ -13,15 +13,15 @@
                     </p>
                     <form class="form-horizontal">                        
                           <div class="form-group separation-element-form">
-                            <label for="email" class="col-sm-offset-4 col-sm-2  control-label" style="text-align:left; color:#023859">Email</label>
-                            <div class="col-sm-3">
-                              <input type="email" class="form-control" id="email" placeholder="Email">
+                            <label for="email" class="col-sm-offset-3 col-sm-1 col-md-offset-4 col-md-1 control-label" style="text-align:left; color:#023859">Email</label>
+                            <div class="col-sm-4 col-sm-offset-1 col-md-pull-1 col-md-3">
+                              <input type="email" class="custom-control form-control" id="email" placeholder="Email">
                             </div>
                           </div>
                           <div class="form-group separation-element-form">
-                            <label for="password" class="col-sm-offset-4 col-sm-2 control-label" style="text-align:left; color:#023859">Password</label>
-                            <div class="col-sm-3">
-                              <input type="password" class="form-control" id="password" placeholder="Password">
+                            <label for="password" class="col-sm-offset-3 col-sm-1 col-md-offset-4  col-md-1 control-label" style="text-align:left; color:#023859">Password</label>
+                            <div class="col-sm-4 col-sm-offset-1 col-md-pull-1 col-md-3">
+                              <input type="password" class="custom-control form-control" id="password" placeholder="Password">
                             </div>
                           </div>                      
                           </br>
