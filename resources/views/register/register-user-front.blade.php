@@ -1,5 +1,6 @@
 @extends('layouts.master') 
 @section('class', 'darkbluecolor') 
+@section('content')
 <div id="Div1" class="text-center center-block">
     <div class="intro-header-page1">   
        <div class="row">
