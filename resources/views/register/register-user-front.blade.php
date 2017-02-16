@@ -1,4 +1,5 @@
-@extends('layouts.master') 
+@extends('layouts.master')
+@section('title', 'User Registration') 
 @section('class', 'darkbluecolor') 
 @section('content')
 <div id="Div1" class="text-center center-block">
