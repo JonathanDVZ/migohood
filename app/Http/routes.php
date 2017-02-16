@@ -12,11 +12,11 @@
 */
 
 Route::get('/','IndexController@index');
+Route::get('/registeruser','UserController@index');
+Route::get('/accessuser','Auth\AuthController@getLogin');
 
-Route::get('/registeruser', function () {
-    return view('register.register-user-front');
-});
-
+/*
 Route::get('/accessuser', function () {
     return view('login.access-user-front');
 });
+*/

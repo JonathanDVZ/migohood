@@ -63,7 +63,7 @@
                 <div class="clearfix"></div>
                 <h2 class="migo">Club</h2>
                 <h1 class="hood">migohood</h1>
-                <a href="" type="button" class="btn btn-lg regBtn"><strong>Register</strong></a>
+                <a href="{{url('/registeruser')}}" type="button" class="btn btn-lg regBtn"><strong>Register</strong></a>
             </div>
             <div class="col-lg-6 col-sm-12 col-xs-12 col-md-6 nopadding">
                 <h1 class="migo">migohood</h1>
