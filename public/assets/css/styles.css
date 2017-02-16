@@ -1,237 +1,280 @@
-html {
-    width: 100%;
-    height: 100%;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Quicksand', sans-serif;
-    width: 100%;
-    height: auto;
-    min-height: 100%;
-}
-
-.barra {
-    font-weight: bold;
-}
-
-.barra .navbar-brand {
-    height: 85px;
-}
-
-.barra .navbar-brand img {
-    margin-top: 0;
-    padding-top: 0;
-    width: 225px;
-}
-
-.barra .nav>li>a {
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
-
-.barra .navbar-toggle {
-    padding: 10px;
-    margin: 25px 15px 25px 0;
-}
-
-#navibar {
-    color: #fff;
-    background: #00223C;
-    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.75);
-    font-size: 15px;
-    font-family: 'Quicksand', sans-serif;
-    font-weight: bold;
-}
-
-#navibar li a {
-    color: #fff;
-    height: 30px;
-}
-
-#navibar li .nav-link:hover {
-    color: #0093B4;
-}
-
-#navibar li #regButton {
-    display: block;
-    top: 20px;
-}
-
-.este {
-    margin-top: 2.5%;
-}
-
-.intro-header {
-    text-align: center;
-    margin-top: -4%;
-    height: 1000px;
-    color: #f8f8f8;
-    background: url(../img/Fondo.png) no-repeat center center;
-    background-size: cover;
-}
-
-#Div1,
-{
-    color: #fff;
-    position: relative;
-}
-
-#formBuscar {
-    background-color: #00223C;
-    opacity: 0.95;
-    height: 120px;
-    width: 60%;
-    margin: 5% auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.45);
-}
-
-#divSearch {
-    display: block;
-    margin: 0 auto;
-}
-
-.divbtnbar {
-    padding-top: 15px;
-    padding-bottom: 30px;
-}
-
-.btnbar {
-    border-radius: 20px;
-    background: #0093B4;
-}
-
-.works {
-    border-radius: 0;
-    background: #0093B4;
-    color: #fff;
-}
-
-.works:hover {
-    color: #fff;
-}
-
-.imgs {
-    margin-left: auto;
-    margin-right: auto;
-    height: 180px;
-    margin-bottom: 1%;
-}
-
-.searchforms {
-    margin-right: -50px;
-}
-
-.buscar {
-    padding-top: 40px;
-}
-
-
-/**************************STYLES FOR REGISTER AND ACCESS FRONT****************************/
-
-.btngmail {
-    border-radius: 57px 57px 57px 57px;
-    -moz-border-radius: 57px 57px 57px 57px;
-    -webkit-border-radius: 57px 57px 57px 57px;
-    border: 1px solid #FFFFFF;
-    background-color: #1B94B5;
-    height: 34px;
-    padding: 6px 12px;
-}
-
-.singup {
-    border-radius: 15px 15px 15px 15px;
-    -moz-border-radius: 15px 15px 15px 15px;
-    -webkit-border-radius: 15px 15px 15px 15px;
-    background-color: #1B94B5;
-    height: 34px;
-    padding: 6px 12px;
-}
-
-.miimagen {
-    margin: 0 auto;
-    padding: 0px 0px 0px 0px;
-    /*float: left;*/
-}
-
-.colortext {
-    color: #023859;
-}
-
-.separation {
-    padding-top: 25px;
-}
-
-.separation-element-form {
-    margin-bottom: 25px;
-}
-
-.t1 {
-    font-size: 18px;
-}
-
-.check1 {
-    border: 1px solid #1B94B5;
-}
-
-.intro-header-page1 {
-    margin-top: -5%;
-    z-index: -1;
-    padding-top: 20px;
-    padding-bottom: 70px;
-    text-align: center;
-    color: #f8f8f8;
-    background: url(../img/fondo-azul.png) no-repeat center center;
-    background-size: cover;
-}
-
-.intro-message1 {
-    position: relative;
-    padding-top: 5%;
-}
-/**************************MEDIA QUERIES****************************/
-@media (min-width: 481px) and (max-width:767px) {
-   .custom-control{
-   	width: 60%;
-	margin-left: 20%;
-   	margin-right: 20%;
-   }
-  
-   .searchforms {
-    margin-right: 0px;
-}
-
-
-
-  }
-@media (max-width: 480px){
-   .custom-control{
-   	width: 80%;
-	margin-left: 10%;
-   	margin-right: 10%;
-   }
-  }
-  /***********************AGREGADOS*******************************/
- 
-@media  (max-width:767px) {
-     .searchforms {
-    margin-right: 1%;
-    margin-left: 3%;
-}
-
-.control2{
-   	width: 50%;
-   	display: inline-block;
-   }
-.control3{
-   	width: 30%;
-   	display: inline-block;
-   }
-}
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0px;
+            padding: 0px;
+            overflow-x: hidden;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            width: 100%;
+            height: auto;
+            min-height: 100%;
+        }
+        
+        .headerRow {
+            padding-top: 10%;
+            color: #fff;
+        }
+        
+        .action {
+            border-radius: 0;
+        }
+        
+        .nopadding {
+            padding: 0;
+        }
+        
+        .intro-header {
+            text-align: center;
+            margin-top: -4%;
+            height: 1000px;
+            color: #f8f8f8;
+            background: url(../img/Fondo.png) no-repeat center center;
+            background-size: cover;
+        }
+        
+        #Div1,
+        {
+            color: #fff;
+            position: relative;
+        }
+        
+        .buscar {
+            background-color: #00223C;
+            padding-top: 5.5%;
+            opacity: 0.95;
+            height: 9.5em;
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.45);
+        }
+        
+        .insideB {
+            display: inline-block;
+        }
+        
+        .how {
+            margin-top: 5%;
+            padding-bottom: 5em;
+            display: block
+        }
+        
+        .first {
+            background: url(../img/Fondo.png) no-repeat center center;
+            background-size: 100% 100%;
+            height: 67em;
+            margin-top: -1.4em;
+        }
+        
+        .first h1 {
+            padding-top: 0.6em;
+            padding-bottom: 1.9em;
+            color: #fff;
+        }
+        
+        .divbtnbar {
+            padding-top: 15px;
+            padding-bottom: 30px;
+        }
+        
+        .btnbar {
+            border-radius: 20px;
+            background: #0093B4;
+        }
+        
+        .works {
+            display: inline-block;
+            border-radius: 0;
+            background: #0093B4;
+            color: #fff;
+        }
+        
+        .works:hover {
+            color: #fff;
+        }
+        
+        .hood {
+            color: #000;
+            font-weight: bold;
+            padding-left: 1.52em;
+        }
+        
+        .migo {
+            color: #0093B4;
+            font-weight: bold;
+            padding-left: 1.52em;
+        }
+        
+        .imgs {
+            margin-left: auto;
+            margin-right: auto;
+            height: 12em;
+        }
+        /*NaAVIGATION BAR*/
+        
+        .barra {
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .barra .navbar-brand {
+            height: 85px;
+        }
+        
+        .barra .navbar-brand img {
+            margin-top: 0;
+            padding-top: 0;
+            width: 225px;
+        }
+        
+        .barra .nav>li>a {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        
+        .barra .navbar-toggle {
+            padding: 10px;
+            margin: 25px 15px 25px 0;
+        }
+        
+        #navibar {
+            color: #fff;
+            background: #00223C;
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.75);
+            font-size: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+        }
+        
+        #navibar li a {
+            color: #fff;
+            height: 30px;
+        }
+        
+        #navibar li .nav-link:hover {
+            color: #0093B4;
+        }
+        
+        #navibar li #regButton {
+            display: block;
+            top: 20px;
+        }
+        /*FOOTER*/
+        
+        footer {
+            background: #0093B4;
+            color: #fff;
+            padding-top: 1%;
+        }
+        
+        footer strong {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        .footD {
+            margin-top: 1.5em;
+            margin-bottom: auto;
+            padding-top: 0.7em;
+            width: 100%;
+            height: 10%;
+            color: #0093B4;
+            background: #023859;
+        }
+        
+        .footD strong {
+            color: #fff;
+        }
+        /**************************STYLES FOR REGISTER AND ACCESS FRONT****************************/
+        
+        .btngmail {
+            border-radius: 57px 57px 57px 57px;
+            -moz-border-radius: 57px 57px 57px 57px;
+            -webkit-border-radius: 57px 57px 57px 57px;
+            border: 1px solid #FFFFFF;
+            background-color: #1B94B5;
+            height: 34px;
+            padding: 6px 12px;
+        }
+        
+        .singup {
+            border-radius: 15px 15px 15px 15px;
+            -moz-border-radius: 15px 15px 15px 15px;
+            -webkit-border-radius: 15px 15px 15px 15px;
+            background-color: #1B94B5;
+            height: 34px;
+            padding: 6px 12px;
+        }
+        
+        .miimagen {
+            margin: 0 auto;
+            padding: 0px 0px 0px 0px;
+            /*float: left;*/
+        }
+        
+        .colortext {
+            color: #023859;
+        }
+        
+        .separation {
+            padding-top: 25px;
+        }
+        
+        .separation-element-form {
+            margin-bottom: 25px;
+        }
+        
+        .t1 {
+            font-size: 18px;
+        }
+        
+        .check1 {
+            border: 1px solid #1B94B5;
+        }
+        
+        .intro-header-page1 {
+            margin-top: -5%;
+            z-index: -1;
+            padding-top: 20px;
+            padding-bottom: 70px;
+            text-align: center;
+            color: #f8f8f8;
+            background: url(../img/fondo-azul.png) no-repeat center center;
+            background-size: cover;
+        }
+        
+        .intro-message1 {
+            position: relative;
+            padding-top: 5%;
+        }
+        /**************************MEDIA QUERIES****************************/
+        
+        @media (min-width: 481px) and (max-width:767px) {
+            .custom-control {
+                width: 60%;
+                margin-left: 20%;
+                margin-right: 20%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .custom-control {
+                width: 80%;
+                margin-left: 10%;
+                margin-right: 10%;
+            }
+        }
