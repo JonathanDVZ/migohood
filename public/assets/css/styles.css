@@ -261,6 +261,9 @@
             position: relative;
             padding-top: 5%;
         }
+        .darkbluecolor{
+        	background-color:#023859; 
+        }
         /**************************MEDIA QUERIES****************************/
         
         @media (min-width: 481px) and (max-width:767px) {
