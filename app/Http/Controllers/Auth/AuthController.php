@@ -64,7 +64,7 @@ class AuthController extends Controller
     }
      protected function getLogin()
     {
-        return view('login.access-user-front');
+        return view('auth.access-user-front');
     }
 
 }

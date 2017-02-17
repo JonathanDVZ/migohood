@@ -16,7 +16,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('register.register-user-front');
+        return view('auth.register-user-front');
     }
 
     /**
