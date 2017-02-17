@@ -302,12 +302,16 @@
 
         **********************************************************************/  
 
+         /********STYLES FOR REGISTER AND ACCESS FRONT******/
          @media (min-width: 481px) and (max-width:767px) {
             .custom-control {
                 width: 60%;
                 margin-left: 20%;
                 margin-right: 20%;
             }
+        	input[type=checkbox]#checkbox2 + label{
+        		padding-left:0px; 
+        	}
         }
         
         @media (max-width: 480px) {
