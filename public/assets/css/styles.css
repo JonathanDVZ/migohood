@@ -199,7 +199,15 @@
         .footD strong {
             color: #fff;
         }
-        /**************************STYLES FOR REGISTER AND ACCESS FRONT****************************/
+        
+
+        /*********************************************************************
+
+
+                            STYLES FOR REGISTER AND ACCESS FRONT
+
+
+        **********************************************************************/        
         
         .btngmail {
             border-radius: 57px 57px 57px 57px;
@@ -264,9 +272,37 @@
         .darkbluecolor{
         	background-color:#023859; 
         }
-        /**************************MEDIA QUERIES****************************/
+
+        /******************estilos checkbox2****************/
+
+        input[type=checkbox]#checkbox2 {
+            display: none;
+        }
+
+        input[type=checkbox]#checkbox2 + label:before { 
+            content: "\f096"; 
+            letter-spacing: 2px;
+            font-family: FontAwesome;   
+            font-size: 22px;
+            color: #1B94B5;
+        }
+
+        input[type=checkbox]#checkbox2:checked + label:before {
+            content: '\f046';
+        }
+        input[type="checkbox"]#checkbox2:focus{
+            outline: none;
+        }
         
-        @media (min-width: 481px) and (max-width:767px) {
+        /*********************************************************************
+
+
+                                   MEDIA QUERIES
+
+
+        **********************************************************************/  
+
+         @media (min-width: 481px) and (max-width:767px) {
             .custom-control {
                 width: 60%;
                 margin-left: 20%;
@@ -281,3 +317,5 @@
                 margin-right: 10%;
             }
         }
+        
+       

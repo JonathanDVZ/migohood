@@ -40,11 +40,10 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-4 separation">
-                                <div class="checkbox">
-                                    <label>
-                                      <input type="checkbox"> <span class="colortext">I agree with terms and conditions, privacy politics, guest refund politics and payments terms o service</span>
-                                    </label>
-                                </div>
+                                <div class="checkbox">                
+                                      <input type="checkbox" id="checkbox2" name="checkbox[]"><label for="checkbox2"> </label>
+                                      <span class="colortext">I agree with terms and conditions, privacy politics, guest refund politics and payments terms o service</span>
+                                </div> 
                             </div>
                         </div>
                         <div class="form-group">
