@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{url('/assets/css/styles.css')}}" rel="stylesheet">
+    <link rel="shortcut icon" href="{{url('/assets/img/favicon.ico')}}">
 </head>
 
 <body class='@yield("class")'>
