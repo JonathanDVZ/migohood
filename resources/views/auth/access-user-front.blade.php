@@ -31,7 +31,7 @@
                             <div class="col-sm-offset-4 col-sm-4 separation">
                               <div class="checkbox">
                                 <label>
-                                  <input type="checkbox"> <span class="colortext t1">Remember me</span>
+                                  <input type="checkbox" id="checkbox3" name="checkbox3"><label for="checkbox3"></label><span class="colortext t1">&nbsp;&nbsp;Remember me</span>
                                 </label>
                               </div>
                             </div>
