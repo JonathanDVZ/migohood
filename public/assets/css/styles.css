@@ -19,6 +19,34 @@
             min-height: 100%;
         }
         
+        .cel {
+            width: 85%;
+        }
+        
+        .map {
+            padding-top: 2em;
+            width: 90%;
+            padding-left: 1.52em;
+        }
+        
+        .titulos {
+            display: inline-block;
+        }
+        
+        .regBtn {
+            background: #00223C;
+            height: 30px;
+            padding-top: 3px;
+            border-radius: 20px;
+            border-color: #0093B4;
+            display: inline-block;
+            margin-left: 15%;
+        }
+        
+        .regBtn:hover {
+            color: #1B94B5;
+        }
+        
         .headerRow {
             padding-top: 10%;
             color: #fff;
@@ -63,7 +91,7 @@
         }
         
         .how {
-            margin-top: 5%;
+            margin-top: 10%;
             padding-bottom: 5em;
             display: block
         }
@@ -92,7 +120,6 @@
         }
         
         .works {
-            display: inline-block;
             border-radius: 0;
             background: #0093B4;
             color: #fff;
@@ -112,6 +139,42 @@
             color: #0093B4;
             font-weight: bold;
             padding-left: 1.52em;
+        }
+        
+        .nopadding p {
+            padding-left: 1.52em;
+        }
+        
+        .parra {
+            padding-right: 1.52em;
+        }
+        
+        .second {
+            padding-bottom: 1em;
+        }
+        
+        .last {
+            background: rgba(255, 255, 255, 1);
+            background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(27, 148, 181, 1)));
+            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+            background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+            background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1b94b5', GradientType=0);
+            padding-top: 0.6em;
+            height: 70px;
+        }
+        
+        .last a {
+            font-weight: bold;
+            font-size: 18px;
+            font-style: none;
+        }
+        
+        .last a img {
+            height: 60px;
+            display: inline-block;
         }
         
         .imgs {
@@ -199,15 +262,13 @@
         .footD strong {
             color: #fff;
         }
-        
-
         /*********************************************************************
 
 
                             STYLES FOR REGISTER AND ACCESS FRONT
 
 
-        **********************************************************************/        
+        **********************************************************************/
         
         .btngmail {
             border-radius: 57px 57px 57px 57px;
@@ -269,47 +330,54 @@
             position: relative;
             padding-top: 5%;
         }
-        .darkbluecolor{
-        	background-color:#023859; 
+        
+        .darkbluecolor {
+            background-color: #023859;
         }
+        /******************estilos checkbox 2 y 3****************/
 
-        /******************estilos checkbox2****************/
 
         input[type=checkbox]#checkbox2, input[type=checkbox]#checkbox3 {
             display: none;
         }
 
         input[type=checkbox]#checkbox2 + label:before, input[type=checkbox]#checkbox3 + label:before { 
-            content: "\f096"; 
+            content: "\f096"; }       
+      
+        
+        input[type=checkbox]#checkbox2+label:before, input[type=checkbox]#checkbox3+label:before  {
+            content: "\f096";
             letter-spacing: 2px;
-            font-family: FontAwesome;   
+            font-family: FontAwesome;
             font-size: 22px;
             color: #1B94B5;
         }
-
         input[type=checkbox]#checkbox2:checked + label:before, input[type=checkbox]#checkbox3:checked + label:before {
             content: '\f046';
         }
         input[type="checkbox"]#checkbox2:focus,  input[type="checkbox"]#checkbox3:focus{
-            outline: none;
-        }
-        
+			outline: none;
+        }           
+       
         /*********************************************************************
 
 
                                    MEDIA QUERIES
 
-
         **********************************************************************/  
 
-         @media (min-width: 481px) and (max-width:767px) {
+                 
+        @media (min-width: 481px) and (max-width:767px) {
+
             .custom-control {
                 width: 60%;
                 margin-left: 20%;
                 margin-right: 20%;
-            }        	
+            }       	
         }
-        
+            input[type=checkbox]#checkbox2+label {
+                padding-left: 0px;
+            }
         @media (max-width: 480px) {
             .custom-control {
                 width: 80%;
@@ -318,12 +386,16 @@
             }
         
         }
-
         @media (max-width:767px){
 			input[type=checkbox]#checkbox2 + label, input[type=checkbox]#checkbox3 + label{
         		padding-left:0px; 
         	}
+ 		.first {
+                height: 87em;
+            }
+        .last {
+                padding-top: 1em;
+                height: 130px;
+            }
         }
 
-        
-       
