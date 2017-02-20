@@ -366,7 +366,19 @@
 
         **********************************************************************/  
 
-                 
+        @media (min-width: 768px) and (max-width:991px) {
+		.intro-header-page1 {
+            margin-top: -5%;
+            z-index: -1;
+            padding-top: 20px;
+            padding-bottom: 70px;
+            text-align: center;
+            color: #f8f8f8;
+            background: url(../img/fondo-azul.png) no-repeat center center;
+            background-size: 100% 100%;
+        }
+           	
+        }         
         @media (min-width: 481px) and (max-width:767px) {
 
             .custom-control {
@@ -397,5 +409,15 @@
                 padding-top: 1em;
                 height: 130px;
             }
+        .intro-header-page1 {
+            margin-top: -5%;
+            z-index: -1;
+            padding-top: 20px;
+            padding-bottom: 70px;
+            text-align: center;
+            color: #f8f8f8;
+            background: url(../img/fondo-azul.png) no-repeat center center;
+            background-size: auto;
+        }
         }
 
