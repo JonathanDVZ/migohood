@@ -14,14 +14,18 @@
 </head>
 
 <body class='@yield("class")'>
-    @include ("headers/home") @yield ('content')
+@if(Auth::check())
+                @include('headers.header-login')
+@else
+                @include('headers.header-login')
+ @endif
+    @yield ('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{{url('/assets/js/jquery.min.js')}}"></script>
     <script src="{{url('/assets/js/bootstrap.min.js')}}'"></script>
-</body>
-<footer>
+    <footer>
     @include ("footers/footer")
-</footer>
-
+    </footer>
+</body>
 </html>

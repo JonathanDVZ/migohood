@@ -4,10 +4,13 @@
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
             <h2 class="text-left">AMENITIES</h2>
             <div class="form-group">
-                <input type="email" class="form-control" id="email">
+                <input type="text" placeholder="Amenities 1" class="form-control" id="">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control" id="pwd">
+                <input type="text" class="form-control" placeholder="Amenities 2" id="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Amenities 3" id="">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
         </div>

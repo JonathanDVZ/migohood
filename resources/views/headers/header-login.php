@@ -1,4 +1,5 @@
-<div class="barra2">
+<header>
+    <div class="barra2">
     <nav id="navibar2" class="navbar navbar-inverse navbar-static-top">
         <div class="container">
             <div class="navbar-header">
@@ -25,19 +26,20 @@
                         <div class="divbtnbar"><a href="" class="btn btnbar2" role="button">Become a host</a></div>
                     </li>
                     <li>
-                        <a class="nav-link" href="#"><img src="{{url('assets/img/ICONO-10.png')}}" alt=""></a>
+                        <a class="nav-link" href="#"><img src="{{url('/assets/img/ICONO-10.png')}}" alt=""></a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#"><img src="{{url('assets/img/ICONO-11.png')}}" alt=""></a>
+                        <a class="nav-link" href="#"><img src="{{url('/assets/img/ICONO-11.png')}}" alt=""></a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#"><img src="{{url('assets/img/ICONO-12.png')}}" alt=""></a>
+                        <a class="nav-link" href="#"><img src="{{url('/assets/img/ICONO-12.png')}}" alt=""></a>
                     </li>
                     <li>
-                        <a class="nav-link" href="{{url('/')}}"><img src="{{url('assets/img/ICONO-13.png')}}" alt=""></a>
+                        <a class="nav-link" href="{{url('/')}}"><img src="{{url('/assets/img/ICONO-13.png')}}" alt=""></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 </div>
+</header>
