@@ -60,6 +60,11 @@
             padding: 0;
         }
         
+        .wlogo {
+            width: 80%;
+            padding: 0;
+        }
+        
         .intro-header {
             text-align: center;
             margin-top: -4%;
@@ -73,6 +78,113 @@
         {
             color: #fff;
             position: relative;
+        }
+        
+        .barra2 form div span button {
+            margin-left: 2em;
+        }
+        
+        .barra2 form div .navSearch,
+        .barra2 form div span button {
+            margin-top: 1em;
+            background: #0093B4;
+            color: #fff;
+            border-radius: 0;
+            border-color: #0093B4;
+        }
+        
+        .barra2 form div span button:hover,
+        .barra2 form div span button:active {
+            background-color: #0093B4;
+            color: #fff;
+            border-color: #0093B4;
+        }
+        
+        .barra2 {
+            font-weight: bold;
+            margin: 0;
+        }
+        
+        .barra2 .navbar-brand {
+            height: 100px;
+        }
+        
+        .logito {
+            margin-top: 18px;
+            margin-left: 15px;
+            width: 35px;
+        }
+        
+        .barra2 .nav li a img {
+            height: 85px;
+            margin: 0;
+            margin-left: -10px;
+            margin-right: -10px;
+        }
+        
+        .barra2 .nav>li>a {
+            padding-top: 0.6em;
+            padding-bottom: 30px;
+        }
+        
+        .barra2 .navbar-toggle {
+            padding: 10px;
+            margin: 25px 15px 25px 0;
+        }
+        
+        #navibar2 {
+            color: #fff;
+            background: #00223C;
+            box-shadow: 0px 3px 5px rgba(3, 3, 3, 0.75);
+            font-size: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+        }
+        
+        .navbar-default .navbar-nav>li>a {
+            color: #fff;
+        }
+        
+        #navibar2 li a {
+            color: #fff;
+            height: 85px;
+        }
+        
+        #navibar2 li .nav-link:hover {
+            color: #0093B4;
+        }
+        
+        .divbtnbar {
+            height: 20px;
+        }
+        
+        .btnbar2 {
+            border-radius: 0;
+            background: #00223C;
+            border-color: #0093B4;
+            color: #fff;
+        }
+        /*third Bar*/
+        
+        .centered {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .barra3 .centered>li {
+            float: none;
+            display: inline-block;
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+        
+        .barra3 .navibar2 {
+            color: #fff;
+            background: #0093B4;
+            font-size: 15px;
+            font-family: 'Quicksand', sans-serif;
+            font-weight: bold;
+            margin-top: -1.5em;
         }
         
         .buscar {
@@ -335,30 +447,35 @@
             background-color: #023859;
         }
         /******************estilos checkbox 2 y 3****************/
-
-
-        input[type=checkbox]#checkbox2, input[type=checkbox]#checkbox3 {
+        
+        input[type=checkbox]#checkbox2,
+        input[type=checkbox]#checkbox3 {
             display: none;
         }
-
-        input[type=checkbox]#checkbox2 + label:before, input[type=checkbox]#checkbox3 + label:before { 
-            content: "\f096"; }       
-      
         
-        input[type=checkbox]#checkbox2+label:before, input[type=checkbox]#checkbox3+label:before  {
+        input[type=checkbox]#checkbox2+label:before,
+        input[type=checkbox]#checkbox3+label:before {
+            content: "\f096";
+        }
+        
+        input[type=checkbox]#checkbox2+label:before,
+        input[type=checkbox]#checkbox3+label:before {
             content: "\f096";
             letter-spacing: 2px;
             font-family: FontAwesome;
             font-size: 22px;
             color: #1B94B5;
         }
-        input[type=checkbox]#checkbox2:checked + label:before, input[type=checkbox]#checkbox3:checked + label:before {
+        
+        input[type=checkbox]#checkbox2:checked+label:before,
+        input[type=checkbox]#checkbox3:checked+label:before {
             content: '\f046';
         }
-        input[type="checkbox"]#checkbox2:focus,  input[type="checkbox"]#checkbox3:focus{
-			outline: none;
-        }           
-       
+        
+        input[type="checkbox"]#checkbox2:focus,
+        input[type="checkbox"]#checkbox3:focus {
+            outline: none;
+        }
         /*********************************************************************
 
 
@@ -366,102 +483,121 @@
 
 
         **********************************************************************/
+        
         .area1 {
             background: url(../img/fondobah1.png) no-repeat center center;
             background-size: 100% 100%;
             height: 75em;
             margin-top: -1.4em;
         }
+        
         .area2 {
-            background-color: #fff;  
-            margin-bottom: 0px;          
+            background-color: #fff;
+            margin-bottom: 0px;
         }
+        
         .area3 {
             background: url(../img/fondobah2.png) no-repeat center center;
-            background-size: 100% 100%; 
-            color: #1B94B5;     
-            margin-top: 0px;     
+            background-size: 100% 100%;
+            color: #1B94B5;
+            margin-top: 0px;
         }
-        .area3-sub1{
+        
+        .area3-sub1 {
             margin-top: 3.750em;
             margin-left: 5%;
             margin-right: 5%;
-                    }
-        .dist1{
-             padding-top: 17.5em;
         }
-        .textinitial{            
-            padding-bottom: 0em;          
+        
+        .dist1 {
+            padding-top: 17.5em;
         }
-        .textblue{
-           color:#1B94B5;           
+        
+        .textinitial {
+            padding-bottom: 0em;
         }
-        .textwhite {            
-            color: #fff;            
+        
+        .textblue {
+            color: #1B94B5;
         }
-        .texttop{            
+        
+        .textwhite {
+            color: #fff;
+        }
+        
+        .texttop {
             font-size: 1.8em;
-        }        
-        .cajadetexto{
+        }
+        
+        .cajadetexto {
             border: 1px solid white;
         }
-        .texright{
+        
+        .texright {
             text-align: right;
         }
-        .beginsbecome{
-            background-color: #1B94B5;          
-            color: #fff; 
-            border: 0px;    
-            font-size: 1.875em;   
-            font-weight: bold;  
-            padding: 1em;   
+        
+        .beginsbecome {
+            background-color: #1B94B5;
+            color: #fff;
+            border: 0px;
+            font-size: 1.875em;
+            font-weight: bold;
+            padding: 1em;
             margin-top: 1.4em;
         }
-        .col-bah-area2{
-            width: 23%; 
+        
+        .col-bah-area2 {
+            width: 23%;
             height: 18.750em;
-            background-color:#D2D3D4;
-            float: left; 
-            margin-bottom: 2%;          
+            background-color: #D2D3D4;
+            float: left;
+            margin-bottom: 2%;
         }
-        #col-bah-1{
-            margin-left: 10%; 
-            margin-bottom: 0px;       
-        }
-        #col-bah-2{            
-            margin-right: 5.5%;  
-            margin-left: 5.5%; 
+        
+        #col-bah-1 {
+            margin-left: 10%;
             margin-bottom: 0px;
         }
-        #col-bah-3{
-            margin-right: 10%; 
+        
+        #col-bah-2 {
+            margin-right: 5.5%;
+            margin-left: 5.5%;
             margin-bottom: 0px;
         }
-        .tex-area2{            
-            margin-bottom: 4%; 
-            margin-left: 10%;           
+        
+        #col-bah-3 {
+            margin-right: 10%;
+            margin-bottom: 0px;
         }
-        .hr-bah{
+        
+        .tex-area2 {
+            margin-bottom: 4%;
+            margin-left: 10%;
+        }
+        
+        .hr-bah {
             border-top: 1px solid #1B94B5;
-             margin-bottom: 4%;
+            margin-bottom: 4%;
         }
-
+        
         .menu-term {
             width: 100%;
             float: left;
-            text-align:right;
+            text-align: right;
             margin-bottom: 2.8em;
         }
-
+        
         .menu-term ul li {
-            display:inline-block;
+            display: inline-block;
             list-style-type: none;
-            text-align: left;           
+            text-align: left;
         }
+        
         .menu-term ul li a {
             padding: 10px;
             color: black;
-            text-decoration:none; 
+            text-decoration: none;
         }
         /*********************************************************************
 
@@ -470,85 +606,92 @@
 
  
         **********************************************************************/
+        
         .fs-area1 {
             background: url(../img/fondofs1.png) no-repeat center center;
             background-size: 100% 100%;
             height: 55em;
             margin-top: -1.4em;
         }
-        .fs-dist1{
+        
+        .fs-dist1 {
             padding-top: 12em;
         }
-        .textleft{            
+        
+        .textleft {
             text-align: left;
         }
-        .fs-area1-sub1{
+        
+        .fs-area1-sub1 {
             margin-top: 3.125em;
-            margin-bottom:1.563em;
+            margin-bottom: 1.563em;
         }
-        .text-box-right{
+        
+        .text-box-right {
             text-align: right;
         }
-        .fullwhith{
+        
+        .fullwhith {
             width: 100%;
         }
-        .yyy{            
-            padding:0;
+        
+        .yyy {
+            padding: 0;
         }
-         .continue {
+        
+        .continue {
             border-radius: 15px 15px 15px 15px;
             -moz-border-radius: 15px 15px 15px 15px;
             -webkit-border-radius: 15px 15px 15px 15px;
             background-color: #1B94B5;
             height: 34px;
-            padding: 6px 12px;   
-            margin-top: 2em;         
+            padding: 6px 12px;
+            margin-top: 2em;
         }
-
-
         /*********************************************************************
 
 
                                    MEDIA QUERIES
 
-        **********************************************************************/  
-
+        **********************************************************************/
+        
         @media (min-width: 768px) and (max-width:991px) {
-		.intro-header-page1 {
-            margin-top: -5%;
-            z-index: -1;
-            padding-top: 20px;
-            padding-bottom: 70px;
-            text-align: center;
-            color: #f8f8f8;
-            background: url(../img/fondo-azul.png) no-repeat center center;
-            background-size: 100% 100%;
+            .intro-header-page1 {
+                margin-top: -5%;
+                z-index: -1;
+                padding-top: 20px;
+                padding-bottom: 70px;
+                text-align: center;
+                color: #f8f8f8;
+                background: url(../img/fondo-azul.png) no-repeat center center;
+                background-size: 100% 100%;
+            }
         }
-           	
-        }         
+        
         @media (min-width: 481px) and (max-width:767px) {
-
             .custom-control {
                 width: 60%;
                 margin-left: 20%;
                 margin-right: 20%;
-            }  
-             .area1 {
+            }
+            .area1 {
                 height: 60em;
             }
-            .texttop{            
-            font-size: 1.4em;
-            }    
-            .beginsbecome{               
-            font-size: 1.6em;                         
+            .texttop {
+                font-size: 1.4em;
             }
-            .dist1{
-             padding-top: 12em;
-            }     	
+            .beginsbecome {
+                font-size: 1.6em;
+            }
+            .dist1 {
+                padding-top: 12em;
+            }
         }
-            input[type=checkbox]#checkbox2+label {
-                padding-left: 0px;
-            }
+        
+        input[type=checkbox]#checkbox2+label {
+            padding-left: 0px;
+        }
+        
         @media (max-width: 480px) {
             .custom-control {
                 width: 80%;
@@ -558,54 +701,56 @@
             .area1 {
                 height: 50em;
             }
-             .texttop{            
-            font-size: 1em;
-            }    
-            .beginsbecome{               
-            font-size: 1.2em;
-            margin-top: 0.6em;               
+            .texttop {
+                font-size: 1em;
             }
-            .dist1{
-             padding-top: 9em;
+            .beginsbecome {
+                font-size: 1.2em;
+                margin-top: 0.6em;
             }
-            .menu-term {           
-            float: none;
-            text-align: center;    
+            .dist1 {
+                padding-top: 9em;
+            }
+            .menu-term {
+                float: none;
+                text-align: center;
             }
         }
-        @media (max-width:767px){
-			input[type=checkbox]#checkbox2 + label, input[type=checkbox]#checkbox3 + label{
-        		padding-left:0px; 
-        	}
- 		.first {
+        
+        @media (max-width:767px) {
+            input[type=checkbox]#checkbox2+label,
+            input[type=checkbox]#checkbox3+label {
+                padding-left: 0px;
+            }
+            .first {
                 height: 87em;
             }
-        .last {
+            .last {
                 padding-top: 1em;
                 height: 130px;
             }
-        .intro-header-page1 {
-            margin-top: -5%;
-            z-index: -1;
-            padding-top: 20px;
-            padding-bottom: 70px;
-            text-align: center;
-            color: #f8f8f8;
-            background: url(../img/fondo-azul.png) no-repeat center center;
-            background-size: auto;
+            .intro-header-page1 {
+                margin-top: -5%;
+                z-index: -1;
+                padding-top: 20px;
+                padding-bottom: 70px;
+                text-align: center;
+                color: #f8f8f8;
+                background: url(../img/fondo-azul.png) no-repeat center center;
+                background-size: auto;
+            }
+            .col-bah-area2 {
+                width: 80%;
+                height: 12.5em;
+                background-color: #D2D3D4;
+                float: none;
+                margin-bottom: 2%;
+            }
+            #col-bah-1,
+            #col-bah-2,
+            #col-bah-3 {
+                margin-left: 10%;
+                margin-right: 10%;
+                margin-bottom: 30px;
+            }
         }
-        .col-bah-area2{
-            width: 80%; 
-            height: 12.5em;
-            background-color:#D2D3D4;
-            float: none; 
-            margin-bottom: 2%;          
-        }
-        #col-bah-1,#col-bah-2,#col-bah-3{
-            margin-left: 10%; 
-            margin-right: 10%;
-            margin-bottom: 30px;      
-        }
-        
-        }
-        
