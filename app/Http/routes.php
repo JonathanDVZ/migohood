@@ -16,7 +16,7 @@ Route::get('/registeruser','UserController@index');
 Route::get('/accessuser','Auth\AuthController@getLogin');
 Route::get('/becomeahost','UserController@becomeahost');
 Route::get('/firststep','UserController@firststep');
-Route::get('/Amenities','UserController@amenities');
+Route::get('/amenities','UserController@amenities');
 
 /*
 Route::get('/accessuser', function () {
