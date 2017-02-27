@@ -16,7 +16,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li><a class="nav-link" href="/">Home</a></li>
           <li><a class="nav-link" href="#">Category</a></li>
-          <li><a class="nav-link" href="#">Featured</a></li>
+          <li><a class="nav-lpus ink" href="#">Featured</a></li>
           <li><a class="nav-link" href="/accessuser">Sign in</a></li>
           <li>
           <div class="divbtnbar"><a href="/registeruser" class="btn navbar-btn btnbar" role="button"><strong>Register</strong></a></div>
