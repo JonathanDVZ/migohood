@@ -60,27 +60,38 @@
             padding: 0;
         }
         
-        .wlogo {
-            width: 80%;
-            padding: 0;
+        .continue {
+            color: #fff;
+            background: #0093B4;
+            border-radius: 20px;
+            border-color: #0093B4;
         }
         
-        .amenities img {
-            z-index: -1;
-            display: block;
-            padding: 0;
+        .continue:hover {
+            border-color: #0093B4;
+            color: #fff;
+            background: #0093B4;
         }
         
         .amenities {
-            height: 45em;
-            margin-top: -2em;
+            height: 45.5em;
+            margin-top: -7%;
             width: 100%;
             background: url(../img/FONDO-04.png) no-repeat center center;
             background-size: cover;
         }
         
-        .amenities row {
-            min-height: 1000px;
+        .insideAm h2 {
+            color: #fff;
+        }
+        
+        .formis {
+            border-radius: 0;
+        }
+        
+        .insideAm {
+            margin-top: 15%;
+            margin-left: 7em;
         }
         
         .intro-header {
@@ -367,6 +378,12 @@
             background: #0093B4;
             color: #fff;
             padding-top: 1%;
+        }
+        
+        .wlogo {
+            margin-left: 2.5em;
+            width: 80%;
+            padding: 0;
         }
         
         footer strong {
@@ -732,6 +749,10 @@
             .menu-term {
                 float: none;
                 text-align: center;
+            }
+            .insideAm {
+                margin-top: 2em;
+                margin-left: 0;
             }
         }
         
