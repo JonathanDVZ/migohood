@@ -367,10 +367,11 @@
 
         **********************************************************************/
         .area1 {
-            background: url(../img/fondobah1.png) no-repeat center center;
-            background-size: 100% 100%;
+            background: url(../img/fondobah1.png) no-repeat;
+            background-size: auto 100%;
             height: 75em;
             margin-top: -1.4em;
+            background-position: right;
         }
         .area2 {
             background-color: #fff;  
@@ -491,6 +492,7 @@
         }
         .fullwhith{
             width: 100%;
+            padding-left: 0px;
         }
         .yyy{            
             padding:0;
@@ -504,8 +506,73 @@
             padding: 6px 12px;   
             margin-top: 2em;         
         }
+        .sinpadding [class*="col-"] {
+            padding: 0;
+        }
+
+        /*********************************************************************
 
 
+                                      SECOND STEP SPACE
+
+ 
+        **********************************************************************/
+        .ss-area1 {            
+            margin-top: -1.4em;  
+            position: relative; 
+            background: url(../img/fondosssa1.png) no-repeat center center;
+            background-size: 100% 100%;
+            height: 30em;
+            margin-top: -1.4em;         
+        }
+        .ss-subarea1-1 {            
+            width: 100%;
+            position: absolute;
+            bottom: 0;            
+        } 
+        .ss-area2 {  
+            background-color: #ffffff;
+            height: 47em;                              
+         }    
+        .ss-subarea2-1 {            
+            width: 100%;
+            margin-top: 20px;            
+        }         
+        .ss-block1{
+            margin-left:12%;
+            margin-right: 2%;
+            width: 33.6%;
+            float:left;            
+        }
+        .ss-block2{
+            width: 48.4%;
+            margin-right: 4%;
+            float: left;
+            margin-top: 48px;
+        }
+         
+        .text-box-left{
+        	text-align: left;
+        }
+        .box-in-blue{
+            background-color: #1B94B5;
+            border: #1B94B5;           
+        }    
+        .dist-col{
+            margin-top: 20px
+        }
+        .mi-input::-webkit-input-placeholder { color: white; font-weight :bold; }
+        .mi-input:-moz-placeholder { color: white; font-weight: bold; }
+        .mi-input::-moz-placeholder { color: white; font-weight: bold; }
+        .mi-input:-ms-input-placeholder { color: white; font-weight: bold; }   
+        .texareacustom{
+            background-color:#D2D3D4;
+        }   
+        #googlemap{
+            width: 100%;
+            height: 500px;
+            background-color:#D2D3D4;            
+        }
         /*********************************************************************
 
 
@@ -523,6 +590,12 @@
             color: #f8f8f8;
             background: url(../img/fondo-azul.png) no-repeat center center;
             background-size: 100% 100%;
+        }
+        .dist1{
+             padding-top: 15em;
+            }  
+        .dist-custom{
+            margin-top: 20px;
         }
            	
         }         
@@ -566,7 +639,7 @@
             margin-top: 0.6em;               
             }
             .dist1{
-             padding-top: 9em;
+             padding-top: 8em;
             }
             .menu-term {           
             float: none;
@@ -608,4 +681,21 @@
         }
         
         }
-        
+         @media (min-width: 1183px){
+			.area1 {
+         	background-size: 100% auto; 
+			background-position: bottom;			 
+         	}
+
+         @media (min-width: 1580px) and (max-width:1700px) {
+
+         .area1 {
+         	height: 100em;			 
+         	}
+         }
+         @media (min-width: 1701px) {
+
+         .area1 {
+         	height: 110em;			 
+         	}
+         }

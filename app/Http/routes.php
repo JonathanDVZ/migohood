@@ -16,6 +16,7 @@ Route::get('/registeruser','UserController@index');
 Route::get('/accessuser','Auth\AuthController@getLogin');
 Route::get('/becomeahost','BecomeHostController@index');
 Route::get('/firststep','FirstStepController@index');
+Route::get('/secondstepspace','SecondStepSpaceController@index');
 
 /*
 Route::get('/accessuser', function () {
