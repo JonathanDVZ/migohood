@@ -17,7 +17,7 @@ Route::get('/accessuser','Auth\AuthController@getLogin');
 Route::get('/secondstepspace','UserController@secondstepspace');
 Route::get('/becomeahost','UserController@becomeahost');
 Route::get('/firststep','UserController@firststep');
-Route::get('/Amenities','UserController@amenities');
+Route::get('/amenities','UserController@amenities');
 
 
 
