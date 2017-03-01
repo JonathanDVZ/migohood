@@ -17,7 +17,7 @@
 @if(Auth::check())
                 @include('headers.header-login')
 @else
-                @include('headers.header-login')
+                @include('headers.home')
  @endif
     @yield ('content')
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

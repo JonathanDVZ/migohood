@@ -33,6 +33,10 @@ class UserController extends Controller
     {
         return view ("amenities");
     }
+    public function secondstepspace()
+    {
+        return view ("secondstepspace");
+    }
 
         public function description()
     {

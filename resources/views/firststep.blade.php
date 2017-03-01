@@ -1,4 +1,4 @@
-@extends('layouts.master') @section('title', 'First Step') @section('content')
+@extends('layouts.master') @section('title', 'First Step') @section('class', 'darkbluecolor')  @section('content')
 <div class="container-fluid fs-area1">	            
     <div class="row fs-dist1">
     	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
@@ -41,8 +41,8 @@
                                 </ul>
                             </div>
 						</div>
-						<div class="yyy col-lg-1 col-md-1 col-sm-1 col-xs-0"> </div>
-						<div class="yyy col-lg-5 col-md-5 col-sm-5 col-xs-6"> 
+						<div class="col-lg-1 col-md-1 col-sm-1 col-xs-0"> </div>
+						<div class="col-lg-5 col-md-5 col-sm-5 col-xs-6"> 
 							<div class="input-group-btn">
                                 <button type="button" class="fullwhith btn btn-default dropdown-toggle action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">1 Guest <span class="caret"></span></button>
                                 <ul class="dropdown-menu">
@@ -58,8 +58,7 @@
 				</div>
 			</div>
 		</div>
-	</div>  	
-     
+	</div>       
 	<div class="row">
 		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
     	<div class="col-lg-5 col-md-6 col-sm-7 col-xs-10 yyy ">
