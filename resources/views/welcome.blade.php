@@ -92,4 +92,5 @@
     </div>
 </div>
 
-@endsection @section("footer") @endsection
+@endsection 
+@section("footer") @endsection

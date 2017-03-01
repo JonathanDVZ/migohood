@@ -34,6 +34,11 @@ class UserController extends Controller
         return view ("amenities");
     }
 
+        public function description()
+    {
+        return view ("description");
+    }
+
     /**
      * Show the form for creating a new resource.
      *
