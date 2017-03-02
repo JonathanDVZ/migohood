@@ -18,11 +18,10 @@ Route::get('/secondstepspace','UserController@secondstepspace');
 Route::get('/becomeahost','UserController@becomeahost');
 Route::get('/firststep','UserController@firststep');
 Route::get('/amenities','UserController@amenities');
-<<<<<<< HEAD
 Route::get('/description','UserController@description');
 Route::get('/UnderConstruction','IndexController@construction');
-=======
 
 
->>>>>>> 50263686846ed3e216179859315fdcf28855f354
+
+
 
