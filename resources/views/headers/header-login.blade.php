@@ -3,7 +3,7 @@
         <nav id="navibar2" class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="##navbar4">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="##navbar3">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -12,13 +12,13 @@
                     <a class="navbar-brand" href="{{url('/')}}"><img class="img-responsive logito" src="{{url('/assets/img/How2.png')}}" alt="Migohood Logo">
                     </a>
                 </div>
-                <div id="#navbar4" class="navbar-collapse collapse text-center">
-                    <form class="navbar-form navbar-left SearchB">
+                <div id="#navbar3" class="navbar-collapse collapse text-center">
+                    <form id="SearchF" class="navbar-form navbar-left SearchB">
                         <div class="input-group">
                             <span class="input-group-btn">
                                                 <button class="btn btn-default btn-lg" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                                             </span>
-                            <input type="text" class="form-control input-lg navSearch" placeholder="Search">
+                            <input type="text" class="form-control input-sm navSearch" placeholder="Search">
                         </div>
                     </form>
                     <ul class="nav navbar-nav navbar-right">

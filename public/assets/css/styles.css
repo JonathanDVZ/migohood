@@ -29,6 +29,13 @@
             padding-left: 1.52em;
         }
         
+        .input-group-btn:last-child>.btn,
+        .input-group-btn:last-child>.btn-group {
+            z-index: 2;
+            margin-left: -1px;
+            width: 142.3%;
+        }
+        
         .titulos {
             display: inline-block;
         }
@@ -80,13 +87,13 @@
         }
         
         .description {
-            margin: 0;
+            margin-top: 9.5em;
             padding: 0;
         }
         
         .amenities {
             height: 45.5em;
-            margin-top: -7%;
+            margin-top: -2%;
             width: 100%;
             background: url(../img/FONDO-04.png) no-repeat center center;
             background-size: cover;
@@ -97,7 +104,14 @@
         }
         
         .formis {
+            background: #fff;
+            color: #000;
             border-radius: 0;
+            border-color: #ccc;
+            width: 95%;
+            padding: 0.5em;
+            margin: 1em;
+            cursor: pointer;
         }
         
         .insideAm {
@@ -120,11 +134,11 @@
             position: relative;
         }
         
-        .barra2 form div span button {
+        #botonS {
             margin-left: 2em;
         }
         
-        .barra2 form div .navSearch,
+        .navSearch,
         .barra2 form div span button {
             margin-top: 1em;
             background: #0093B4;
@@ -133,11 +147,46 @@
             border-color: #0093B4;
         }
         
+        .barra form div .navSearch,
+        .barra form div span button {
+            margin-top: 0.5em;
+            background: #0093B4;
+            color: #fff;
+            border-radius: 0;
+            border-color: #0093B4;
+        }
+        
         .barra2 form div span button:hover,
-        .barra2 form div span button:active {
+        .barra2 form div span button:active,
+        .barra form div span button:hover,
+        .barra form div span button:active {
             background-color: #0093B4;
             color: #fff;
             border-color: #0093B4;
+        }
+        
+        .navSearch::-webkit-input-placeholder {
+            color: white;
+            font-weight: bold;
+        }
+        
+        .navSearch:-moz-placeholder {
+            color: white;
+            font-weight: bold;
+        }
+        
+        #searchB {
+            visibility: hidden;
+        }
+        
+        .navSearch::-moz-placeholder {
+            color: white;
+            font-weight: bold;
+        }
+        
+        .navSearch:-ms-input-placeholder {
+            color: white;
+            font-weight: bold;
         }
         
         .barra2 {
@@ -229,9 +278,12 @@
         
         .buscar {
             background-color: #00223C;
-            padding-top: 5.5%;
+            padding-top: 3.5em;
+            padding-left: 1em;
+            padding-right: 1em;
+            padding-bottom: 3.5em;
             opacity: 0.95;
-            height: 9.5em;
+            height: 10em;
             width: 100%;
             display: block;
             border-radius: 10px;
@@ -240,6 +292,7 @@
         
         .insideB {
             display: inline-block;
+            padding-right: 0;
         }
         
         .how {
@@ -251,8 +304,8 @@
         .first {
             background: url(../img/Fondo.png) no-repeat center center;
             background-size: 100% 100%;
-            height: 67em;
-            margin-top: -1.4em;
+            height: 73em;
+            margin-top: 6em;
         }
         
         .first h1 {
@@ -339,6 +392,10 @@
         .barra {
             font-weight: bold;
             margin: 0;
+            position: fixed;
+            width: 100%;
+            z-index: 4;
+            top: 0;
         }
         
         .barra .navbar-brand {
@@ -386,8 +443,7 @@
         /*FOOTER*/
         
         footer {
-            position: absolute;
-            bottom: 0;
+            margin-bottom: 0;
             width: 100%;
             background: #0093B4;
             color: #fff;
@@ -707,61 +763,87 @@
 
  
         **********************************************************************/
-        .ss-area1 {            
-            margin-top: -1.4em;  
-            position: relative; 
+        
+        .ss-area1 {
+            margin-top: -1.4em;
+            position: relative;
             background: url(../img/fondosssa1.png) no-repeat center center;
             background-size: 100% 100%;
             height: 30em;
-            margin-top: -1.4em;         
+            margin-top: -1.4em;
         }
-        .ss-subarea1-1 {            
+        
+        .ss-subarea1-1 {
             width: 100%;
             position: absolute;
-            bottom: 0;            
-        } 
-        .ss-area2 {  
+            bottom: 0;
+        }
+        
+        .ss-area2 {
             background-color: #ffffff;
-            height: 47em;                              
-         }    
-        .ss-subarea2-1 {            
+            height: 47em;
+        }
+        
+        .ss-subarea2-1 {
             width: 100%;
-            margin-top: 20px;            
-        }         
-        .ss-block1{
-            margin-left:12%;
+            margin-top: 20px;
+        }
+        
+        .ss-block1 {
+            margin-left: 12%;
             margin-right: 2%;
             width: 33.6%;
-            float:left;            
+            float: left;
         }
-        .ss-block2{
+        
+        .ss-block2 {
             width: 48.4%;
             margin-right: 4%;
             float: left;
             margin-top: 48px;
         }
-         
-        .text-box-left{
-        	text-align: left;
+        
+        .text-box-left {
+            text-align: left;
         }
-        .box-in-blue{
+        
+        .box-in-blue {
             background-color: #1B94B5;
-            border: #1B94B5;           
-        }    
-        .dist-col{
+            border: #1B94B5;
+        }
+        
+        .dist-col {
             margin-top: 20px
         }
-        .mi-input::-webkit-input-placeholder { color: white; font-weight :bold; }
-        .mi-input:-moz-placeholder { color: white; font-weight: bold; }
-        .mi-input::-moz-placeholder { color: white; font-weight: bold; }
-        .mi-input:-ms-input-placeholder { color: white; font-weight: bold; }   
-        .texareacustom{
-            background-color:#D2D3D4;
-        }   
-        #googlemap{
+        
+        .mi-input::-webkit-input-placeholder {
+            color: white;
+            font-weight: bold;
+        }
+        
+        .mi-input:-moz-placeholder {
+            color: white;
+            font-weight: bold;
+        }
+        
+        .mi-input::-moz-placeholder {
+            color: white;
+            font-weight: bold;
+        }
+        
+        .mi-input:-ms-input-placeholder {
+            color: white;
+            font-weight: bold;
+        }
+        
+        .texareacustom {
+            background-color: #D2D3D4;
+        }
+        
+        #googlemap {
             width: 100%;
             height: 500px;
-            background-color:#D2D3D4;            
+            background-color: #D2D3D4;
         }
         /*********************************************************************
 
@@ -781,13 +863,14 @@
                 background: url(../img/fondo-azul.png) no-repeat center center;
                 background-size: 100% 100%;
             }
-            .dist1{
-             padding-top: 15em;
-            }  
-            .dist-custom{
-            margin-top: 20px;
+            .dist1 {
+                padding-top: 15em;
             }
-        }      
+            .dist-custom {
+                margin-top: 20px;
+            }
+        }
+        
         @media (min-width: 481px) and (max-width:767px) {
             .custom-control {
                 width: 60%;
@@ -824,15 +907,13 @@
             .texttop {
                 font-size: 1em;
             }
-
-            .dist1{
-             padding-top: 8em;
-         		  }
-
+            .dist1 {
+                padding-top: 8em;
+            }
             .beginsbecome {
                 font-size: 1.2em;
                 margin-top: 0.6em;
-            }            
+            }
             .menu-term {
                 float: none;
                 text-align: center;
@@ -840,6 +921,12 @@
             .insideAm {
                 margin-top: 2em;
                 margin-left: 0;
+            }
+            .buscar {
+                padding-top: 1.5em;
+            }
+            .amenities {
+                margin-top: 6em;
             }
         }
         
@@ -849,110 +936,120 @@
                 padding-left: 0px;
             }
             .first {
-                height: 87em;
+                height: 90em;
             }
             .last {
                 padding-top: 1em;
                 height: 130px;
             }
-        	.intro-header-page1 {
-            	margin-top: -5%;
-            	z-index: -1;
-            	padding-top: 20px;
-            	padding-bottom: 70px;
-            	text-align: center;
-            	color: #f8f8f8;
-            	background: url(../img/fondo-azul.png) no-repeat center center;
-            	background-size: auto;
-        	}
-        	.col-bah-area2{
-            width: 80%; 
-            height: 12.5em;
-            background-color:#D2D3D4;
-            float: none; 
-            margin-bottom: 2%;          
-        	}
-        #col-bah-1,#col-bah-2,#col-bah-3{
-            margin-left: 10%; 
-            margin-right: 10%;
-            margin-bottom: 30px;      
+            .intro-header-page1 {
+                margin-top: -5%;
+                z-index: -1;
+                padding-top: 20px;
+                padding-bottom: 70px;
+                text-align: center;
+                color: #f8f8f8;
+                background: url(../img/fondo-azul.png) no-repeat center center;
+                background-size: auto;
+            }
+            .col-bah-area2 {
+                width: 80%;
+                height: 12.5em;
+                background-color: #D2D3D4;
+                float: none;
+                margin-bottom: 2%;
+            }
+            #col-bah-1,
+            #col-bah-2,
+            #col-bah-3 {
+                margin-left: 10%;
+                margin-right: 10%;
+                margin-bottom: 30px;
+            }
         }
         
+        @media (min-width: 1183px) {
+            .area1 {
+                background-size: 100% auto;
+                background-position: bottom;
+            }
         }
-         @media (min-width: 1183px){
-			.area1 {
-         	background-size: 100% auto; 
-			background-position: bottom;			 
-         	}
-         }	         
+        
         @media (min-width: 1230px) and (max-width:1300px) {
-         .area1 {
-         	height: 78em;			 
-         	}
-         }
-         @media (min-width: 1301px) and (max-width:1350px) {
-         .area1 {
-         	height: 82em;			 
-         	}
-         }
-         @media (min-width: 1351px) and (max-width:1400px) {
-         .area1 {
-         	height: 85em;         				 
-         	}
-         	.dist1{
-             padding-top: 20em;
-         		  }
-         }
-         @media (min-width: 1401px) and (max-width:1450px) {
-         .area1 {
-         	height: 88em;			 
-         	}
-         .dist1{
-             padding-top: 20em;
-         		  }
-         }
-          @media (min-width: 1451px) and (max-width:1500px) {
-         .area1 {
-         	height: 92em;			 
-         	}
-         	.dist1{
-             padding-top: 20em;
-         		  }
-         }
-          @media (min-width: 1501px) and (max-width:1579px) {
-         .area1 {
-         	height: 95em;			 
-         	}
-         	.dist1{
-             padding-top: 24em;
-         		  }
-         }
+            .area1 {
+                height: 78em;
+            }
+        }
+        
+        @media (min-width: 1301px) and (max-width:1350px) {
+            .area1 {
+                height: 82em;
+            }
+        }
+        
+        @media (min-width: 1351px) and (max-width:1400px) {
+            .area1 {
+                height: 85em;
+            }
+            .dist1 {
+                padding-top: 20em;
+            }
+        }
+        
+        @media (min-width: 1401px) and (max-width:1450px) {
+            .area1 {
+                height: 88em;
+            }
+            .dist1 {
+                padding-top: 20em;
+            }
+        }
+        
+        @media (min-width: 1451px) and (max-width:1500px) {
+            .area1 {
+                height: 92em;
+            }
+            .dist1 {
+                padding-top: 20em;
+            }
+        }
+        
+        @media (min-width: 1501px) and (max-width:1579px) {
+            .area1 {
+                height: 95em;
+            }
+            .dist1 {
+                padding-top: 24em;
+            }
+        }
+        
         @media (min-width: 1580px) and (max-width:1700px) {
-
-         .area1 {
-         	height: 100em;			 
-         	}
-         	.dist1{
-             padding-top: 24em;
-         		  }
-         }
+            .area1 {
+                height: 100em;
+            }
+            .dist1 {
+                padding-top: 24em;
+            }
+        }
+        
         @media (min-width: 1701px) {
-
-         .area1 {
-         	height: 107em;			 
-         	background-position: center;
-         	}
-         	.dist1{
-             padding-top: 28em;
-         		  }
-         }          
-		 @media (min-width: 1501px) and (max-width:1700px) {
-		 	 .fs-area1 {
-		 	 	height: 70em;
-		 	 }
-		 }
-		 @media (min-width: 1701px) {
-		 	.fs-area1 {
-		 	 	height: 75em;
-		 	 }	
-		 }
+            .area1 {
+                height: 107em;
+                background-position: center;
+            }
+            .dist1 {
+                padding-top: 28em;
+            }
+        }
+        
+        @media (min-width: 1501px) and (max-width:1700px) {
+            .fs-area1 {
+                height: 70em;
+            }
+        }
+        
+        @media (min-width: 1701px) {
+            .fs-area1 {
+                height: 75em;
+            }
+        }

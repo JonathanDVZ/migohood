@@ -19,9 +19,4 @@ class IndexController extends Controller
         return view ("welcome");
     }
 
-        public function construction()
-    {
-        return view ("construction");
-    }
-
 }

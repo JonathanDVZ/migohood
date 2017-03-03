@@ -19,7 +19,6 @@ Route::get('/becomeahost','UserController@becomeahost');
 Route::get('/firststep','UserController@firststep');
 Route::get('/amenities','UserController@amenities');
 Route::get('/description','UserController@description');
-Route::get('/UnderConstruction','IndexController@construction');
 
 
 

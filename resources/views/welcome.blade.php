@@ -9,17 +9,11 @@
                     <div class="row buscar ">
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 text-center insideB">
                             <div class="input-group">
-                                <div class="input-group-btn">
-                                    <button type="button" class="btn btn-default dropdown-toggle action" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li role="separator" class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                    </ul>
-                                </div>
-                                <input type="text" class="form-control action" aria-label="...">
+                                <select size="" class="selectpicker form-control action" data-live-search="true">
+                            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
+                            <option data-tokens="mustard">Burger, Shake and a Smile</option>
+                            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+                            </select>
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 text-center insideB">
@@ -91,6 +85,5 @@
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center"></div>
     </div>
 </div>
-
-@endsection 
-@section("footer") @endsection
+<div></div>
+@endsection @section("footer") @endsection
