@@ -19,6 +19,37 @@
             min-height: 100%;
         }
         
+        .first .unM {
+            padding: 0;
+            padding-bottom: 0;
+            color: #fff;
+            margin: 0;
+            display: block;
+            font-size: 3.5em;
+            font-weight: bold;
+        }
+        
+        .first .deP {
+            color: #fff;
+            margin: 0;
+            display: block;
+            font-size: 2.2em;
+            font-weight: bold;
+        }
+        
+        .hsdiv {
+            display: inline-block;
+            margin-left: 1em;
+            margin-top: 2em;
+            padding-top: 1em;
+        }
+        
+        .videoi {
+            width: 8em;
+            margin-top: -4em;
+            display: inline-block;
+        }
+        
         .cel {
             width: 85%;
         }
@@ -55,7 +86,7 @@
         }
         
         .headerRow {
-            padding-top: 10%;
+            padding-top: 5%;
             color: #fff;
         }
         
@@ -176,7 +207,7 @@
         }
         
         #searchB {
-            visibility: hidden;
+            display: none;
         }
         
         .navSearch::-moz-placeholder {
@@ -278,6 +309,7 @@
         
         .buscar {
             background-color: #00223C;
+            margin-top: 6em;
             padding-top: 3.5em;
             padding-left: 1em;
             padding-right: 1em;
@@ -896,6 +928,12 @@
         }
         
         @media (max-width: 480px) {
+            .headerRow {
+                margin-top: -3em;
+            }
+            body {
+                overflow-x: hidden;
+            }
             .custom-control {
                 width: 80%;
                 margin-left: 10%;
@@ -927,6 +965,9 @@
             }
             .amenities {
                 margin-top: 6em;
+            }
+            #searchB {
+                display: initial;
             }
         }
         

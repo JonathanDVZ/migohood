@@ -2,7 +2,19 @@
 <div class="container-fluid first">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 nopadding ">
-            <h1 class="text-center">YOUR IDEAL <strong>PLACE</strong></h1>
+            <div class="row">
+                <div class="col-lg-3 col-3-md col-3-sm text-center"></div>
+                <div class="col-lg-6 col-6-md col-6-sm col-xs-12 text-center list-inline">
+                    <img class="img-responsive videoi" src="{{url('/assets/img/VideoIcon.png')}}" alt="">
+                    <div class="list-inline text-center hsdiv">
+                        br
+                        <h1 class="unM">UN MUNDO</h1>
+                        <h3 class="deP">DE POSIBILIDADES</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-3-md col-3-sm text-center"></div>
+            </div>
+
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
                 <div class="col-lg-8 col-md-8 col-sm-10 col-xs-10">

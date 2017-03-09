@@ -13,14 +13,15 @@
     <link rel="shortcut icon" href="{{url('/assets/img/favicon.ico')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
     <script>
-        $(document).scroll(function() {
-            var y = $(this).scrollTop();
-            if (y > 150) {
-                $('#searchB').fadeIn();
-            } else {
-                $('#searchB').fadeOut();
-            }
-        });
+$(document).scroll(function () {
+    var y = $(this).scrollTop();
+    if (y > 400) {
+        $('.buscador').fadeIn();
+    } else {
+        $('.buscador').fadeOut();
+    }
+
+});
     </script>
 </head>
 
