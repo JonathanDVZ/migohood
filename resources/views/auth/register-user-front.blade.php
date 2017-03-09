@@ -8,9 +8,9 @@
             <div class="col-lg-12">
                 <div class="intro-message1">                     
                     <p>                            
-                    <div style="display: inline;"><button type="button" class="btngmail" ><img src="{{url('/assets/img/facebook.png')}}" alt="" height="15px" width="15px" align="middle" class="miimagen" ><b>&nbsp;&nbsp;&nbsp;&nbsp; REGISTER WITH GMAIL</b></button></div>
+                    <div style="display: inline;"><button type="button" class="btngmail" ><img src="{{url('/assets/img/gmail.png')}}" alt="" height="15px" width="15px"><b>&nbsp;&nbsp;&nbsp;&nbsp; REGISTER WITH GMAIL</b></button></div>
                     </br></br>
-                    <div style="display: inline;"><button type="button" class="btngmail"><img src="{{url('/assets/img/gmail.png')}}" alt="" height="15px" width="15px">    <b>&nbsp;&nbsp;&nbsp;&nbsp;REGISTER WITH FACEBOOK</b></button></div>
+                    <div style="display: inline;"><button type="button" class="btngmail"><img src="{{url('/assets/img/facebook.png')}}" alt="" height="15px" width="15px" align="middle" class="miimagen" ><b>&nbsp;&nbsp;&nbsp;&nbsp;REGISTER WITH FACEBOOK</b></button></div>
                     </br></br>
                     </p>
                     <form class="form-horizontal">
