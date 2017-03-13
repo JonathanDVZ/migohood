@@ -13,17 +13,17 @@
                     <div style="display: inline;"><button type="button" class="btngmail"><img src="{{url('/assets/img/facebook.png')}}" alt="" height="15px" width="15px" align="middle" class="miimagen" ><b>&nbsp;&nbsp;&nbsp;&nbsp;REGISTER WITH FACEBOOK</b></button></div>
                     </br></br></br></br>
                     </p>
-                    <form class="form-horizontal">                        
+                    <form class="form-horizontal" action="{{ url('postlogin') }}">                        
                           <div class="form-group separation-element-form">
                             <label for="email" class="col-sm-offset-3 col-sm-1 col-md-offset-4 col-md-1 control-label" style="text-align:left; color:#023859">Email</label>
                             <div class="col-sm-4 col-sm-offset-1 col-md-pull-1 col-md-3">
-                              <input type="email" class="custom-control form-control" id="email" placeholder="Email">
+                              <input type="email" class="custom-control form-control" id="email" name="email" placeholder="Email">
                             </div>
                           </div>
                           <div class="form-group separation-element-form">
                             <label for="password" class="col-sm-offset-3 col-sm-1 col-md-offset-4  col-md-1 control-label" style="text-align:left; color:#023859">Password</label>
                             <div class="col-sm-4 col-sm-offset-1 col-md-pull-1 col-md-3">
-                              <input type="password" class="custom-control form-control" id="password" placeholder="Password">
+                              <input type="password" class="custom-control form-control" id="password" name="password" placeholder="Password">
                             </div>
                           </div>                      
                           </br>
