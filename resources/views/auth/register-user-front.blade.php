@@ -13,7 +13,8 @@
                     <div style="display: inline;"><button type="button" class="btngmail"><img src="{{url('/assets/img/facebook.png')}}" alt="" height="15px" width="15px" align="middle" class="miimagen" ><b>&nbsp;&nbsp;&nbsp;&nbsp;REGISTER WITH FACEBOOK</b></button></div>
                     </br></br>
                     </p>
-                    <form class="form-horizontal"  action="{{ url('createuser') }}">
+                    <form class="form-horizontal" method="POST" action="{{ url('createuser') }}">
+                        {{ csrf_field() }} 
                         <div class="form-group separation-element-form">
                             <label for="name" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Name</label>
                             <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
