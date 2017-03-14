@@ -20,7 +20,7 @@ Route::get('/firststep','UserController@firststep');
 Route::get('/amenities','UserController@amenities');
 Route::get('/description','UserController@description');
 Route::post('/createuser','UserController@CreateUser');
-Route::get('/postlogin','UserController@postLogin');
+Route::post('/postlogin','UserController@postLogin');
 
 
 
