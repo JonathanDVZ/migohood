@@ -13,14 +13,16 @@
                     </a>
                 </div>
                 <div id="navbar3" class="navbar-collapse collapse text-center">
-                    <form id="searchB" class="navbar-form navbar-left SearchB">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                                <button class="btn btn-default btn-lg" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    <div class="buscador">
+                        <form class="navbar-form navbar-left SearchB">
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                                <button class="btn btn-default btn-sm" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                                             </span>
-                            <input type="text" class="form-control input-lg navSearch" placeholder="Search">
-                        </div>
-                    </form>
+                                <input type="text" class="form-control input-sm navSearch" placeholder="Search">
+                            </div>
+                        </form>
+                    </div>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a class="nav-link" href="{{url('/')}}">Home</a></li>
                         <li><a class="nav-link" href="#">Category</a></li>

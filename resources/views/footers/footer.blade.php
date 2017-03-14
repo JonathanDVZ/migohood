@@ -1,13 +1,14 @@
+<div id="footer">
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-left">
                 <br><strong>Category</strong><br>
                 <br>
-                    <a href="">SPACES</a><br>
-                    <a href="">WORKSPACES</a><br>
-                    <a href="">PARKING SPACES</a><br>
-                    <a href="">SERVICES</a><br>
-                    <a href="">HOST</a><br>
+                <a href="">SPACES</a><br>
+                <a href="">WORKSPACES</a><br>
+                <a href="">PARKING SPACES</a><br>
+                <a href="">SERVICES</a><br>
+                <a href="">HOST</a><br>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-left">
                 <br><strong class="text-center">Help</strong><br>
@@ -36,3 +37,4 @@
     <div class="footD">
         <p class="small text-center">&copy; 2017 Migohood LLC All rights reserved. Crafted with <strong class="small"><i class="fa fa-heart" aria-hidden="true"> </i> by La Casa Creativa </strong></p>
     </div>
+</div>
