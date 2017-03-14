@@ -1,1182 +1,1221 @@
-        html {
-            width: 100%;
-            height: 100%;
-            margin: 0px;
-            padding: 0px;
-            overflow-x: hidden;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        .contenedor {
-            top: 8.5em;
-            width: 100%;
-            background: url('../img/FondoAzulDegradado.png') no-repeat center center;
-            background-size: cover;
-            position: relative;
-        }
-        
-        .RetNex {
-            display: inline-block;
-            font-size: 20px;
-            margin-bottom: 2em;
-            margin-bottom: 2em;
-        }
-        
-        .RetNex a {
-            text-decoration: none;
-        }
-        
-        .Wbox {
-            margin-top: 4em;
-            border-style: solid;
-            border-color: #fff;
-            color: #fff;
-            font-size: 12px;
-            padding: 1.5em;
-        }
-        
-        .titulo {
-            color: #fff;
-            font-weight: lighter;
-        }
-        
-        .hoWork {
-            margin-top: 1.5em;
-            margin-left: 25%;
-            width: 55%;
-        }
-        
-        .circulo {
-            margin-left: 0;
-            margin-right: 0;
-            margin-top: 15%;
-            display: block;
-            width: 100%;
-            z-index: -1;
-            padding: 0;
-        }
-        
-        .texto {
-            width: 55%;
-            position: absolute;
-            top: 29%;
-            left: 22%;
-        }
-        
-        body {
-            font-family: 'Quicksand', sans-serif;
-            width: 100%;
-            height: auto;
-            min-height: 100%;
-        }
-        
-        .first .unM {
-            padding: 0;
-            padding-bottom: 0;
-            color: #fff;
-            margin: 0;
-            display: block;
-            font-size: 3.5em;
-            font-weight: bold;
-        }
-        
-        .first .deP {
-            color: #fff;
-            margin: 0;
-            display: block;
-            font-size: 2.2em;
-            font-weight: bold;
-        }
-        
-        .hsdiv {
-            display: inline-block;
-            margin-left: 1em;
-            margin-top: 2em;
-            padding-top: 1em;
-        }
-        
-        .videoi {
-            width: 110%;
-            margin-top: 4em;
-            display: inline-block;
-        }
-        
-        .cel {
-            margin-top: 2em;
-            width: 80%;
-        }
-        
-        .map {
-            padding-top: 2em;
-            width: 90%;
-            padding-left: 1.52em;
-        }
-        
-        .input-group-btn:last-child>.btn,
-        .input-group-btn:last-child>.btn-group {
-            z-index: 2;
-            margin-left: -1px;
-            width: 142.3%;
-        }
-        
-        .titulos {
-            display: inline-block;
-        }
-        
-        .regBtn {
-            background: #00223C;
-            height: 30px;
-            padding-top: 3px;
-            border-radius: 20px;
-            border-color: #0093B4;
-            display: inline-block;
-            margin-left: 15%;
-        }
-        
-        .regBtn:hover {
-            color: #1B94B5;
-        }
-        
-        .headerRow {
-            padding-top: ;
-            color: #fff;
-        }
-        
-        .action {
-            border-radius: 0;
-        }
-        
-        .azul {
-            color: #1B94B5;
-            font-weight: bolder;
-            font-size: 3em;
-        }
-        
-        .nopadding {
-            padding: 0;
-        }
-        
-        .continue {
-            color: #fff;
-            background: #0093B4;
-            border-radius: 20px;
-            border-color: #fff;
-            margin-top: -1em;
-            margin-left: 2em;
-        }
-        
-        .construccion {
-            width: 100%;
-            background: url(../img/FONDO-04.png) no-repeat center center;
-            background-size: cover;
-        }
-        
-        .continue:hover {
-            border-color: #0093B4;
-            color: #fff;
-            background: #0093B4;
-        }
-        
-        .description {
-            margin-top: 9.5em;
-            padding: 0;
-        }
-        
-        .amenities {
-            height: 45.5em;
-            margin-top: -2%;
-            width: 100%;
-            background: url(../img/FONDO-04.png) no-repeat center center;
-            background-size: cover;
-        }
-        
-        .insideAm h2 {
-            color: #fff;
-        }
-        
-        .formis {
-            background: #fff;
-            color: #000;
-            border-radius: 0;
-            border-color: #ccc;
-            width: 95%;
-            padding: 0.5em;
-            margin: 1em;
-            cursor: pointer;
-        }
-        
-        .insideAm {
-            margin-top: 15%;
-            margin-left: 7em;
-        }
-        
-        .intro-header {
-            text-align: center;
-            margin-top: -4%;
-            height: 1000px;
-            color: #f8f8f8;
-            background: url(../img/Fondo.png) no-repeat center center;
-            background-size: cover;
-        }
-        
-        #Div1,
-        {
-            color: #fff;
-            position: relative;
-        }
-        
-        #botonS {
-            margin-left: 2em;
-        }
-        
-        .navSearch,
-        .barra2 form div span button {
-            margin-top: 1.5em;
-            background: #0093B4;
-            color: #fff;
-            border-radius: 0;
-            border-color: #0093B4;
-        }
-        
-        .barra form div .navSearch,
-        .barra form div span button {
-            margin-top: 0.5em;
-            background: #0093B4;
-            color: #fff;
-            border-radius: 0;
-            border-color: #0093B4;
-        }
-        
-        .barra2 form div span button:hover,
-        .barra2 form div span button:active,
-        .barra form div span button:hover,
-        .barra form div span button:active {
-            background-color: #0093B4;
-            color: #fff;
-            border-color: #0093B4;
-        }
-        
-        .navSearch::-webkit-input-placeholder {
-            color: white;
-            font-weight: bold;
-        }
-        
-        .navSearch:-moz-placeholder {
-            color: white;
-            font-weight: bold;
-        }
-        
-        #searchB {
-            display: none;
-        }
-        
-        .navSearch::-moz-placeholder {
-            color: white;
-            font-weight: bold;
-        }
-        
-        .navSearch:-ms-input-placeholder {
-            color: white;
-            font-weight: bold;
-        }
-        
-        .barra2 {
-            font-weight: bold;
-            top: 0;
-            position: absolute;
-            width: 100%;
-        }
-        
-        .barra2 .navbar-brand {
-            padding: 0;
-        }
-        
-        .logito {
-            margin-top: 1.3em;
-            margin-left: 1.3em;
-            height: 90%;
-        }
-        
-        .barra2 .nav li a img {
-            height: 50px;
-            margin-top: 5px;
-            margin-left: -5px;
-            margin-right: -5px;
-        }
-        
-        .barra2 .nav>li>a {
-            padding-top: 1em;
-            padding-bottom: 1em;
-        }
-        
-        .barra2 .navbar-toggle {
-            padding: 7px;
-            margin: 25px 15px 25px 0;
-        }
-        
-        #navibar2 {
-            color: #fff;
-            background: #00223C;
-            box-shadow: 0px 3px 5px rgba(3, 3, 3, 0.75);
-            font-size: 14px;
-            height: 6em;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: bold;
-        }
-        
-        .navbar-default .navbar-nav>li>a {
-            color: #fff;
-            padding: 1em 0;
-            width: 100%;
-        }
-        
-        #navibar2 li a {
-            color: #fff;
-            padding: 0.7em;
-        }
-        
-        #navibar2 li .nav-link:hover {
-            color: #0093B4;
-        }
-        
-        .nav-link {
-            padding: 0;
-            margin: 0;
-        }
-        
-        .divbtnbar {
-            height: 10px;
-            padding-bottom: 15px;
-            padding-top: 7px;
-        }
-        
-        .btnbar2 {
-            border-radius: 0;
-            background: #00223C;
-            border-color: #0093B4;
-            color: #fff;
-        }
-        /*third Bar*/
-        
-        .centered {
-            width: 100%;
-            text-align: center;
-        }
-        
-        .barra3 .centered>li {
-            float: none;
-            display: inline-block;
-            margin-left: 1em;
-            margin-right: 1em;
-        }
-        
-        .barra3 .navibar2 {
-            color: #fff;
-            background: #0093B4;
-            font-size: 15px;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: bold;
-            margin-top: -1.5em;
-        }
-        
-        .buscar {
-            background-color: #00223C;
-            margin-top: 4em;
-            padding-top: 3.5em;
-            padding-left: 1em;
-            padding-right: 1em;
-            padding-bottom: 3.5em;
-            opacity: 0.95;
-            height: 10em;
-            width: 100%;
-            display: block;
-            border-radius: 10px;
-            box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.45);
-        }
-        
-        .insideB {
-            display: inline-block;
-            padding-right: 0;
-        }
-        
-        .how {
-            margin-top: 10%;
-            padding-bottom: 5em;
-            display: block
-        }
-        
-        .first {
-            background: url(../img/Fondo.png) no-repeat center center;
-            background-size: 100% 100%;
-            height: auto;
-            margin-top: 6em;
-            padding-bottom: 6em;
-        }
-        
-        .first h1 {
-            padding-top: 0.6em;
-            padding-bottom: 1.9em;
-            color: #fff;
-        }
-        
-        .divbtnbar {
-            padding-top: 15px;
-            padding-bottom: 30px;
-        }
-        
-        .btnbar {
-            border-radius: 20px;
-            background: #0093B4;
-        }
-        
-        .works {
-            border-radius: 0;
-            background: #0093B4;
-            color: #fff;
-        }
-        
-        .works:hover {
-            color: #fff;
-        }
-        
-        .hood {
-            color: #000;
-            font-weight: bold;
-            padding-left: 1.52em;
-        }
-        
-        .migo {
-            color: #0093B4;
-            font-weight: bold;
-            padding-left: 1.52em;
-        }
-        
-        .nopadding p {
-            padding-left: 1.52em;
-        }
-        
-        .parra {
-            padding-right: 1.52em;
-        }
-        
-        .second {
-            padding-bottom: 1em;
-            padding-left: 0;
-            padding-right: 0;
-        }
-        
-        .last {
-            background: rgba(255, 255, 255, 1);
-            background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
-            background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(27, 148, 181, 1)));
-            background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
-            background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
-            background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
-            background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
-            filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1b94b5', GradientType=0);
-            padding-top: 0.6em;
-            height: 70px;
-        }
-        
-        .last a {
-            font-weight: bold;
-            font-size: 18px;
-            font-style: none;
-        }
-        
-        .last a img {
-            height: 60px;
-            display: inline-block;
-        }
-        
-        .imgs {
-            display: inline-block;
-            width: 30%;
-            margin: 2em;
-        }
-        /*NaAVIGATION BAR*/
-        
-        .barra {
-            font-weight: bold;
-            margin: 0;
-            position: fixed;
-            width: 100%;
-            z-index: 4;
-            top: 0;
-        }
-        
-        .barra .navbar-brand {
-            height: 85px;
-        }
-        
-        .barra .navbar-brand img {
-            margin-top: 0;
-            padding-top: 0;
-            width: 225px;
-        }
-        
-        .barra .nav>li>a {
-            padding-top: 0;
-        }
-        
-        .barra .navbar-toggle {
-            padding: 10px;
-            margin: 25px 15px 25px 0;
-        }
-        
-        #navibar {
-            color: #fff;
-            background: #00223C;
-            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.75);
-            font-size: 15px;
-            font-family: 'Quicksand', sans-serif;
-            font-weight: bold;
-        }
-        
-        #navibar li a {
-            color: #fff;
-            height: 30px;
-        }
-        
-        #navibar li .nav-link:hover {
-            color: #0093B4;
-        }
-        
-        #navibar li #regButton {
-            display: block;
-            top: 20px;
-        }
-        /*FOOTER*/
-        
-        #footer {
-            width: 100%;
-            background: #0093B4;
-            color: #fff;
-            padding-top: 1%;
-            position: absolute;
-            margin-bottom: -15%;
-        }
-        
-        .navibar2 div ul li .activo {
-            color: #0093B4;
-        }
-        
-        .navibar2 div ul li .activo:hover {
-            color: #0093B4;
-        }
-        
-        .navibar2 .navbar-nav>li>a:hover {
-            color: #0093B4;
-        }
-        
-        .wlogo {
-            margin-left: 2.5em;
-            width: 80%;
-            padding: 0;
-        }
-        
-        #footer strong {
-            font-size: 20px;
-            font-weight: bold;
-        }
-        
-        #footer a {
-            color: #fff;
-            text-decoration: none;
-        }
-        
-        .footD {
-            margin-top: 1.5em;
-            margin-bottom: auto;
-            padding-top: 0.7em;
-            width: 100%;
-            height: 10%;
-            color: #0093B4;
-            background: #023859;
-        }
-        
-        .footD strong {
-            color: #fff;
-        }
-        /*********************************************************************
+    html {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+        padding: 0px;
+        overflow-x: hidden;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    .contenedor {
+        width: 100%;
+        background: url('../img/FondoAzulDegradado.png') no-repeat center center;
+        background-size: cover;
+        top: 9.5em;
+        position: absolute;
+    }
+    
+    .RetNex {
+        display: inline-block;
+        font-size: 20px;
+        margin-bottom: 2em;
+        margin-bottom: 2em;
+    }
+    
+    .RetNex a {
+        text-decoration: none;
+    }
+    
+    .Wbox {
+        margin-top: 4em;
+        border-style: solid;
+        border-color: #fff;
+        color: #fff;
+        font-size: 12px;
+        padding: 1.5em;
+    }
+    
+    .titulo {
+        color: #fff;
+        font-weight: lighter;
+    }
+    
+    .hoWork {
+        margin-top: 1.5em;
+        margin-left: 25%;
+        width: 55%;
+    }
+    
+    .circulo {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 15%;
+        display: block;
+        width: 100%;
+        z-index: -1;
+        padding: 0;
+    }
+    
+    .texto {
+        width: 55%;
+        position: absolute;
+        top: 29%;
+        left: 22%;
+    }
+    
+    body {
+        font-family: 'Quicksand', sans-serif;
+        width: 100%;
+        min-height: 100%;
+        overflow-x: hidden;
+    }
+    
+    .first .unM {
+        padding: 0;
+        padding-bottom: 0;
+        color: #fff;
+        margin: 0;
+        display: block;
+        font-size: 3.5em;
+        font-weight: bold;
+    }
+    
+    .first .deP {
+        color: #fff;
+        margin: 0;
+        display: block;
+        font-size: 2.2em;
+        font-weight: bold;
+    }
+    
+    .hsdiv {
+        display: inline-block;
+        margin-left: 1em;
+        margin-top: 2em;
+        padding-top: 1em;
+    }
+    
+    .videoi {
+        width: 110%;
+        margin-top: 4em;
+        display: inline-block;
+    }
+    
+    .cel {
+        margin-top: 2em;
+        width: 80%;
+    }
+    
+    .map {
+        padding-top: 2em;
+        width: 90%;
+        padding-left: 1.52em;
+    }
+    
+    .input-group-btn:last-child>.btn,
+    .input-group-btn:last-child>.btn-group {
+        z-index: 2;
+        margin-left: -1px;
+        width: 142.3%;
+    }
+    
+    .titulos {
+        display: inline-block;
+    }
+    
+    .regBtn {
+        background: #00223C;
+        height: 30px;
+        padding-top: 3px;
+        border-radius: 20px;
+        border-color: #0093B4;
+        display: inline-block;
+        margin-left: 15%;
+    }
+    
+    .regBtn:hover {
+        color: #1B94B5;
+    }
+    
+    .headerRow {
+        padding-top: ;
+        color: #fff;
+    }
+    
+    .action {
+        border-radius: 0;
+    }
+    
+    .azul {
+        color: #1B94B5;
+        font-weight: bolder;
+        font-size: 3em;
+    }
+    
+    .nopadding {
+        padding: 0;
+    }
+    
+    .continue {
+        color: #fff;
+        background: #0093B4;
+        border-radius: 20px;
+        border-color: #fff;
+        margin-top: -1em;
+        margin-left: 2em;
+    }
+    
+    .continue2 {
+        color: #fff;
+        background: #00223C;
+        border-radius: 20px;
+        margin-top: -1em;
+        margin-left: 2em;
+    }
+    
+    .continue2:hover {
+        color: #fff;
+    }
+    
+    .construccion {
+        width: 100%;
+        background: url(../img/FONDO-04.png) no-repeat center center;
+        background-size: cover;
+    }
+    
+    .continue:hover {
+        border-color: #0093B4;
+        color: #fff;
+        background: #0093B4;
+    }
+    
+    .description {
+        margin-top: 9.5em;
+        padding: 0;
+    }
+    
+    .amenities {
+        height: 45.5em;
+        margin-top: -2%;
+        width: 100%;
+        background: url(../img/FONDO-04.png) no-repeat center center;
+        background-size: cover;
+    }
+    
+    .insideAm h2 {
+        color: #fff;
+    }
+    
+    .formis {
+        background: #fff;
+        color: #000;
+        border-radius: 0;
+        border-color: #ccc;
+        width: 95%;
+        padding: 0.5em;
+        margin: 1em;
+        cursor: pointer;
+    }
+    
+    .insideAm {
+        margin-top: 15%;
+        margin-left: 7em;
+    }
+    
+    .intro-header {
+        text-align: center;
+        margin-top: -4%;
+        height: 1000px;
+        color: #f8f8f8;
+        background: url(../img/Fondo.png) no-repeat center center;
+        background-size: cover;
+    }
+    
+    #Div1,
+    {
+        color: #fff;
+        position: relative;
+    }
+    
+    #botonS {
+        margin-left: 2em;
+    }
+    
+    .navSearch {
+        width: 30%;
+    }
+    
+    .navSearch,
+    .barra2 form div span button {
+        margin-top: 1.5em;
+        background: #0093B4;
+        color: #fff;
+        border-radius: 0;
+        border-color: #0093B4;
+    }
+    
+    .barra form div .navSearch,
+    .barra form div span button {
+        margin-top: 0.5em;
+        background: #0093B4;
+        color: #fff;
+        border-radius: 0;
+        border-color: #0093B4;
+    }
+    
+    .barra2 form div span button:hover,
+    .barra2 form div span button:active,
+    .barra form div span button:hover,
+    .barra form div span button:active {
+        background-color: #0093B4;
+        color: #fff;
+        border-color: #0093B4;
+    }
+    
+    .navSearch::-webkit-input-placeholder {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .navSearch:-moz-placeholder {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .navbar-right {
+        margin-top: 2em;
+        margin-right: 1%;
+    }
+    
+    #searchB {
+        display: none;
+    }
+    
+    .barra2 .SearchB {
+        width: 20%;
+    }
+    
+    .SearchB {
+        margin-top: 1em;
+        width: 13%;
+        padding-left: 0;
+    }
+    
+    .navSearch::-moz-placeholder {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .navSearch:-ms-input-placeholder {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .barra2 {
+        font-weight: bold;
+        top: 0;
+        position: absolute;
+        width: 100%;
+    }
+    
+    .barra2 .navbar-brand {
+        padding: 0;
+    }
+    
+    .logito {
+        margin-top: 1.3em;
+        margin-left: 0.5em;
+        margin-right: 1.3em;
+        height: 90%;
+    }
+    
+    .barra2 .nav li a img {
+        height: 50px;
+        margin-top: 5px;
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+    
+    .barra2 .nav>li>a {
+        padding-top: 1em;
+        padding-bottom: 1em;
+    }
+    
+    .barra2 .navbar-toggle {
+        padding: 7px;
+        margin: 25px 15px 25px 0;
+    }
+    
+    #navibar2 {
+        color: #fff;
+        background: #00223C;
+        box-shadow: 0px 3px 5px rgba(3, 3, 3, 0.75);
+        font-size: 14px;
+        height: 6em;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bold;
+    }
+    
+    .navbar-default .navbar-nav>li>a {
+        color: #fff;
+        padding: 1em 0;
+        width: 100%;
+    }
+    
+    #navibar2 li a {
+        color: #fff;
+        padding: 0.7em;
+    }
+    
+    #navibar2 li .nav-link:hover {
+        color: #0093B4;
+    }
+    
+    .nav-link {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .barra2 .navbar-right {
+        margin-top: 0;
+        margin-right: 0;
+    }
+    
+    .divbtnbar {
+        height: 10px;
+        margin-top: -5px;
+        padding-top: 0;
+        padding-bottom: 15px;
+    }
+    
+    .btnbar2 {
+        margin-top: 2em;
+        border-radius: 0;
+        background: #00223C;
+        border-color: #0093B4;
+        color: #fff;
+    }
+    /*third Bar*/
+    
+    .centered {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .barra3 .centered>li {
+        float: none;
+        display: inline-block;
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    
+    .barra3 .navibar2 {
+        color: #fff;
+        background: #023859;
+        font-size: 15px;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bold;
+        margin-top: 5.6em;
+        z-index: 3;
+        border-color: #023859;
+        border-radius: 0;
+    }
+    
+    .buscar {
+        background-color: #00223C;
+        margin-top: 4em;
+        float: left;
+        overflow: hidden;
+        padding-top: 3.5em;
+        padding-left: 1em;
+        padding-right: 1em;
+        padding-bottom: 3.5em;
+        opacity: 0.95;
+        height: 10em;
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.45);
+    }
+    
+    .insideB {
+        display: inline-block;
+        padding-right: 0;
+    }
+    
+    .how {
+        margin-top: 10%;
+        padding-bottom: 5em;
+        display: block
+    }
+    
+    .first {
+        background: url(../img/Fondo.png) no-repeat center center;
+        background-size: 100% 100%;
+        height: auto;
+        margin-top: 6em;
+        padding-bottom: 6em;
+        width: 100%;
+    }
+    
+    .first h1 {
+        padding-top: 0.6em;
+        padding-bottom: 1.9em;
+        color: #fff;
+    }
+    
+    .btnbar {
+        border-radius: 20px;
+        background: #0093B4;
+    }
+    
+    .works {
+        border-radius: 0;
+        background: #0093B4;
+        color: #fff;
+    }
+    
+    .works:hover {
+        color: #fff;
+    }
+    
+    .hood {
+        color: #000;
+        font-weight: bold;
+        padding-left: 1.52em;
+    }
+    
+    .migo {
+        color: #0093B4;
+        font-weight: bold;
+        padding-left: 1.52em;
+    }
+    
+    .nopadding p {
+        padding-left: 1.52em;
+    }
+    
+    .parra {
+        padding-right: 1.52em;
+    }
+    
+    .second {
+        padding-bottom: 1em;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    .last {
+        background: rgba(255, 255, 255, 1);
+        background: -moz-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255, 255, 255, 1)), color-stop(0%, rgba(255, 255, 255, 1)), color-stop(100%, rgba(27, 148, 181, 1)));
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+        background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+        background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
+        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1b94b5', GradientType=0);
+        padding-top: 0.6em;
+        height: 70px;
+    }
+    
+    .last a {
+        font-weight: bold;
+        font-size: 18px;
+        font-style: none;
+    }
+    
+    .last a img {
+        height: 60px;
+        display: inline-block;
+    }
+    
+    .imgs {
+        display: inline-block;
+        width: 30%;
+        margin: 2em;
+    }
+    /*NaAVIGATION BAR*/
+    
+    .barra {
+        font-weight: bold;
+        margin: 0;
+        position: fixed;
+        width: 100%;
+        z-index: 4;
+        top: 0;
+    }
+    
+    .barra .navbar-brand {
+        height: 85px;
+    }
+    
+    .barra .navbar-brand img {
+        margin-top: 0;
+        padding-top: 0;
+        width: 225px;
+    }
+    
+    .barra .nav>li>a {
+        padding-top: 0;
+    }
+    
+    .barra .navbar-toggle {
+        padding: 10px;
+        margin: 25px 15px 25px 0;
+    }
+    
+    #navibar {
+        color: #fff;
+        background: #00223C;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.75);
+        font-size: 15px;
+        font-family: 'Quicksand', sans-serif;
+        font-weight: bold;
+    }
+    
+    #navibar li a {
+        color: #fff;
+        height: 30px;
+    }
+    
+    #navibar li .nav-link:hover {
+        color: #0093B4;
+    }
+    
+    #navibar li #regButton {
+        display: block;
+        top: 20px;
+    }
+    /*FOOTER*/
+    
+    #footer {
+        width: 100%;
+        background: #0093B4;
+        color: #fff;
+        padding-top: 1%;
+        position: absolute;
+        margin-bottom: -15%;
+        bottom: 0;
+    }
+    
+    .navibar2 div ul li .activo {
+        color: #0093B4;
+    }
+    
+    .navibar2 div ul li .activo:hover {
+        color: #0093B4;
+    }
+    
+    .navibar2 .navbar-nav>li>a:hover {
+        color: #0093B4;
+    }
+    
+    .wlogo {
+        margin-left: 2.5em;
+        width: 80%;
+        padding: 0;
+    }
+    
+    #footer strong {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    #footer a {
+        color: #fff;
+        text-decoration: none;
+    }
+    
+    .footD {
+        margin-top: 1.5em;
+        margin-bottom: auto;
+        padding-top: 0.7em;
+        width: 100%;
+        height: 10%;
+        color: #0093B4;
+        background: #023859;
+    }
+    
+    .footD strong {
+        color: #fff;
+    }
+    /*********************************************************************
 
 
                             STYLES FOR REGISTER AND ACCESS FRONT
 
 
         **********************************************************************/
-        
-        .btngmail {
-            border-radius: 57px 57px 57px 57px;
-            -moz-border-radius: 57px 57px 57px 57px;
-            -webkit-border-radius: 57px 57px 57px 57px;
-            border: 1px solid #FFFFFF;
-            background-color: #1B94B5;
-            height: 34px;
-            padding: 6px 12px;
-        }
-        
-        .singup {
-            border-radius: 15px 15px 15px 15px;
-            -moz-border-radius: 15px 15px 15px 15px;
-            -webkit-border-radius: 15px 15px 15px 15px;
-            background-color: #1B94B5;
-            height: 34px;
-            padding: 6px 12px;
-        }
-        
-        .miimagen {
-            margin: 0 auto;
-            padding: 0px 0px 0px 0px;
-            /*float: left;*/
-        }
-        
-        .colortext {
-            color: #023859;
-        }
-        
-        .separation {
-            padding-top: 25px;
-        }
-        
-        .separation-element-form {
-            margin-bottom: 25px;
-        }
-        
-        .t1 {
-            font-size: 18px;
-        }
-        
-        .check1 {
-            border: 1px solid #1B94B5;
-        }
-        
-        .intro-header-page1 {
-            margin-top: -5%;
-            z-index: -1;
-            padding-top: 7.5em;
-            padding-bottom: 70px;
-            text-align: center;
-            color: #f8f8f8;
-            background: url(../img/fondo-azul.png) no-repeat center center;
-            background-size: cover;
-        }
-        
-        .intro-message1 {
-            position: relative;
-            padding-top: 5%;
-        }
-        
-        .darkbluecolor {
-            background-color: #023859;
-        }
-        /******************estilos checkbox 2 y 3****************/
-        
-        input[type=checkbox]#checkbox2,
-        input[type=checkbox]#checkbox3 {
-            display: none;
-        }
-        
-        input[type=checkbox]#checkbox2+label:before,
-        input[type=checkbox]#checkbox3+label:before {
-            content: "\f096";
-        }
-        
-        input[type=checkbox]#checkbox2+label:before,
-        input[type=checkbox]#checkbox3+label:before {
-            content: "\f096";
-            letter-spacing: 2px;
-            font-family: FontAwesome;
-            font-size: 22px;
-            color: #1B94B5;
-        }
-        
-        input[type=checkbox]#checkbox2:checked+label:before,
-        input[type=checkbox]#checkbox3:checked+label:before {
-            content: '\f046';
-        }
-        
-        input[type="checkbox"]#checkbox2:focus,
-        input[type="checkbox"]#checkbox3:focus {
-            outline: none;
-        }
-        /*********************************************************************
+    
+    .btngmail {
+        border-radius: 57px 57px 57px 57px;
+        -moz-border-radius: 57px 57px 57px 57px;
+        -webkit-border-radius: 57px 57px 57px 57px;
+        border: 1px solid #FFFFFF;
+        background-color: #1B94B5;
+        height: 34px;
+        padding: 6px 12px;
+    }
+    
+    .singup {
+        border-radius: 15px 15px 15px 15px;
+        -moz-border-radius: 15px 15px 15px 15px;
+        -webkit-border-radius: 15px 15px 15px 15px;
+        background-color: #1B94B5;
+        height: 34px;
+        padding: 6px 12px;
+    }
+    
+    .miimagen {
+        margin: 0 auto;
+        padding: 0px 0px 0px 0px;
+        /*float: left;*/
+    }
+    
+    .colortext {
+        color: #023859;
+    }
+    
+    .separation {
+        padding-top: 25px;
+    }
+    
+    .separation-element-form {
+        margin-bottom: 25px;
+    }
+    
+    .t1 {
+        font-size: 18px;
+    }
+    
+    .check1 {
+        border: 1px solid #1B94B5;
+    }
+    
+    .intro-header-page1 {
+        margin-top: -5%;
+        z-index: -1;
+        padding-top: 7.5em;
+        padding-bottom: 70px;
+        text-align: center;
+        color: #f8f8f8;
+        background: url(../img/fondo-azul.png) no-repeat center center;
+        background-size: cover;
+    }
+    
+    .intro-message1 {
+        position: relative;
+        padding-top: 5%;
+    }
+    
+    .darkbluecolor {
+        background-color: #023859;
+    }
+    /******************estilos checkbox 2 y 3****************/
+    
+    input[type=checkbox]#checkbox2,
+    input[type=checkbox]#checkbox3 {
+        display: none;
+    }
+    
+    input[type=checkbox]#checkbox2+label:before,
+    input[type=checkbox]#checkbox3+label:before {
+        content: "\f096";
+    }
+    
+    input[type=checkbox]#checkbox2+label:before,
+    input[type=checkbox]#checkbox3+label:before {
+        content: "\f096";
+        letter-spacing: 2px;
+        font-family: FontAwesome;
+        font-size: 22px;
+        color: #1B94B5;
+    }
+    
+    input[type=checkbox]#checkbox2:checked+label:before,
+    input[type=checkbox]#checkbox3:checked+label:before {
+        content: '\f046';
+    }
+    
+    input[type="checkbox"]#checkbox2:focus,
+    input[type="checkbox"]#checkbox3:focus {
+        outline: none;
+    }
+    /*********************************************************************
 
 
                                     BECOME A HOST
 
 
         **********************************************************************/
-        
-        .area1 {
-            background: url(../img/fondobah1.png) no-repeat;
-            background-size: auto 100%;
-            height: 75em;
-            margin-top: -1.4em;
-            background-position: right;
-        }
-        
-        .area2 {
-            background-color: #fff;
-            margin-bottom: 0px;
-        }
-        
-        .area3 {
-            background: url(../img/fondobah2.png) no-repeat center center;
-            background-size: 100% 100%;
-            color: #1B94B5;
-            margin-top: 0px;
-        }
-        
-        .area3-sub1 {
-            margin-top: 3.750em;
-            margin-left: 5%;
-            margin-right: 5%;
-        }
-        
-        .dist1 {
-            padding-top: 17.5em;
-        }
-        
-        .textinitial {
-            padding-bottom: 0em;
-        }
-        
-        .textblue {
-            color: #1B94B5;
-        }
-        
-        .textwhite {
-            color: #fff;
-        }
-        
-        .texttop {
-            font-size: 1.8em;
-        }
-        
-        .cajadetexto {
-            border: 1px solid white;
-        }
-        
-        .texright {
-            text-align: right;
-        }
-        
-        .beginsbecome {
-            background-color: #1B94B5;
-            color: #fff;
-            border: 0px;
-            font-size: 1.875em;
-            font-weight: bold;
-            padding: 1em;
-            margin-top: 1.4em;
-        }
-        
-        .col-bah-area2 {
-            width: 23%;
-            height: 18.750em;
-            background-color: #D2D3D4;
-            float: left;
-            margin-bottom: 2%;
-        }
-        
-        #col-bah-1 {
-            margin-left: 10%;
-            margin-bottom: 0px;
-        }
-        
-        #col-bah-2 {
-            margin-right: 5.5%;
-            margin-left: 5.5%;
-            margin-bottom: 0px;
-        }
-        
-        #col-bah-3 {
-            margin-right: 10%;
-            margin-bottom: 0px;
-        }
-        
-        .tex-area2 {
-            margin-bottom: 4%;
-            margin-left: 10%;
-        }
-        
-        .hr-bah {
-            border-top: 1px solid #1B94B5;
-            margin-bottom: 4%;
-        }
-        
-        .menu-term {
-            width: 100%;
-            float: left;
-            text-align: right;
-            margin-bottom: 2.8em;
-        }
-        
-        .menu-term ul li {
-            display: inline-block;
-            list-style-type: none;
-            text-align: left;
-        }
-        
-        .menu-term ul li a {
-            padding: 10px;
-            color: black;
-            text-decoration: none;
-        }
-        /*********************************************************************
+    
+    .area1 {
+        background: url(../img/fondobah1.png) no-repeat;
+        background-size: auto 100%;
+        height: 75em;
+        margin-top: -1.4em;
+        background-position: right;
+    }
+    
+    .area2 {
+        background-color: #fff;
+        margin-bottom: 0px;
+    }
+    
+    .area3 {
+        background: url(../img/fondobah2.png) no-repeat center center;
+        background-size: 100% 100%;
+        color: #1B94B5;
+        margin-top: 0px;
+    }
+    
+    .area3-sub1 {
+        margin-top: 3.750em;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    
+    .dist1 {
+        padding-top: 17.5em;
+    }
+    
+    .textinitial {
+        padding-bottom: 0em;
+    }
+    
+    .textblue {
+        color: #1B94B5;
+    }
+    
+    .textwhite {
+        color: #fff;
+    }
+    
+    .texttop {
+        font-size: 1.8em;
+    }
+    
+    .cajadetexto {
+        border: 1px solid white;
+    }
+    
+    .texright {
+        text-align: right;
+    }
+    
+    .beginsbecome {
+        background-color: #1B94B5;
+        color: #fff;
+        border: 0px;
+        font-size: 1.875em;
+        font-weight: bold;
+        padding: 1em;
+        margin-top: 1.4em;
+    }
+    
+    .col-bah-area2 {
+        width: 23%;
+        height: 18.750em;
+        background-color: #D2D3D4;
+        float: left;
+        margin-bottom: 2%;
+    }
+    
+    #col-bah-1 {
+        margin-left: 10%;
+        margin-bottom: 0px;
+    }
+    
+    #col-bah-2 {
+        margin-right: 5.5%;
+        margin-left: 5.5%;
+        margin-bottom: 0px;
+    }
+    
+    #col-bah-3 {
+        margin-right: 10%;
+        margin-bottom: 0px;
+    }
+    
+    .tex-area2 {
+        margin-bottom: 4%;
+        margin-left: 10%;
+    }
+    
+    .hr-bah {
+        border-top: 1px solid #1B94B5;
+        margin-bottom: 4%;
+    }
+    
+    .menu-term {
+        width: 100%;
+        float: left;
+        text-align: right;
+        margin-bottom: 2.8em;
+    }
+    
+    .menu-term ul li {
+        display: inline-block;
+        list-style-type: none;
+        text-align: left;
+    }
+    
+    .menu-term ul li a {
+        padding: 10px;
+        color: black;
+        text-decoration: none;
+    }
+    /*********************************************************************
 
 
                                       FIRST STEP
 
  
         **********************************************************************/
-        
-        .fs-area1 {
-            background: url(../img/fondofs1.png) no-repeat;
-            background-size: auto 100%;
-            height: 60em;
-            margin-top: -1.4em;
-            background-position: right;
-        }
-        
-        .fs-dist1 {
-            padding-top: 12em;
-        }
-        
-        .textleft {
-            text-align: left;
-        }
-        
-        .fs-area1-sub1 {
-            margin-top: 3.125em;
-            margin-bottom: 1.563em;
-        }
-        
-        .text-box-right {
-            text-align: right;
-        }
-        
-        .fullwhith {
-            width: 100%;
-            padding-left: 0px;
-        }
-        
-        .yyy {
-            padding: 0;
-        }
-        /*********************************************************************
+    
+    .fs-area1 {
+        background: url(../img/fondofs1.png) no-repeat;
+        background-size: auto 100%;
+        height: 60em;
+        margin-top: -1.4em;
+        background-position: right;
+    }
+    
+    .fs-dist1 {
+        padding-top: 12em;
+    }
+    
+    .textleft {
+        text-align: left;
+    }
+    
+    .fs-area1-sub1 {
+        margin-top: 3.125em;
+        margin-bottom: 1.563em;
+    }
+    
+    .text-box-right {
+        text-align: right;
+    }
+    
+    .fullwhith {
+        width: 100%;
+        padding-left: 0px;
+    }
+    
+    .yyy {
+        padding: 0;
+    }
+    /*********************************************************************
 
 
                                       SECOND STEP SPACE
 
  
         **********************************************************************/
-        
-        .ss-area1 {
-            margin-top: -1.4em;
-            position: relative;
-            background: url(../img/fondosssa1.png) no-repeat center center;
-            background-size: 100% 100%;
-            height: 30em;
-            margin-top: -1.4em;
-        }
-        
-        .ss-subarea1-1 {
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-        }
-        
-        .ss-area2 {
-            background-color: #ffffff;
-            height: 47em;
-        }
-        
-        .ss-subarea2-1 {
-            width: 100%;
-            margin-top: 20px;
-        }
-        
-        .ss-block1 {
-            margin-left: 12%;
-            margin-right: 2%;
-            width: 33.6%;
-            float: left;
-        }
-        
-        .ss-block2 {
-            width: 48.4%;
-            margin-right: 4%;
-            float: left;
-            margin-top: 48px;
-        }
-        
-        .text-box-left {
-            text-align: left;
-        }
-        
-        .box-in-blue {
-            background-color: #1B94B5;
-            border: #1B94B5;
-        }
-        
-        .dist-col {
-            margin-top: 20px
-        }
-        
-        .mi-input::-webkit-input-placeholder {
-            color: white;
-            font-weight: bold;
-        }
-        
-        .mi-input:-moz-placeholder {
-            color: white;
-            font-weight: bold;
-        }
-        
-        .mi-input::-moz-placeholder {
-            color: white;
-            font-weight: bold;
-        }
-        
-        .mi-input:-ms-input-placeholder {
-            color: white;
-            font-weight: bold;
-        }
-        
-        .texareacustom {
-            background-color: #D2D3D4;
-        }
-        
-        #googlemap {
-            width: 100%;
-            height: 500px;
-            background-color: #D2D3D4;
-        }
-        /*********************************************************************
+    
+    .ss-area1 {
+        margin-top: -1.4em;
+        position: relative;
+        background: url(../img/fondosssa1.png) no-repeat center center;
+        background-size: 100% 100%;
+        height: 30em;
+        margin-top: -1.4em;
+    }
+    
+    .ss-subarea1-1 {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
+    
+    .ss-area2 {
+        background-color: #ffffff;
+        height: 47em;
+    }
+    
+    .ss-subarea2-1 {
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .ss-block1 {
+        margin-left: 12%;
+        margin-right: 2%;
+        width: 33.6%;
+        float: left;
+    }
+    
+    .ss-block2 {
+        width: 48.4%;
+        margin-right: 4%;
+        float: left;
+        margin-top: 48px;
+    }
+    
+    .text-box-left {
+        text-align: left;
+    }
+    
+    .box-in-blue {
+        background-color: #1B94B5;
+        border: #1B94B5;
+    }
+    
+    .dist-col {
+        margin-top: 20px
+    }
+    
+    .mi-input::-webkit-input-placeholder {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .mi-input:-moz-placeholder {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .mi-input::-moz-placeholder {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .mi-input:-ms-input-placeholder {
+        color: white;
+        font-weight: bold;
+    }
+    
+    .texareacustom {
+        background-color: #D2D3D4;
+    }
+    
+    #googlemap {
+        width: 100%;
+        height: 500px;
+        background-color: #D2D3D4;
+    }
+    /*********************************************************************
 
 
                                    MEDIA QUERIES
 
         **********************************************************************/
-        
-        @media (max-width:596px) {
-            .contenedor {
-                top: 10.5em;
-            }
+    
+    @media (min-width: 768px) and (max-width:991px) {
+        .intro-header-page1 {
+            margin-top: -5%;
+            z-index: -1;
+            padding-top: 20px;
+            padding-bottom: 70px;
+            text-align: center;
+            color: #f8f8f8;
+            background: url(../img/fondo-azul.png) no-repeat center center;
+            background-size: 100% 100%;
         }
-        
-        @media (min-width: 768px) {
-            .navbar-right {
-                float: right!important;
-                margin-right: -7%;
-            }
+        .dist1 {
+            padding-top: 15em;
         }
-        
-        @media (min-width: 768px) and (max-width:991px) {
-            .intro-header-page1 {
-                margin-top: -5%;
-                z-index: -1;
-                padding-top: 20px;
-                padding-bottom: 70px;
-                text-align: center;
-                color: #f8f8f8;
-                background: url(../img/fondo-azul.png) no-repeat center center;
-                background-size: 100% 100%;
-            }
-            .dist1 {
-                padding-top: 15em;
-            }
-            .dist-custom {
-                margin-top: 20px;
-            }
+        .dist-custom {
+            margin-top: 20px;
         }
-        
-        @media (min-width: 481px) and (max-width:767px) {
-            .custom-control {
-                width: 60%;
-                margin-left: 20%;
-                margin-right: 20%;
-            }
-            .area1 {
-                height: 60em;
-            }
-            .texttop {
-                font-size: 1.4em;
-            }
-            .beginsbecome {
-                font-size: 1.6em;
-            }
-            .dist1 {
-                padding-top: 12em;
-            }
+    }
+    
+    @media (min-width: 481px) and (max-width:767px) {
+        .custom-control {
+            width: 60%;
+            margin-left: 20%;
+            margin-right: 20%;
         }
-        
-        input[type=checkbox]#checkbox2+label {
+        .area1 {
+            height: 60em;
+        }
+        .texttop {
+            font-size: 1.4em;
+        }
+        .beginsbecome {
+            font-size: 1.6em;
+        }
+        .dist1 {
+            padding-top: 12em;
+        }
+    }
+    
+    input[type=checkbox]#checkbox2+label {
+        padding-left: 0px;
+    }
+    
+    @media (max-width: 480px) {
+        .contenedor {
+            margin-top: 4.5em;
+        }
+        .custom-control {
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        .texto {
+            top: 25%;
+        }
+        .area1 {
+            height: 50em;
+        }
+        .texttop {
+            font-size: 1em;
+        }
+        .dist1 {
+            padding-top: 8em;
+        }
+        .beginsbecome {
+            font-size: 1.2em;
+            margin-top: 0.6em;
+        }
+        .menu-term {
+            float: none;
+            text-align: center;
+        }
+        .insideAm {
+            margin-top: 2em;
+            margin-left: 0;
+        }
+        .buscar {
+            padding-top: 1.5em;
+        }
+        .SearchB {
+            width: 100%;
+            margin: 0;
+        }
+        .barra .navbar-right {
+            margin-top: 10px;
+        }
+        .divbtnbar {
+            margin-bottom: 1.5em;
+            ;
+        }
+    }
+    
+    @media (max-width:767px) {
+        input[type=checkbox]#checkbox2+label,
+        input[type=checkbox]#checkbox3+label {
             padding-left: 0px;
         }
-        
-        @media (max-width: 480px) {
-            .custom-control {
-                width: 80%;
-                margin-left: 10%;
-                margin-right: 10%;
-            }
-            .texto {
-                top: 25%;
-            }
-            .area1 {
-                height: 50em;
-            }
-            .texttop {
-                font-size: 1em;
-            }
-            .dist1 {
-                padding-top: 8em;
-            }
-            .beginsbecome {
-                font-size: 1.2em;
-                margin-top: 0.6em;
-            }
-            .menu-term {
-                float: none;
-                text-align: center;
-            }
-            .insideAm {
-                margin-top: 2em;
-                margin-left: 0;
-            }
-            .buscar {
-                padding-top: 1.5em;
-            }
-            .amenities {
-                margin-top: 6em;
-            }
+        .last {
+            padding-top: 1em;
+            height: 130px;
         }
-        
-        @media (max-width:767px) {
-            input[type=checkbox]#checkbox2+label,
-            input[type=checkbox]#checkbox3+label {
-                padding-left: 0px;
-            }
-            .last {
-                padding-top: 1em;
-                height: 130px;
-            }
-            .intro-header-page1 {
-                margin-top: -5%;
-                z-index: -1;
-                padding-top: 20px;
-                padding-bottom: 70px;
-                text-align: center;
-                color: #f8f8f8;
-                background: url(../img/fondo-azul.png) no-repeat center center;
-                background-size: auto;
-            }
-            .col-bah-area2 {
-                width: 80%;
-                height: 12.5em;
-                background-color: #D2D3D4;
-                float: none;
-                margin-bottom: 2%;
-            }
-            #col-bah-1,
-            #col-bah-2,
-            #col-bah-3 {
-                margin-left: 10%;
-                margin-right: 10%;
-                margin-bottom: 30px;
-            }
+        .intro-header-page1 {
+            margin-top: -5%;
+            z-index: -1;
+            padding-top: 20px;
+            padding-bottom: 70px;
+            text-align: center;
+            color: #f8f8f8;
+            background: url(../img/fondo-azul.png) no-repeat center center;
+            background-size: auto;
         }
-        
-        @media (min-width: 1183px) {
-            .area1 {
-                background-size: 100% auto;
-                background-position: bottom;
-            }
+        .col-bah-area2 {
+            width: 80%;
+            height: 12.5em;
+            background-color: #D2D3D4;
+            float: none;
+            margin-bottom: 2%;
         }
-        
-        @media (min-width: 1230px) and (max-width:1300px) {
-            .area1 {
-                height: 78em;
-            }
+        #col-bah-1,
+        #col-bah-2,
+        #col-bah-3 {
+            margin-left: 10%;
+            margin-right: 10%;
+            margin-bottom: 30px;
         }
-        
-        @media (min-width: 1301px) and (max-width:1350px) {
-            .area1 {
-                height: 82em;
-            }
+    }
+    
+    @media (min-width: 1183px) {
+        .area1 {
+            background-size: 100% auto;
+            background-position: bottom;
         }
-        
-        @media (min-width: 1351px) and (max-width:1400px) {
-            .area1 {
-                height: 85em;
-            }
-            .dist1 {
-                padding-top: 20em;
-            }
+    }
+    
+    @media (min-width: 1230px) and (max-width:1300px) {
+        .area1 {
+            height: 78em;
         }
-        
-        @media (min-width: 1401px) and (max-width:1450px) {
-            .area1 {
-                height: 88em;
-            }
-            .dist1 {
-                padding-top: 20em;
-            }
+    }
+    
+    @media (min-width: 1301px) and (max-width:1350px) {
+        .area1 {
+            height: 82em;
         }
-        
-        @media (min-width: 1451px) and (max-width:1500px) {
-            .area1 {
-                height: 92em;
-            }
-            .dist1 {
-                padding-top: 20em;
-            }
+    }
+    
+    @media (min-width: 1351px) and (max-width:1400px) {
+        .area1 {
+            height: 85em;
         }
-        
-        @media (min-width: 1501px) and (max-width:1579px) {
-            .area1 {
-                height: 95em;
-            }
-            .dist1 {
-                padding-top: 24em;
-            }
+        .dist1 {
+            padding-top: 20em;
         }
-        
-        @media (min-width: 1580px) and (max-width:1700px) {
-            .area1 {
-                height: 100em;
-            }
-            .dist1 {
-                padding-top: 24em;
-            }
+    }
+    
+    @media (min-width: 1401px) and (max-width:1450px) {
+        .area1 {
+            height: 88em;
         }
-        
-        @media (min-width: 1701px) {
-            .area1 {
-                height: 107em;
-                background-position: center;
-            }
-            .dist1 {
-                padding-top: 28em;
-            }
+        .dist1 {
+            padding-top: 20em;
         }
-        
-        @media (min-width: 1501px) and (max-width:1700px) {
-            .fs-area1 {
-                height: 70em;
-            }
+    }
+    
+    @media (min-width: 1451px) and (max-width:1500px) {
+        .area1 {
+            height: 92em;
         }
-        
-        @media (min-width: 1701px) {
-            .fs-area1 {
-                height: 75em;
-            }
+        .dist1 {
+            padding-top: 20em;
         }
+    }
+    
+    @media (min-width: 1501px) and (max-width:1579px) {
+        .area1 {
+            height: 95em;
+        }
+        .dist1 {
+            padding-top: 24em;
+        }
+    }
+    
+    @media (min-width: 1580px) and (max-width:1700px) {
+        .area1 {
+            height: 100em;
+        }
+        .dist1 {
+            padding-top: 24em;
+        }
+    }
+    
+    @media (min-width: 1701px) {
+        .area1 {
+            height: 107em;
+            background-position: center;
+        }
+        .dist1 {
+            padding-top: 28em;
+        }
+    }
+    
+    @media (min-width: 1501px) and (max-width:1700px) {
+        .fs-area1 {
+            height: 70em;
+        }
+    }
+    
+    @media (min-width: 1701px) {
+        .fs-area1 {
+            height: 75em;
+        }
+    }

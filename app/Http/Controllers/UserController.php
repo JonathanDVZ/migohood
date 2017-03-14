@@ -25,28 +25,14 @@ class UserController extends Controller
         return view('auth.register-user-front');
     }
 
-        public function firststep()
-    {
-         return view ("firststep");
-    }
-
-        public function becomeahost()
+         public function becomeahost()
     {
         return view ("becomeahost");
     }
 
-    public function amenities()
-    {
-        return view ("amenities");
-    }
     public function secondstepspace()
     {
         return view ("secondstepspace");
-    }
-
-        public function description()
-    {
-        return view ("description");
     }
 
     /**
