@@ -17,9 +17,9 @@
                         <form class="navbar-form navbar-left SearchB">
                             <div class="input-group">
                                 <span class="input-group-btn">
-                                                <button class="btn btn-default btn-lg" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                                <button class="btn btn-default btn-sm" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                                             </span>
-                                <input type="text" class="form-control input-lg navSearch" placeholder="Search">
+                                <input type="text" class="form-control input-sm navSearch" placeholder="Search">
                             </div>
                         </form>
                     </div>
