@@ -13,23 +13,30 @@
                     <div style="display: inline;"><button type="button" class="btngmail"><img src="{{url('/assets/img/facebook.png')}}" alt="" height="15px" width="15px" align="middle" class="miimagen" ><b>&nbsp;&nbsp;&nbsp;&nbsp;REGISTER WITH FACEBOOK</b></button></div>
                     </br></br>
                     </p>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="POST" action="{{ url('createuser') }}">
+                        {{ csrf_field() }} 
                         <div class="form-group separation-element-form">
                             <label for="name" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Name</label>
                             <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
-                                  <input type="text" class="custom-control form-control" id="name" placeholder="Name">
+                                  <input type="text" class="custom-control form-control" name="name" id="name" placeholder="Name">
+                            </div>
+                        </div>
+                        <div class="form-group separation-element-form">
+                            <label for="lastname" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Lastame</label>
+                            <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
+                                  <input type="text" class="custom-control form-control" name="lastname" id="lastname" placeholder="Lastname">
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
                             <label for="email" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Email</label>
                             <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
-                                  <input type="email" class="custom-control form-control" id="email" placeholder="Email">
+                                  <input type="email" class="custom-control form-control" name="email" id="email" placeholder="Email">
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
                             <label for="password" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-label" style="text-align:left; color:#023859">Password</label>
                             <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
-                                  <input type="password" class="custom-control form-control" id="password" placeholder="Password">
+                                  <input type="password" class="custom-control form-control" name="password" id="password" placeholder="Password">
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
