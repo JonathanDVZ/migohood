@@ -143,7 +143,6 @@
     }
     
     .headerRow {
-        padding-top: ;
         color: #fff;
     }
     
@@ -1016,7 +1015,61 @@
             text-align: center;
             color: #f8f8f8;
             background: url(../img/fondo-azul.png) no-repeat center center;
-            background-size: 100% 100%;
+            <<<<<<< HEAD=======background-size: cover;
+        }
+        .intro-message1 {
+            position: relative;
+            padding-top: 5%;
+        }
+        .darkbluecolor {
+            background-color: #023859;
+        }
+        /******************estilos checkbox 2 y 3****************/
+        input[type=checkbox]#checkbox2,
+        input[type=checkbox]#checkbox3 {
+            display: none;
+        }
+        input[type=checkbox]#checkbox2+label:before,
+        input[type=checkbox]#checkbox3+label:before {
+            content: "\f096";
+        }
+        input[type=checkbox]#checkbox2+label:before,
+        input[type=checkbox]#checkbox3+label:before {
+            content: "\f096";
+            letter-spacing: 2px;
+            font-family: FontAwesome;
+            font-size: 22px;
+            color: #1B94B5;
+        }
+        input[type=checkbox]#checkbox2:checked+label:before,
+        input[type=checkbox]#checkbox3:checked+label:before {
+            content: '\f046';
+        }
+        input[type="checkbox"]#checkbox2:focus,
+        input[type="checkbox"]#checkbox3:focus {
+            outline: none;
+        }
+        /*********************************************************************
+
+
+                                    BECOME A HOST
+
+
+        **********************************************************************/
+        .area1 {
+            background: url(../img/fondobah1.png) no-repeat;
+            background-size: auto 100%;
+            height: 75em;
+            margin-top: 6em;
+            background-position: right;
+        }
+        .area2 {
+            background-color: #fff;
+            margin-bottom: 0px;
+        }
+        .area3 {
+            background: url(../img/fondobah2.png) no-repeat center center;
+            >>>>>>>e4824fbe8ca093d950f2b5b1eb04e10072f0761c background-size: 100% 100%;
         }
         .dist1 {
             padding-top: 15em;
