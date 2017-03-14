@@ -12,6 +12,7 @@
     <link href="{{url('/assets/css/styles.css')}}" rel="stylesheet">
     <link rel="shortcut icon" href="{{url('/assets/img/favicon.ico')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
+    <link href="{{url('/assets/css/sweetalert.css')}}" rel="stylesheet">
     <script>
 $(document).scroll(function () {
     var y = $(this).scrollTop();
@@ -36,6 +37,7 @@ $(document).scroll(function () {
     <script src="{{url('/assets/js/bootstrap.min.js')}}'"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
+    <script src="{{url('/assets/js/sweetalert.min.js')}}"></script>
 </body>
 
 </html>

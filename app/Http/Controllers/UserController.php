@@ -73,17 +73,17 @@ class UserController extends Controller
             
             if (is_array($user) && array_key_exists('id', $user)){
                 Auth::loginUsingId($user['id'],true);
-                return redirect('/')->with(['message-alert' => ' <img src="'.url('/assets/img/logo.png').'" style="width:30%;"><br><span style="color:#023859;"> YOU ARE NOW REGISTRED <span>']);
+                return redirect('/')->with(['message-alert' => 'YOU ARE NOW REGISTRED']);
             }
             else{
                 $user = json_encode($user);
                 $caracters = array('"','[',']',',');
                 $user = str_replace($caracters,'',$user );
-                return redirect('/')->with(['message-alert' => '<span style="color:#C48634;">'.$user.'</span>']);
+                return redirect('/')->with(['message-alert' => ''.$user.'']);
             }
 
         }catch(Exception $e){
-            return redirect('/')->with(['message-alert' => '<img src="'.url('/assets/img/logo.png').'" style="width:30%;"><br><span style="color:#023859;">'.$e->getMessage().'<span>']);
+            return redirect('/')->with(['message-alert' => ''.$e->getMessage().'']);
         }
     }
    
@@ -101,7 +101,7 @@ class UserController extends Controller
 
         return redirect('/');
     }
-    return redirect('/')->with(['message-alert' => '<span style="color:#023859;">The account that you want to enter is not registred or your passwor is incorrect <span>']);
+    return redirect('/')->with(['message-alert' => 'The account that you want to enter is not registred or your passwor is incorrect']);
     
     }
 

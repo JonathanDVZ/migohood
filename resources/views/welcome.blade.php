@@ -1,8 +1,21 @@
 @extends('layouts.master') @section('title', 'Home') @section('content')
 <div class="container-fluid first">
     <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 nopadding ">
-            <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 nopadding ">      
+    		 <script src="{{url('/assets/js/sweetalert.min.js')}}"></script>
+            @if (Session::has('message-alert'))    		  
+    			<script type="text/javascript">    				
+					swal({
+  							title: "{{ Session::get('message-alert') }}",  							
+  							imageUrl: "assets/img/Logo.png",
+  							imageSize: '233x51'					
+					});			
+				</script>
+				
+  			@endif
+    					   			
+  				
+			<div class="row">
                 <div class="col-lg-3 col-3-md col-3-sm text-center"></div>
                 <div class="col-lg-6 col-6-md col-6-sm col-xs-12 text-center list-inline">
                     <img class="img-responsive videoi" src="{{url('/assets/img/Play.png')}}" alt="">
