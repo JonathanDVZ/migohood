@@ -1,5 +1,5 @@
- @extends('layouts.master') @section('title', 'Bedrooms') @section('content')
- <div class="barra3">
+ @extends('layouts.master') @section('title', 'Amenities') @section('class', 'contenedor') @section( 'content')
+<div class="barra3">
     <nav class="navbar navbar-default navibar2" role="navigation">
         <div class="container-fluid">
             <ul class="nav navbar-nav centered">
@@ -13,74 +13,73 @@
         </div>
     </nav>
 </div>
-<div class="contenedor">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <br>
-                <div class="text-right">
-                    <div class="titulos">
-                        <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
-                    </div>
-                    <div class="titulos">
-                        <button type="button" class="btn btn-sm continue">Agregar Camas</button>
-                    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <br>
+            <div class="text-right">
+                <div class="titulos">
+                    <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
                 </div>
+                <div class="titulos">
+                    <button type="button" class="btn btn-sm continue">Agregar Camas</button>
+                </div>
+            </div>
 
-                <hr>
-                <div class="row">
-                    <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+            <hr>
+            <div class="row">
+                <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
+                </div>
+                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+                    <div class="form-group text-right">
+                        <div class="text-left">
+                            <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
+                        </div>
                     </div>
-                    <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
-                        <div class="form-group text-right">
-                            <div class="text-left">
-                                <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
-                            </div>
+                    <div class="form-group text-right">
+                        <div class="text-left">
+                            <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
                         </div>
-                        <div class="form-group text-right">
-                            <div class="text-left">
-                                <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
-                            </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <div class="text-left">
+                            <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
                         </div>
-                        <div class="form-group text-right">
-                            <div class="text-left">
-                                <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
-                            </div>
+                    </div>
+                    <div class="form-group text-right">
+                        <div class="text-left">
+                            <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
                         </div>
-                        <div class="form-group text-right">
-                            <div class="text-left">
-                                <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
-                            </div>
-                        </div>
+                    </div>
 
-                        <div class="form-group text-right">
-                            <div class="text-left">
-                                <label>¿Cuantas Habitaciones ofrece?:</label>
-                            </div>
-                            <select class="selectpicker form-control required">
+                    <div class="form-group text-right">
+                        <div class="text-left">
+                            <label>¿Cuantas Habitaciones ofrece?:</label>
+                        </div>
+                        <select class="selectpicker form-control required">
                                 <option>2 Bedrooms</option>
                                 <option>3 Bedrooms</option>
                                 <option>4 Bedrooms</option>
                         </select>
-                        </div>
-                        <hr>
                     </div>
+                    <hr>
                 </div>
             </div>
-
-            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <div class="Wbox">
-                    <p>El numero y el tipo de camas disponibles, determinaran el numero de huespedes que pueden quedarse comodamente en tu espacio</p>
-                    <br>
-
-                    <p>El detalle de las camas ayuda a entender como esta organizado tu espacio.</p>
-                    <br>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2"></div>
         </div>
-    </div>
 
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <div class="Wbox">
+                <p>El numero y el tipo de camas disponibles, determinaran el numero de huespedes que pueden quedarse comodamente en tu espacio</p>
+                <br>
+
+                <p>El detalle de las camas ayuda a entender como esta organizado tu espacio.</p>
+                <br>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+</div>
+<div class="container">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
@@ -97,4 +96,4 @@
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
     </div>
-    </div>
+</div>

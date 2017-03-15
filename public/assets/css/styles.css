@@ -12,11 +12,16 @@
         box-sizing: border-box;
     }
     
+    textarea {
+        resize: none;
+    }
+    
     .contenedor {
         width: 100%;
+        min-height: 100%;
+        overflow-x: hidden;
         background: url('../img/FondoAzulDegradado.png') no-repeat center center;
         background-size: cover;
-        top: 9.5em;
         position: absolute;
     }
     
@@ -358,6 +363,7 @@
         height: 6em;
         font-family: 'Quicksand', sans-serif;
         font-weight: bold;
+        width: 100%;
     }
     
     .navbar-default .navbar-nav>li>a {
@@ -597,8 +603,7 @@
         background: #0093B4;
         color: #fff;
         padding-top: 1%;
-        position: absolute;
-        margin-bottom: -15%;
+        position: relative;
         bottom: 0;
     }
     
@@ -1104,9 +1109,6 @@
     }
     
     @media (max-width: 480px) {
-        .contenedor {
-            margin-top: 4.5em;
-        }
         .custom-control {
             width: 80%;
             margin-left: 10%;

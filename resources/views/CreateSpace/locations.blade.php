@@ -1,4 +1,4 @@
- @extends('layouts.master') @section('title', 'Bedrooms') @section('content')
+ @extends('layouts.master') @section('title', 'Locations') @section('class', 'contenedor') @section( 'content')
 <div class="barra3">
     <nav class="navbar navbar-default navibar2" role="navigation">
         <div class="container-fluid">
@@ -13,74 +13,113 @@
         </div>
     </nav>
 </div>
-<div class="contenedor">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <br>
-                <div class="text-right">
-                    <div class="titulos">
-                        <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
-                    </div>
-                    <div class="titulos">
-                        <button type="button" class="btn btn-sm continue">Agregar Camas</button>
-                    </div>
-                </div>
 
-                <hr>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <br>
+            <div class="text-right">
                 <div class="row">
                     <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
                     </div>
                     <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+                        <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
+                        <br>
                         <div class="form-group text-right">
                             <div class="text-left">
-                                <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
+                                <div class="text-left">
+                                    <label>Pais:</label>
+                                </div>
+                                <select class="selectpicker form-control required">
+                                    <option></option>
+                                    <option>Cama King</option>
+                                    <option>Cama Queen</option>
+                                    <option>Otra</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
-                                <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
+                                <label>Direccion:</label>
+                            </div>
+                            <div class="text-left">
+                                <input type="text" name="quantity" class="form-control" placeholder="Calle 1" required>
                             </div>
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
-                                <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
+                                <label>Apartamento, Suite (Opcional)</label>
+                            </div>
+                            <div class="text-left">
+                                <input type="text" name="quantity" class="form-control">
                             </div>
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
-                                <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
+                                <label>Estado</label>
+                            </div>
+                            <select class="selectpicker form-control required">
+                                    <option>Distrito Capital</option>
+                                    <option>Barinas</option>
+                                    <option>Barquisimeto</option>
+                                    <option></option>
+                                </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="text-left">
+                                    <label>Ciudad</label>
+                                </div>
+                                <div class="text-left">
+                                    <input type="text" name="quantity" class="form-control" placeholder="Caracas">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="text-left">
+                                    <label>Codigo Postal</label>
+                                </div>
+                                <div class="text-left">
+                                    <input type="text" name="quantity" class="form-control" placeholder="19875">
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <br>
+                            <div class="text-left">
+                                <label>¿Dónde esta ubicada tu propiedad?</label>
+                                <br>
+                                <span>Calle 1, España, Barcelona 198756, España</span>
+                                <br>
+                                <a href="">Editar Direccion</a>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group text-left">
+                                <h4 class="text-left">Informacion General</h4>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                            </div>
+
+                            <div class="form-group text-left">
+                                <h4 class="text-left">¿Cómo son los alrededores?</h4>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
                             </div>
                         </div>
 
-                        <div class="form-group text-right">
-                            <div class="text-left">
-                                <label>¿Cuantas Habitaciones ofrece?:</label>
-                            </div>
-                            <select class="selectpicker form-control required">
-                                <option>2 Bedrooms</option>
-                                <option>3 Bedrooms</option>
-                                <option>4 Bedrooms</option>
-                        </select>
-                        </div>
-                        <hr>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-                <div class="Wbox">
-                    <p>El numero y el tipo de camas disponibles, determinaran el numero de huespedes que pueden quedarse comodamente en tu espacio</p>
-                    <br>
-
-                    <p>El detalle de las camas ayuda a entender como esta organizado tu espacio.</p>
-                    <br>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-2"></div>
         </div>
-    </div>
 
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <div class="Wbox">
+                <p>Tu direccion exacta solo sera mostrada a personas que tengan una reservacion confirmada</p>
+                <br>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
+</div>
+<div class="container">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
