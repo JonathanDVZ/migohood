@@ -17,6 +17,9 @@ Route::get('/accessuser','Auth\AuthController@getLogin');
 Route::get('/secondstepspace','UserController@secondstepspace');
 Route::get('/becomeahost','UserController@becomeahost');
 Route::post('/createuser','UserController@CreateUser');
+Route::post('/postlogin','UserController@postLogin');
+Route::get('/PlaceType','CreateSpaceController@First');
+Route::get('/Bedrooms-1','CreateSpaceController@Second1');
 Route::get('/space-create/place-type','CreateSpaceController@First');
 Route::get('/space-create/bedrooms','CreateSpaceController@Second1');
 Route::get('/Bedrooms-2','CreateSpaceController@Second2');
@@ -27,12 +30,3 @@ Route::get('/Baths','CreateSpaceController@Third');
 Route::get('/Locations','CreateSpaceController@Fourth');
 Route::get('/Amenities','CreateSpaceController@Fifth');
 Route::get('/Hosting','CreateSpaceController@Sixth');
-
-
-Route::post('/postlogin','UserController@postLogin');
-
-
-
-
-
-

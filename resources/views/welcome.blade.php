@@ -1,13 +1,14 @@
 @extends('layouts.master') @section('title', 'Home') @section('content')
 <div class="container-fluid first">
-
     <div class="row">
-        <div class="col-lg-3 col-3-md col-3-sm text-center"></div>
-        <div class="col-lg-6 col-6-md col-6-sm col-xs-12 text-center list-inline">
-            <img class="img-responsive videoi" src="{{url('/assets/img/Play.png')}}" alt="">
-        </div>
-        <div class="col-lg-3 col-3-md col-3-sm text-center"></div>
-    </div>
+        <div class="col-lg-12 col-md-12 col-sm-12 nopadding ">   
+    		<div class="row">
+                <div class="col-lg-3 col-3-md col-3-sm text-center"></div>
+                <div class="col-lg-6 col-6-md col-6-sm col-xs-12 text-center list-inline">
+                    <img class="img-responsive videoi" src="{{url('/assets/img/Play.png')}}" alt="">  
+                </div>
+                <div class="col-lg-3 col-3-md col-3-sm text-center"></div>
+            </div>
 
     <div class="row">
         <div class="col-lg-2 col-md-2 col-sm-1 col-xs-1"></div>
@@ -83,4 +84,5 @@
         </div>
     </div>
     <div></div>
+    @include('partials.alert')             
     @endsection @section("footer") @endsection
