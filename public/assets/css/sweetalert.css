@@ -17,11 +17,11 @@ body.stop-scrolling {
   z-index: 10000; }
 
 .sweet-alert {
-  background-color: #919396;
+  background-color: #DEE2E9;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   width: 478px;
   padding: 17px;
-  border-radius: 5px;
+  border-radius: 15px;
   text-align: center;
   position: fixed;
   left: 50%;
@@ -30,7 +30,9 @@ body.stop-scrolling {
   margin-top: -200px;
   overflow: hidden;
   display: none;
-  z-index: 99999; }
+  z-index: 99999; 
+  border: 5px solid #58595b;	
+}
   @media all and (max-width: 540px) {
     .sweet-alert {
       width: auto;

@@ -27,7 +27,7 @@ $(document).scroll(function () {
 </head>
 
 <body class='@yield("class")'>
-    @if(Auth::check()) @include('headers.header-login') @else @include('headers.home') @endif @yield ('content')
+    @if(Auth::check()) @include('headers.header-login') @else @include('headers.home') @endif @yield ('content')   
     <footer>
         @include ("footers/footer")
     </footer>
@@ -36,8 +36,6 @@ $(document).scroll(function () {
     <script src="{{url('/assets/js/jquery.min.js')}}"></script>
     <script src="{{url('/assets/js/bootstrap.min.js')}}'"></script>    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
-    <script src="{{url('/assets/js/sweetalert.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>    
 </body>
-
 </html>

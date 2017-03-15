@@ -25,28 +25,14 @@ class UserController extends Controller
         return view('auth.register-user-front');
     }
 
-        public function firststep()
-    {
-         return view ("firststep");
-    }
-
-        public function becomeahost()
+         public function becomeahost()
     {
         return view ("becomeahost");
     }
 
-    public function amenities()
-    {
-        return view ("amenities");
-    }
     public function secondstepspace()
     {
         return view ("secondstepspace");
-    }
-
-        public function description()
-    {
-        return view ("description");
     }
 
     /**
@@ -79,11 +65,11 @@ class UserController extends Controller
                 $user = json_encode($user);
                 $caracters = array('"','[',']',',');
                 $user = str_replace($caracters,'',$user );
-                return redirect('/')->with(['message-alert' => ''.$user.'']);
+                return redirect('/registeruser')->with(['message-alert' => ''.$user.'']);
             }
 
         }catch(Exception $e){
-            return redirect('/')->with(['message-alert' => ''.$e->getMessage().'']);
+            return redirect('/registeruser')->with(['message-alert' => ''.$e->getMessage().'']);
         }
     }
    
@@ -101,7 +87,7 @@ class UserController extends Controller
 
         return redirect('/');
     }
-    return redirect('/')->with(['message-alert' => 'The account that you want to enter is not registred or your passwor is incorrect']);
+    return redirect('/accessuser')->with(['message-alert' => 'The account that you want to enter is not registred or your password is incorrect']);
     
     }
 

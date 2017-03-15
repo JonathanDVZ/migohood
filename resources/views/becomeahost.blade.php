@@ -29,7 +29,7 @@
   			<ul>
     			<!--<li style="float:left;">logo</li>-->
     			<li><a href="">Terms and security</a></li>
-    			<li><a href="">Site map  &nbsp; &nbsp;<img src="{{url('/assets/img/sitemap.png')}}" width="25%" height="25%" alt=""></a></li>   				 
+    			<li><a href="">Site map  &nbsp; &nbsp;<img src="{{url('/assets/img/Map.png')}}" width="25%" height="25%" alt=""></a></li>   				 
   			</ul>
    		</div>
 	</div>

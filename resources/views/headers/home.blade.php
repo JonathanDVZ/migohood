@@ -29,7 +29,7 @@
                         <li><a class="nav-link" href="#">Featured</a></li>
                         <li><a class="nav-link" href="{{url('/accessuser')}}">Sign in</a></li>
                         <li>
-                            <div class="divbtnbar"><a href="{{url('/registeruser')}}" class="btn navbar-btn btnbar" role="button"><strong>Register</strong></a></div>
+                            <div class="divbtnbar"><a href="{{url('/registeruser')}}" class="btn btnbar" role="button"><strong>Register</strong></a></div>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">USD<span class="caret"></span></a>
