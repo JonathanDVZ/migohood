@@ -38,7 +38,7 @@
     <div class="row headerRow">
         <div class="col-lg-1 col-md-1 col-sm-1 "></div>
         <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 text-center">
-            <img class="img-responsive" src="{{url('/assets/img/HoWork.png')}}" alt="">
+            <img class="img-responsive text-center center-block" src="{{url('/assets/img/HoWork.png')}}" alt="">
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 "></div>
     </div>
