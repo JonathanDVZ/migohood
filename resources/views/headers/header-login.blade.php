@@ -23,7 +23,7 @@
                     </form>
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <div class="divbtnbar"><a href="" class="btn btnbar2" role="button"><strong>Become a host</strong></a></div>
+                            <div class="divbtnbar"><a href="{{url('/becomeahost')}}" class="btn btnbar2" role="button"><strong>Become a host</strong></a></div>
                         </li>
                         <li>
                             <a class="nav-link" href="#"><img src="assets/img/Plane.png" alt=""></a>
@@ -67,7 +67,7 @@
                 </form>
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <div class="divbtnbar"><a href="" class="btn btnbar2" role="button"><strong>Become a host</strong></a></div>
+                        <div class="divbtnbar"><a href="{{url('/becomeahost')}}" class="btn btnbar2" role="button"><strong>Become a host</strong></a></div>
                     </li>
                     <li>
                         <a class="nav-link" href="#"><img src="assets/img/Plane.png" alt=""></a>
