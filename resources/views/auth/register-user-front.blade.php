@@ -42,13 +42,13 @@
                         <div class="form-group separation-element-form">
                             <label for="confirmpassword" class="col-sm-offset-3 col-sm-2 control-label" style="text-align:left; color:#023859">Confirm Password</label>
                             <div class="col-sm-4">
-                                  <input type="password" class="custom-control form-control" id="confirmpassword" placeholder="Password">
+                                  <input type="password" class="custom-control form-control" id="confirmpassword" name="confirmpassword" placeholder="Password">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-4 separation">
                                 <div class="checkbox">                
-                                      <input type="checkbox" id="checkbox2" name="checkbox[]"><label for="checkbox2"></label>
+                                      <input type="checkbox" id="checkbox2" name="checkbox2"><label for="checkbox2"></label>
                                       <span class="colortext">I agree with terms and conditions, privacy politics, guest refund politics and payments terms o service</span>
                                 </div> 
                             </div>
