@@ -28,7 +28,7 @@
                 <a href="">PAYMENT FLOW</a><br>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 text-center">
-                <br><img class="img-responsive text-center wlogo" src="{{url('/assets/img/Wlogo.png')}}" alt="White Migohood Logo">
+                <br><img class="img-responsive text-center wlogo" src="{{url('/assets/img/wlogo.png')}}" alt="White Migohood Logo">
                 <strong>Cambridge, Massachusetts<br>
                     Tel. +1 (646) 896-4525 </strong>
             </div>
