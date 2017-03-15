@@ -97,7 +97,7 @@ class UserController extends Controller
     if(is_array($user) && array_key_exists('id', $user)){
         Auth::loginUsingId($user['id'],$request->has("remember"));
 
-        return redirect('/');
+        return redirect('/')->with(['message-alert' => 'Welcome you have acceded']);
     }
     return redirect('/accessuser')->with(['message-alert' => 'The account that you want to enter is not registred or your password is incorrect']);
     
