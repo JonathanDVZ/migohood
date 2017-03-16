@@ -32,7 +32,7 @@
                         </div>
                         <div class="titulos">
 
-                            <button type="button" class="btn btn-sm continue">Agregar Camas</button>
+                            <a href="{{url('/space-create/bedrooms/edit-bedroom/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
                         </div>
                     </div>
                     <hr>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="titulos text-right">
 
-                            <button type="button" class="btn btn-sm continue">Agregar Camas</button>
+                            <a href="{{url('/space-create/bedrooms/edit-bedroom/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
                         </div>
                     </div>
                     <hr>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="titulos">
 
-                            <button type="button" class="btn btn-sm continue">Agregar Camas</button>
+                            <a href="{{url('/space-create/bedrooms/edit-bedroom/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
                         </div>
                     </div>
                     <hr>
@@ -82,7 +82,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href=""><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/space-create/bedrooms')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">

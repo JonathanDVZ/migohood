@@ -53,7 +53,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-                <a class="navbar-brand" href="/"><img class="img-responsive logito" src="/assets/img/smallBlueLogo.png" alt="Migohood Logo">
+                <a class="navbar-brand" href="{{url('/')}}"><img class="img-responsive logito" src="{{url('/assets/img/smallBlueLogo.png')}}" alt="Migohood Logo">
                 </a>
             </div>
             <div id="#navbar2" class="navbar-collapse collapse text-center">
@@ -70,16 +70,16 @@
                         <div class="divbtnbar"><a href="{{url('/becomeahost')}}" class="btn btnbar2" role="button"><strong>Become a host</strong></a></div>
                     </li>
                     <li>
-                        <a class="nav-link" href="#"><img src="/assets/img/Plane.png" alt=""></a>
+                        <a class="nav-link" href="#"><img src="{{url('/assets/img/Plane.png')}}" alt=""></a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#"><img src="/assets/img/Paper.png" alt=""></a>
+                        <a class="nav-link" href="#"><img src="{{url('/assets/img/Paper.png')}}" alt=""></a>
                     </li>
                     <li>
-                        <a class="nav-link" href="#"><img src="/assets/img/Bell.png" alt=""></a>
+                        <a class="nav-link" href="#"><img src="{{url('/assets/img/Bell.png')}}" alt=""></a>
                     </li>
                     <li>
-                        <a class="nav-link" href="/"><img src="/assets/img/User.png" alt=""></a>
+                        <a class="nav-link" href="/"><img src="{{url('/assets/img/User.png')}}" alt=""></a>
                     </li>
                 </ul>
             </div>

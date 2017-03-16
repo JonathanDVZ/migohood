@@ -36,8 +36,7 @@
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12 col-xs-1"></div>
             </div>
-            <div class="text-center how">
-                <a type="button" class="btn btn-lg works text-center" href=""><strong>     HOW IT WORKS     </strong></a>
+            <div class="text-center how">                    
             </div>
             <div class="row headerRow">
                 <div class="col-lg-1 col-md-1 col-sm-1 "></div>
@@ -82,7 +81,7 @@
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center">
                 <br>
-                <a href="https://www.migohood.com/" class="">www.migohood.com</a>
+                <a href="{{url('/')}}" class="">www.migohood.com</a>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center"></div>
         </div>
