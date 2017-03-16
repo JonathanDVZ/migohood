@@ -31,7 +31,7 @@
     @if(Auth::check()) 
         @include('headers.header-login') 
     @else 
-        @include('headers.header-login') 
+        @include('headers.home') 
     @endif 
     
     @include('partials.alert') 

@@ -78,8 +78,11 @@
                     <li>
                         <a class="nav-link" href="#"><img src="{{url('/assets/img/Bell.png')}}" alt=""></a>
                     </li>
-                    <li>
-                        <a class="nav-link" href="/"><img src="{{url('/assets/img/User.png')}}" alt=""></a>
+                    <li class="dropdown dropdown-normal">
+                        <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="{{url('/assets/img/User.png')}}" alt=""></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="{{ url('/logout') }}">Log Out</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>

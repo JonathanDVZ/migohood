@@ -382,6 +382,8 @@
         width: 100%;
     }
     
+    .navbar-nav>li>.dropdown-menu{ background-color: rgba(27, 148, 181,0.7); }
+    
     #navibar2 li a {
         color: #fff;
         padding: 0.7em;
