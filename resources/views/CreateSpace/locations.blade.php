@@ -1,4 +1,4 @@
- @extends('layouts.master') @section('title', 'Locations') @section('class', 'contenedor') @section( 'content')
+ @section('title', 'Locations') @extends('layouts.master') @section('class', 'contenedor') @section( 'content')
 <div class="barra3">
     <nav class="navbar navbar-default navibar2" role="navigation">
         <div class="container-fluid">
@@ -91,7 +91,18 @@
                                 <span>Calle 1, España, Barcelona 198756, España</span>
                                 <br>
                                 <a href="">Editar Direccion</a>
+                                <br>
                             </div>
+                            <div id="googleMap" style="width:100%;height:300px;"></div>
+                            <script>
+                                function myMap() {
+                                    var mapProp = {
+                                        center: new google.maps.LatLng(51.508742, -0.120850),
+                                        zoom: 5,
+                                    };
+                                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                                }
+                            </script>
                         </div>
                         <div>
                             <div class="form-group text-left">
