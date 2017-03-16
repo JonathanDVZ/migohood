@@ -14,7 +14,7 @@
 	</div>  
 	<div class="row text-center">
 		<div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-			<a href="{{url('/space-create/place-type')}}" class="btn beginsbecome" role="button"><strong>BEGINS</strong></a>
+			<a href="{{url('/create-space/place-type')}}" class="btn beginsbecome" role="button"><strong>BEGINS</strong></a>
 		</div>
 	</div>        
 </div>

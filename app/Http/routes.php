@@ -21,12 +21,12 @@ Route::post('/createuser','UserController@CreateUser');
 Route::post('/postlogin','UserController@postLogin');
 
 // Routes for the space creation{
-    Route::get('/space-create/place-type','CreateSpaceController@First');
-    Route::get('/space-create/bedrooms','CreateSpaceController@Second1');
-    Route::get('/space-create/bedrooms/edit-bedrooms','CreateSpaceController@Second2');
-    Route::get('/space-create/bedrooms/edit-bedrooms/add-bed','CreateSpaceController@Second3');
-    Route::get('/space-create/baths','CreateSpaceController@Third');
-    Route::get('/space-create/location','CreateSpaceController@Fourth');
-    Route::get('/space-create/amenities','CreateSpaceController@Fifth');
-    Route::get('/space-create/hosting','CreateSpaceController@Sixth');
+    Route::get('/create-space/place-type','CreateSpaceController@First');
+    Route::get('/create-space/bedrooms','CreateSpaceController@Second1');
+    Route::get('/create-space/bedrooms/edit-bedrooms','CreateSpaceController@Second2');
+    Route::get('/create-space/bedrooms/edit-bedrooms/add-bed','CreateSpaceController@Second3');
+    Route::get('/create-space/baths','CreateSpaceController@Third');
+    Route::get('/create-space/location','CreateSpaceController@Fourth');
+    Route::get('/create-space/amenities','CreateSpaceController@Fifth');
+    Route::get('/create-space/hosting','CreateSpaceController@Sixth');
 //}
