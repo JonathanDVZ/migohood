@@ -26,27 +26,17 @@ class CreateSpaceController extends Controller
      
         public function Second1()
     {
-        return view("CreateSpace.bedrooms1");
+        return view("CreateSpace.bedrooms");
     }
      
         public function Second2()
     {
-        return view("CreateSpace.bedrooms2");
+        return view("CreateSpace.bedrooms-all");
     }
      
         public function Second3()
     {
-        return view("CreateSpace.bedrooms3");
-    }
-     
-        public function Second4()
-    {
-        return view("CreateSpace.bedrooms4");
-    }
-     
-        public function Second5()
-    {
-        return view("CreateSpace.bedrooms5");
+        return view("CreateSpace.bedrooms-addbed");
     }
 
         public function Third()

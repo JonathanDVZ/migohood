@@ -1,18 +1,8 @@
- @extends('layouts.master') @section('title', 'Bedrooms') @section('class', 'contenedor') @section( 'content')
-<div class="barra3">
-    <nav class="navbar navbar-default navibar2" role="navigation">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav centered">
-                <li><a href="#">Place type</a></li>
-                <li><a class="activo" href="#">Bedrooms</a></li>
-                <li><a href="#">Baths</a></li>
-                <li><a href="#">Locations</a></li>
-                <li><a href="#">Amenities</a></li>
-                <li><a href="#">Hosting</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+@extends('layouts.master') 
+@section('title', 'Bedrooms') 
+@section('class', 'contenedor') 
+@section( 'content')
+@include('CreateSpace.navbar.navbar',['activo' => 'bedrooms'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1"></div>
@@ -32,7 +22,7 @@
                         </div>
                         <div class="titulos">
 
-                            <button type="button" class="btn btn-sm continue">Agregar Camas</button>
+                            <a href="{{url('/space-create/bedrooms/edit-bedroom/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
                         </div>
                     </div>
                     <hr>
@@ -44,7 +34,7 @@
                         </div>
                         <div class="titulos text-right">
 
-                            <button type="button" class="btn btn-sm continue">Agregar Camas</button>
+                            <a href="{{url('/space-create/bedrooms/edit-bedroom/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
                         </div>
                     </div>
                     <hr>
@@ -56,7 +46,7 @@
                         </div>
                         <div class="titulos">
 
-                            <button type="button" class="btn btn-sm continue">Agregar Camas</button>
+                            <a href="{{url('/space-create/bedrooms/edit-bedroom/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
                         </div>
                     </div>
                     <hr>
@@ -82,7 +72,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href=""><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/space-create/bedrooms')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
