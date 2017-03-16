@@ -1,4 +1,8 @@
-@extends('layouts.master') @section('title', 'Amenities') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'amenities'])
+@extends('layouts.master') 
+@section('title', 'Amenities') 
+@section('class', 'contenedor') 
+@section( 'content') 
+@include('CreateSpace.navbar.navbar',['activo' => 'amenities'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
