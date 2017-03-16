@@ -601,8 +601,8 @@
         top: 20px;
     }
     /*FOOTER*/
-
-    footer{ 
+    
+    footer {
         position: absolute;
         bottom: 0;
         left: 0;
@@ -1020,9 +1020,9 @@
                                    MEDIA QUERIES
 
         **********************************************************************/
-
-    @media all and (max-width:991px){
-        body{
+    
+    @media all and (max-width:991px) {
+        body {
             padding-bottom: 395px;
         }
     }
@@ -1203,7 +1203,7 @@
             margin-right: 10%;
             margin-bottom: 30px;
         }
-        body{
+        body {
             padding-bottom: 765px;
         }
     }
