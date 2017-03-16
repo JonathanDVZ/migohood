@@ -25,6 +25,6 @@ Route::get('/space-create/bedrooms/edit-bedroom/add-bed','CreateSpaceController@
 Route::get('/Bedrooms-4','CreateSpaceController@Second4');
 Route::get('/Bedrooms-5','CreateSpaceController@Second5');
 Route::get('/Baths','CreateSpaceController@Third');
-Route::get('/Locations','CreateSpaceController@Fourth');
+Route::get('/space-create/location','CreateSpaceController@Fourth');
 Route::get('/Amenities','CreateSpaceController@Fifth');
 Route::get('/Hosting','CreateSpaceController@Sixth');

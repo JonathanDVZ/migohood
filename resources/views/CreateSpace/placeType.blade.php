@@ -2,20 +2,7 @@
 @section('title', 'Place Type') 
 @section('class', 'contenedor') 
 @section('content')
-<div class="barra3">
-    <nav class="navbar navbar-default navibar2" role="navigation">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav centered">
-                <li><a class="activo" href="#">Place type</a></li>
-                <li><a href="#">Bedrooms</a></li>
-                <li><a href="#">Baths</a></li>
-                <li><a href="#">Locations</a></li>
-                <li><a href="#">Amenities</a></li>
-                <li><a href="#">Hosting</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+@include('CreateSpace.navbar.navbar',['activo' => 'placetype'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1"></div>

@@ -1,18 +1,8 @@
- @extends('layouts.master') @section('title', 'Hosting') @section('class', 'contenedor') @section( 'content')
-<div class="barra3">
-    <nav class="navbar navbar-default navibar2" role="navigation">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav centered">
-                <li><a href="#">Place type</a></li>
-                <li><a href="#">Bedrooms</a></li>
-                <li><a href="#">Baths</a></li>
-                <li><a href="#">Locations</a></li>
-                <li><a href="#">Amenities</a></li>
-                <li><a class="activo" href="#">Hosting</a></li>
-            </ul>
-        </div>
-    </nav>
-</div>
+@extends('layouts.master') 
+@section('title', 'Hosting')
+@section('class', 'contenedor')
+@section( 'content')
+@include('CreateSpace.navbar.navbar',['activo' => 'hosting'])
 
 <div class="container-fluid">
     <div class="row">
