@@ -16,53 +16,40 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <br>
-            <div class="text-right">
-                <div class="titulos">
-                    <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
-                </div>
-                <div class="titulos">
-                    <button type="button" class="btn btn-sm continue">Agregar Camas</button>
-                </div>
-            </div>
-
-            <hr>
             <div class="row">
                 <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
                 </div>
                 <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
+                    <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
+                    <br>
+                    <div class="list-inline">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""><strong>Mascotas permitidas</strong></label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""> <strong>Eventos permitidos</strong></label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""><strong>Produccion permitida</strong></label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""><strong>Ambiente familiar</strong></label>
                         </div>
                     </div>
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
+                    <div class="list-inline">
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""><strong>Invitado de negocios</strong></label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""><strong>No fumadores</strong></label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""><strong>Gimnasio</strong></label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value=""><strong>Estacionamiento</strong></label>
                         </div>
                     </div>
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
-                        </div>
-                    </div>
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="1" required>
-                        </div>
-                    </div>
-
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <label>¿Cuantas Habitaciones ofrece?:</label>
-                        </div>
-                        <select class="selectpicker form-control required">
-                                <option>2 Bedrooms</option>
-                                <option>3 Bedrooms</option>
-                                <option>4 Bedrooms</option>
-                        </select>
-                    </div>
-                    <hr>
                 </div>
             </div>
         </div>
