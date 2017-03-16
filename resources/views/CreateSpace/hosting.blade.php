@@ -1,8 +1,4 @@
-@extends('layouts.master') 
-@section('title', 'Hosting')
-@section('class', 'contenedor')
-@section( 'content')
-@include('CreateSpace.navbar.navbar',['activo' => 'hosting'])
+@extends('layouts.master') @section('title', 'Hosting') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'hosting'])
 
 <div class="container-fluid">
     <div class="row">
@@ -13,18 +9,22 @@
                         <h3 class="titulo text-center">INDICA TU DIRECCIÓN</h3>
                         <br>
                     </div>
-                    <div class="form-group text-right">
-                        <select class="selectpicker form-control" required data-live-search="true">
-                            <option></option>
-                            <option data-tokens="colombia">Colombia</option>
-                            <option data-tokens="venezuela">Venezuela</option>
-                            <option data-tokens="estados unidos">Estados Unidos</option>
-                            <option data-tokens="españa">España</option>
-                            <option data-tokens="argentina">Argentina</option>
-                            <option data-tokens="brasil">Brasil</option>
-                            <option data-tokens="chile">Chile</option>
-                            </select>
-
+                    <div style="overflow:hidden;">
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div id="datetimepicker12"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            $(function() {
+                                $('#datetimepicker12').datetimepicker({
+                                    inline: true,
+                                    sideBySide: true
+                                });
+                            });
+                        </script>
                     </div>
                     <div class="form-group text-right">
                         <div class="text-left">

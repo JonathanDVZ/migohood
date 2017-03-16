@@ -26,10 +26,9 @@
         });
     </script>
 </head>
-@if(Auth::check())
 
 <body class='@yield("class")'>
-    @include('headers.header-login') @else @include('headers.header-login') @endif @yield ('content')
+    @if(Auth::check()) @include('headers.header-login') @else @include('headers.header-login') @endif @yield ('content')
     <footer>
         @include ("footers/footer")
     </footer>
@@ -37,7 +36,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{{url('/assets/js/jquery.min.js')}}"></script>
-    <script src="{{url('/assets/js/bootstrap.min.js')}}'"></script>
+    <script src="{{url('/assets/js/bootstrap.min.js')}}'"></script>}
     <script src="{{url('/assets/js/bootstrap-datetimepicker.min.js')}}"></script>
     <script src="{{url('/assets/js/moment.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
