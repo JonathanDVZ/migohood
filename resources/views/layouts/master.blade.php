@@ -10,7 +10,7 @@
     <link href="{{url('/assets/css/styles.css')}}" rel="stylesheet">
     <link rel="shortcut icon" href="{{url('/assets/img/favicon.ico')}}">
     <link href="{{url('/assets/css/sweetalert.css')}}" rel="stylesheet">
-
+    <link rel="stylesheet" href="{{url('/assets/css/bootstrap-datetimepicker.css')}}" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
@@ -38,10 +38,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="{{url('/assets/js/jquery.min.js')}}"></script>
     <script src="{{url('/assets/js/bootstrap.min.js')}}'"></script>
-    <script type="text/javascript" src="/assets/moment.js"></script>
-    <script type="text/javascript" src="/assets/bootstrap/js/transition.js"></script>
-    <script type="text/javascript" src="/assets/bootstrap/js/collapse.js"></script>
-    <script type="text/javascript" src="/assets/bootstrap-datetimepicker.min.js"></script>
+    <script src="{{url('/assets/js/bootstrap-datetimepicker.min.js')}}"></script>
+    <script src="{{url('/assets/js/moment.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/i18n/defaults-*.min.js"></script>
 
