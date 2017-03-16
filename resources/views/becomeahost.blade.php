@@ -1,4 +1,6 @@
-@extends('layouts.master') @section('title', 'Become a host') @section('content')
+@extends('layouts.master') 
+@section('title', 'Become a host') 
+@section('content')
 <div class="container-fluid area1">	            
     <div class="row dist1" >            	
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
@@ -34,4 +36,4 @@
    		</div>
 	</div>
 </div>
-@endsection @section("footer") @endsection
+@endsection

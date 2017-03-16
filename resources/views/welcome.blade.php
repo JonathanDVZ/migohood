@@ -51,7 +51,7 @@
 </div>
 <div class="container-fluid second">
     <div class="row">
-        <div class="container-fluid second">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 text-center">
                     <img class="img-responsive hoWork" src="{{url('assets/img/TELEFONO-10.png')}}" alt="">

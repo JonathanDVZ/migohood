@@ -511,7 +511,6 @@
     }
     
     .second {
-        margin-bottom: -2px;
         padding-bottom: 0;
         padding-left: 0;
         padding-right: 0;
@@ -1018,6 +1017,12 @@
                                    MEDIA QUERIES
 
         **********************************************************************/
+
+    @media all and (max-width:991px){
+        body{
+            padding-bottom: 395px;
+        }
+    }
     
     @media (min-width: 768px) and (max-width:991px) {
         .intro-header-page1 {
@@ -1028,7 +1033,7 @@
             text-align: center;
             color: #f8f8f8;
             background: url(../img/fondo-azul.png) no-repeat center center;
-            <<<<<<< HEAD=======background-size: cover;
+            background-size: cover;
         }
         .intro-message1 {
             position: relative;
@@ -1082,7 +1087,7 @@
         }
         .area3 {
             background: url(../img/fondobah2.png) no-repeat center center;
-            >>>>>>>e4824fbe8ca093d950f2b5b1eb04e10072f0761c background-size: 100% 100%;
+            background-size: 100% 100%;
         }
         .dist1 {
             padding-top: 15em;
@@ -1194,6 +1199,9 @@
             margin-left: 10%;
             margin-right: 10%;
             margin-bottom: 30px;
+        }
+        body{
+            padding-bottom: 765px;
         }
     }
     
