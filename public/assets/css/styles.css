@@ -22,7 +22,6 @@
         overflow-x: hidden;
         background: url('../img/FondoAzulDegradado.png') no-repeat center center;
         background-size: cover;
-        position: absolute;
     }
     
     .RetNex {
@@ -78,6 +77,8 @@
         width: 100%;
         min-height: 100%;
         overflow-x: hidden;
+        position: relative;
+        padding-bottom: 251px;
     }
     
     .first .unM {
@@ -510,7 +511,8 @@
     }
     
     .second {
-        padding-bottom: 1em;
+        margin-bottom: -2px;
+        padding-bottom: 0;
         padding-left: 0;
         padding-right: 0;
     }
@@ -597,14 +599,20 @@
         top: 20px;
     }
     /*FOOTER*/
+
+    footer{ 
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+    }
     
     #footer {
         width: 100%;
         background: #0093B4;
         color: #fff;
         padding-top: 1%;
-        position: relative;
-        bottom: 0;
     }
     
     .navibar2 div ul li .activo {

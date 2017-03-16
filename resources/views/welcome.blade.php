@@ -1,4 +1,7 @@
-@extends('layouts.master') @section('title', 'Home') @section('content')
+@extends('layouts.master') 
+@section('title', 'Home') 
+@section('content')
+<div>
 <div class="container-fluid first">
     <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 nopadding ">
@@ -84,5 +87,5 @@
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center"></div>
         </div>
     </div>
-    <div></div>
-    @include('partials.alert') @endsection @section("footer") @endsection
+<div></div></div></div>
+@endsection
