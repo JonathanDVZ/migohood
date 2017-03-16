@@ -16,6 +16,10 @@
         resize: none;
     }
     
+    .cheks {
+        display: inline-block;
+    }
+    
     .contenedor {
         width: 100%;
         min-height: 100%;
@@ -43,7 +47,7 @@
         border-style: solid;
         border-color: #fff;
         color: #fff;
-        font-size: 12px;
+        font-size: 15px;
         padding: 1.5em;
     }
     
