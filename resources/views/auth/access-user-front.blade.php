@@ -49,5 +49,4 @@
         </div>   
     </div>
 </div>
-@include('partials.alert') 
 @endsection

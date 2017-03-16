@@ -28,7 +28,14 @@
 </head>
 
 <body class='@yield("class")'>
-    @if(Auth::check()) @include('headers.header-login') @else @include('headers.header-login') @endif @yield ('content')
+    @if(Auth::check()) 
+        @include('headers.header-login') 
+    @else 
+        @include('headers.header-login') 
+    @endif 
+    
+    @include('partials.alert') 
+    @yield ('content')
     <footer>
         @include ("footers/footer")
     </footer>

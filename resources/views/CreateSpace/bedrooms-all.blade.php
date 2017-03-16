@@ -20,7 +20,7 @@
                         </div>
                         <div class="titulos">
 
-                            <a href="{{url('/create-space/bedrooms/edit-bedroom/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
+                            <a href="{{url('/create-space/bedrooms/edit-bedrooms/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
                         </div>
                     </div>
                     <hr>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="titulos text-right">
 
-                            <a href="{{url('/create-space/bedrooms/edit-bedroom/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
+                            <a href="{{url('/create-space/bedrooms/edit-bedrooms/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
                         </div>
                     </div>
                     <hr>
@@ -44,7 +44,7 @@
                         </div>
                         <div class="titulos">
 
-                            <a href="{{url('/create-space/bedrooms/edit-bedroom/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
+                            <a href="{{url('/create-space/bedrooms/edit-bedrooms/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
                         </div>
                     </div>
                     <hr>

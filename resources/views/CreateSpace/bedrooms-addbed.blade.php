@@ -10,14 +10,16 @@
                 <div class="col-sm-6 col-sm-offset-5">
                     <br>
                     <div class="text-right">
-                        <div class="titulos">
-                            <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
-                            <span class="text-left">Habitacion 1</span>
-                            <br>
-                            <span class="text-left">Camas 0</span>
-                        </div>
-                        <div class="titulos">
-                            <button type="button" class="btn btn-sm continue2">Listo</button>
+                        <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
+                        <div class='beds-detail'>
+                            <div>
+                                <button type="button" class="btn btn-sm continue2">Listo</button>
+                            </div>
+                            <div>
+                                <span class="text-left">Habitacion 1</span>
+                                <br>
+                                <span class="text-left">Camas 0</span>
+                            </div>
                         </div>
                     </div>
 

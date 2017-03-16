@@ -186,13 +186,15 @@
         color: #fff;
         background: #00223C;
         border-radius: 20px;
-        margin-top: -1em;
         margin-left: 2em;
     }
     
     .continue2:hover {
         color: #fff;
     }
+
+    .beds-detail{ overflow: hidden; }
+    .beds-detail div{ float: right; }
     
     .construccion {
         width: 100%;
