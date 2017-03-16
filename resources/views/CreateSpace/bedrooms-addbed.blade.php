@@ -6,24 +6,22 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <br>
-            <div class="text-right">
-                <div class="titulos">
-                    <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
-                    <span class="text-left">Habitacion 1</span>
-                    <br>
-                    <span class="text-left">Camas 0</span>
-                </div>
-                <div class="titulos">
-                    <button type="button" class="btn btn-sm continue2">Listo</button>
-                </div>
-            </div>
-
-            <hr>
             <div class="row">
-                <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
-                </div>
-                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+                <div class="col-sm-6 col-sm-offset-5">
+                    <br>
+                    <div class="text-right">
+                        <div class="titulos">
+                            <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
+                            <span class="text-left">Habitacion 1</span>
+                            <br>
+                            <span class="text-left">Camas 0</span>
+                        </div>
+                        <div class="titulos">
+                            <button type="button" class="btn btn-sm continue2">Listo</button>
+                        </div>
+                    </div>
+
+                    <hr>
                     <div class="form-group text-right">
                         <div class="text-left">
                             <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="0 Camas Dobles" required>

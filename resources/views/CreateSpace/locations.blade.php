@@ -10,9 +10,7 @@
             <br>
             <div class="text-right">
                 <div class="row">
-                    <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
-                    </div>
-                    <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+                    <div class="col-sm-8 col-sm-offset-4">
                         <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
                         <br>
                         <div class="form-group text-right">

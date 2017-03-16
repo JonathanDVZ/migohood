@@ -11,9 +11,7 @@
             <h3 class="titulo text-center">CUENTANOS SOBRE EL LUGAR A AGREGAR</h3>
             <br>
             <div class="row">
-                <div class="col-lg-6 col-md-4 col-sm-4 col-xs-12">
-                </div>
-                <div class="col-lg-6 col-md-8 col-sm-8 col-xs-12">
+                <div class="col-sm-6 col-sm-offset-3">
                     <div class="form-group text-right">
                         <div class="text-left">
                             <label>¿Cómo es tu propiedad?:</label>
