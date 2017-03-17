@@ -36,15 +36,15 @@ return [
     ],
 
     'facebook' => [
-        'client_id' => '610307952496520',
-        'client_secret' => '4a8719b8bbf1fa2277671dbf9647eb54',
-        'redirect' => 'http://localhost/migohood/public/social/callback/facebook',
+        'client_id' => env('FACEBOOK_ID'),
+        'client_secret' => env('FACEBOOK_SECRET'),
+        'redirect' => env('FACEBOOK_URL'),
     ],
  
     'google' => [
-        'client_id' => '900552274918-08dtuj7ohevc90mkh0l770kob7gho1te.apps.googleusercontent.com',
-        'client_secret' => 'mirGFSbEoUn1-egp-wrcGqrj',
-        'redirect' => 'http://localhost/migohood/public/social/callback/google',
+        'client_id' => env('GOOGLE_ID'),
+        'client_secret' => env('GOOGLE_SECRET'),
+        'redirect' => env('GOOGLE_URL'),
     ],
 
 ];
