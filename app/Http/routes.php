@@ -31,3 +31,8 @@ Route::get('/logout','UserController@logout');
     Route::get('/create-space/amenities','CreateSpaceController@Fifth');
     Route::get('/create-space/hosting','CreateSpaceController@Sixth');
 //}
+
+//Social Login{
+Route::get('social/{provider?}', 'SocialController@getSocialAuth');
+Route::get('social/callback/{provider?}', 'SocialController@getSocialAuthCallback');    
+//}

@@ -35,4 +35,16 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'facebook' => [
+        'client_id' => '610307952496520',
+        'client_secret' => '4a8719b8bbf1fa2277671dbf9647eb54',
+        'redirect' => 'http://localhost/migohood/public/social/callback/facebook',
+    ],
+ 
+    'google' => [
+        'client_id' => '900552274918-08dtuj7ohevc90mkh0l770kob7gho1te.apps.googleusercontent.com',
+        'client_secret' => 'mirGFSbEoUn1-egp-wrcGqrj',
+        'redirect' => 'http://localhost/migohood/public/social/callback/google',
+    ],
+
 ];
