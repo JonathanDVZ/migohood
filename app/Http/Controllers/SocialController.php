@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Socialite;
 use Curl;
 use Response;
@@ -21,8 +21,8 @@ class SocialController extends Controller {
 
        public function getSocialAuthCallback($provider=null)
        {
-          if($usersocialite = Socialite::driver($provider)->stateless()->user()){
-            if ($the_user = User::select()->where('email', '=', $usersocialite->email)->first()){
+        if($usersocialite = Socialite::driver($provider)->stateless()->user()){
+           
             //comenzando validacion	
              	$user = Curl::to(env('MIGOHOOD_API_URL').'/user/login-oauth')
                     	->withData( array(                                       
@@ -30,15 +30,18 @@ class SocialController extends Controller {
                         	) )
                     	->asJson( true )
                     	->post();
-    			if(is_array($user) && array_key_exists('id', $user)){
-       		 	Auth::loginUsingId($user['id'],$request->has("remember"));
+    			
+    			var_dump($user);
+    			
+    			if (is_array($user) && array_key_exists('id', $user)){
+       		 	//Auth::loginUsingId($user['id'],true);
 
         		return redirect('/')->with(['message-alert' => 'Bienvenido has accedido']);
     			}
-    			return redirect('/accessuser')->with(['message-alert' => 'la cuenta con la que estas intentando entrar no esta registrada o tu clave es incorrecta']);
+    			//return redirect('/accessuser')->with(['message-alert' => 'la cuenta con la que estas intentando entrar no esta registrada o tu clave es incorrecta']);
 			//terminando validacion
-            }	
-        	else{     
+            	
+        	  
               try
                 {
                 $user = Curl::to(env('MIGOHOOD_API_URL').'/user/set-user-oauth')
@@ -63,8 +66,9 @@ class SocialController extends Controller {
 
                 }catch(Exception $e){
                 return redirect('/registeruser')->with(['message-alert' => ''.$e->getMessage().'']);
-                }  
-           	}
+                }
+                  
+           	
           
           }else{
              return redirect('/')->with(['message-alert' => 'NO SE HA PODIDO REALIZAR LA OPERACION']);
