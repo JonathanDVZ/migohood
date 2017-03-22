@@ -6,13 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="{{url('/assets/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{url('/assets/css/font-awesome.min.css')}}'" rel="stylesheet">
+    <link href="{{url('/assets/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{url('/assets/css/styles.css')}}" rel="stylesheet">
     <link rel="shortcut icon" href="{{url('/assets/img/favicon.ico')}}">
     <link href="{{url('/assets/css/sweetalert.css')}}" rel="stylesheet">
     <link href="{{url('/assets/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
-    <link href="{{url('/assets/css/font-awesome.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 </head>
 <body class='@yield("class")'>
