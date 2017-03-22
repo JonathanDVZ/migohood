@@ -22,7 +22,7 @@
                                     <label class="textwhite">Precio:</label>
                                 </div>
                                 <div class="text-left">
-                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" required/>
+                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
                                 </div>
                             </div>
                         </div>
@@ -157,15 +157,33 @@
                                 </form>
                             </div>
                         </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="text-left">
+                                    <span class="textwhite">Price for the night:</span>
+                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="text-left">
                     <br>
                     <span>TIP:20$</span>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam neque dolore expedita est sed voluptatibus.</p>
-                    <button type="button" class="btn btn-md works" data-toggle="button" onclick="">Add note <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                    <button type="button" id="show" class="btn btn-md works" data-toggle="button" onclick="">Add note <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                    <br>
+                    <div id="Hidden">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div>
+
+                    </div>
                 </div>
                 <div class="text-center">
+                    <br>
                     <div class="cheks">
                         <button type="button" class="btn btn-md works2" data-toggle="button">Cancel</button>
                     </div>

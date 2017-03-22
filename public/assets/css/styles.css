@@ -40,6 +40,10 @@
         padding-left: 12px
     }
     
+    #Hidden {
+        /*display: none;*/
+    }
+    
     * {
         margin: 0;
         padding: 0;
