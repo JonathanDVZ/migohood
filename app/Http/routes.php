@@ -15,7 +15,6 @@ Route::get('/','IndexController@index');
 Route::get('/home','IndexController@index');
 Route::get('/registeruser','UserController@index');
 Route::get('/accessuser','Auth\AuthController@getLogin');
-Route::get('/secondstepspace','UserController@secondstepspace');
 Route::get('/becomeahost','UserController@becomeahost');
 Route::post('/createuser','UserController@CreateUser');
 Route::post('/postlogin','UserController@postLogin');
@@ -30,4 +29,13 @@ Route::get('/logout','UserController@logout');
     Route::get('/create-space/location','CreateSpaceController@Fourth');
     Route::get('/create-space/amenities','CreateSpaceController@Fifth');
     Route::get('/create-space/hosting','CreateSpaceController@Sixth');
+    Route::get('/create-space/basics','CreateSpaceController@Seventh');
+    Route::get('/create-space/listing','CreateSpaceController@Eigth');
+    Route::get('/create-space/photos','CreateSpaceController@Ninth');
+    Route::get('/create-space/services','CreateSpaceController@Tenth');
+//}
+
+//Social Login{
+Route::get('social/{provider?}', 'SocialController@getSocialAuth');
+Route::get('social/callback/{provider?}', 'SocialController@getSocialAuthCallback');    
 //}

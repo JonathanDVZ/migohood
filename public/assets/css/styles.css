@@ -6,6 +6,135 @@
         overflow-x: hidden;
     }
     
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 52px;
+        height: 25px;
+    }
+    
+    .switch input {
+        display: none;
+    }
+    
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    
+    input:checked+.slider {
+        background-color: #2196F3;
+    }
+    
+    input:focus+.slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked+.slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+    /* Rounded sliders */
+    
+    .slider.round {
+        border-radius: 34px;
+    }
+    
+    .slider.round:before {
+        border-radius: 50%;
+    }
+    
+    .bootstrap-iso .form-group button,
+    .bootstrap-iso form input.form-control,
+    .bootstrap-iso form textarea.form-control,
+    .bootstrap-iso form select.form-control {
+        -webkit-border-radius: 0 !important;
+        -moz-border-radius: 0;
+        border-radius: 0;
+    }
+    
+    .bootstrap-iso .formden_header h2,
+    .bootstrap-iso .formden_header p,
+    .bootstrap-iso form {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000000
+    }
+    
+    .bootstrap-iso form button,
+    .bootstrap-iso form button:hover {
+        color: white !important;
+    }
+    
+    .bootstrap-iso .form-control:focus {
+        border-color: #0093b4;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 147, 180, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 147, 180, 0.6);
+    }
+    
+    .bootstrap-iso form .input-group-addon {
+        color: #0093b4;
+        background-color: #ffffff;
+        border-radius: 0px;
+        padding-left: 12px
+    }
+    
+    .green {
+        display: block;
+        height: 3px;
+        border: 0;
+        border-top: 1px solid green;
+        padding: 0;
+        background-color: green;
+    }
+    
+    .orange {
+        display: block;
+        height: 3px;
+        border: 0;
+        border-top: 1px solid orange;
+        padding: 0;
+        background-color: orange;
+    }
+    
+    .red {
+        display: block;
+        height: 3px;
+        border: 0;
+        border-top: 1px solid red;
+        padding: 0;
+        background-color: red;
+    }
+    
+    .textwhite2 {
+        color: #fff;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    
+    #Hidden {
+        /*display: none;*/
+    }
+    
     * {
         margin: 0;
         padding: 0;
@@ -14,6 +143,10 @@
     
     textarea {
         resize: none;
+    }
+    
+    .imgHom {
+        width: 75%;
     }
     
     .cheks {
@@ -46,9 +179,21 @@
         margin-top: 4em;
         border-style: solid;
         border-color: #fff;
-        color: #fff;
         font-size: 15px;
         padding: 1.5em;
+    }
+    
+    .Wbox p,
+    .Wbox span {
+        color: #fff;
+    }
+    
+    .Wbox span.input-group-addon {
+        background-color: #fff;
+    }
+    
+    .Wbox span.glyphicon-calendar {
+        color: #58b5ca;
     }
     
     .titulo {
@@ -59,7 +204,7 @@
     .hoWork {
         margin-top: 1.5em;
         margin-left: 25%;
-        width: 55%;
+        width: 45%;
     }
     
     .circulo {
@@ -67,7 +212,7 @@
         margin-right: 0;
         margin-top: 15%;
         display: block;
-        width: 100%;
+        width: 90%;
         z-index: -1;
         padding: 0;
     }
@@ -75,8 +220,8 @@
     .texto {
         width: 55%;
         position: absolute;
-        top: 29%;
-        left: 22%;
+        top: 24%;
+        left: 18%;
     }
     
     body {
@@ -192,9 +337,14 @@
     .continue2:hover {
         color: #fff;
     }
-
-    .beds-detail{ overflow: hidden; }
-    .beds-detail div{ float: right; }
+    
+    .beds-detail {
+        overflow: hidden;
+    }
+    
+    .beds-detail div {
+        float: right;
+    }
     
     .construccion {
         width: 100%;
@@ -382,7 +532,9 @@
         width: 100%;
     }
     
-    .navbar-nav>li>.dropdown-menu{ background-color: rgba(27, 148, 181,0.7); }
+    .navbar-nav>li>.dropdown-menu {
+        background-color: rgba(27, 148, 181, 0.7);
+    }
     
     #navibar2 li a {
         color: #fff;
@@ -501,6 +653,17 @@
         color: #fff;
     }
     
+    .works2 {
+        border-radius: 15px;
+        background: #0093B4;
+        color: #fff;
+        border-color: #fff;
+    }
+    
+    .works2:active {
+        background: #023859;
+    }
+    
     .hood {
         color: #000;
         font-weight: bold;
@@ -536,7 +699,7 @@
         background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
         background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
         filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1b94b5', GradientType=0);
-        padding-top: 0.6em;
+        padding-top: 0em;
         height: 70px;
     }
     

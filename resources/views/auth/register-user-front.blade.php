@@ -8,23 +8,23 @@
             <div class="col-lg-12">
                 <div class="intro-message1">                     
                     <p>                            
-                    <div style="display: inline;"><button type="button" class="btngmail" ><img src="{{url('/assets/img/gmail.png')}}" alt="" height="15px" width="15px"><b>&nbsp;&nbsp;&nbsp;&nbsp; REGISTER WITH GMAIL</b></button></div>
+                    <div style="display: inline;"><button type="button" class="btngmail" onclick="window.location.href='{{url("social/google")}}'"><img src="{{url('/assets/img/gmail.png')}}" alt="" height="15px" width="15px"><b>&nbsp;&nbsp;&nbsp;&nbsp; REGISTRO CON GMAIL</b></button></div>
                     </br></br>
-                    <div style="display: inline;"><button type="button" class="btngmail"><img src="{{url('/assets/img/facebook.png')}}" alt="" height="15px" width="15px" align="middle" class="miimagen" ><b>&nbsp;&nbsp;&nbsp;&nbsp;REGISTER WITH FACEBOOK</b></button></div>
+                    <div style="display: inline;"><button type="button" class="btngmail" onclick="window.location.href='{{url("social/facebook")}}'"><img src="{{url('/assets/img/facebook.png')}}" alt="" height="15px" width="15px" align="middle" class="miimagen" ><b>&nbsp;&nbsp;&nbsp;&nbsp;REGISTRO CON FACEBOOK</b></button></div>
                     </br></br>
                     </p>
                     <form class="form-horizontal" method="POST" action="{{ url('createuser') }}">
                         {{ csrf_field() }} 
                         <div class="form-group separation-element-form">
-                            <label for="name" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Name</label>
+                            <label for="name" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Nombre</label>
                             <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
-                                  <input type="text" class="custom-control form-control" name="name" id="name" placeholder="Name">
+                                  <input type="text" class="custom-control form-control" name="name" id="name" placeholder="Nombre">
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
-                            <label for="lastname" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Lastame</label>
+                            <label for="lastname" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-labell" style="text-align:left; color:#023859">Apellido</label>
                             <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
-                                  <input type="text" class="custom-control form-control" name="lastname" id="lastname" placeholder="Lastname">
+                                  <input type="text" class="custom-control form-control" name="lastname" id="lastname" placeholder="Apellido">
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
@@ -34,28 +34,28 @@
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
-                            <label for="password" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-label" style="text-align:left; color:#023859">Password</label>
+                            <label for="password" class="col-sm-offset-3 col-sm-3 col-md-offset-3  col-md-2   control-label" style="text-align:left; color:#023859">Clave</label>
                             <div class="col-sm-4 col-sm-pull-1 col-md-pull-0 col-md-4">
-                                  <input type="password" class="custom-control form-control" name="password" id="password" placeholder="Password">
+                                  <input type="password" class="custom-control form-control" name="password" id="password" placeholder="Clave">
                             </div>
                         </div>
                         <div class="form-group separation-element-form">
-                            <label for="confirmpassword" class="col-sm-offset-3 col-sm-2 control-label" style="text-align:left; color:#023859">Confirm Password</label>
+                            <label for="confirmpassword" class="col-sm-offset-3 col-sm-2 control-label" style="text-align:left; color:#023859">Confirmar Clave</label>
                             <div class="col-sm-4">
-                                  <input type="password" class="custom-control form-control" id="confirmpassword" name="confirmpassword" placeholder="Password">
+                                  <input type="password" class="custom-control form-control" id="confirmpassword" name="confirmpassword" placeholder="Clave">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-4 separation">
                                 <div class="checkbox">                
                                       <input type="checkbox" id="checkbox2" name="checkbox2"><label for="checkbox2"></label>
-                                      <span class="colortext">I agree with terms and conditions, privacy politics, guest refund politics and payments terms o service</span>
+                                      <span class="colortext">Estoy de acuerdo con los términos y condiciones, política de privacidad, política de reembolso de invitados y términos de pagos o servicio</span>
                                 </div> 
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-1 col-sm-10">
-                                <button type="submit" class="btn singup"><b>SIGN UP</b></button>
+                                <button type="submit" class="btn singup"><b>REGÍSTRATE</b></button>
                             </div>
                         </div>
                     </form>

@@ -25,14 +25,9 @@ class UserController extends Controller
         return view('auth.register-user-front');
     }
 
-         public function becomeahost()
+    public function becomeahost()
     {
-        return view ("becomeahost");
-    }
-
-    public function secondstepspace()
-    {
-        return view ("secondstepspace");
+        return view ("site.becomeahost");
     }
 
     /**
@@ -63,7 +58,7 @@ class UserController extends Controller
             
                     if (is_array($user) && array_key_exists('id', $user)){
                      Auth::loginUsingId($user['id'],true);
-                        return redirect('/')->with(['message-alert' => 'YOU ARE NOW REGISTRED']);
+                        return redirect('/')->with(['message-alert' => 'USTED ESTA AHORA REGISTRADO']);
                     }
                     else{
                         $user = json_encode($user);
@@ -77,11 +72,11 @@ class UserController extends Controller
                 }
             }   
             else{
-                return redirect('/registeruser')->with(['message-alert' => 'Must accept terms and conditions']);
+                return redirect('/registeruser')->with(['message-alert' => 'DEBE ACEPTAR TERMINOS Y CONDICIONES']);
             }
         }
         else{
-            return redirect('/registeruser')->with(['message-alert' => 'password and confirm password must be the same']);    
+            return redirect('/registeruser')->with(['message-alert' => 'la calve y su confirmación deben ser iguales']);    
         }
     }
    
@@ -97,9 +92,9 @@ class UserController extends Controller
     if(is_array($user) && array_key_exists('id', $user)){
         Auth::loginUsingId($user['id'],$request->has("remember"));
 
-        return redirect('/')->with(['message-alert' => 'Welcome you have acceded']);
+        return redirect('/')->with(['message-alert' => 'Bienvenido has accedido']);
     }
-    return redirect('/accessuser')->with(['message-alert' => 'The account that you want to enter is not registred or your password is incorrect']);
+    return redirect('/accessuser')->with(['message-alert' => 'la cuenta con la que estas intentando entrar no esta registrada o tu clave es incorrecta']);
     
     }
 
