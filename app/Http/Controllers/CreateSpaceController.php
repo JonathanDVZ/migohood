@@ -59,7 +59,25 @@ class CreateSpaceController extends Controller
         return view("CreateSpace.hosting");
     }
 
+        public function Seventh()
+    {
+        return view("CreateSpace.basics");
+    }
 
+        public function Eigth()
+    {
+        return view("CreateSpace.listing");
+    }
+
+        public function Ninth()
+    {
+        return view("CreateSpace.photos");
+    }
+
+        public function Tenth()
+    {
+        return view("CreateSpace.services");
+    }            
     /**
      * Show the form for creating a new resource.
      *
