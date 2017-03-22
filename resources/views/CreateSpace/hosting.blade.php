@@ -132,29 +132,25 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <br>
-                                <form method="post">
-                                    <div class="form-group form-group-sm">
-                                        <div class="input-group">
-                                            <input class="form-control" id="date" name="date" placeholder="DD/MM/AAAA" type="text" />
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                        </div>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <br>
-                                <form method="post">
-                                    <div class="form-group form-group-sm">
-                                        <div class="input-group">
-                                            <input class="form-control" id="date" name="date" placeholder="DD/MM/AAAA" type="text" />
-                                            <div class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </div>
-                                        </div>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker2'>
+                                        <input type='text' class="form-control" />
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
 
