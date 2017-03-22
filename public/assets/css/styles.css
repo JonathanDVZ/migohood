@@ -6,6 +6,40 @@
         overflow-x: hidden;
     }
     
+    .bootstrap-iso .form-group button,
+    .bootstrap-iso form input.form-control,
+    .bootstrap-iso form textarea.form-control,
+    .bootstrap-iso form select.form-control {
+        -webkit-border-radius: 0 !important;
+        -moz-border-radius: 0;
+        border-radius: 0;
+    }
+    
+    .bootstrap-iso .formden_header h2,
+    .bootstrap-iso .formden_header p,
+    .bootstrap-iso form {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000000
+    }
+    
+    .bootstrap-iso form button,
+    .bootstrap-iso form button:hover {
+        color: white !important;
+    }
+    
+    .bootstrap-iso .form-control:focus {
+        border-color: #0093b4;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 147, 180, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 147, 180, 0.6);
+    }
+    
+    .bootstrap-iso form .input-group-addon {
+        color: #0093b4;
+        background-color: #ffffff;
+        border-radius: 0px;
+        padding-left: 12px
+    }
+    
     * {
         margin: 0;
         padding: 0;
@@ -192,9 +226,14 @@
     .continue2:hover {
         color: #fff;
     }
-
-    .beds-detail{ overflow: hidden; }
-    .beds-detail div{ float: right; }
+    
+    .beds-detail {
+        overflow: hidden;
+    }
+    
+    .beds-detail div {
+        float: right;
+    }
     
     .construccion {
         width: 100%;
@@ -382,7 +421,9 @@
         width: 100%;
     }
     
-    .navbar-nav>li>.dropdown-menu{ background-color: rgba(27, 148, 181,0.7); }
+    .navbar-nav>li>.dropdown-menu {
+        background-color: rgba(27, 148, 181, 0.7);
+    }
     
     #navibar2 li a {
         color: #fff;
@@ -499,6 +540,17 @@
     
     .works:hover {
         color: #fff;
+    }
+    
+    .works2 {
+        border-radius: 15px;
+        background: #0093B4;
+        color: #fff;
+        border-color: #fff;
+    }
+    
+    .works2:active {
+        background: #023859;
     }
     
     .hood {
