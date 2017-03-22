@@ -15,7 +15,6 @@ Route::get('/','IndexController@index');
 Route::get('/home','IndexController@index');
 Route::get('/registeruser','UserController@index');
 Route::get('/accessuser','Auth\AuthController@getLogin');
-Route::get('/secondstepspace','UserController@secondstepspace');
 Route::get('/becomeahost','UserController@becomeahost');
 Route::post('/createuser','UserController@CreateUser');
 Route::post('/postlogin','UserController@postLogin');
