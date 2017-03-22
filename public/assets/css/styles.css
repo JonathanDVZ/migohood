@@ -84,10 +84,13 @@
         margin-top: 4em;
         border-style: solid;
         border-color: #fff;
-        color: #fff;
         font-size: 15px;
         padding: 1.5em;
     }
+
+    .Wbox p,.Wbox span{ color: #fff; }
+    .Wbox span.input-group-addon{ background-color: #fff; }
+    .Wbox span.glyphicon-calendar{ color: #58b5ca; }
     
     .titulo {
         color: #fff;

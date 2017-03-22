@@ -7,7 +7,7 @@
                 <li><a @if(strcmp($activo,'baths')==0) class="activo" @endif href="{{url('/create-space/baths')}}">Baños</a></li>
                 <li><a @if(strcmp($activo,'location')==0) class="activo" @endif href="{{url('/create-space/location')}}">Locación</a></li>
                 <li><a @if(strcmp($activo,'amenities')==0) class="activo" @endif href="{{url('/create-space/amenities')}}">Comodidades</a></li>
-                <li><a @if(strcmp($activo,'hosting')==0) class="activo" @endif href="#">Alojamiento</a></li>
+                <li><a @if(strcmp($activo,'hosting')==0) class="activo" @endif href="{{url('/create-space/hosting')}}">Alojamiento</a></li>
             </ul>
         </div>
     </nav>
