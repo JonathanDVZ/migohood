@@ -1,8 +1,4 @@
-@extends('layouts.master') 
-@section('title', 'Hosting') 
-@section('class', 'contenedor') 
-@section( 'content') 
-@include('CreateSpace.navbar.navbar',['activo' => 'hosting'])
+@extends('layouts.master') @section('title', 'Hosting') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'hosting'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -114,8 +110,35 @@
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
                     </div>
+                    <div>
+                        <label><strong class="textwhite">Política de Cancelación</strong></label>
+                        <br>
+                        <span class="textwhite">Elige tu tipo de politica.</span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="checkbox">
+                                <label class="textwhite2"><input type="checkbox" value=""><strong>Flexible</strong></label>
+                                <hr class="green">
+                                <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="checkbox">
+                                <label class="textwhite2"><input type="checkbox"  value=""><strong>Moderado</strong></label>
+                                <hr class="orange">
+                                <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                            <div class="checkbox">
+                                <label class="textwhite2"><input type="checkbox" value=""><strong>Estricto</strong></label>
+                                <hr class="red">
+                                <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
+                            </div>
+                        </div>
 
-                    <hr>
+                    </div>
                 </div>
             </div>
         </div>
@@ -175,6 +198,7 @@
                     <button type="button" id="show" class="btn btn-md works" data-toggle="button" onclick="">Add note <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
                     <br>
                     <div id="Hidden">
+                        <br>
                         <div class="form-group">
                             <textarea class="form-control" rows="5" id="comment"></textarea>
                         </div>
