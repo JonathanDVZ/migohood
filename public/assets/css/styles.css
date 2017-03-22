@@ -145,6 +145,10 @@
         resize: none;
     }
     
+    .imgHom {
+        width: 75%;
+    }
+    
     .cheks {
         display: inline-block;
     }
@@ -200,7 +204,7 @@
     .hoWork {
         margin-top: 1.5em;
         margin-left: 25%;
-        width: 55%;
+        width: 45%;
     }
     
     .circulo {
@@ -208,7 +212,7 @@
         margin-right: 0;
         margin-top: 15%;
         display: block;
-        width: 100%;
+        width: 90%;
         z-index: -1;
         padding: 0;
     }
@@ -216,8 +220,8 @@
     .texto {
         width: 55%;
         position: absolute;
-        top: 29%;
-        left: 22%;
+        top: 24%;
+        left: 18%;
     }
     
     body {
@@ -695,7 +699,7 @@
         background: -ms-linear-gradient(top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
         background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 0%, rgba(27, 148, 181, 1) 100%);
         filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#1b94b5', GradientType=0);
-        padding-top: 0.6em;
+        padding-top: 0em;
         height: 70px;
     }
     
