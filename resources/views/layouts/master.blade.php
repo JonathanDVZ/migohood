@@ -12,7 +12,7 @@
     <link href="{{url('/assets/css/sweetalert.css')}}" rel="stylesheet">
     <link href="{{url('/assets/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{url('/assets/css/font-awesome.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/css/bootstrap-select.min.css">
 </head>
 <body class='@yield("class")'>
