@@ -1,8 +1,4 @@
-@section('title', 'Basics') 
-@extends('layouts.master') 
-@section('class', 'contenedor') 
-@section( 'content') 
-@include('CreateSpace.navbar.navbar',['activo' => 'listing'])
+@section('title', 'Basics') @extends('layouts.master') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'listing'])
 
 <div class="container-fluid">
     <div class="row">
@@ -13,38 +9,57 @@
                     <h3 class="titulo text-left">Reglas de la Casa</h3>
                     <span class="titulo text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illum molestiae veritatis</span>
                     <br>
-                    <div class="form-group text-left">
-                        <h4 class="text-left cheks">Titulo de la publicacion</h4>
-                        <label class="switch">
+                    <div class="row">
+                        <br>
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                            <div class="form-group text-left">
+                                <label><strong>Titulo de la publicacion</strong></label>
+                            </div>
+                            <div class="form-group text-left">
+                                <label><strong>Video o Fotos permitidas</strong></label>
+                            </div>
+                            <div class="form-group text-left">
+                                <label><strong></strong>¿Pueden hospedarse mascotas? <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i>
+</label>
+                            </div>
+                            <div class="form-group text-left">
+                                <label><strong></strong>¿Fumar esta permitido?</label>
+                            </div>
+                            <div class="form-group text-left">
+                                <label><strong></strong>Eventos o fiestas permitidos</label>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                            <label class="switch">
                         <input type="checkbox">
                         <div class="slider round"></div>
                         </label>
-                    </div>
-                    <div class="form-group text-left">
-                        <h4 class="text-left cheks">Video o Fotos permitidas</h4>
-                        <label class="switch">
+                            <br>
+                            <label class="switch">
                         <input type="checkbox">
                         <div class="slider round"></div>
                         </label>
-                    </div>
-                    <div class="form-group text-left">
-                        <h4 class="text-left cheks">¿Pueden hospedarse mascotas?</h4>
-                        <label class="switch">
+                            <br>
+                            <label class="switch">
                         <input type="checkbox">
                         <div class="slider round"></div>
                         </label>
-                    </div>
-                    <div class="form-group text-left">
-                        <h4 class="text-left cheks">Eventos o fiestas permitidos</h4>
-                        <label class="switch">
+                            <br>
+                            <label class="switch">
                         <input type="checkbox">
                         <div class="slider round"></div>
                         </label>
+                            <br>
+                            <label class="switch">
+                        <input type="checkbox">
+                        <div class="slider round"></div>
+                        </label>
+                        </div>
                     </div>
 
                     <div class="form-group text-left">
                         <div class="text-left">
-                            <br>
                             <label><strong>Otras reglas que quisiera mencionar</strong></label><br>
                             <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quo, corrupti id veniam, sit omnis fugiat </span>
                         </div>

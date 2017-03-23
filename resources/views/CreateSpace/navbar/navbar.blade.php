@@ -10,6 +10,8 @@
                 <li><a @if(strcmp($activo,'hosting')==0) class="activo" @endif href="{{url('/create-space/hosting')}}">Alojamiento</a></li>
                 <li><a @if(strcmp($activo,'basics')==0) class="activo" @endif href="{{url('/create-space/basics')}}">Esencial</a></li>
                 <li><a @if(strcmp($activo,'listing')==0) class="activo" @endif href="{{url('/create-space/listing')}}">Listado</a></li>
+                <li><a @if(strcmp($activo,'photos')==0) class="activo" @endif href="{{url('/create-space/photos')}}">Fotos</a></li>
+                <li><a @if(strcmp($activo,'services')==0) class="activo" @endif href="{{url('/create-space/services')}}">Servicios</a></li>
             </ul>
         </div>
     </nav>
