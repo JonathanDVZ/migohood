@@ -1,4 +1,4 @@
-@extends('layouts.master') @section('title', 'Photos') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'photos'])
+@extends('layouts.master') @section('title', 'Services') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'services'])
 <div class="container">
     <div class="titulos">
         <h3 class="titulo text-center">AGREGA TUS SERVICIOS</h3>

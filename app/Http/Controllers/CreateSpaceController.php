@@ -78,6 +78,11 @@ class CreateSpaceController extends Controller
     {
         return view("CreateSpace.services");
     }            
+
+            public function Eleven()
+    {
+        return view("CreateSpace.notes");
+    }            
     /**
      * Show the form for creating a new resource.
      *

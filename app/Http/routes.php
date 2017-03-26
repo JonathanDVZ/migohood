@@ -33,6 +33,7 @@ Route::get('/logout','UserController@logout');
     Route::get('/create-space/listing','CreateSpaceController@Eigth');
     Route::get('/create-space/photos','CreateSpaceController@Ninth');
     Route::get('/create-space/services','CreateSpaceController@Tenth');
+    Route::get('/create-space/notes','CreateSpaceController@Eleven');
 //}
 
 //Social Login{

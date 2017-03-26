@@ -1,0 +1,127 @@
+@section('title', 'Notas') @extends('layouts.master') @section('class', 'contenedor') @section( 'content')
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 lg-offset-3 xs-offset-3 md-offset-3 sm-offset-3">
+            <br>
+            <br>
+            <br>
+            <br>
+            <h3 class="titulo text-center">¿Qué mas deberian saber los Invitados?</h3>
+            <br>
+            <p>Mencione cualquier cosa que el huesped debera traer consigo o encargarse el mismo, como el transporte.</p>
+            <br>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+            <br>
+            <div class="form-group text-right">
+                <div class="text-left">
+                    <label>Direccion:</label>
+                </div>
+                <div class="text-left">
+                    <input type="text" name="quantity" class="form-control" placeholder="Calle 1" required>
+                </div>
+            </div>
+            <div class="form-group text-right">
+                <div class="text-left">
+                    <label>Apartamento, Suite (Opcional)</label>
+                </div>
+                <div class="text-left">
+                    <input type="text" name="quantity" class="form-control">
+                </div>
+            </div>
+            <div class="form-group text-right">
+                <div class="text-left">
+                    <label>Estado</label>
+                </div>
+                <select class="selectpicker form-control required">
+                                    <option>Distrito Capital</option>
+                                    <option>Barinas</option>
+                                    <option>Barquisimeto</option>
+                                    <option></option>
+                                </select>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="text-left">
+                        <label>Ciudad</label>
+                    </div>
+                    <div class="text-left">
+                        <input type="text" name="quantity" class="form-control" placeholder="Caracas">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="text-left">
+                        <label>Codigo Postal</label>
+                    </div>
+                    <div class="text-left">
+                        <input type="text" name="quantity" class="form-control" placeholder="19875">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <br>
+                <div class="text-left">
+                    <label>¿Dónde esta ubicada tu propiedad?</label>
+                    <br>
+                    <span>Calle 1, España, Barcelona 198756, España</span>
+                    <br>
+                    <a href="">Editar Direccion</a>
+                    <br>
+                </div>
+                <div id="googleMap" style="width:100%;height:300px;"></div>
+                <script>
+                    function myMap() {
+                        var mapProp = {
+                            center: new google.maps.LatLng(51.508742, -0.120850),
+                            zoom: 5,
+                        };
+                        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                    }
+                </script>
+            </div>
+            <div>
+                <div class="form-group text-left">
+                    <h4 class="text-left">Informacion General</h4>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
+
+                <div class="form-group text-left">
+                    <h4 class="text-left">¿Cómo son los alrededores?</h4>
+                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+    <div class="Wbox">
+        <p>Tu direccion exacta solo sera mostrada a personas que tengan una reservacion confirmada</p>
+        <br>
+    </div>
+</div>
+<div class="col-lg-2 col-md-2 col-sm-2"></div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+            <br>
+            <div class="tex-left RetNex">
+                <a href="{{url('/create-space/baths')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+            <div class="RetNex">
+                <br>
+                <a href="{{url('/create-space/amenities')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+    </div>
+</div>
+@endsection
