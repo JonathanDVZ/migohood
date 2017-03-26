@@ -1,9 +1,15 @@
 $(document).ready(function() {
     $("#show").click(function() {
-        $("#Hidden").show(3000);
+        $("#Hidden").toggle(500);
     });
     $('#datetimepicker1').datetimepicker({ format: 'YYYY-MM-DD' });
     $('#datetimepicker2').datetimepicker({ format: 'YYYY-MM-DD' });
+    $('#datetimepicker3').datetimepicker({
+        inline: true,
+        sideBySide: true,
+        format: 'YYYY-MM-DD'
+    });
+    $('[data-toggle="tooltip"]').tooltip();
 });
 
 function myMap() {
@@ -13,7 +19,3 @@ function myMap() {
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
-
-$(document).ready(function() {
-    $('[data-toggle="tooltip"]').tooltip();
-});

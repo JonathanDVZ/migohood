@@ -4,9 +4,13 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-3">
-                    <div class="titulos">
-                        <h3 class="titulo text-center">INDICA TU DIRECCIÓN</h3>
-                        <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div style="overflow:hidden;">
+                        <div class="form-group">
+                            <div id="datetimepicker3"></div>
+                        </div>
                     </div>
                     <div class="text-left">
                         <label class="textwhite">Precio</label>

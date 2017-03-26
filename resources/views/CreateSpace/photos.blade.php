@@ -4,220 +4,40 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-3">
+                    <br>
                     <div class="titulos">
-                        <h3 class="titulo text-center">INDICA TU DIRECCIÓN</h3>
+                        <h3 class="titulo text-center">AGREGA FOTOS DE TU PROPIEDAD</h3>
                         <br>
-                    </div>
-                    <div class="text-left">
-                        <label class="textwhite">Precio</label>
-                        <br>
-                        <span class="textwhite">Elige tu propio precio</span>
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">Precio:</label>
-                                </div>
-                                <div class="text-left">
-                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
-                                </div>
-                            </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                            <input class="fileinputs" accept="image/*" type="file" name="file" id="file1" class="inputfile" />
+                            <label class="Giant text-center" for="file1">+</label>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">Por:</label>
-                                </div>
-                                <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>Elige uno</option>
-                                    <option>Distrito Capital</option>
-                                    <option>Barinas</option>
-                                    <option>Barquisimeto</option>
-                                    <option></option>
-                                </select>
-                                </div>
-                            </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                            <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">Moneda:</label>
-                                </div>
-                                <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>USD</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label><strong class="textwhite">Check-in</strong></label>
-                        <br>
-                        <span class="textwhite">¿Qué hora funciona para usted?</span>
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">Check-in:</label>
-                                </div>
-                                <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>10 AM</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
-                                </div>
-                            </div>
+                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                            <input class="fileinputs" type="file" accept="image/*" name="file" id="file2" class="inputfile" />
+                            <label class="Giant text-center" for="file2">+</label>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">To:</label>
-                                </div>
-                                <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>2 AM (Next Day)</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
-                                </div>
-                            </div>
+                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                            <textarea class="form-control textA" placeholder="Coloque un pie de pagina a esta foto" rows="5" id="comment"></textarea>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">Check-out:</label>
-                                </div>
-                                <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>10 AM</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
-                    </div>
-                    <div>
-                        <label><strong class="textwhite">Política de Cancelación</strong></label>
-                        <br>
-                        <span class="textwhite">Elige tu tipo de politica.</span>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-left">
-                                <div class="radio">
-                                    <label class="textwhite"><input type="radio" name="optradio"><storng>Flexible</storng></label>
-                                    <hr class="green">
-                                    <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-left">
-                                <div class="radio">
-                                    <label class="textwhite"><input type="radio" name="optradio"><storng>Moderado</storng></label>
-                                    <hr class="orange">
-                                    <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-left">
-                                <div class="radio">
-                                    <label class="textwhite"><input class="textwhite" type="radio" name="optradio"><storng>Estricto</storng></label>
-                                    <hr class="red">
-                                    <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <br>
                 </div>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="Wbox">
-                <div class="text-center">
-                    <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Available</button>
-                    </div>
-                    <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Blocked</button>
-                    </div>
-                </div>
-                <div class="bootstrap-iso">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <br>
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker1'>
-                                        <input type='text' class="form-control" />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <br>
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker2'>
-                                        <input type='text' class="form-control" />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <div class="text-left">
-                                    <span class="textwhite">Price for the night:</span>
-                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-left">
-                    <br>
-                    <span>TIP:20$</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam neque dolore expedita est sed voluptatibus.</p>
-                    <button type="button" id="show" class="btn btn-md works" data-toggle="button" onclick="">Add note <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-                    <br>
-                    <div id="Hidden">
-                        <br>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="text-center">
-                    <br>
-                    <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Cancel</button>
-                    </div>
-                    <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Save</button>
-                    </div>
-                </div>
+                <p>Los lugares deben estar en la propiedad.</p>
+                <br>
+                <p>No incluya la lavanderias o lugares cercanos que no sean parte de de su propiedad. Si sus vecinos estan de acuerdo puede incluir piscinas, saunas o cualquier otro espacio compartido.</p>
             </div>
         </div>
     </div>
@@ -242,4 +62,5 @@
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
     </div>
 </div>
+
 @endsection
