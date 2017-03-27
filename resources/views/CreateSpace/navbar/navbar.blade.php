@@ -12,7 +12,9 @@
                 <li><a @if(strcmp($activo,'listing')==0) class="activo" @endif href="{{url('/create-space/listing')}}">Listado</a></li>
                 <li><a @if(strcmp($activo,'photos')==0) class="activo" @endif href="{{url('/create-space/photos')}}">Fotos</a></li>
                 <li><a @if(strcmp($activo,'services')==0) class="activo" @endif href="{{url('/create-space/services')}}">Servicios</a></li>
+                <li><a @if(strcmp($activo,'notes')==0) class="activo" @endif href="{{url('/create-space/notes')}}">Notas</a></li>
             </ul>
         </div>
     </nav>
 </div>
+

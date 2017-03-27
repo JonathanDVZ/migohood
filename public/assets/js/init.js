@@ -1,7 +1,10 @@
 $(document).ready(function() {
+    // togle del boton de agregar mas en Hosting
     $("#show").click(function() {
         $("#Hidden").toggle(500);
     });
+
+    // calendarios dentro del hosting
     $('#datetimepicker1').datetimepicker({ format: 'YYYY-MM-DD' });
     $('#datetimepicker2').datetimepicker({ format: 'YYYY-MM-DD' });
     $('#datetimepicker3').datetimepicker({
@@ -9,13 +12,22 @@ $(document).ready(function() {
         sideBySide: true,
         format: 'YYYY-MM-DD'
     });
+    // tooltip de un span 
     $('[data-toggle="tooltip"]').tooltip();
 
-    function myMap() {
-        var mapProp = {
-            center: new google.maps.LatLng(51.508742, -0.120850),
-            zoom: 5,
-        };
-        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+    // mapa de Google junto con sus modificaciones
+
+
+
+    // contador de texto de los texarea
+
+    function textCounter(field, field2, maxlimit) {
+        var countfield = document.getElementById(field2);
+        if (field.value.length > maxlimit) {
+            field.value = field.value.substring(0, maxlimit);
+            return false;
+        } else {
+            countfield.value = maxlimit - field.value.length + " Caracters remaining ";
+        }
     }
-});
+})

@@ -1,127 +1,205 @@
-@section('title', 'Notas') @extends('layouts.master') @section('class', 'contenedor') @section( 'content')
+@section('title', 'Notas') @extends('layouts.master') @section('class', 'contenedor') @section( 'content')@include('CreateSpace.navbar.navbar',['activo' => 'notes'])
 
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 lg-offset-3 xs-offset-3 md-offset-3 sm-offset-3">
-            <br>
-            <br>
-            <br>
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 lg-offset-3 xs-offset-3 md-offset-3 sm-offset-3">
+
             <br>
             <h3 class="titulo text-center">¿Qué mas deberian saber los Invitados?</h3>
             <br>
             <p>Mencione cualquier cosa que el huesped debera traer consigo o encargarse el mismo, como el transporte.</p>
             <br>
-            <textarea class="form-control" rows="5" id="comment"></textarea>
+            <textarea onkeyup="textCounter(this,'counter',200);" id="message" class="form-control" rows="5" maxlength="200"></textarea>
+            <input disabled value="200 caracters remaining" id="counter">
+            <span id='remainingC'></span>
             <br>
-            <div class="form-group text-right">
-                <div class="text-left">
-                    <label>Direccion:</label>
-                </div>
-                <div class="text-left">
-                    <input type="text" name="quantity" class="form-control" placeholder="Calle 1" required>
-                </div>
-            </div>
-            <div class="form-group text-right">
-                <div class="text-left">
-                    <label>Apartamento, Suite (Opcional)</label>
-                </div>
-                <div class="text-left">
-                    <input type="text" name="quantity" class="form-control">
-                </div>
-            </div>
-            <div class="form-group text-right">
-                <div class="text-left">
-                    <label>Estado</label>
-                </div>
-                <select class="selectpicker form-control required">
-                                    <option>Distrito Capital</option>
-                                    <option>Barinas</option>
-                                    <option>Barquisimeto</option>
-                                    <option></option>
-                                </select>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="text-left">
-                        <label>Ciudad</label>
-                    </div>
-                    <div class="text-left">
-                        <input type="text" name="quantity" class="form-control" placeholder="Caracas">
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                    <div class="text-left">
-                        <label>Codigo Postal</label>
-                    </div>
-                    <div class="text-left">
-                        <input type="text" name="quantity" class="form-control" placeholder="19875">
-                    </div>
-                </div>
-            </div>
-            <div>
-                <br>
-                <div class="text-left">
-                    <label>¿Dónde esta ubicada tu propiedad?</label>
-                    <br>
-                    <span>Calle 1, España, Barcelona 198756, España</span>
-                    <br>
-                    <a href="">Editar Direccion</a>
-                    <br>
-                </div>
-                <div id="googleMap" style="width:100%;height:300px;"></div>
-                <script>
-                    function myMap() {
-                        var mapProp = {
-                            center: new google.maps.LatLng(51.508742, -0.120850),
-                            zoom: 5,
-                        };
-                        var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-                    }
-                </script>
-            </div>
+
             <div>
                 <div class="form-group text-left">
-                    <h4 class="text-left">Informacion General</h4>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <h4 class="text-left">Seguridad de la Casa</h4>
+                    <p>Si sucede alguna emergencia, ayuda a tus invitados a estar preparado.<a href="#">Aprende mas sobre seguridad</a></p>
                 </div>
 
                 <div class="form-group text-left">
-                    <h4 class="text-left">¿Cómo son los alrededores?</h4>
-                    <textarea class="form-control" rows="5" id="comment"></textarea>
+                    <h4 class="text-left">Informacion de Seguridad</h4>
+                    <form>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Detector de humo <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Detector de Monoxido de Carbono <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Kit de Primeros Auxilios</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Tarjeta de Seguridad <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" value="">Extintor</label>
+                        </div>
+                    </form>
                 </div>
-            </div>
+                <div class="form-group text-left">
+                    <h4 class="text-left">Tarjeta de Seguridad</h4>
+                    <p>Un recurso manual que se tiene en cuenta para los invitados. Una copia tambien es incluida en el itinerario de los invitados.</p>
+                    <h4 class="text-left">¿Dónde estan localizados los accesorios de Seguridad?</h4>
+                    <br>
+                    <div class="container">
+                        <div class="<   form-group row">
+                            <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label for="fireExting">Extintor de Fuego</label>
+                            </div>
+                            <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <input class="form-control " type="text " id="fireExting ">
+                            </div>
 
+                        </div>
+                        <div class="form-group row ">
+                            <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label for="fireAlarm ">Alarma de Fuego</label>
+                            </div>
+                            <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <input class="form-control " type="text " id="fireAlarm ">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class=" col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                                <label for="gasValve ">Valvula de Gas</label>
+                            </div>
+                            <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <input class="form-control " type="text " id="gasValve ">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="Emergency">Instrucciones de la Salida de Emergencia</label>
+                            <input type="text" class="form-control" id="Emergency">
+                        </div>
+                        <div class="form-group">
+                            <label>Numeros de Emergencia</label>
+                            <div class="container">
+                                <h2>List Group With Badges</h2>
+                                <div class="table-responsive">
+                                    <table class="table table-condensed">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Local</th>
+                                                <th>Numero</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Bomberos</td>
+                                                <td>098029385029</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Policia</td>
+                                                <td>123592304</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Medico</td>
+                                                <td>9285798234</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <br>
+                                <label for="editar">Editar <i class="fa fa-pencil" aria-hidden="true"></i></label>
+                                <button id="editar" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="myModal" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <!-- Modal content-->
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                <h4 class="modal-title">Numeros de emergencia</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container">
+                                                    <h2>List Group With Badges</h2>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-condensed">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>Local</th>
+                                                                    <th>Numero</th>
+                                                                    <th></th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td>1</td>
+                                                                    <td>Bomberos</td>
+                                                                    <td>098029385029</td>
+                                                                    <td><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                                    <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>2</td>
+                                                                    <td>Policia</td>
+                                                                    <td>123592304</td>
+                                                                    <td><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                                    <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>3</td>
+                                                                    <td>Medico</td>
+                                                                    <td>9285798234</td>
+                                                                    <td><i class="fa fa-times" aria-hidden="true"></i></td>
+                                                                    <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button id="addMore" type="button" class="btn btn-default" data-dismiss "modal">Ja Weno</button>
+                                                <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
-</div>
-
-<div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-    <div class="Wbox">
-        <p>Tu direccion exacta solo sera mostrada a personas que tengan una reservacion confirmada</p>
-        <br>
-    </div>
-</div>
-<div class="col-lg-2 col-md-2 col-sm-2"></div>
-</div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
+<div class="container ">
+    <div class="row ">
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 "></div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left ">
             <br>
-            <div class="tex-left RetNex">
-                <a href="{{url('/create-space/baths')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+            <div class="tex-left RetNex ">
+                <a href="{{url( '/create-space/baths')}} "><i class="fa fa-chevron-left " aria-hidden="true "> </i><strong>BACK</strong></a>
             </div>
         </div>
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
-            <div class="RetNex">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right ">
+            <div class="RetNex ">
                 <br>
-                <a href="{{url('/create-space/amenities')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a href="{{url( '/create-space/amenities')}} "><strong>NEXT</strong><i class="fa fa-chevron-right " aria-hidden="true "></i></a>
             </div>
         </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 "></div>
     </div>
 </div>
 @endsection

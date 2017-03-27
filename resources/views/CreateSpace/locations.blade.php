@@ -1,8 +1,4 @@
-@section('title', 'Locations') 
-@extends('layouts.master') 
-@section('class', 'contenedor') 
-@section( 'content')
-@include('CreateSpace.navbar.navbar',['activo' => 'location'])
+@section('title', 'Locations') @extends('layouts.master') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'location'])
 
 <div class="container-fluid">
     <div class="row">
@@ -82,6 +78,15 @@
                                 <br>
                             </div>
                             <div id="googleMap" style="width:100%;height:300px;"></div>
+                            <script>
+                                function myMap() {
+                                    var mapProp = {
+                                        center: new google.maps.LatLng(51.508742, -0.120850),
+                                        zoom: 5,
+                                    };
+                                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                                }
+                            </script>
                         </div>
                         <div>
                             <div class="form-group text-left">
@@ -91,6 +96,7 @@
 
                             <div class="form-group text-left">
                                 <h4 class="text-left">¿Cómo son los alrededores?</h4>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
                             </div>
                         </div>
 
