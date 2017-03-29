@@ -20,7 +20,7 @@ Route::post('/createuser','UserController@CreateUser');
 Route::post('/postlogin','UserController@postLogin');
 Route::get('/logout','UserController@logout');
 
-// Routes for the space creation{
+// Routes for the space creation{ 
     Route::get('/create-space/place-type','CreateSpaceController@First');
     Route::get('/create-space/bedrooms','CreateSpaceController@Second1');
     Route::get('/create-space/bedrooms/edit-bedrooms','CreateSpaceController@Second2');
@@ -37,6 +37,8 @@ Route::get('/logout','UserController@logout');
 //}
 
 //Social Login{
-Route::get('social/{provider?}', 'SocialController@getSocialAuth');
-Route::get('social/callback/{provider?}', 'SocialController@getSocialAuthCallback');    
+//Route::get('social/{provider?}', 'SocialController@getSocialAuth');
+Route::get('social/callback/{provider?}', 'SocialController@getSocialAuthCallback'); 
+// New social Login
+Route::get('/social/{action}/{provider}', 'SocialController@getSocialAuth'); 
 //}

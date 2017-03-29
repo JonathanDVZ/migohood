@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
 </head>
 <body class='@yield("class")'>
-    @if(Auth::check()) 
+    @if(session()->has('user')) 
         @include('headers.header-login') 
     @else 
         @include('headers.home') 

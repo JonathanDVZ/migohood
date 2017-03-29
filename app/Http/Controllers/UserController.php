@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-
+use Session;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Curl;
@@ -46,18 +46,18 @@ class UserController extends Controller
             if (isset( $checkbox2)) {          
                 try
                 {
-                $user = Curl::to(env('MIGOHOOD_API_URL').'/user/create')
-                            ->withData( array( 
-                                'name' => $request->input("name"),                         
-                                'lastname' => $request->input("lastname"),
-                                'email' => $request->input("email"),
-                                'password' => $request->input("password"),
-                                ) )
-                            ->asJson( true )
-                            ->post();
+                    $user = Curl::to(env('MIGOHOOD_API_URL').'/user/create')
+                                ->withData( array( 
+                                    'name' => $request->input("name"),                         
+                                    'lastname' => $request->input("lastname"),
+                                    'email' => $request->input("email"),
+                                    'password' => $request->input("password"),
+                                    ) )
+                                ->asJson( true )
+                                ->post();
             
                     if (is_array($user) && array_key_exists('id', $user)){
-                     Auth::loginUsingId($user['id'],true);
+                        session()->put('user', $user);
                         return redirect('/')->with(['message-alert' => 'USTED ESTA AHORA REGISTRADO']);
                     }
                     else{
@@ -82,19 +82,41 @@ class UserController extends Controller
    
     //funcion para login de usuario
     public function postLogin(Request $request){
-    $user = Curl::to(env('MIGOHOOD_API_URL').'/user/login')
+        
+        $user = Curl::to(env('MIGOHOOD_API_URL').'/user/login')
                     ->withData( array(                                       
                         'email' => $request->input("email"),
                         'password' => $request->input("password"),
                         ) )
                     ->asJson( true )
                     ->post();
-    if(is_array($user) && array_key_exists('id', $user)){
-        Auth::loginUsingId($user['id'],$request->has("remember"));
 
-        return redirect('/')->with(['message-alert' => 'Bienvenido has accedido']);
-    }
-    return redirect('/accessuser')->with(['message-alert' => 'la cuenta con la que estas intentando entrar no esta registrada o tu clave es incorrecta']);
+        // Si $user es un array y existe id significa que si es un usuario registrado
+        if(is_array($user) && array_key_exists('id', $user)){
+            //Auth::loginUsingId($user['id'],$request->has("remember"));
+
+            //Si esta seleccionada la opcion de recordar
+            if ($request->has('remember')) {
+                // Tiempo de vida configurado para un anio
+                $lifetime = time() + 60 * 60 * 24 * 365;
+                \Config::set('session.lifetime', $lifetime);
+            }
+            
+            // Regenero el id de sesion
+            session()->regenerate();
+            // Establezco la sesion
+            session()->put('user', $user);
+            // Redirecciono a home
+            return redirect('/')->with(['message-alert' => 'Bienvenido has accedido']);
+        } else{
+            // Decodifico el json y lo convierto en un string  
+            /*$response = json_encode($user,true); 
+            $caracters = array('"','[',']');
+            $response = str_replace($caracters,'',$response);
+            return redirect('/accessuser')->with(['message-alert' => $response]);*/
+            return redirect('/accessuser')->with(['message-alert' => 'la cuenta con la que estas intentando entrar no esta registrada o tu clave es incorrecta']);
+        }
+        
     
     }
 
@@ -106,7 +128,7 @@ class UserController extends Controller
      */
     public function logout()
     {
-        Auth::logout();
+        session()->flush();
         return redirect('/');
     }
 }
