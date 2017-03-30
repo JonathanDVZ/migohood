@@ -24,7 +24,7 @@ class CreateSpaceController extends Controller
         return view("CreateSpace.placeType");
     }
      
-        public function Second1()
+    public function Second1()
     {
         return view("CreateSpace.bedrooms");
     }
