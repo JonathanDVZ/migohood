@@ -15,10 +15,10 @@ Route::get('/','IndexController@index');
 Route::get('/home','IndexController@index');
 Route::get('/registeruser','UserController@index');
 Route::get('/accessuser','UserController@getLogin');
-Route::get('/becomeahost','UserController@becomeahost')->middleware('customAuth');
+Route::get('/becomeahost','UserController@becomeahost');
 Route::post('/createuser','UserController@CreateUser');
 Route::post('/postlogin','UserController@postLogin');
-Route::get('/logout','UserController@logout')->middleware('customAuth');
+Route::get('/logout','UserController@logout');
 
 // Routes for the space creation{ 
     Route::get('/create-space/place-type','CreateSpaceController@First');

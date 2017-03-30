@@ -9,6 +9,12 @@ use App\Http\Controllers\Controller;
 
 class CreateSpaceController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('customAuth');
+    }
+
     /**
      * Display a listing of the resource.
      *
