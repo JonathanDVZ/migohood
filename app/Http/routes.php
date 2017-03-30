@@ -13,12 +13,12 @@
 
 Route::get('/','IndexController@index');
 Route::get('/home','IndexController@index');
-Route::get('/registeruser','UserController@index')->middleware('guest');
-Route::get('/accessuser','Auth\AuthController@getLogin')->middleware('guest');
-Route::get('/becomeahost','UserController@becomeahost');
+Route::get('/registeruser','UserController@index');
+Route::get('/accessuser','UserController@getLogin');
+Route::get('/becomeahost','UserController@becomeahost')->middleware('customAuth');
 Route::post('/createuser','UserController@CreateUser');
 Route::post('/postlogin','UserController@postLogin');
-Route::get('/logout','UserController@logout');
+Route::get('/logout','UserController@logout')->middleware('customAuth');
 
 // Routes for the space creation{ 
     Route::get('/create-space/place-type','CreateSpaceController@First');

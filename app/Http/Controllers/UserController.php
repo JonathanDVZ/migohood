@@ -15,6 +15,14 @@ use Response;
 
 class UserController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => array('becomeahost','logout')]);
+        $this->middleware('customAuth', ['except' => array('index','getLogin','CreateUser','postLogin')]);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +31,11 @@ class UserController extends Controller
     public function index()
     {
         return view('auth.register-user-front');
+    }
+
+    public function getLogin()
+    {
+        return view('auth.access-user-front');
     }
 
     public function becomeahost()
