@@ -1232,6 +1232,10 @@ input[type="checkbox"]#checkbox3:focus {
     background-color: #D2D3D4;
 }
 
+/**** Estilo para los enlaces que no tienen href *****/
+a { cursor: pointer;}
+/**** Final de estilo para enlaces sin href *****/
+
 
 /*********************************************************************
 

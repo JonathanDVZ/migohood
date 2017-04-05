@@ -30,4 +30,20 @@ $(document).ready(function() {
             countfield.value = maxlimit - field.value.length + " Caracters remaining ";
         }
     }
+
+    /**
+    *   Funciones para envio de gormulario en
+    *   creacion de espacios
+    */
+    $("#placeTypeNext").click(function(){
+        $(this).attr('disabled','disabled');
+        sendPlaceType();
+        $(this).removeAttr('disabled');
+    });
+
+    function sendPlaceType(){
+        var form = document.getElementById('formPlaceType');
+        form.submit();
+    }
+
 })

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Curl;
+use Session;
+use Hash;
 
 class CreateSpaceController extends Controller
 {
@@ -29,9 +32,45 @@ class CreateSpaceController extends Controller
     {
         return view("CreateSpace.placeType");
     }
+
+    public function AddPlaceType(Request $request)
+    {
+        $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-1/create')
+                    ->withHeaders( array( 
+                        'api_token: '.session()->get('user.remember_token') 
+                    ))
+                    ->withData( array( 
+                        'user_id' => session()->get('user.id'),
+                        'type_id'  => $request->input('type'),
+                        'accommodation_id'  => $request->input('accomodation'),
+                        'live'  => $request->input('live')
+                        ) )
+                    ->asJson( true )
+                    ->post();
+        
+        if (is_array($response) && array_key_exists('id', $response))                
+            return redirect('/create-space/bedrooms');
+        else {
+            $caracters = array('"','[',']',',');
+            $response = str_replace($caracters,'',$response);
+            if (is_array($response)) {
+                $res = '';
+                foreach ($response as $r) {
+                    $res .= $r . '\\n';
+                }
+            } else {
+                $res = $response;
+            }
+
+            return redirect('/create-space/place-type')->with(['message-alert' => '' . $res . '']);
+        }
+        
+
+    }
      
     public function Second1()
     {
+        
         return view("CreateSpace.bedrooms");
     }
      

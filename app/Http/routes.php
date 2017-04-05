@@ -22,6 +22,7 @@ Route::get('/logout','UserController@logout');
 
 // Routes for the space creation{ 
     Route::get('/create-space/place-type','CreateSpaceController@First');
+    Route::post('/create-space/add-place-type','CreateSpaceController@addPlaceType');
     Route::get('/create-space/bedrooms','CreateSpaceController@Second1');
     Route::get('/create-space/bedrooms/edit-bedrooms','CreateSpaceController@Second2');
     Route::get('/create-space/bedrooms/edit-bedrooms/add-bed','CreateSpaceController@Second3');

@@ -11,35 +11,39 @@
             <h3 class="titulo text-center">CUENTANOS SOBRE EL LUGAR A AGREGAR</h3>
             <br>
             <div class="row">
+                <form id="formPlaceType" method="POST" action="{{ url('/create-space/add-place-type') }}">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="form-group text-right">
                         <div class="text-left">
                             <label>¿Cómo es tu propiedad?:</label>
                         </div>
-                        <select class="selectpicker form-control">
-                                <option>Apartamento</option>
-                                <option>Casa</option>
-                                <option>Relish</option>
+                        <select class="selectpicker form-control" name="type">
+                                <option value="1">Apartamento</option>
+                                <option value="2">Casa</option>
+                                <option value="3">B&B</option>
                         </select>
                     </div>
                     <div class="form-group text-right">
                         <div class="text-left">
                             <label>¿Qué ofrece?:</label>
                         </div>
-                        <select class="selectpicker form-control">
-                                <option>Lugar entero</option>
-                                <option>Habitacion Privada</option>
-                                <option>Habitacion Compartida</option>
+                        <select class="selectpicker form-control" name="accomodation">
+                                <option value="1">Lugar entero</option>
+                                <option value="2">Habitacion Privada</option>
+                                <option value="3">Habitacion Compartida</option>
                                 </select>
                     </div>
                     <div class="form-group text-center">
                         <div class="text-center">
                             <label>¿Ústed vive en este lugar?:</label> <br>
-                            <label class="radio-inline"><input type="radio" name="optradio">Si</label>
-                            <label class="radio-inline"><input type="radio" name="optradio">No</label>
+                            <label class="radio-inline"><input type="radio" name="live" value="1">Si</label>
+                            <label class="radio-inline"><input type="radio" name="live" value="0">No</label>
                         </div>
                     </div>
                 </div>
+                {{ csrf_field() }}
+                <!--<input type="submit">-->
+                </form>
             </div>
         </div>
 
@@ -71,7 +75,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-space/bedrooms')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a id="placeTypeNext"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
