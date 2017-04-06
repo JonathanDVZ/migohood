@@ -12,42 +12,22 @@
                     <br>
                     <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
                     <hr>
-                    <div>
-                        <div class="titulos">
-                            <span>Habitacion 1</span>
-                            <br>
-                            <span>0 Camas</span>
-                        </div>
-                        <div class="titulos">
+                    <!-- Agregado for para mostrar el numero de habitaciones segun el numero ingresado 
+                    previamente por el cliente -->
+                    @for($i = 0; $i < $num_bedrooms; $i++)
+                        <div>
+                            <div class="titulos">
+                                <span>Habitacion {{ $i+1 }}</span>
+                                <br>
+                                <span>0 Camas</span>
+                            </div>
+                            <div class="titulos">
 
-                            <a href="{{url('/create-space/bedrooms/edit-bedrooms/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
+                                <a href="{{url('/create-space/bedrooms/edit-bedrooms/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
+                            </div>
                         </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <div class="titulos">
-                            <span>Habitacion 1</span>
-                            <br>
-                            <span>0 Camas</span>
-                        </div>
-                        <div class="titulos text-right">
-
-                            <a href="{{url('/create-space/bedrooms/edit-bedrooms/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
-                        </div>
-                    </div>
-                    <hr>
-                    <div>
-                        <div class="titulos">
-                            <span>Habitacion 1</span>
-                            <br>
-                            <span>0 Camas</span>
-                        </div>
-                        <div class="titulos">
-
-                            <a href="{{url('/create-space/bedrooms/edit-bedrooms/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
-                        </div>
-                    </div>
-                    <hr>
+                        <hr>
+                    @endfor
                 </div>
             </div>
         </div>
