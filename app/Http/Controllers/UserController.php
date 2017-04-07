@@ -15,6 +15,16 @@ use Response;
 
 class UserController extends Controller
 {
+    
+    public function __construct()
+    {
+        // Middleware guest es utilizado para validar que el usuario aun no este logeado
+        $this->middleware('guest', ['except' => array('becomeahost','logout')]);
+        // El middleware customAuth es utilizado para validar la existencia de una sesion de usuario
+        $this->middleware('customAuth', ['except' => array('index','getLogin','CreateUser','postLogin')]);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,6 +33,11 @@ class UserController extends Controller
     public function index()
     {
         return view('auth.register-user-front');
+    }
+
+    public function getLogin()
+    {
+        return view('auth.access-user-front');
     }
 
     public function becomeahost()

@@ -62,7 +62,7 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
-     protected function getLogin()
+    protected function getLogin()
     {
         return view('auth.access-user-front');
     }

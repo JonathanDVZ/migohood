@@ -4,7 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "470dd8b93bcf20260efacba6110bea43",
+    "hash": "ab9eb15d768a33aad274530361f05d14",
+    "content-hash": "ac6b13ad47bcd27a12ff26367acfcc6e",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -435,7 +436,7 @@
                 "curl",
                 "laravel"
             ],
-            "time": "2017-03-29T08:23:59+00:00"
+            "time": "2017-03-29 08:23:59"
         },
         {
             "name": "jakub-onderka/php-console-color",
@@ -713,16 +714,16 @@
         },
         {
             "name": "laravel/socialite",
-            "version": "v2.0.20",
+            "version": "v2.0.21",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/socialite.git",
-                "reference": "aca8de9a93a28a119714e289c8bc599bd81aa88d"
+                "reference": "c4e4337e5b70149fdbefbb95b2c9e93d0749c413"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/socialite/zipball/aca8de9a93a28a119714e289c8bc599bd81aa88d",
-                "reference": "aca8de9a93a28a119714e289c8bc599bd81aa88d",
+                "url": "https://api.github.com/repos/laravel/socialite/zipball/c4e4337e5b70149fdbefbb95b2c9e93d0749c413",
+                "reference": "c4e4337e5b70149fdbefbb95b2c9e93d0749c413",
                 "shasum": ""
             },
             "require": {
@@ -763,7 +764,7 @@
                 "laravel",
                 "oauth"
             ],
-            "time": "2016-11-01T18:49:10+00:00"
+            "time": "2017-03-27 21:32:28"
         },
         {
             "name": "league/flysystem",
