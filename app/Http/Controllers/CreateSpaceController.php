@@ -187,6 +187,11 @@ class CreateSpaceController extends Controller
     {
         return view("CreateSpace.notes");
     }            
+
+            public function Twelve()
+    {
+        return view("CreateSpace.co-operator");
+    }       
     /**
      * Show the form for creating a new resource.
      *

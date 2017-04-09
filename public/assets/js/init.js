@@ -32,27 +32,27 @@ $(document).ready(function() {
     }
 
     /**
-    *   Funciones para envio de formulario en
-    *   creacion de espacios
-    */
-    $("#placeTypeNext").click(function(){
-        $(this).attr('disabled','disabled');
+     *   Funciones para envio de formulario en
+     *   creacion de espacios
+     */
+    $("#placeTypeNext").click(function() {
+        $(this).attr('disabled', 'disabled');
         sendPlaceType();
         $(this).removeAttr('disabled');
     });
 
-    function sendPlaceType(){
+    function sendPlaceType() {
         var form = document.getElementById('formPlaceType');
         form.submit();
     }
 
-    $("#addBedroomsNext").click(function(){
-        $(this).attr('disabled','disabled');
+    $("#addBedroomsNext").click(function() {
+        $(this).attr('disabled', 'disabled');
         addBedrooms();
         $(this).removeAttr('disabled');
     });
 
-    function addBedrooms(){
+    function addBedrooms() {
         var form = document.getElementById('formAddBedrooms');
         form.submit();
     }

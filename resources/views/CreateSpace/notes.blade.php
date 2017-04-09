@@ -10,7 +10,7 @@
             <br>
             <p>Mencione cualquier cosa que el huesped debera traer consigo o encargarse el mismo, como el transporte.</p>
             <br>
-            <textarea onkeyup="textCounter(this,'counter',200);" id="message" class="form-control" rows="5" maxlength="200"></textarea>
+            <textarea onkeyup="textCounter(this,'counter',200)" id="message" class="form-control" rows="5" maxlength="200"></textarea>
             <input disabled value="200 caracters remaining" id="counter">
             <span id='remainingC'></span>
             <br>
@@ -87,8 +87,6 @@
                                                 <th>#</th>
                                                 <th>Local</th>
                                                 <th>Numero</th>
-                                                <th></th>
-                                                <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -112,7 +110,7 @@
                                 </div>
                                 <br>
                                 <label for="editar">Editar <i class="fa fa-pencil" aria-hidden="true"></i></label>
-                                <button id="editar" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                                <button id="editar" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
                                 <!-- Modal -->
                                 <div class="modal fade" id="myModal" role="dialog">
@@ -125,8 +123,7 @@
                                                 <h4 class="modal-title">Numeros de emergencia</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="container">
-                                                    <h2>List Group With Badges</h2>
+                                                <div class="container-fluid">
                                                     <div class="table-responsive">
                                                         <table class="table table-condensed">
                                                             <thead>
@@ -134,8 +131,6 @@
                                                                     <th>#</th>
                                                                     <th>Local</th>
                                                                     <th>Numero</th>
-                                                                    <th></th>
-                                                                    <th></th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -143,31 +138,38 @@
                                                                     <td>1</td>
                                                                     <td>Bomberos</td>
                                                                     <td>098029385029</td>
-                                                                    <td><i class="fa fa-times" aria-hidden="true"></i></td>
-                                                                    <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                                    <td>
+                                                                        <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
+                                                                        <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>2</td>
                                                                     <td>Policia</td>
                                                                     <td>123592304</td>
-                                                                    <td><i class="fa fa-times" aria-hidden="true"></i></td>
-                                                                    <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                                    <td>
+                                                                        <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
+                                                                        <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                                                                    </td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td>3</td>
                                                                     <td>Medico</td>
                                                                     <td>9285798234</td>
-                                                                    <td><i class="fa fa-times" aria-hidden="true"></i></td>
-                                                                    <td><i class="fa fa-check" aria-hidden="true"></i></td>
+                                                                    <td>
+                                                                        <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
+                                                                        <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                                                                    </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
+                                                    <button id="addMore" type="button" class="btn btn-default hidden"></button>
+                                                    <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button id="addMore" type="button" class="btn btn-default" data-dismiss "modal">Ja Weno</button>
-                                                <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                             </div>
                                         </div>
 

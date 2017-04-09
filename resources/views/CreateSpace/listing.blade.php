@@ -5,7 +5,7 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <br>
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-4">
+                <div class="col-sm-11 col-sm-offset-1">
                     <h3 class="titulo text-left">Reglas de la Casa</h3>
                     <span class="titulo text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illum molestiae veritatis</span>
                     <br>
@@ -165,7 +165,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href=""><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a href="{{url('/create-space/photos')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

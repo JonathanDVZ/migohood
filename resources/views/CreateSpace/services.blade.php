@@ -5,14 +5,18 @@
         <br>
     </div>
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-            <input class="fileinputs" acce type="file" name="file" id="file1" class="inputfile" accept="image/*" />
-            <label class="Giant text-center" for="file1">+</label>
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <input class="fileinputs" acce type="file" name="file" id="file1" class="inputfile" accept="image/*" />
+                    <label class="Giant text-center" for="file1">+</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="form-group text-right">
@@ -60,14 +64,18 @@
 
     <br>
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-            <input class="fileinputs" accept="image/*" type="file" name="file" id="file1" class="inputfile" />
-            <label class="Giant text-center" for="file1">+</label>
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                    <input class="fileinputs" acce type="file" name="file" id="file1" class="inputfile" accept="image/*" />
+                    <label class="Giant text-center" for="file1">+</label>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                    <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
+                </div>
+            </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-            <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                     <div class="form-group text-right">
@@ -108,24 +116,23 @@
                                 </select>
                         </div>
                     </div>
-                    <br>
-                    <button type="button" class="btn btn-md works2" data-toggle="button">Guardar y Continuar</button>
                 </div>
             </div>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-lg-offset-1 col-md-offset-1 col-sm-offset1 col-xs-offset-1 text-left">
                 <br>
                 <div class="tex-left RetNex">
-                    <a href="{{url('/create-space/amenities')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                    <a href="{{url('/create-space/photos')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
                 <div class="RetNex">
                     <br>
-                    <a href="{{url('/create-space/basics')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a href="{{url('/create-space/notes')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
