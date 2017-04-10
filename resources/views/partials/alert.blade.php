@@ -7,5 +7,6 @@
                 imageSize: '233x51',    
                 confirmButtonColor:"#1994B5"                                        
         }); 
+        {{ session()->forget('message-alert') }}
     @endif         
 </script>   

@@ -18,9 +18,9 @@
                             <label>¿Cómo es tu propiedad?:</label>
                         </div>
                         <select class="selectpicker form-control" name="type">
-                                <option value="1">Apartamento</option>
-                                <option value="2">Casa</option>
-                                <option value="3">B&B</option>
+                            @foreach($types as $type)
+                                <option value="{{ $type['id_type'] }}">{{ $type['name'] }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group text-right">
@@ -28,10 +28,10 @@
                             <label>¿Qué ofrece?:</label>
                         </div>
                         <select class="selectpicker form-control" name="accomodation">
-                                <option value="1">Lugar entero</option>
-                                <option value="2">Habitacion Privada</option>
-                                <option value="3">Habitacion Compartida</option>
-                                </select>
+                            @foreach($accommodation as $acc)
+                                <option value="{{ $acc['id'] }}">{{ $acc['name'] }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group text-center">
                         <div class="text-center">

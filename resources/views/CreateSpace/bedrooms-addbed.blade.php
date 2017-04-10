@@ -16,7 +16,7 @@
                                 <button type="button" class="btn btn-sm continue2">Listo</button>
                             </div>
                             <div>
-                                <span class="text-left">Habitacion 1</span>
+                                <span class="text-left">Habitacion {{ $refer }}</span>
                                 <br>
                                 <span class="text-left">Camas 0</span>
                             </div>
@@ -26,6 +26,8 @@
                     <hr>
                     <div class="form-group text-right">
                         <div class="text-left">
+                            <input type="hidden" value="{{$service_id}}">
+                            <input type="hidden" value="{{$bedroom_id}}">
                             <input type="number" name="quantity" min="1" max="10" class="form-control" step="1" placeholder="0 Camas Dobles" required>
                         </div>
                     </div>

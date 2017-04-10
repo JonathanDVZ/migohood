@@ -14,17 +14,23 @@
                     <hr>
                     <!-- Agregado for para mostrar el numero de habitaciones segun el numero ingresado 
                     previamente por el cliente -->
-                    @for($i = 0; $i < $num_bedrooms; $i++)
+                    @for($i = 0; $i < count($bedrooms); $i++)
                         <div>
-                            <div class="titulos">
-                                <span>Habitacion {{ $i+1 }}</span>
-                                <br>
-                                <span>0 Camas</span>
-                            </div>
-                            <div class="titulos">
+                            <form id="form{{ $i }}" method="POST" action="{{ url('/create-space/bedrooms/edit-bedrooms/add-bed') }}">
+                                <div class="titulos">
+                                    <span>Habitacion {{ $i+1 }}</span>
+                                    <input type="hidden" value="{{ $bedrooms[$i]['bedroom_id'] }}" name="bedroom_id">
+                                    <input type="hidden" value="{{ $id }}" name="service_id">
+                                    <input type="hidden" value="{{ $i }}" name="refer">
+                                    {{ csrf_field() }}
+                                    <br>
+                                    <span>{{ $bedrooms[$i]['bed_quantity'] }} Camas</span>
+                                </div>
+                                <div class="titulos">
 
-                                <a href="{{url('/create-space/bedrooms/edit-bedrooms/add-bed')}}" class="btn btn-sm continue" role="button">Agregar Camas</a>
-                            </div>
+                                    <a id="{{ $i }}" class="btn btn-sm continue addBed" role="button">Agregar Camas</a>
+                                </div>
+                            </form>
                         </div>
                         <hr>
                     @endfor

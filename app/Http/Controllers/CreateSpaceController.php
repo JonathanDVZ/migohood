@@ -30,7 +30,15 @@ class CreateSpaceController extends Controller
 
     public function First()
     {
-        return view("CreateSpace.placeType");
+        
+        $types = Curl::to(env('MIGOHOOD_API_URL').'/category/space/get-type')
+                    ->asJson( true )
+                    ->get();
+        $accommodation = Curl::to(env('MIGOHOOD_API_URL').'/accommodation/get-accommodation')
+                    ->asJson( true )
+                    ->get();
+        //session()->put('message-alert', 'test');  
+        return view("CreateSpace.placeType", ['types' => $types, 'accommodation' => $accommodation]);
     }
 
     public function AddPlaceType(Request $request)
@@ -38,7 +46,7 @@ class CreateSpaceController extends Controller
         // Enviar los datos a la API para crear un nuevo espacio
         $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-1/create')
                     ->withHeaders( array( 
-                        'api_token: '.session()->get('user.remember_token') 
+                        'api-token:'.session()->get('user.remember_token') 
                     ))
                     ->withData( array( 
                         'user_id' => session()->get('user.id'),
@@ -48,6 +56,7 @@ class CreateSpaceController extends Controller
                         ) )
                     ->asJson( true )
                     ->post();
+        //dd($response);
 
         // Si es un array y existe el valor id se dirige a la proxima vista
         if (is_array($response) && array_key_exists('id', $response)) {
@@ -95,26 +104,31 @@ class CreateSpaceController extends Controller
                     ->post();
 
         // Si es un array y existe el valor id se dirige a la proxima vista
-        if (is_array($response) && array_key_exists('id', $response)) {
+        /*if (is_array($response) && array_key_exists('id', $response)) {
+            //dd($response['bedrooms']);
             // se guardan en sesion las variables id y numero de hab para ser usadas en la proxima vista
-            session()->put('id', $response['id']);
-            session()->put('num_bedrooms', $response['num_bedrooms']);                
+            
+            //session()->put('bedrooms', $response['bedrooms']);                
             return redirect('/create-space/bedrooms/edit-bedrooms');
         // Si no, se retorna un mensaje al usuario
-        } else {
-            $caracters = array('"','[',']',',');
-            $response = str_replace($caracters,'',$response);
-            if (is_array($response)) {
-                $res = '';
-                foreach ($response as $r) {
-                    $res .= $r . '\\n';
-                }
-            } else {
-                $res = $response;
+        } else {*/
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res .= $r . '\\n';
             }
-
-            return redirect('/create-space/bedrooms')->with(['message-alert' => '' . $res . '']);
+        } else {
+            $res = $response;
         }
+
+        if ($res == 'Add Space Bedroom') {
+            session()->put('id', $request->input('service'));
+            return redirect('/create-space/bedrooms/edit-bedrooms');
+        } else
+            return redirect('/create-space/bedrooms')->with(['message-alert' => '' . $res . '']);
+        //}
         
     }
 
@@ -129,18 +143,41 @@ class CreateSpaceController extends Controller
             $id = session()->get('id');
             session()->forget('id');
         }
-        $num_bedrooms = '';
-        if (session()->has('num_bedrooms')) {
-            $num_bedrooms = session()->get('num_bedrooms');
-            session()->forget('num_bedrooms');
+
+        $response = Curl::to(env('MIGOHOOD_API_URL').'/service/get-bed-bedroom')
+                            ->withData( array( 
+                                'service_id' => $id,
+                                ) )
+                            ->asJson( true )
+                            ->post();
+        //dd($response);
+        // Si es un array y existe el valor bedroom_id se dirige a la proxima vista
+        if (is_array($response) && array_key_exists('bedroom_id', $response[0])) {
+                            
+            // Se retorna la vista con las variables
+            return view("CreateSpace.bedrooms-all", ['id' => $id, 'bedrooms' => $response]);
+        // Si no, se retorna un mensaje al usuario
+        } else {
+            $caracters = array('"','[',']',',');
+            $response = str_replace($caracters,'',$response);
+            if (is_array($response)) {
+                $res = '';
+                foreach ($response as $r) {
+                    $res .= $r . '\\n';
+                }
+            } else {
+                $res = $response;
+            }
+
+            return redirect('/')->with(['message-alert' => '' . $res . '']);
         }
-        // Se retorna la vista con las variables
-        return view("CreateSpace.bedrooms-all", ['id' => $id, 'num_bedrooms' => $num_bedrooms]);
+
     }
      
-        public function Second3()
+    public function Second3(Request $request)
     {
-        return view("CreateSpace.bedrooms-addbed");
+        //lo idonep es que hsys una ruta a la que le pase el id del cuarto y el id de usuario, valide eso y me devuelva los datos necesarios, aparte podria ser bueno agregar un campo mas a los cuartos para indicar el numero
+        return view("CreateSpace.bedrooms-addbed",['service_id' => $request->input('service_id'), 'bedroom_id' => $request->input('bedroom_id'), 'refer' => $request->input('refer')]);
     }
 
         public function Third()

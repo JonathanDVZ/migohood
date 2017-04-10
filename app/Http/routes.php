@@ -26,7 +26,8 @@ Route::get('/logout','UserController@logout');
     Route::get('/create-space/bedrooms','CreateSpaceController@Second1');
     Route::post('/create-space/add-bedrooms','CreateSpaceController@addBedrooms');
     Route::get('/create-space/bedrooms/edit-bedrooms','CreateSpaceController@Second2');
-    Route::get('/create-space/bedrooms/edit-bedrooms/add-bed','CreateSpaceController@Second3');
+    // editada a post
+    Route::post('/create-space/bedrooms/edit-bedrooms/add-bed','CreateSpaceController@Second3');
     Route::get('/create-space/baths','CreateSpaceController@Third');
     Route::get('/create-space/location','CreateSpaceController@Fourth');
     Route::get('/create-space/amenities','CreateSpaceController@Fifth');

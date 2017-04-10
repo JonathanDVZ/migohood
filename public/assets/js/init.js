@@ -57,4 +57,15 @@ $(document).ready(function() {
         form.submit();
     }
 
+    $(".addBed").click(function(){
+        $(this).attr('disabled','disabled');
+        addBed($(this).attr('id'));
+        $(this).removeAttr('disabled');
+    });
+
+    function addBed(id){
+        var form = document.getElementById('form'+id);
+        form.submit();
+    }
+
 })
