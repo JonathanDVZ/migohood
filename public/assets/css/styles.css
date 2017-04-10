@@ -83,6 +83,10 @@ input:checked+.slider:before {
     transform: translateX(20px);
 }
 
+.hidden {
+    display: none;
+}
+
 
 /* Rounded sliders */
 
@@ -92,6 +96,17 @@ input:checked+.slider:before {
 
 .slider.round:before {
     border-radius: 50%;
+}
+
+.thumb {
+    height: 10%;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+}
+
+.counters {
+    background: none;
+    border: none;
 }
 
 .bootstrap-iso .form-group button,
@@ -1232,8 +1247,14 @@ input[type="checkbox"]#checkbox3:focus {
     background-color: #D2D3D4;
 }
 
+
 /**** Estilo para los enlaces que no tienen href *****/
-a { cursor: pointer;}
+
+a {
+    cursor: pointer;
+}
+
+
 /**** Final de estilo para enlaces sin href *****/
 
 

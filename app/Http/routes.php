@@ -37,6 +37,17 @@ Route::get('/logout','UserController@logout');
     Route::get('/create-space/photos','CreateSpaceController@Ninth');
     Route::get('/create-space/services','CreateSpaceController@Tenth');
     Route::get('/create-space/notes','CreateSpaceController@Eleven');
+    Route::get('/create-space/co-host','CreateSpaceController@Twelve');
+//}
+
+// Routes for the service creation{ 
+    Route::get('/create-service/category','CreateServiceController@Category');
+    Route::get('/create-service/hosting','CreateServiceController@Hosting');
+    Route::get('/create-service/basics','CreateServiceController@Basics');
+    Route::get('/create-service/photos','CreateServiceController@Photos');
+    Route::get('/create-service/location','CreateServiceController@Location');
+    Route::get('/create-service/notes','CreateServiceController@Notes');
+    Route::get('/create-service/co-host','CreateServiceController@CoHost');
 //}
 
 //Social Login{

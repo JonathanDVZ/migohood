@@ -224,6 +224,11 @@ class CreateSpaceController extends Controller
     {
         return view("CreateSpace.notes");
     }            
+
+            public function Twelve()
+    {
+        return view("CreateSpace.co-host");
+    }       
     /**
      * Show the form for creating a new resource.
      *
