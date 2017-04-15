@@ -47,7 +47,7 @@ class SocialController extends Controller {
                                 	) )
                             	->asJson( true )
                             	->post();
-        			
+        			//dd($user);
         			// Si el array user tiene un id, existe el usuario        			
         			if (is_array($user) && array_key_exists('id', $user)){
                		 	// Le doy una sesion que dura un anio

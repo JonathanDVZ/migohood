@@ -2,11 +2,12 @@
     @if (Session::has('message-alert'))              
     <script type="text/javascript">                 
         swal({
-                 title: "{{ Session::get('message-alert') }}",                           
-                imageUrl: "assets/img/Logo.png",
-                imageSize: '233x51',    
-                confirmButtonColor:"#1994B5"                                        
+            title: "{{ Session::get('message-alert') }}",                           
+            imageUrl: "assets/img/Logo.png",
+            imageSize: '233x51',    
+            confirmButtonColor:"#1994B5"                                        
         }); 
         {{ session()->forget('message-alert') }}
+    </script> 
     @endif         
-</script>   
+  

@@ -22,12 +22,13 @@ Route::get('/logout','UserController@logout');
 
 // Routes for the space creation{ 
     Route::get('/create-space/place-type','CreateSpaceController@First');
-    Route::post('/create-space/add-place-type','CreateSpaceController@addPlaceType');
+    Route::post('/create-space/add-place-type','CreateSpaceController@AddPlaceType');
     Route::get('/create-space/bedrooms','CreateSpaceController@Second1');
-    Route::post('/create-space/add-bedrooms','CreateSpaceController@addBedrooms');
+    Route::post('/create-space/add-bedrooms','CreateSpaceController@AddBedrooms');
     Route::get('/create-space/bedrooms/edit-bedrooms','CreateSpaceController@Second2');
     // editada a post
     Route::post('/create-space/bedrooms/edit-bedrooms/add-bed','CreateSpaceController@Second3');
+    Route::post('/create-space/bedrooms/edit-bedrooms/save-beds','CreateSpaceController@SaveBeds');
     Route::get('/create-space/baths','CreateSpaceController@Third');
     Route::get('/create-space/location','CreateSpaceController@Fourth');
     Route::get('/create-space/amenities','CreateSpaceController@Fifth');
