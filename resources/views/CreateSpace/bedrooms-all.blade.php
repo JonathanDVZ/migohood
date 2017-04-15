@@ -34,6 +34,11 @@
                         </div>
                         <hr>
                     @endfor
+
+                    <form id="formAddBathrooms" method="POST" action="{{ url('/create-space/baths/show-bathroom') }}">
+                        <input type="hidden" value="{{ $id }}" name="service_id">
+                        {{ csrf_field() }}
+                    </form>
                 </div>
             </div>
         </div>
@@ -62,7 +67,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-space/baths')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a id="addBathroomsNext"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

@@ -68,4 +68,26 @@ $(document).ready(function() {
         form.submit();
     }
 
+    $("#addBathroomsNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        addBathrooms();
+        $(this).removeAttr('disabled');
+    });
+
+    function addBathrooms() {
+        var form = document.getElementById('formAddBathrooms');
+        form.submit();
+    }
+
+    $("#addBathsNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        addBaths();
+        $(this).removeAttr('disabled');
+    });
+
+    function addBaths() {
+        var form = document.getElementById('formAddBaths');
+        form.submit();
+    }
+
 })

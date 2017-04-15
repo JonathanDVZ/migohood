@@ -296,12 +296,68 @@ class CreateSpaceController extends Controller
         
     }
 
-    public function Third()
+    public function ShowBathroom(Request $request)
     {
-        return view("CreateSpace.baths");
+
+        session()->put('id', $request->input('service_id'));
+        return redirect('/create-space/baths');
+        
     }
 
-        public function Fourth()
+    public function Third()
+    {
+        $id = '';
+        if (session()->has('id')) {
+            $id = session()->get('id');
+            //dd($id);
+            session()->forget('id');
+        }
+        $msg = '';
+        if (session()->has('message-alert')) {
+            $msg = session()->get('message-alert');
+            session()->forget('message-alert');
+        }
+        if ($msg == '') {
+            return view("CreateSpace.baths", ['service_id' => $id]);
+        } else {
+            session()->put('message-alert', ''.$msg.'');
+            return view("CreateSpace.baths", ['service_id' => $id]);
+        }
+        
+    }
+
+    public function AddBaths(Request $request)
+    {
+        $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-3/bathroom')
+                        ->withHeaders(array( 
+                            'api-token:'.session()->get('user.remember_token') 
+                        ))
+                        ->withData( array( 
+                            'service_id' => $request->input('service_id'),
+                            'num_bathroom' => $request->input('num_bathroom'),
+                            ) )
+                        ->asJson( true )
+                        ->put();
+        if ($response == 'Add Step 3') {
+            return redirect('/create-space/location')->with(['id' => $request->input('service_id')]);
+        } else {
+            $caracters = array('"','[',']',',');
+            $response = str_replace($caracters,'',$response);
+            if (is_array($response)) {
+                $res = '';
+                foreach ($response as $r) {
+                    $res .= $r . '\\n';
+                }
+            } else {
+                $res = $response;
+            }
+            return redirect('/create-space/baths')->with(['message-alert' => '' . $res . '', 'id' => $request->input('service_id')]);
+        }
+        //dd($response);
+        //return view("CreateSpace.baths", ['service_id' => $id]);
+    }
+
+    public function Fourth()
     {
         return view("CreateSpace.locations");
     }
