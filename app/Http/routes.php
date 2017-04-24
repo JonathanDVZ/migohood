@@ -53,6 +53,21 @@ Route::get('/logout','UserController@logout');
     Route::get('/create-service/co-host','CreateServiceController@CoHost');
 //}
 
+// Routes for the parking creation{ 
+    Route::get('/create-parking/place-type','CreateSpaceController@First');
+    Route::get('/create-parking/bedrooms','CreateSpaceController@Second');
+    Route::get('/create-parking/baths','CreateSpaceController@Third');
+    Route::get('/create-parking/location','CreateSpaceController@Fourth');
+    Route::get('/create-space/amenities','CreateSpaceController@Fifth');
+    Route::get('/create-parking/hosting','CreateSpaceController@Sixth');
+    Route::get('/create-parking/basics','CreateSpaceController@Seventh');
+    Route::get('/create-parking/listing','CreateSpaceController@Eigth');
+    Route::get('/create-parking/photos','CreateSpaceController@Ninth');
+    Route::get('/create-parking/services','CreateSpaceController@Tenth');
+    Route::get('/create-parking/notes','CreateSpaceController@Eleven');
+    Route::get('/create-parking/co-host','CreateSpaceController@Twelve');
+//}
+
 //Social Login{
 //Route::get('social/{provider?}', 'SocialController@getSocialAuth');
 Route::get('social/callback/{provider?}', 'SocialController@getSocialAuthCallback'); 
