@@ -122,7 +122,7 @@
                         <div class="container-fluid">
                             <div class="text-center">
                                 <div class="cheks"><label for="selectin">Hasta:   </label></div>
-                                <div class="cheks">
+                                <div class="cheks black">
                                     <select class="selectpicker form-control required">
                                         <option>10 AM</option>
                                         <option>VEF</option>
@@ -138,6 +138,7 @@
 
                     <span>Cantidad de personas</span>
                     <br>
+                    <br>
                     <input type="number" min="0" step="0" class="form-control" placeholder="0" required/>
                 </div>
                 <div class="text-center">
@@ -149,23 +150,21 @@
             </div>
         </div>
     </div>
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
 </div>
-<div class="col-lg-2 col-md-2 col-sm-2"></div>
-</div>
-</div>
-</div>
+
 <div class="container">
     <div class="row">
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-lg-offset-1 col-md-offset-1 col-sm-offset1 col-xs-offset-1 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-space/amenities')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-servicw/category')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-space/basics')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a href="{{url('/create-service/basics')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

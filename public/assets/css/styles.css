@@ -161,6 +161,10 @@ input:checked+.slider:before {
     background-color: orange;
 }
 
+.black {
+    color: black;
+}
+
 .red {
     display: block;
     height: 3px;
