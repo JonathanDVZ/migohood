@@ -28,7 +28,7 @@ class CreateServiceController extends Controller
     } 
                 public function Location()
     {
-        return view("CreateService.location");
+        return view("CreateService.locations");
     } 
                 public function Notes()
     {

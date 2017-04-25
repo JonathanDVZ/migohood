@@ -123,7 +123,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="form-group text-left">
                                 <div class="radio">
-                                    <label class="textwhite"><input type="radio" name="optradio"><storng>Flexible</storng></label>
+                                    <label class="textwhite"><input type="radio" name="optradio"><strong>Flexible</strong></label>
                                     <hr class="green">
                                     <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
                                 </div>
@@ -132,7 +132,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="form-group text-left">
                                 <div class="radio">
-                                    <label class="textwhite"><input type="radio" name="optradio"><storng>Moderado</storng></label>
+                                    <label class="textwhite"><input type="radio" name="optradio"><strong>Moderado</strong></label>
                                     <hr class="orange">
                                     <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
                                 </div>
@@ -141,7 +141,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="form-group text-left">
                                 <div class="radio">
-                                    <label class="textwhite"><input class="textwhite" type="radio" name="optradio"><storng>Estricto</storng></label>
+                                    <label class="textwhite"><input class="textwhite" type="radio" name="optradio"><strong>Estricto</strong></label>
                                     <hr class="red">
                                     <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
                                 </div>

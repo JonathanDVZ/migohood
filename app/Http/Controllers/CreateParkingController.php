@@ -20,7 +20,7 @@ class CreateParkingController extends Controller
     }
         public function First()
     {
-        return view("CreateParking.place-type");
+        return view("CreateParking.placeType");
     }
 
         public function Second()

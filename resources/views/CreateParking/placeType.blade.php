@@ -1,48 +1,41 @@
-@extends('layouts.master') 
-@section('title', 'Place Type') 
-@section('class', 'contenedor') 
-@section('content')
-@include('CreateSpace.navbar.navbar',['activo' => 'placetype'])
+@extends('layouts.master') @section('title', 'Place Type') @section('class', 'contenedor') @section('content') @include('CreateSpace.navbar.navbar',['activo' => 'placetype'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1"></div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-            <br>
-            <h3 class="titulo text-center">CUENTANOS SOBRE EL LUGAR A AGREGAR</h3>
-            <br>
             <div class="row">
-                <form id="formPlaceType" method="POST" action="{{ url('/create-space/add-place-type') }}">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <label>¿Cómo es tu propiedad?:</label>
+                <h4>¿Qué tipo de aparcamiento esta ofreciendo?</h4>
+                <form>
+                    <div class="col-sm-8 col-sm-offset-2">
+                        <div class="form-group">
+                            <div class="text-left">
+                                <label>¿Qué ofrece?:</label>
+                            </div>
+                            <select class="selectpicker form-control required">
+                                    <option>Garage</option>
+                                    <option>Garage</option>
+                                    <option>Garage</option>
+                            </select>
+                            <div id="lilbox">
+                                <div class="radio">
+                                    <label class="textwhite"><input type="radio" name="optradio"><strong>Exterior</strong></label>
+                                </div>
+                                <div class="radio">
+                                    <label class="textwhite"><input type="radio" name="optradio"><strong>Interior</strong></label>
+                                </div>
+                            </div>
+                            <input type="number" name="num_bathroom" min="1" max="20" class="form-control" step="1" placeholder="1" required>
+                            <div>
+                            </div>
                         </div>
-                        <select class="selectpicker form-control" name="type">
-                            @foreach($types as $type)
-                                <option value="{{ $type['id_type'] }}">{{ $type['name'] }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <label>¿Qué ofrece?:</label>
-                        </div>
-                        <select class="selectpicker form-control" name="accomodation">
-                            @foreach($accommodation as $acc)
-                                <option value="{{ $acc['id'] }}">{{ $acc['name'] }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <div class="form-group text-center">
-                        <div class="text-center">
-                            <label>¿Ústed vive en este lugar?:</label> <br>
-                            <label class="radio-inline"><input type="radio" name="live" value="1">Si</label>
-                            <label class="radio-inline"><input type="radio" name="live" value="0">No</label>
+                        <div class="form-group text-center">
+                            <div class="text-center">
+                                <label>¿Ústed vive en este lugar?:</label> <br>
+                                <label class="radio-inline"><input type="radio" name="live" value="1">Si</label>
+                                <label class="radio-inline"><input type="radio" name="live" value="0">No</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {{ csrf_field() }}
-                <!--<input type="submit">-->
                 </form>
             </div>
         </div>
