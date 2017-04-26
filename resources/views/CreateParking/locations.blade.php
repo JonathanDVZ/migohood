@@ -1,4 +1,4 @@
-@section('title', 'Locations') @extends('layouts.master') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'location'])
+@section('title', 'Locations') @extends('layouts.master') @section('class', 'contenedor') @section( 'content') @include('CreateParking.navbar.navbar',['activo' => 'location'])
 
 <div class="container-fluid">
     <div class="row">
@@ -7,7 +7,7 @@
             <div class="text-right">
                 <div class="row">
                     <div class="col-sm-8 col-sm-offset-4">
-                        <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
+                        <h3 class="titulo text-center">AYUDA A LOS INVITADOS A ENCONTRAR TU ESPACIO</h3>
                         <br>
                         <div class="form-group text-right">
                             <div class="text-left">
@@ -90,12 +90,13 @@
                         </div>
                         <div>
                             <div class="form-group text-left">
-                                <h4 class="text-left">Informacion General</h4>
+                                <h4 class="text-left">El Vecindario</h4>
+                                <label for="">Resumen</label>
                                 <textarea class="form-control" rows="5" id="comment"></textarea>
                             </div>
 
                             <div class="form-group text-left">
-                                <h4 class="text-left">¿Cómo son los alrededores?</h4>
+                                <label for="">¿Cómo son los alrededores?</label>
                                 <textarea class="form-control" rows="5" id="comment"></textarea>
                             </div>
                         </div>
@@ -120,13 +121,13 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-space/baths')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-parking/place-type')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-space/amenities')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a href="{{url('/create-parking/amenities')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

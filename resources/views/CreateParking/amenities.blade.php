@@ -1,103 +1,101 @@
-@extends('layouts.master') 
-@section('title', 'Amenities') 
-@section('class', 'contenedor') 
-@section( 'content') 
-@include('CreateSpace.navbar.navbar',['activo' => 'amenities'])
+@extends('layouts.master') @section('title', 'Amenities') @section('class', 'contenedor') @section( 'content') @include('CreateParking.navbar.navbar',['activo' => 'amenities'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                    <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                    <h3 class="titulo text-center">COMODIDADES</h3>
                     <br>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Mascotas permitidas</strong></label>
+                                <label><input type="checkbox" value=""><strong>Cámara de Seguridad</strong></label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""> <strong>Eventos permitidos</strong></label>
+                                <label><input type="checkbox" value=""> <strong>Candado y Llave</strong></label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Produccion permitida</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Ambiente familiar</strong></label>
+                                <label><input type="checkbox" value=""><strong>Vigilancia</strong></label>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Invitado de negocios</strong></label>
+                                <label><input type="checkbox" value=""><strong>Permiso Requerido</strong></label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>No fumadores</strong></label>
+                                <label><input type="checkbox" value=""><strong>Valet Parking</strong></label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Gimnasio</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Estacionamiento</strong></label>
+                                <label><input type="checkbox" value=""><strong>Otro</strong></label>
                             </div>
                         </div>
                     </div>
-                    <h4>¿Qué ofreces?</h4>
+                    <label for="editar">Agregar Comodidades <i class="fa fa-pencil" aria-hidden="true"></i></label>
+                    <button id="editar" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Agregar Comodidades</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="text-left">
+                                            <input type="text" name="quantity" class="form-control">
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <button id="addMore" type="button" class="btn btn-default hidden"></button>
+                                    <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h4>Información de Contacto</h4>
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Shampoo</strong></label>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="text-left">
+                                <label>Nombre</label>
                             </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>TV por Cable</strong></label>
+                            <div class="text-left">
+                                <input type="text" name="quantity" class="form-control">
                             </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Amenities</strong></label>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="text-left">
+                                <label>Apellido</label>
+                            </div>
+                            <div class="text-left">
+                                <input type="text" name="quantity" class="form-control">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Wifi</strong></label>
+                            <div class="text-left">
+                                <label>Telefono <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                             </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Aire Acondicionado</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Amenities</strong></label>
-                            </div>
-                        </div>
-                    </div>
-                    <h4>¿Qué lugares puede usar el huesped?</h4>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Cocina</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Lavadora</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Secadora</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Agua Caliente</strong></label>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Estacionamiento</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Ascensor</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Pool</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Gimnasio</strong></label>
+                            <div class="row">
+                                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                    <input type="text" name="quantity" class="form-control">
+                                </div>
+                                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                    <input type="text" name="quantity" class="form-control">
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <br>
+                    <label>Instrucciones de Acceso (opcional)</label>
+                    <br>
+                    <input type="text" name="quantity" class="form-control">
                 </div>
             </div>
         </div>
@@ -120,13 +118,13 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-space/location')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-parking/location')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-space/hosting')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a href="{{url('/create-parking/hosting')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

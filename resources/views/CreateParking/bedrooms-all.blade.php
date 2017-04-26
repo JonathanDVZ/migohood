@@ -2,7 +2,7 @@
 @section('title', 'Bedrooms') 
 @section('class', 'contenedor') 
 @section( 'content')
-@include('CreateSpace.navbar.navbar',['activo' => 'bedrooms'])
+@include('CreateParking.navbar.navbar',['activo' => 'bedrooms'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1"></div>

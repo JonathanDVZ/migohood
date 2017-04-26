@@ -224,6 +224,23 @@ textarea {
     text-decoration: none;
 }
 
+.Giantb {
+    color: #000;
+    background: #0093B4;
+    border-style: solid;
+    border-color: #ccc;
+    border-radius: none;
+    width: 100%;
+}
+
+.Giantb:hover {
+    border-color: #023859;
+}
+
+.lilpadding {
+    padding: 1em;
+}
+
 #lilbox {
     margin-top: 3px;
     border-style: solid;

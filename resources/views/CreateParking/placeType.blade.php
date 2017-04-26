@@ -1,4 +1,4 @@
-@extends('layouts.master') @section('title', 'Place Type') @section('class', 'contenedor') @section('content') @include('CreateSpace.navbar.navbar',['activo' => 'placetype'])
+@extends('layouts.master') @section('title', 'Place Type') @section('class', 'contenedor') @section('content') @include('CreateParking.navbar.navbar',['activo' => 'placetype'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1"></div>
@@ -11,28 +11,26 @@
                             <div class="text-left">
                                 <label>¿Qué ofrece?:</label>
                             </div>
+                            <br>
                             <select class="selectpicker form-control required">
                                     <option>Garage</option>
                                     <option>Garage</option>
                                     <option>Garage</option>
                             </select>
+                            <br>
+                            <br>
                             <div id="lilbox">
                                 <div class="radio">
                                     <label class="textwhite"><input type="radio" name="optradio"><strong>Exterior</strong></label>
                                 </div>
+                                <hr>
                                 <div class="radio">
                                     <label class="textwhite"><input type="radio" name="optradio"><strong>Interior</strong></label>
                                 </div>
                             </div>
+                            <br>
                             <input type="number" name="num_bathroom" min="1" max="20" class="form-control" step="1" placeholder="1" required>
                             <div>
-                            </div>
-                        </div>
-                        <div class="form-group text-center">
-                            <div class="text-center">
-                                <label>¿Ústed vive en este lugar?:</label> <br>
-                                <label class="radio-inline"><input type="radio" name="live" value="1">Si</label>
-                                <label class="radio-inline"><input type="radio" name="live" value="0">No</label>
                             </div>
                         </div>
                     </div>
@@ -68,7 +66,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a id="placeTypeNext"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a id=""><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

@@ -1,9 +1,9 @@
-@extends('layouts.master') @section('title', 'Hosting') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'hosting'])
+@extends('layouts.master') @section('title', 'Hosting') @section('class', 'contenedor') @section( 'content') @include('CreateParking.navbar.navbar',['activo' => 'hosting'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
-                <div class="col-sm-8 col-sm-offset-3">
+                <div class="col-sm-10 col-sm-offset-2">
                     <br>
                     <br>
                     <br>
@@ -12,88 +12,88 @@
                             <div id="datetimepicker3"></div>
                         </div>
                     </div>
+                    <h4>Disponibilidad</h4>
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lilpadding">
+                            <button type="button" class="btn Giantb">
+                            Horario de Oficina 
+                            <br>
+                            Lunes - Viernes  
+                            <br>
+                            9 am - 5 pm
+                            </button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn Giantb">
+                            Horario de Oficina 
+                            <br>
+                            Lunes - Viernes  
+                            <br>
+                            9 am - 5 pm
+                            </button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lilpadding">
+                            <button type="button" class="btn Giantb">
+                            Horario de Oficina 
+                            <br>
+                            Lunes - Viernes  
+                            <br>
+                            9 am - 5 pm
+                            </button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn Giantb"> 
+                            Horario de Oficina 
+                            <br>
+                            Lunes - Viernes  
+                            <br>
+                            9 am - 5 pm
+                            </button>
+                        </div>
+                    </div>
+
                     <div class="text-left">
-                        <label class="textwhite">Precio</label>
-                        <br>
-                        <span class="textwhite">Elige tu propio precio</span>
+                        <label>Precio</label>
                     </div>
-                    <br>
                     <div class="row">
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">Precio:</label>
-                                </div>
-                                <div class="text-left">
-                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
-                                </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">día</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">7 días</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">mes</label>
+                            </div>
+                            <div class="checkbox">
+                                <label><input type="checkbox" value="">Detector de Monoxido de Carbono</label>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">Por:</label>
-                                </div>
-                                <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>Elige uno</option>
-                                    <option>Distrito Capital</option>
-                                    <option>Barinas</option>
-                                    <option>Barquisimeto</option>
-                                    <option></option>
-                                </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">Moneda:</label>
-                                </div>
-                                <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>USD</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <label><strong class="textwhite">Check-in</strong></label>
-                        <br>
-                        <span class="textwhite">¿Qué hora funciona para usted?</span>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">Check-in:</label>
-                                </div>
-                                <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>10 AM</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
-                                </div>
-                            </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <label class="switch">
+                        <input type="checkbox">
+                        <div class="slider round"></div>
+                        </label>
+                            <br>
+                            <label class="switch">
+                        <input type="checkbox">
+                        <div class="slider round"></div>
+                        </label>
+                            <br>
+                            <label class="switch">
+                        <input type="checkbox">
+                        <div class="slider round"></div>
+                        </label>
+                            <br>
+                            <label class="switch">
+                        <input type="checkbox">
+                        <div class="slider round"></div>
+                        </label>
+                            <br>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <div class="form-group text-right">
-                                <div class="text-left">
-                                    <label class="textwhite">To:</label>
-                                </div>
-                                <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>2 AM (Next Day)</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
 
