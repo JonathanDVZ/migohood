@@ -31,36 +31,36 @@
                                 <input type="hidden" name="service_id" value="{{$service_id}}">
                                 <input type="hidden" name="bedroom_id" value="{{$bedroom_id}}">
                                 @if(isset($beds['double_bed']) AND $beds['double_bed'] != NULL AND $beds['double_bed'] != '')
-                                    <input type="number" name="double_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Dobles" value="{{ $beds['double_bed']}}" required>
+                                    <input type="number" name="double_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Dobles" value="{{ $beds['double_bed']}}">
                                 @else
-                                    <input type="number" name="double_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Dobles" required>
+                                    <input type="number" name="double_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Dobles">
                                 @endif
                             </div>
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
                                 @if(isset($beds['queen_bed']) AND $beds['queen_bed'] != NULL AND $beds['queen_bed'] != '')
-                                    <input type="number" name="queen_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Queen" value="{{ $beds['queen_bed']}}" required>
+                                    <input type="number" name="queen_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Queen" value="{{ $beds['queen_bed']}}">
                                 @else
-                                    <input type="number" name="queen_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Queen" required>
+                                    <input type="number" name="queen_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Queen">
                                 @endif
                             </div>
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
                                 @if(isset($beds['individual_bed']) AND $beds['individual_bed'] != NULL AND $beds['individual_bed'] != '')
-                                    <input type="number" name="individual_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Individuales" value="{{ $beds['individual_bed']}}" required>
+                                    <input type="number" name="individual_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Individuales" value="{{ $beds['individual_bed']}}">
                                 @else
-                                    <input type="number" name="individual_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Individuales" required>
+                                    <input type="number" name="individual_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Individuales">
                                 @endif
                             </div>
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
                                 @if(isset($beds['sofa_bed']) AND $beds['sofa_bed'] != NULL AND $beds['sofa_bed'] != '')
-                                    <input type="number" name="sofa_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Sofa Camas" value="{{ $beds['sofa_bed']}}" required>
+                                    <input type="number" name="sofa_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Sofa Camas" value="{{ $beds['sofa_bed']}}">
                                 @else
-                                    <input type="number" name="sofa_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Sofa Camas" required>
+                                    <input type="number" name="sofa_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Sofa Camas">
                                 @endif
                             </div>
                         </div>
@@ -69,11 +69,11 @@
                             <div class="text-left">
                                 <label>¿Agregar Cama Adicional?:</label>
                             </div>
-                            <select name="other_bed" class="selectpicker form-control required">
+                            <select name="other_bed" class="selectpicker form-control">
                                     <option value="0"></option>
-                                    <option value="0">Cama King</option>
-                                    <option value="0">Cama Queen</option>
-                                    <option value="0">Otra</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
                             </select>
                         </div>
                     </form>
