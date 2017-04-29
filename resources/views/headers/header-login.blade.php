@@ -79,7 +79,7 @@
                         <a class="nav-link" href="#"><img src="{{url('/assets/img/Bell.png')}}" alt=""></a>
                     </li>
                     <li class="dropdown dropdown-normal">
-                        <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle" src="{{ session()->get('user.thumbnail') }}" alt=""></a>
+                        <a class="nav-link" href="#" class="dropdown-toggle" data-toggle="dropdown"><img class="img-circle" src="{{ session()->get('user.avatar') }}" alt=""></a>
                         <ul class="dropdown-menu">
                             <li><a href="{{ url('/logout') }}">Log Out</a></li>
                         </ul>

@@ -19,7 +19,7 @@
                         </div>
                         <select class="selectpicker form-control" name="type">
                             @foreach($types as $type)
-                                <option value="{{ $type['id_type'] }}">{{ $type['name'] }}</option>
+                                <option value="{{ $type['code'] }}">{{ $type['name'] }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -29,7 +29,7 @@
                         </div>
                         <select class="selectpicker form-control" name="accomodation">
                             @foreach($accommodation as $acc)
-                                <option value="{{ $acc['id'] }}">{{ $acc['name'] }}</option>
+                                <option value="{{ $acc['code'] }}">{{ $acc['name'] }}</option>
                             @endforeach
                         </select>
                     </div>

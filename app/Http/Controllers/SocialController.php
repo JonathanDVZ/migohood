@@ -70,7 +70,8 @@ class SocialController extends Controller {
                                     ->withData( array( 
                                         'name' => $usersocialite->name,                       
                                         'email' => $usersocialite->email,
-                                        'thumbnail' => $usersocialite->avatar,
+                                        'avatar' => $usersocialite->avatar,
+                                        'avatar_original' => $usersocialite->avatar,
                                         ) )
                                     ->asJson( true )
                                     ->post();

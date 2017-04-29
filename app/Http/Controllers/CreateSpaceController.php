@@ -32,11 +32,20 @@ class CreateSpaceController extends Controller
     {
         
         $types = Curl::to(env('MIGOHOOD_API_URL').'/category/space/get-type')
+                    ->withData( array( 
+                        'category_id' => '1',
+                        'languaje'  => "ES",
+                        ) )
                     ->asJson( true )
                     ->get();
+        //dd($types);
         $accommodation = Curl::to(env('MIGOHOOD_API_URL').'/accommodation/get-accommodation')
+                    ->withData( array(
+                        'languaje'  => "ES",
+                        ) )
                     ->asJson( true )
                     ->get();
+        //dd($accommodation);
         //session()->put('message-alert', 'test');  
         return view("CreateSpace.placeType", ['types' => $types, 'accommodation' => $accommodation]);
     }
@@ -50,8 +59,8 @@ class CreateSpaceController extends Controller
                     ))
                     ->withData( array( 
                         'user_id' => session()->get('user.id'),
-                        'type_id'  => $request->input('type'),
-                        'accommodation_id'  => $request->input('accomodation'),
+                        'type_code'  => $request->input('type'),
+                        'accommodation_code'  => $request->input('accomodation'),
                         'live'  => $request->input('live')
                         ) )
                     ->asJson( true )
@@ -102,7 +111,7 @@ class CreateSpaceController extends Controller
                         ) )
                     ->asJson( true )
                     ->post();
-
+        //dd($response);
         // Si es un array y existe el valor id se dirige a la proxima vista
         /*if (is_array($response) && array_key_exists('id', $response)) {
             //dd($response['bedrooms']);
@@ -122,6 +131,7 @@ class CreateSpaceController extends Controller
         } else {
             $res = $response;
         }
+        //sdd($res);
 
         if ($res == 'Add Space Bedroom') {
             session()->put('id', $request->input('service'));
@@ -149,38 +159,59 @@ class CreateSpaceController extends Controller
             session()->forget('msg');
         }
 
-        $response = Curl::to(env('MIGOHOOD_API_URL').'/service/get-bed-bedroom')
+        //dd($id);
+
+        $result = Curl::to(env('MIGOHOOD_API_URL').'/service/get-beds')
                         ->withData( array( 
                             'service_id' => $id,
+                            'languaje' => 'ES',
                             ) )
                         ->asJson( true )
-                        ->post();
+                        ->get();
+
+        /*echo "<pre>";
+        print_r($result);
+        echo "</pre>";*/
 
         // Si es un array y existe el valor bedroom_id se dirige a la proxima vista
-        if (is_array($response) && array_key_exists('bedroom_id', $response[0])) {
+        if (is_array($result) && array_key_exists('bedroom_id', $result[0])) {
             $bedrooms = array();
-            $bed_quantity = 0;
-            for ($i=0, $aux=0; $i < count($response); $i++) { 
-                if ($i == 0) {
-                    $bedrooms[$aux]['bedroom_id'] = $response[$i]['bedroom_id'];
-                    $bed_quantity += $response[$i]['bed_quantity'];
-                }
-                if (isset($response[$i+1]['bedroom_id'])) {
-                    if ($bedrooms[$aux]['bedroom_id'] == $response[$i+1]['bedroom_id']) {
-                        $bed_quantity += $response[$i+1]['bed_quantity'];
-                    } else {
-                        $bedrooms[$aux]['bed_quantity'] = $bed_quantity;
-                        $aux++;
-                        $bedrooms[$aux]['bedroom_id'] = $response[$i+1]['bedroom_id'];
-                        if (is_null($response[$i+1]['bed_quantity'] == null) OR empty($response[$i+1]['bed_quantity'] == null) OR $response[$i+1]['bed_quantity'] == 0)
-                            $bed_quantity = 0;
-                        else
-                            $bed_quantity = $response[$i+1]['bed_quantity'];
-                    }
+            $aux=0;
+            foreach ($result as $key) {
+                $response = Curl::to(env('MIGOHOOD_API_URL').'/service/get-bed-bedroom')
+                        ->withData( array( 
+                            'bedroom_id' => $key['bedroom_id'],
+                            'languaje' => 'ES',
+                            ) )
+                        ->asJson( true )
+                        ->get();
+                /*echo "<pre>";
+                print_r($result);
+                echo "</pre>";*/
+                if (empty($response)) {
+                   $bedrooms[$aux]['bedroom_id'] = $key['bedroom_id'];
+                   $bedrooms[$aux]['bed_quantity'] = 0;
+                   $aux++;
+
                 } else {
+                    //dd($response);
+                    $bed_quantity = 0;
+                    for ($i=0; $i < count($response); $i++) { 
+                        //$bedrooms[$aux]['bedroom_id'] = $response[$i]['bedroom_id'];
+                        $bed_quantity += $response[$i]['bed_quantity'];
+                    }
+                    $bedrooms[$aux]['bedroom_id'] = $response[0]['bedroom_id'];
                     $bedrooms[$aux]['bed_quantity'] = $bed_quantity;
+                    $aux++;
                 }
+
             }
+
+            //return;
+
+            //dd($bedrooms);
+            
+            
             if ($msg == ''){
                 return view("CreateSpace.bedrooms-all", ['id' => $id, 'bedrooms' => $bedrooms]);
             } else {
@@ -213,39 +244,12 @@ class CreateSpaceController extends Controller
                         ->withData( array( 
                             'user_id' => session()->get('user.id'),
                             'bedroom_id' => $request->input('bedroom_id'),
+                            'languaje' => 'ES',
                             ) )
                         ->asJson( true )
-                        ->post();
-        //dd($response);
+                        ->get();
 
-        // Si es un array y existe el valor bedroom_id se dirige a la proxima vista
-        if (is_array($response)) {
-            $beds = array();
-            $qty = 0;
-            foreach ($response as $value) {
-                if ($value['bed_id'] == 1) {
-                    $beds['double_bed'] = $value['quantity'];
-                    $qty += $value['quantity'];
-                } elseif ($value['bed_id'] == 2) {
-                    $beds['queen_bed'] = $value['quantity'];
-                    $qty += $value['quantity'];
-                } elseif ($value['bed_id'] == 3) {
-                    $beds['individual_bed'] = $value['quantity'];
-                    $qty += $value['quantity'];
-                } elseif ($value['bed_id'] == 4) {
-                    $beds['sofa_bed'] = $value['quantity'];
-                    $qty += $value['quantity'];
-                } elseif ($value['bed_id'] == 5) {
-                    $beds['other_bed'] = $value['quantity'];
-                    $qty += $value['quantity'];
-                }
-            }
-            $beds['quantity'] = $qty;
-                            
-            // Se retorna la vista con las variables
-            return view("CreateSpace.bedrooms-addbed",['service_id' => $request->input('service_id'), 'bedroom_id' => $request->input('bedroom_id'), 'refer' => $request->input('refer'), 'beds' => $beds]);
-        // Si no, se retorna un mensaje al usuario
-        } else {
+        if ($response == 'The user does not have a room or user not found') {
             $caracters = array('"','[',']',',');
             $response = str_replace($caracters,'',$response);
             if (is_array($response)) {
@@ -258,8 +262,40 @@ class CreateSpaceController extends Controller
             }
 
             return redirect('/')->with(['message-alert' => '' . $res . '']);
+        } else {
+
+            $beds = array();
+            if (is_array($response)) {
+                //$beds = array();
+                //dd($response);
+                $qty = 0;
+                foreach ($response as $value) {
+                    if ($value['bed_id'] == 1 OR $value['bed_id'] == 6) {
+                        $beds['double_bed'] = $value['quantity'];
+                        $qty += $value['quantity'];
+                    } elseif ($value['bed_id'] == 2 OR $value['bed_id'] == 7) {
+                        $beds['queen_bed'] = $value['quantity'];
+                        $qty += $value['quantity'];
+                    } elseif ($value['bed_id'] == 3 OR $value['bed_id'] == 8) {
+                        $beds['individual_bed'] = $value['quantity'];
+                        $qty += $value['quantity'];
+                    } elseif ($value['bed_id'] == 4 OR $value['bed_id'] == 9) {
+                        $beds['sofa_bed'] = $value['quantity'];
+                        $qty += $value['quantity'];
+                    } elseif ($value['bed_id'] == 5 OR $value['bed_id'] == 10) {
+                        $beds['other_bed'] = $value['quantity'];
+                        $qty += $value['quantity'];
+                    }
+                }
+                $beds['quantity'] = $qty;
+
+            } 
+
+            //dd($beds);
+                            
+            // Se retorna la vista con las variables
+            return view("CreateSpace.bedrooms-addbed",['service_id' => $request->input('service_id'), 'bedroom_id' => $request->input('bedroom_id'), 'refer' => $request->input('refer'), 'beds' => $beds]); 
         }
-        //dd($response);
         
     }
 
@@ -282,14 +318,14 @@ class CreateSpaceController extends Controller
         //$caracters = array('"','[',']',',');
         //$response = str_replace($caracters,'',$response);
 
-        if (is_null($response) OR empty($response)) {
+        if ($response == 'Add Bedroom-Beds') {
             //dd($response);
             $response = 'Camas guardadas exitosamente';
             session()->put('id', $request->input('service_id'));
             session()->put('msg', ''.$response.'');
             return redirect('/create-space/bedrooms/edit-bedrooms');
         } else {
-            session()->put('id', $request->input('service'));
+            session()->put('id', $request->input('service_id'));
             session()->put('msg', ''.$response.'');
             return redirect('/create-space/bedrooms/edit-bedrooms');
         }
