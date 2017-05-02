@@ -69,8 +69,8 @@ class CreateSpaceController extends Controller
 
         // Si es un array y existe el valor id se dirige a la proxima vista
         if (is_array($response) && array_key_exists('id', $response)) {
-            session()->put('id', $response['id']);                
-            return redirect('/create-space/bedrooms');
+            //session()->put('id', $response['id']);                
+            return redirect('/create-space/bedrooms')->with(['id' => $response['id']]);
         // Si no, se retorna un mensaje al usuario
         } else {
             $caracters = array('"','[',']',',');
