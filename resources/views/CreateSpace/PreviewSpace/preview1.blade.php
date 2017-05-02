@@ -108,6 +108,7 @@
                 <label>Barcelona, Barcelona, Spain</label>
                 <br>
                 <br>
+                <br>
                 <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                     <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
                     <br>

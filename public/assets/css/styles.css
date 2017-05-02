@@ -224,7 +224,7 @@ textarea {
 }
 
 .imgHom2 {
-    width: 70%;
+    width: 55%;
 }
 
 .imgHom3 {
@@ -330,7 +330,9 @@ textarea {
     width: 35%;
 }
 
-.circu{ text-align: center; }
+.circu {
+    text-align: center;
+}
 
 .circulo {
     margin-left: auto;
@@ -684,7 +686,7 @@ header .navbar-toggle {
 }
 
 header .navbar-right {
-    margin-top: 0;
+    margin-top: 2em;
     margin-right: 0;
 }
 
@@ -903,7 +905,8 @@ header .navbar-right {
 }
 
 .barra .navbar-brand img {
-    margin-top: 0;
+    margin-top: 1em;
+    ;
     padding-top: 0;
     width: 225px;
 }
