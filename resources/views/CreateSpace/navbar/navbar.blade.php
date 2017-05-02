@@ -1,5 +1,5 @@
 <div class="barra3">
-    <nav class="navbar navbar-default" role="navigation">
+    <nav class="navbar navbar-default navibar2" role="navigation">
         <div class="container-fluid">
             <ul class="nav navbar-nav centered">
                 <li><a @if(strcmp($activo,'placetype')==0) class="activo" @endif href="{{url('/create-space/place-type')}}">Tipo De Lugar</a></li>
