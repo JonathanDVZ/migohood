@@ -543,7 +543,7 @@ body {
 }
 
 .navSearch,
-.barra2 form div span button {
+header form div span button {
     margin-top: 1.5em;
     background: #0093B4;
     color: #fff;
@@ -560,8 +560,8 @@ body {
     border-color: #0093B4;
 }
 
-.barra2 form div span button:hover,
-.barra2 form div span button:active,
+header form div span button:hover,
+header form div span button:active,
 .barra form div span button:hover,
 .barra form div span button:active {
     background-color: #0093B4;
@@ -588,7 +588,7 @@ body {
     display: none;
 }
 
-.barra2 .SearchB {
+header .SearchB {
     width: 20%;
 }
 
@@ -608,14 +608,14 @@ body {
     font-weight: bold;
 }
 
-.barra2 {
+header {
     font-weight: bold;
     top: 0;
     position: absolute;
     width: 100%;
 }
 
-.barra2 .navbar-brand {
+header .navbar-brand {
     padding: 0;
 }
 
@@ -626,19 +626,19 @@ body {
     height: 90%;
 }
 
-.barra2 .nav li a img {
+header .nav li a img {
     height: 50px;
     margin-top: 5px;
     margin-left: -5px;
     margin-right: -5px;
 }
 
-.barra2 .nav>li>a {
+header .nav>li>a {
     padding-top: 1em;
     padding-bottom: 1em;
 }
 
-.barra2 .navbar-toggle {
+header .navbar-toggle {
     padding: 7px;
     margin: 25px 15px 25px 0;
 }
@@ -678,7 +678,7 @@ body {
     margin: 0;
 }
 
-.barra2 .navbar-right {
+header .navbar-right {
     margin-top: 0;
     margin-right: 0;
 }
@@ -710,7 +710,7 @@ body {
     margin-right: 1em;
 }
 
-.barra3 .navibar3 {
+.barra3 .navbar-default {
     color: #fff;
     background: #023859;
     font-size: 15px;

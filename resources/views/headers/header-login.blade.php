@@ -1,5 +1,4 @@
 <header>
-<div class="barra2">
     <nav id="navibar2" class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -44,5 +43,4 @@
             </div>
         </div>
     </nav>
-</div>
 </header>

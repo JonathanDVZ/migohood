@@ -22,7 +22,9 @@
     @endif 
     
     @include('partials.alert') 
-    @yield ('content')
+    <main>
+        @yield ('content')
+    </main>
     <footer>
         @include ("footers/footer")
     </footer>
