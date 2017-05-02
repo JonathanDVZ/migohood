@@ -220,7 +220,7 @@ textarea {
 }
 
 .imgHom {
-    width: 75%;
+    width: 50%;
 }
 
 .imgHom2 {
@@ -323,25 +323,31 @@ textarea {
 
 .hoWork {
     margin-top: 1.5em;
-    margin-left: 25%;
-    width: 45%;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 35%;
 }
 
+.circu{ text-align: center; }
+
 .circulo {
-    margin-left: 0;
-    margin-right: 0;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 15%;
     display: block;
-    width: 90%;
+    width: 60%;
     z-index: -1;
     padding: 0;
 }
 
 .texto {
-    width: 55%;
+    width: 40%;
     position: absolute;
-    top: 24%;
-    left: 18%;
+    top: 35%;
+    left: 0;
+    right: 0;
 }
 
 body {
@@ -431,7 +437,6 @@ body {
 .azul {
     color: #1B94B5;
     font-weight: bolder;
-    font-size: 3em;
 }
 
 .nopadding {
