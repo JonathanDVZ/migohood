@@ -41,6 +41,7 @@ Route::get('/logout','UserController@logout');
     Route::get('/create-space/services','CreateSpaceController@Tenth');
     Route::get('/create-space/notes','CreateSpaceController@Eleven');
     Route::get('/create-space/co-host','CreateSpaceController@Twelve');
+    Route::get('/create-space/preview-space','CreateSpaceController@Preview1');
 //}
 
 // Routes for the service creation{ 

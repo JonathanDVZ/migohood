@@ -436,7 +436,13 @@ class CreateSpaceController extends Controller
             public function Twelve()
     {
         return view("CreateSpace.co-host");
-    }       
+    }
+
+        public function Preview1()
+        {
+        return view("CreateSpace.PreviewSpace.preview1");
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -87,6 +87,10 @@ input:checked+.slider:before {
     display: none;
 }
 
+.preBody {
+    margin-top: -1.5em;
+}
+
 
 /* Rounded sliders */
 
@@ -231,6 +235,19 @@ textarea {
     border-color: #ccc;
     border-radius: none;
     width: 100%;
+}
+
+.lilmargin {
+    margin-top: 7em;
+    margin-bottom: 2em;
+}
+
+.BlueBack {
+    background: #023859;
+}
+
+.WhiteBack {
+    background: #fff;
 }
 
 .Giantb:hover {
@@ -644,6 +661,37 @@ body {
     color: #fff;
 }
 
+.barra4 .centered2>li {
+    float: none;
+    display: inline-block;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.activo2 {
+    border-bottom: 3px solid;
+    border-bottom-color: white;
+    margin-bottom: 0;
+}
+
+.centered2 {
+    width: 100%;
+    text-align: center;
+}
+
+.barra4 .navibar4 {
+    color: #fff;
+    background: #023859;
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
+    margin-top: 3em;
+    z-index: 3;
+    border-color: #023859;
+    width: 100%;
+    border-radius: 0;
+}
+
 
 /*third Bar*/
 
@@ -659,7 +707,7 @@ body {
     margin-right: 1em;
 }
 
-.barra3 .navibar2 {
+.barra3 .navibar4 {
     color: #fff;
     background: #023859;
     font-size: 15px;
