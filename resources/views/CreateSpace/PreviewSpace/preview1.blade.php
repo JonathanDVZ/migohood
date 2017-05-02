@@ -94,20 +94,49 @@
     <div class="row">
         @include('CreateSpace.PreviewSpace.navbar.preview-navbar',['activo2' => 'preview1'])
         <div class="container WhiteBack preBody">
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            <div class="col-lg-8 col-md-8 col-sm-87 col-xs-12 light-border">
                 <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                        <img src="" alt="">
-                        <h3>USERNAME</h3>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                        <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
+                        <h4 class="text-center">Username</h4>
                     </div>
-                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8"> </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                        <h3>Espacio Habitable</h3>
+                        <label>Barcelona, Barcelona, Spain</label>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <br>
+                            <div class="col-sm-3 col-xs-3 text-center">
+                                <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
+                                <br>
+                                <label>Private room</label>
+                            </div>
+                            <div class="col-sm-3 col-xs-3 text-center">
+                                <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
+                                <br>
+                                <label>1 Guest</label>
+                            </div>
+                            <div class="col-sm-3 col-xs-3 text-center">
+                                <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
+                                <br>
+                                <label>1 Bedroom<label>
+                            </div>
+                            <div class="col-sm-3 col-xs-3 text-center">
+                                <img class="imgHom3" src="{{url('/assets/img/Icon-Bed.png')}}" alt="">
+                                <br>
+                                <label>1 Bed</label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 light-border">
 
-            </div>
         </div>
     </div>
+</div>
 
 </div>
 

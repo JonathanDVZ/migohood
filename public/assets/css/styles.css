@@ -91,6 +91,14 @@ input:checked+.slider:before {
     margin-top: -1.5em;
 }
 
+.light-border {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 
 /* Rounded sliders */
 
@@ -200,6 +208,14 @@ textarea {
 
 .imgHom {
     width: 75%;
+}
+
+.imgHom2 {
+    width: 70%;
+}
+
+.imgHom3 {
+    height: 2.6em;
 }
 
 .cheks {
