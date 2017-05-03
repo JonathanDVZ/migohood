@@ -21,7 +21,7 @@
                         <div class="form-group text-right">
                             <div class="text-left">
                                 <label>¿Cuántas Habitaciones ofrece?:</label>
-                                <input type="number" name="bedrooms_number" min="1" max="20" class="form-control" step="1" placeholder="0 required>
+                                <input type="number" name="bedrooms_number" min="1" max="20" class="form-control" step="1" placeholder="0" required>
                                 <input name="service" type="hidden" value="{{ $id }}">
 
                             </div>
