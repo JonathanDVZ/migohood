@@ -23,7 +23,7 @@
                             </div>
                         </form>
                     </div>
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right navright">
                         <li><a class="nav-link" href="{{url('/')}}">Home</a></li>
                         <li><a class="nav-link" href="#">Category</a></li>
                         <li><a class="nav-link" href="#">Featured</a></li>
