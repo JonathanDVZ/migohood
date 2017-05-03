@@ -1,7 +1,16 @@
+var opcion = '';
+var previous = '';
+
 $(document).ready(function() {
     // togle del boton de agregar mas en Hosting
     $("#show").click(function() {
         $("#Hidden").toggle(500);
+    });
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('input[name="_token"]').val()
+        }
     });
 
     // calendarios dentro del hosting
@@ -16,7 +25,46 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
 
     // mapa de Google junto con sus modificaciones
+    function myMap(address=null) {
+        
+        // Se comprueba si existe la dirección del request, ya que si existe debemos ubicarnos en la posición adecuada
+        if ( address != '' && address != null ){
+            console.log(address);
+            var geoCoder = new google.maps.Geocoder(address);
+            var request = {address:address};
+            geoCoder.geocode(request, function(result, status){            
+                geometry_request = new google.maps.LatLng(result[0].geometry.location.lat(), result[0].geometry.location.lng());
 
+                map = new google.maps.Map(document.getElementById("googleMap"), {
+                    center: {lat: result[0].geometry.location.lat(),lng: result[0].geometry.location.lng() },
+                    scrollwheel: false,
+                    zoom: 15
+                });
+
+                var marker = new google.maps.Marker({
+                    position:{lat: result[0].geometry.location.lat(),lng: result[0].geometry.location.lng() },
+                    map:map,
+                    cursor: 'default',
+                    draggable: false
+                }); 
+
+            });
+            
+            //setInterval(requestBusiness,1000);
+        }
+        // De no existir, se ubica en sitio por defecto
+        else{
+            var mapProp = {
+            center: new google.maps.LatLng(51.508742, -0.120850),
+            zoom: 5,
+            };
+            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        }
+    }
+
+    if ($('#googleMap').length > 0 ) {
+        myMap();
+    }
 
 
     // contador de texto de los texarea
@@ -90,4 +138,175 @@ $(document).ready(function() {
         form.submit();
     }
 
+    $("#addLocationNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        addLocation();
+        $(this).removeAttr('disabled');
+    });
+
+    function addLocation() {
+        var form = document.getElementById('formAddLocation');
+        form.submit();
+    }
+
+    /**
+    * Funciones para manejar los select de location en creacion de espacios
+    */
+
+    function addressFill() {
+        var fullAddress = '';
+        opcion = $('#spaceApartment').val();
+        
+        previous = '';
+        if ($('#spaceApartment').val() != '' && ($("#spaceCountry option:selected").val() != '' || $("#spaceState option:selected").text() != '' || $("#spaceCities option:selected").text() != '' || $("#selectedZipcode").text() != '' || $("#selectedAddress").text() != '')) {
+            previous = ', ';
+        }
+        //console.log('Apartment: ' + opcion+ ' Previous: ' + previous);
+        fullAddress += opcion + previous;
+        $("#selectedApartment").text(opcion + previous);
+
+        opcion = $('#spaceAddress').val();
+        
+        previous = '';
+        if ($('#spaceAddress').val() != '' && ($("#spaceCountry option:selected").val() != '' || $("#spaceState option:selected").text() != '' || $("#spaceCities option:selected").text() != '' || $("#selectedZipcode").text() != '')) {
+            previous = ', ';
+        }
+        if (opcion == '') {
+            opcion = '';
+        }
+        //console.log('Address: ' + opcion+ ' Previous: ' + previous);
+        fullAddress += opcion + previous;
+        $("#selectedAddress").text(opcion + previous);
+
+        opcion = $('#spaceZipcode').val();
+        
+        previous = '';
+        if ($('#spaceZipcode').val() != '' && ($("#spaceCountry option:selected").val() != '' || $("#spaceState option:selected").text() != '' || $("#spaceCities option:selected").text() != '')) {
+            previous = ', ';
+        }
+        if (opcion == '') {
+            opcion = '';
+        }
+        //console.log('Zipcode: ' + opcion+ ' Previous: ' + previous);
+        fullAddress += opcion + previous;
+        $("#selectedZipcode").text(opcion + previous);
+
+        opcion = $("#spaceCities option:selected").text();
+        
+        previous = '';
+        if (opcion != 'Seleccione una Ciudad' && opcion != '' && ($("#spaceCountry option:selected").val() != '' || $("#spaceState option:selected").text() != '')) {
+            previous = ', ';
+        }
+        if (opcion == 'Seleccione una Ciudad') {
+            opcion = '';
+        }
+        //console.log('City: ' + opcion+ ' Previous: ' + previous);
+        fullAddress += opcion + previous;
+        $("#selectedCity").text(opcion + previous);
+
+        opcion = $("#spaceState option:selected").text();
+        
+        previous = '';
+        if (opcion != 'Seleccione un Estado' && opcion != '' && ($("#spaceCountry option:selected").val() != '')) {
+            previous = ', ';
+        }
+        if (opcion == 'Seleccione un Estado') {
+            opcion = '';
+        }
+        //console.log('Estado: ' + opcion + ' Previous: ' + previous);
+        fullAddress += opcion + previous;
+        $("#selectedState").text(opcion + previous);
+
+
+        opcion = $('#spaceCountry option:selected').text();
+        //console.log('Pais: ' + opcion);
+        fullAddress += opcion;
+        $("#selectedCountry").text(opcion);
+
+        console.log(fullAddress);
+        myMap(fullAddress);
+    }
+
+    $("#spaceCountry").change(function() {
+        var id = $(this).val();
+        getStates(id);
+    });
+
+    function getStates(id) {
+        if (id != '') {
+            $.ajax({
+                url: 'get-states',
+                data: {id : id},
+                type: 'POST',
+                dataType: 'json',      
+                success: function(data) {
+                    console.log(data);
+                    $("#resultCity").html('<select id="spaceCities" name="city" class="selectpicker form-control" required><option>Seleccione una Ciudad</option></select>');
+                    $("#resultCity #spaceCities").selectpicker('refresh');
+
+                    var content = '<select id="spaceState" name="state" class="selectpicker form-control" required>';
+                    content += '<option>Seleccione un Estado</option>';
+                    for (var i = data.length - 1; i >= 0; i--) {
+                        content += '<option value="'+data[i]['id']+'">'+data[i]['state']+'</option>';
+                    } 
+                    content += '</select>';
+                    $("#resultState").html(content);
+                    $('#resultState #spaceState').selectpicker('refresh');
+                    addressFill();
+
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    swal('Locacion no encontrada! Intente de nuevo'); 
+                }
+            }); 
+        }
+    }
+
+    $("#resultState").on("change","#spaceState",function() {
+        var id = $(this).val();       
+        getCities(id);
+    });
+
+    function getCities(id) {
+        if (id != '') {
+            $.ajax({
+                url: 'get-cities',
+                data: {id : id},
+                type: 'POST',
+                dataType: 'json',      
+                success: function(data) {
+                    console.log(data);
+                    var content = '<select id="spaceCities" name="city" class="selectpicker form-control" required>';
+                    content += '<option>Seleccione una Ciudad</option>';
+                    for (var i = data.length - 1; i >= 0; i--) {
+                        content += '<option value="'+data[i]['id']+'">'+data[i]['city']+'</option>';
+                    } 
+                    content += '</select>';
+                    $("#resultCity").html(content);
+                    $("#resultCity #spaceCities").selectpicker('refresh');
+                    addressFill();
+
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    swal('Locacion no encontrada! Intente de nuevo'); 
+                }
+            }); 
+        }
+    }
+
+    $("#resultCity").on("change","#spaceCities",function() {
+        addressFill();
+    });
+
+    $("#spaceZipcode").keyup(function(){
+        addressFill();
+    });
+
+    $("#spaceAddress").keyup(function(){
+        addressFill();
+    });
+
+    $("#spaceApartment").keyup(function(){
+        addressFill();
+    });
 })

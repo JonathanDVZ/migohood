@@ -41,6 +41,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="service" value="{{ $id }}">
                 {{ csrf_field() }}
                 <!--<input type="submit">-->
                 </form>

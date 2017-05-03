@@ -28,7 +28,7 @@
     <footer>
         @include ("footers/footer")
     </footer>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFDO4osYM3UiwGQxABj2HJaiu-IMQypHA&callback=myMap"></script>
+    
     <script src="{{url('assets/js/jquery-3.2.0.min.js')}}"></script>
     <script src="{{url('/assets/js/moment.js')}}"></script>
     <script src="{{url('/assets/js/bootstrap.min.js')}}"></script>
@@ -36,6 +36,7 @@
     <script src="{{url('/assets/js//bootstrap-select.min.js')}}"></script>
     <!-- <script src="{{url('/assets/js/i18n/defaults-*.min.js')}}"></script> -->
     <script src="{{url('/assets/js/init.js')}}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFDO4osYM3UiwGQxABj2HJaiu-IMQypHA"></script>
 </body>
 
 </html>

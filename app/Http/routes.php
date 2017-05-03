@@ -33,6 +33,7 @@ Route::get('/logout','UserController@logout');
     Route::get('/create-space/baths','CreateSpaceController@Third');
     Route::post('/create-space/baths/add-baths','CreateSpaceController@AddBaths');
     Route::get('/create-space/location','CreateSpaceController@Fourth');
+    Route::post('/create-space/save-location','CreateSpaceController@SaveLocation');
     Route::get('/create-space/amenities','CreateSpaceController@Fifth');
     Route::get('/create-space/hosting','CreateSpaceController@Sixth');
     Route::get('/create-space/basics','CreateSpaceController@Seventh');
@@ -42,6 +43,8 @@ Route::get('/logout','UserController@logout');
     Route::get('/create-space/notes','CreateSpaceController@Eleven');
     Route::get('/create-space/co-host','CreateSpaceController@Twelve');
     Route::get('/create-space/preview-space','CreateSpaceController@Preview1');
+    Route::post('/create-space/get-states','CreateSpaceController@GetStates');
+    Route::post('/create-space/get-cities','CreateSpaceController@GetCities');
 //}
 
 // Routes for the service creation{ 
