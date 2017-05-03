@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                             <br>
-                            <input type="number" name="num_bathroom" min="1" max="20" class="form-control" step="1" placeholder="1" required>
+                            <input type="number" name="num_bathroom" min="1" max="20" class="form-control" step="1" placeholder="0" required>
                             <div>
                             </div>
                         </div>

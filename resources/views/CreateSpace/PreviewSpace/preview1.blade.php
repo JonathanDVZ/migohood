@@ -98,39 +98,41 @@
     @include('CreateSpace.PreviewSpace.navbar.preview-navbar',['activo2' => 'preview1'])
     <div class="container-fluid WhiteBack preBody">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
-                <br>
-                <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
-                <h4 class="text-center">Username</h4>
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
-                <h3>Espacio Habitable</h3>
-                <label>Barcelona, Barcelona, Spain</label>
-                <br>
-                <br>
-                <br>
-                <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                    <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
+            <div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
                     <br>
-                    <label>Private room</label>
+                    <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
+                    <h4 class="text-center">Username</h4>
                 </div>
-                <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                    <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
+                    <h3>Espacio Habitable</h3>
+                    <label>Barcelona, Barcelona, Spain</label>
                     <br>
-                    <label>1 Guest</label>
-                </div>
-                <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                    <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
                     <br>
-                    <label>1 Bedroom<label>
+                    <br>
+                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                        <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
+                        <br>
+                        <label>Private room</label>
+                    </div>
+                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                        <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
+                        <br>
+                        <label>1 Guest</label>
+                    </div>
+                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                        <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
+                        <br>
+                        <label>1 Bedroom<label>
                             </div>
-               <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                      <img class="imgHom3" src="{{url('/assets/img/Icon-Bed.png')}}" alt="">
                      <br>
                      <label>1 Bed</label>
+                    </div>
                 </div>
             </div>
-            <div class="section">
+            <div>
                 <hr class="grey">
                 <div class="col-sm-3 col-xs-3">
 
