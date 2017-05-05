@@ -92,7 +92,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-space/location')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a class="backToLocation" "><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">

@@ -779,7 +779,7 @@ class CreateSpaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
-            dd($result);   
+            //dd($result);   
 
             $amenities = Curl::to(env('MIGOHOOD_API_URL').'/amenities/get-space-amenities')
                         ->withData( array(
@@ -852,8 +852,8 @@ class CreateSpaceController extends Controller
                 $lugares2 = array_slice($lugares,$mitad1-1, $mitad2);
 
             }
-    
-            return view("CreateSpace.amenities", ['id' => $id, 'countries' => $countries, 'result' => $result, 'states' => $states, 'cities' => $cities, 'address' => $address, 'apartment' => $apartment, 'description' => $description, 'around' => $around]);
+
+            return view("CreateSpace.amenities", ['id' => $id, 'detalles1' => $detalles1, 'detalles2' => $detalles2, 'ofrece1' => $ofrece1, 'ofrece2' => $ofrece2, 'lugares1' => $lugares1, 'lugares2' => $lugares2]);
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
@@ -861,7 +861,7 @@ class CreateSpaceController extends Controller
         
         //dd($amenities);
 
-        return view("CreateSpace.amenities", ['id' => $id, 'detalles1' => $detalles1, 'detalles2' => $detalles2, 'ofrece1' => $ofrece1, 'ofrece2' => $ofrece2, 'lugares1' => $lugares1, 'lugares2' => $lugares2]);
+        
     }
 
     public function SaveAmenities(Request $request)
