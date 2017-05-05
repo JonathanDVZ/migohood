@@ -10,6 +10,19 @@ html {
     height: 1.3em;
 }
 
+.choose-img {
+    width: 3.5em;
+}
+
+.option-box {
+    background: #00223C;
+    padding: 3em;
+    width: 15em;
+    height: 12em;
+    margin-top: 7em;
+    display: inline-block;
+}
+
 .sections {
     margin-bottom: 1em;
 }

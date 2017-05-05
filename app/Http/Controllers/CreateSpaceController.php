@@ -527,6 +527,16 @@ class CreateSpaceController extends Controller
         return view("CreateSpace.PreviewSpace.preview1");
     }
 
+        public function ChooseType()
+    {
+        return view('SpaceType.choose-type');
+    }
+
+        public function ChooseSpace()
+    {
+        return view('SpaceType.choose-space');
+    }
+
     public function GetStates(Request $request)
     {     
         $states = Curl::to(env('MIGOHOOD_API_URL').'/state/get-state')

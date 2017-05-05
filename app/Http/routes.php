@@ -19,6 +19,10 @@ Route::get('/becomeahost','UserController@becomeahost');
 Route::post('/createuser','UserController@CreateUser');
 Route::post('/postlogin','UserController@postLogin');
 Route::get('/logout','UserController@logout');
+Route::get('/choose-type','CreateSpaceController@ChooseType');
+Route::get('/choose-space','CreateSpaceController@ChooseSpace');
+
+
 
 // Routes for the space creation{ 
     Route::get('/create-space/place-type','CreateSpaceController@First');
