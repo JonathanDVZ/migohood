@@ -64,6 +64,7 @@ $(document).ready(function() {
 
     if ($('#googleMap').length > 0 ) {
         myMap();
+        addressFill();
     }
 
 
@@ -116,17 +117,6 @@ $(document).ready(function() {
         form.submit();
     }
 
-    $("#addBathroomsNext").click(function() {
-        $(this).attr('disabled', 'disabled');
-        addBathrooms();
-        $(this).removeAttr('disabled');
-    });
-
-    function addBathrooms() {
-        var form = document.getElementById('formAddBathrooms');
-        form.submit();
-    }
-
     $("#addBathsNext").click(function() {
         $(this).attr('disabled', 'disabled');
         addBaths();
@@ -149,21 +139,93 @@ $(document).ready(function() {
         form.submit();
     }
 
+    $("#addAmenitiesNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        addAmenities();
+        $(this).removeAttr('disabled');
+    });
+
+    function addAmenities() {
+        var form = document.getElementById('formAddAmenities');
+        form.submit();
+    }
+
+    /**
+    * Funciones NEXT y BACK
+    */
+    $("#nextToBathrooms").click(function() {
+        $(this).attr('disabled', 'disabled');
+        nextToBathrooms();
+        $(this).removeAttr('disabled');
+    });
+
+    function nextToBathrooms() {
+        var form = document.getElementById('formNextToBathrooms');
+        form.submit();
+    }
+
+    $(".backToPlaceType").click(function() {
+        $(this).attr('disabled', 'disabled');
+        backToPlaceType();
+        $(this).removeAttr('disabled');
+    });
+
+    function backToPlaceType() {
+        var form = document.getElementById('formBackToPlaceType');
+        form.submit();
+    }
+
+    $(".backToBedrooms").click(function() {
+        $(this).attr('disabled', 'disabled');
+        backToBedrooms();
+        $(this).removeAttr('disabled');
+    });
+
+    function backToBedrooms() {
+        var form = document.getElementById('formBackToBedrooms');
+        form.submit();
+    }
+
+    $(".backToBathrooms").click(function() {
+        $(this).attr('disabled', 'disabled');
+        backToBathrooms();
+        $(this).removeAttr('disabled');
+    });
+
+    function backToBathrooms() {
+        var form = document.getElementById('formBackToBathrooms');
+        form.submit();
+    }
+
+    $(".backToLocation").click(function() {
+        $(this).attr('disabled', 'disabled');
+        backToLocation();
+        $(this).removeAttr('disabled');
+    });
+
+    function backToLocation() {
+        var form = document.getElementById('formBackToLocation');
+        form.submit();
+    }
+
+    $(".backToAmenities").click(function() {
+        $(this).attr('disabled', 'disabled');
+        backToAmenities();
+        $(this).removeAttr('disabled');
+    });
+
+    function backToAmenities() {
+        var form = document.getElementById('formBackToAmenities');
+        form.submit();
+    }
+
+
     /**
     * Funciones para manejar los select de location en creacion de espacios
     */
 
     function addressFill() {
         var fullAddress = '';
-        opcion = $('#spaceApartment').val();
-        
-        previous = '';
-        if ($('#spaceApartment').val() != '' && ($("#spaceCountry option:selected").val() != '' || $("#spaceState option:selected").text() != '' || $("#spaceCities option:selected").text() != '' || $("#selectedZipcode").text() != '' || $("#selectedAddress").text() != '')) {
-            previous = ', ';
-        }
-        //console.log('Apartment: ' + opcion+ ' Previous: ' + previous);
-        fullAddress += opcion + previous;
-        $("#selectedApartment").text(opcion + previous);
 
         opcion = $('#spaceAddress').val();
         
@@ -306,7 +368,4 @@ $(document).ready(function() {
         addressFill();
     });
 
-    $("#spaceApartment").keyup(function(){
-        addressFill();
-    });
 })

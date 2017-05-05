@@ -19,7 +19,7 @@
                                     <select id="spaceCountry" name="country" class="selectpicker form-control" required>
                                         <option> Selecciona un Pais</option>
                                         @foreach($countries as $country)
-                                            <option value="{{$country['id']}}">{{$country['name']}}</option>
+                                            <option @if(isset($result[0]['country']) AND !empty($result[0]['country']) AND $result[0]['country'] == $country['name']) {{'selected'}} @endif value="{{$country['id']}}">{{$country['name']}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -31,6 +31,11 @@
                                 <div id="resultState">
                                     <select id="spaceState" name="state" class="selectpicker form-control" required>
                                         <option>Seleccione un Estado</option>
+                                        @if(isset($states) AND !empty($states))
+                                            @foreach($states as $state)
+                                                <option @if(isset($result[0]['state']) AND !empty($result[0]['state']) AND $result[0]['state'] == $state['state']) {{'selected'}} @endif value="{{$state['id']}}">{{$state['state']}}</option>
+                                            @endforeach
+                                        @endif
                                     </select>
                                 </div>
                             </div>
@@ -43,6 +48,11 @@
                                         <div id="resultCity">
                                             <select id="spaceCities" name="city" class="selectpicker form-control" required>
                                                 <option>Seleccione una Ciudad</option>
+                                                @if(isset($cities) AND !empty($cities))
+                                                    @foreach($cities as $city)
+                                                        <option @if(isset($result[0]['city']) AND !empty($result[0]['city']) AND $result[0]['city'] == $city['city']) {{'selected'}} @endif value="{{$city['id']}}">{{$city['city']}}</option>
+                                                    @endforeach
+                                                @endif
                                             </select>
                                         </div>
                                     </div>
@@ -52,7 +62,7 @@
                                         <label>Codigo Postal</label>
                                     </div>
                                     <div class="text-left">
-                                        <input type="text" id="spaceZipcode" name="zipcode" class="form-control" placeholder="19875">
+                                        <input type="text" id="spaceZipcode" name="zipcode" class="form-control" placeholder="19875" value="@if(isset($result[0]['zipcode']) AND !empty($result[0]['zipcode'])){{ $result[0]['zipcode'] }}@endif">
                                     </div>
                                 </div>
 
@@ -62,7 +72,7 @@
                                     <label>Direccion:</label>
                                 </div>
                                 <div class="text-left">
-                                    <input type="text" id="spaceAddress" name="address" class="form-control" placeholder="Calle 1" required>
+                                    <input type="text" id="spaceAddress" name="address" class="form-control" placeholder="Calle 1" value="@if(isset($address) AND !empty($address)){{ $address }}@endif" required>
                                 </div>
                             </div>
                             <div class="form-group text-right">
@@ -70,7 +80,7 @@
                                     <label>Apartamento, Suite (Opcional)</label>
                                 </div>
                                 <div class="text-left">
-                                    <input type="text" id="spaceApartment" name="apartment" class="form-control">
+                                    <input type="text" id="spaceApartment" name="apartment" value="@if(isset($apartment) AND !empty($apartment)){{ $apartment }}@endif" class="form-control">
                                 </div>
                             </div>
                             <div>
@@ -78,7 +88,7 @@
                                 <div class="text-left">
                                     <label>¿Dónde esta ubicada tu propiedad?</label>
                                     <br>
-                                    <span><span id="selectedApartment"></span><span id="selectedAddress"></span><span id="selectedZipcode"></span><span id="selectedCity"></span><span id="selectedState"></span><span id="selectedCountry"></span></span>
+                                    <span id="selectedAddress"></span><span id="selectedZipcode"></span><span id="selectedCity"></span><span id="selectedState"></span><span id="selectedCountry"></span></span>
                                     <br>
                                     <!--<a href="">Editar Direccion</a>
                                     <br>-->
@@ -91,15 +101,15 @@
                             <div>
                                 <div class="form-group text-left">
                                     <h4 class="text-left">Informacion General</h4>
-                                    <textarea name="info" class="form-control" rows="5" id="comment"></textarea>
+                                    <textarea name="info" class="form-control" rows="5" id="comment">@if(isset($description) AND !empty($description)){{ $description }}@endif</textarea>
                                 </div>
 
                                 <div class="form-group text-left">
                                     <h4 class="text-left">¿Cómo son los alrededores?</h4>
-                                    <textarea name="around" class="form-control" rows="5" id="comment"></textarea>
+                                    <textarea name="around" class="form-control" rows="5" id="comment">@if(isset($around) AND !empty($around)){{ $around }}@endif</textarea>
                                 </div>
                             </div>
-                            <input type="hidden" name="service" value="{{$id}}">
+                            <input type="hidden" name="service_id" value="{{$id}}">
                             {{ csrf_field() }}
                         </form>
 

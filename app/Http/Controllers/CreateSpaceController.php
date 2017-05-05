@@ -28,32 +28,41 @@ class CreateSpaceController extends Controller
         //
     }
 
-    public function First()
+    public function First(Request $request)
     {
         
-        $service = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step/create')
-                    ->withData( array( 
-                        'category_code' => '1',
-                        'user_id'  => session()->get('user.id')
-                        ) )
-                    ->asJson( true )
-                    ->post();
-        if (is_array($service) && array_key_exists('id', $service)){
-
+        $id = '';
+        if (session()->has('id')) {
+            $id = session()->get('id');
+            session()->forget('id');
         } else {
-            $caracters = array('"','[',']',',');
-            $service = str_replace($caracters,'',$service);
-            if (is_array($service)) {
-                $res = '';
-                foreach ($service as $r) {
-                    $res .= $r . '\\n';
-                }
+            $service = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step/create')
+                        ->withData( array( 
+                            'category_code' => '1',
+                            'user_id'  => session()->get('user.id')
+                            ) )
+                        ->asJson( true )
+                        ->post();
+            if (is_array($service) && array_key_exists('id', $service)){
+
             } else {
-                $res = $service;
+                $caracters = array('"','[',']',',');
+                $service = str_replace($caracters,'',$service);
+                if (is_array($service)) {
+                    $res = '';
+                    foreach ($service as $r) {
+                        $res .= $r . '\\n';
+                    }
+                } else {
+                    $res = $service;
+                }
+
+                return redirect('/becomeahost')->with(['message-alert' => '' . $res . '']);
             }
 
-            return redirect('/becomeahost')->with(['message-alert' => '' . $res . '']);
+            $id = $service['id'];
         }
+        
 
         $types = Curl::to(env('MIGOHOOD_API_URL').'/category/space/get-type')
                     ->withData( array( 
@@ -70,7 +79,46 @@ class CreateSpaceController extends Controller
                     ->asJson( true )
                     ->get();
           
-        return view("CreateSpace.placeType", ['types' => $types, 'accommodation' => $accommodation, 'id' => $service['id']]);
+        return view("CreateSpace.placeType", ['types' => $types, 'accommodation' => $accommodation, 'id' => $id]);
+    }
+
+    public function FirstPost(Request $request)
+    {
+        
+        if ($request->input('service_id') !== null) {
+            $id = $request->input('service_id');
+            
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-1/create')
+                        ->withData( array(
+                            'service_id'  => $id,
+                            'languaje' => 'ES'
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            //print_r($result);
+            //return;
+        } else {
+            $res = 'Ha habido un problema por favor recargue la pagina';
+            return redirect('/becomeahost')->with(['message-alert' => '' . $res . '']);
+        }
+        
+
+        $types = Curl::to(env('MIGOHOOD_API_URL').'/category/space/get-type')
+                    ->withData( array( 
+                        'category_id' => '1',
+                        'languaje'  => "ES",
+                        ) )
+                    ->asJson( true )
+                    ->get();
+        
+        $accommodation = Curl::to(env('MIGOHOOD_API_URL').'/accommodation/get-accommodation')
+                    ->withData( array(
+                        'languaje'  => "ES",
+                        ) )
+                    ->asJson( true )
+                    ->get();
+          
+        return view("CreateSpace.placeType", ['types' => $types, 'accommodation' => $accommodation, 'id' => $id, 'result' => $result]);
     }
 
     public function AddPlaceType(Request $request)
@@ -85,7 +133,7 @@ class CreateSpaceController extends Controller
                         'type_code'  => $request->input('type'),
                         'accommodation_code'  => $request->input('accomodation'),
                         'live'  => $request->input('live'),
-                        'service_id' => $request->input('service')
+                        'service_id' => $request->input('service_id')
                         ) )
                     ->asJson( true )
                     ->post();
@@ -109,30 +157,66 @@ class CreateSpaceController extends Controller
             }
 
             if ($res == 'Add Accommodaton and Type ' OR $res == 'Update Accommodation and Type ') 
-                return redirect('/create-space/bedrooms')->with(['id' => $request->input('service')]);
+                return redirect('/create-space/bedrooms')->with(['id' => $request->input('service_id')]);
             else
-                return redirect('/create-space/place-type')->with(['message-alert' => '' . $res . '']);
+                return redirect('/create-space/place-type')->with(['message-alert' => '' . $res . $request->input('service_id').  '','id' => $request->input('service_id')]);
         //}
         
     }
      
     public function Second1()
     {
-        $id = '';
+        $id = ''; $result = '';
         if (session()->has('id')) {
             $id = session()->get('id');
             session()->forget('id');
+
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-2/bedrooms')
+                            ->withData( array(
+                                'service_id'  => $id
+                                ) )
+                            ->asJson( true )
+                            ->get();
+            //dd($result);
+            if (!is_array($result) AND $result == 'Not Found') {
+                $result = '';
+            }
         }
         
-        return view("CreateSpace.bedrooms", ['id' => $id]);
+        
+        return view("CreateSpace.bedrooms", ['id' => $id, 'result' => $result]);
     }
+
+    public function Second1Post(Request $request)
+    {
+
+        if ($request->input('service_id') !== null) {
+            $id = $request->input('service_id');
+            
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-2/bedrooms')
+                        ->withData( array(
+                            'service_id'  => $id
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            if (!is_array($result) AND $result == 'Not Found') {
+                $result = '';
+            }
+            return view("CreateSpace.bedrooms", ['id' => $id, 'result' => $result]);
+        } else {
+            $res = 'Ha habido un problema por favor recargue la pagina';
+            return redirect('/becomeahost')->with(['message-alert' => '' . $res . '']);
+        }
+        
+    }
+
 
     public function AddBedrooms(Request $request)
     {
         // Enviar los datos a la API para crear nuevas habitaciones
         $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-2/bedrooms')
                     ->withData( array( 
-                        'service_id' => $request->input('service'),
+                        'service_id' => $request->input('service_id'),
                         'num_guest'  => $request->input('guests_number'),
                         'num_bedroom'  => $request->input('bedrooms_number'),
                         ) )
@@ -161,8 +245,7 @@ class CreateSpaceController extends Controller
         //sdd($res);
 
         if ($res == 'Add Space Bedroom') {
-            session()->put('id', $request->input('service'));
-            return redirect('/create-space/bedrooms/edit-bedrooms');
+            return redirect('/create-space/bedrooms/edit-bedrooms')->with(['id' => $request->input('service_id')]);
         } else
             return redirect('/create-space/bedrooms')->with(['message-alert' => '' . $res . '']);
         //}
@@ -321,7 +404,7 @@ class CreateSpaceController extends Controller
             //dd($beds);
                             
             // Se retorna la vista con las variables
-            return view("CreateSpace.bedrooms-addbed",['service_id' => $request->input('service_id'), 'bedroom_id' => $request->input('bedroom_id'), 'refer' => $request->input('refer'), 'beds' => $beds]); 
+            return view("CreateSpace.bedrooms-addbed",['id' => $request->input('service_id'), 'bedroom_id' => $request->input('bedroom_id'), 'refer' => $request->input('refer'), 'beds' => $beds]); 
         }
         
     }
@@ -341,20 +424,11 @@ class CreateSpaceController extends Controller
                         ) )
                     ->asJson( true )
                     ->post();
-        //dd($response);
-        //$caracters = array('"','[',']',',');
-        //$response = str_replace($caracters,'',$response);
 
-        if ($response == 'Add Bedroom-Beds') {
-            //dd($response);
-            $response = 'Camas guardadas exitosamente';
-            session()->put('id', $request->input('service_id'));
-            session()->put('msg', ''.$response.'');
-            return redirect('/create-space/bedrooms/edit-bedrooms');
+        if ($response == 'Add Bedroom-Beds' OR $response == 'Update  Bedroom-Beds') {
+            return redirect('/create-space/bedrooms/edit-bedrooms')->with(['id' => $request->input('service_id')]);
         } else {
-            session()->put('id', $request->input('service_id'));
-            session()->put('msg', ''.$response.'');
-            return redirect('/create-space/bedrooms/edit-bedrooms');
+            return redirect('/create-space/bedrooms/edit-bedrooms')->with(['id' => $request->input('service_id'),'msg' => ''.$response.'']);
         }
         
     }
@@ -380,11 +454,43 @@ class CreateSpaceController extends Controller
             $msg = session()->get('message-alert');
             session()->forget('message-alert');
         }
+        $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-3/bathroom')
+                        ->withData( array(
+                            'service_id'  => $id
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        if (!is_array($result) AND $result == 'Not Found') {
+            $result = '';
+        }
         if ($msg == '') {
-            return view("CreateSpace.baths", ['service_id' => $id]);
+            return view("CreateSpace.baths", ['id' => $id,'result' => $result]);
         } else {
             session()->put('message-alert', ''.$msg.'');
-            return view("CreateSpace.baths", ['service_id' => $id]);
+            return view("CreateSpace.baths", ['id' => $id,'result' => $result]);
+        }
+        
+    }
+
+    public function ThirdPost(Request $request)
+    {
+
+        if ($request->input('service_id') !== null) {
+            $id = $request->input('service_id');
+            
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-3/bathroom')
+                        ->withData( array(
+                            'service_id'  => $id
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            if (!is_array($result) AND $result == 'Not Found') {
+                $result = '';
+            }
+
+            return view("CreateSpace.baths", ['id' => $id,'result' => $result]);
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
         
     }
@@ -433,10 +539,110 @@ class CreateSpaceController extends Controller
             session()->forget('message-alert');
         }
 
+        $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-4/location')
+                        ->withData( array(
+                            'service_id'  => $id
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            //dd($result);           
+        $address = ''; $apartment = ''; $description = ''; $around = ''; $states = ''; $cities = '';
+        if (isset($result) AND !empty($result) AND !is_null($result) AND $result != 'Not Found') {
+            foreach ($result as $key) {
+                if ($key['type'] == 'Address1') {
+                    $address = $key['content'];
+                } elseif ($key['type'] == 'Address2') {
+                    $apartment = $key['content'];
+                } elseif ($key['type'] == 'Desc_Neighborhood') {
+                    $description = $key['content'];
+                } elseif ($key['type'] == 'Desc_Surroundings') {
+                    $around = $key['content'];
+                }
+            }
+
+            $states = Curl::to(env('MIGOHOOD_API_URL').'/state/get-state')
+                        ->withData( array( 
+                            'country_id' => $result[0]['country_id'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            //print_r($states);
+            $cities = Curl::to(env('MIGOHOOD_API_URL').'/city/get-city')
+                        ->withData( array( 
+                            'state_id' => $result[0]['state_id'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            //print_r($cities);
+            //return;
+        } else {
+            $result = '';
+        }
+
         $countries = Curl::to(env('MIGOHOOD_API_URL').'/country/get-country')
                         ->asJson( true )
                         ->get();
-        return view("CreateSpace.locations", ['id' => $id, 'countries' => $countries]);
+        return view("CreateSpace.locations", ['id' => $id, 'countries' => $countries, 'result' => $result, 'address' => $address, 'apartment' => $apartment, 'description' => $description, 'around' => $around, 'states' => $states, 'cities' => $cities]);
+    }
+
+    public function FourthPost(Request $request)
+    {       
+
+        if ($request->input('service_id') !== null) {
+            $id = $request->input('service_id');
+            
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-4/location')
+                        ->withData( array(
+                            'service_id'  => $id
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            //dd($result);           
+            $address = ''; $apartment = ''; $description = ''; $around = ''; $states = ''; $cities = '';
+            if (isset($result) AND !empty($result) AND !is_null($result) AND $result != 'Not Found') {
+                foreach ($result as $key) {
+                    if ($key['type'] == 'Address1') {
+                        $address = $key['content'];
+                    } elseif ($key['type'] == 'Address2') {
+                        $apartment = $key['content'];
+                    } elseif ($key['type'] == 'Desc_Neighborhood') {
+                        $description = $key['content'];
+                    } elseif ($key['type'] == 'Desc_Surroundings') {
+                        $around = $key['content'];
+                    }
+                }
+
+                $states = Curl::to(env('MIGOHOOD_API_URL').'/state/get-state')
+                            ->withData( array( 
+                                'country_id' => $result[0]['country_id'],
+                                ) )
+                            ->asJson( true )
+                            ->get();
+                //print_r($states);
+                $cities = Curl::to(env('MIGOHOOD_API_URL').'/city/get-city')
+                            ->withData( array( 
+                                'state_id' => $result[0]['state_id'],
+                                ) )
+                            ->asJson( true )
+                            ->get();
+                //print_r($cities);
+                //return;
+            }
+            
+
+            //dd($id);
+            //dd($result);
+            //return;
+
+            $countries = Curl::to(env('MIGOHOOD_API_URL').'/country/get-country')
+                        ->asJson( true )
+                        ->get();
+    
+            return view("CreateSpace.locations", ['id' => $id, 'countries' => $countries, 'result' => $result, 'states' => $states, 'cities' => $cities, 'address' => $address, 'apartment' => $apartment, 'description' => $description, 'around' => $around]);
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+
     }
 
     public function SaveLocation(Request $request)
@@ -447,7 +653,7 @@ class CreateSpaceController extends Controller
                         'api-token:'.session()->get('user.remember_token') 
                     ))
                     ->withData( array( 
-                        'service_id' => $request->input('service'),
+                        'service_id' => $request->input('service_id'),
                         'country_id' => $request->input('country'),
                         'city_id' => $request->input('city'),
                         'zipcode' => $request->input('zipcode'),
@@ -462,12 +668,9 @@ class CreateSpaceController extends Controller
 
 
         if ($response == 'Add Location') {
-            //dd($response);
-            //$response = 'Camas guardadas exitosamente';
-            //session()->put('msg', ''.$response.'');
-            return redirect('/create-space/amenities')->with(['id' => $request->input('service')]);
+            return redirect('/create-space/amenities')->with(['id' => $request->input('service_id')]);
         } else {
-            return redirect('/create-space/location')->with(['id' => $request->input('service'), 'message-alert' =>''.$response.'']);
+            return redirect('/create-space/location')->with(['id' => $request->input('service_id'), 'message-alert' =>''.$response.'']);
         }
         
     }
@@ -484,12 +687,229 @@ class CreateSpaceController extends Controller
             $msg = session()->get('message-alert');
             session()->forget('message-alert');
         }
-        return view("CreateSpace.amenities", ['id' => $id]);
+
+        $amenities = Curl::to(env('MIGOHOOD_API_URL').'/amenities/get-space-amenities')
+                        ->withData( array(
+                            'languaje' => 'ES'
+                            ))
+                        ->asJson( true )
+                        ->get();
+        if (!is_array($amenities) AND $amenities == 'Not Found') {
+            # code...
+        } else {
+            $detalles = array(); $ofrece = array(); $lugares = array();
+            foreach ($amenities as $value) {
+                if ($value['type_amenities_id'] == 1) {
+                    $detalles[] = $value;
+                } elseif ($value['type_amenities_id'] == 2) {
+                    $ofrece[] = $value;
+                } elseif ($value['type_amenities_id'] == 3) {
+                    $lugares[] = $value;
+                }
+            }
+            // Para detalles
+            $conteo = count($detalles);
+            $mitad = $conteo / 2;
+
+            if ($mitad % 2 == 0) {
+                $mitad1 = $mitad;
+                $mitad2 = $mitad;
+            } else {
+                $mitad1 = round($mitad);
+                $mitad2 = $mitad - 0.5;
+
+            }
+
+            $detalles1 = array_slice($detalles, 0, $mitad1);
+            $detalles2 = array_slice($detalles,$mitad1-1, $mitad2);
+
+            // Para detalles
+            $conteo = count($ofrece);
+            $mitad = $conteo / 2;
+
+            if ($mitad % 2 == 0) {
+                $mitad1 = $mitad;
+                $mitad2 = $mitad;
+            } else {
+                $mitad1 = round($mitad);
+                $mitad2 = $mitad - 0.5;
+
+            }
+
+            $ofrece1 = array_slice($ofrece, 0, $mitad1);
+            $ofrece2 = array_slice($ofrece,$mitad1-1, $mitad2);
+            //print_r($ofrece1);
+            //print_r($ofrece2);
+            //return;
+
+            // Para lugares
+            $conteo = count($lugares);
+            $mitad = $conteo / 2;
+
+            if ($mitad % 2 == 0) {
+                $mitad1 = $mitad;
+                $mitad2 = $mitad;
+            } else {
+                $mitad1 = round($mitad);
+                $mitad2 = $mitad - 0.5;
+
+            }
+
+            $lugares1 = array_slice($lugares, 0, $mitad1);
+            $lugares2 = array_slice($lugares,$mitad1-1, $mitad2);
+
+
+
+        }
+        //dd($amenities);
+
+        return view("CreateSpace.amenities", ['id' => $id, 'detalles1' => $detalles1, 'detalles2' => $detalles2, 'ofrece1' => $ofrece1, 'ofrece2' => $ofrece2, 'lugares1' => $lugares1, 'lugares2' => $lugares2]);
     }
 
-        public function Sixth()
+    public function FifthPost(Request $request)
     {
-        return view("CreateSpace.hosting");
+        
+        if ($request->input('service_id') !== null) {
+            $id = $request->input('service_id');
+            
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-5/amenities')
+                        ->withData( array(
+                            'service_id'  => $id,
+                            'languaje' => 'ES'
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            dd($result);   
+
+            $amenities = Curl::to(env('MIGOHOOD_API_URL').'/amenities/get-space-amenities')
+                        ->withData( array(
+                            'languaje' => 'ES'
+                            ))
+                        ->asJson( true )
+                        ->get();
+            if (!is_array($amenities) AND $amenities == 'Not Found') {
+                # code...
+            } else {
+                $detalles = array(); $ofrece = array(); $lugares = array();
+                foreach ($amenities as $value) {
+                    if ($value['type_amenities_id'] == 1) {
+                        $detalles[] = $value;
+                    } elseif ($value['type_amenities_id'] == 2) {
+                        $ofrece[] = $value;
+                    } elseif ($value['type_amenities_id'] == 3) {
+                        $lugares[] = $value;
+                    }
+                }
+                // Para detalles
+                $conteo = count($detalles);
+                $mitad = $conteo / 2;
+
+                if ($mitad % 2 == 0) {
+                    $mitad1 = $mitad;
+                    $mitad2 = $mitad;
+                } else {
+                    $mitad1 = round($mitad);
+                    $mitad2 = $mitad - 0.5;
+
+                }
+
+                $detalles1 = array_slice($detalles, 0, $mitad1);
+                $detalles2 = array_slice($detalles,$mitad1-1, $mitad2);
+
+                // Para detalles
+                $conteo = count($ofrece);
+                $mitad = $conteo / 2;
+
+                if ($mitad % 2 == 0) {
+                    $mitad1 = $mitad;
+                    $mitad2 = $mitad;
+                } else {
+                    $mitad1 = round($mitad);
+                    $mitad2 = $mitad - 0.5;
+
+                }
+
+                $ofrece1 = array_slice($ofrece, 0, $mitad1);
+                $ofrece2 = array_slice($ofrece,$mitad1-1, $mitad2);
+                //print_r($ofrece1);
+                //print_r($ofrece2);
+                //return;
+
+                // Para lugares
+                $conteo = count($lugares);
+                $mitad = $conteo / 2;
+
+                if ($mitad % 2 == 0) {
+                    $mitad1 = $mitad;
+                    $mitad2 = $mitad;
+                } else {
+                    $mitad1 = round($mitad);
+                    $mitad2 = $mitad - 0.5;
+
+                }
+
+                $lugares1 = array_slice($lugares, 0, $mitad1);
+                $lugares2 = array_slice($lugares,$mitad1-1, $mitad2);
+
+            }
+    
+            return view("CreateSpace.amenities", ['id' => $id, 'countries' => $countries, 'result' => $result, 'states' => $states, 'cities' => $cities, 'address' => $address, 'apartment' => $apartment, 'description' => $description, 'around' => $around]);
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+
+        
+        //dd($amenities);
+
+        return view("CreateSpace.amenities", ['id' => $id, 'detalles1' => $detalles1, 'detalles2' => $detalles2, 'ofrece1' => $ofrece1, 'ofrece2' => $ofrece2, 'lugares1' => $lugares1, 'lugares2' => $lugares2]);
+    }
+
+    public function SaveAmenities(Request $request)
+    {
+        
+        //dd($request->input('amenities'));
+        if (is_array($request->input('amenities'))) {
+            foreach ($request->input('amenities') as $amenitie) {
+                // Enviar los datos a la API para guardar 
+                $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-5/amenities')
+                                ->withHeaders( array( 
+                                    'api-token:'.session()->get('user.remember_token') 
+                                ))
+                                ->withData( array( 
+                                    'service_id' => $request->input('service_id'),
+                                    'amenitie_code' => $amenitie
+                                    ) )
+                                ->asJson( true )
+                                ->post();
+                //print_r($response);
+                if ($response == 'Update Step 5' OR $response == 'Add Step 5') {
+                    //return redirect('/create-space/amenities')->with(['id' => $request->input('service_id'), 'message-alert' =>''.$response.'']);
+                } else {
+                    return redirect('/create-space/amenities')->with(['id' => $request->input('service_id'), 'message-alert' =>''.$response.'']);
+                }
+
+            }
+            //return;
+            return redirect('/create-space/hosting')->with(['id' => $request->input('service_id')]);
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha ocurrido un problema por favor recargue la pagina']);
+        }
+        
+    }
+
+    public function Sixth()
+    {
+        $id = '';
+        if (session()->has('id')) {
+            $id = session()->get('id');
+            session()->forget('id');
+        }
+        $msg = '';
+        if (session()->has('message-alert')) {
+            $msg = session()->get('message-alert');
+            session()->forget('message-alert');
+        }
+        return view("CreateSpace.hosting", ['id' => $id] );
     }
 
         public function Seventh()

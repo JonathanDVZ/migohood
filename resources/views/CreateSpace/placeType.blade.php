@@ -19,7 +19,8 @@
                         </div>
                         <select class="selectpicker form-control" name="type">
                             @foreach($types as $type)
-                                <option value="{{ $type['code'] }}">{{ $type['name'] }}</option>
+                                
+                                <option @if(isset($result['Type']) AND !empty($result['Type']) AND $result['Type'] == $type['name']) {{'selected'}} @endif value="{{ $type['code'] }}">{{ $type['name'] }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -29,21 +30,26 @@
                         </div>
                         <select class="selectpicker form-control" name="accomodation">
                             @foreach($accommodation as $acc)
-                                <option value="{{ $acc['code'] }}">{{ $acc['name'] }}</option>
+                                <option @if(isset($result['Accommodation']) AND !empty($result['Accommodation']) AND $result['Accommodation'] == $acc['name']) {{'selected'}} @endif value="{{ $acc['code'] }}">{{ $acc['name'] }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group text-center">
                         <div class="text-center">
                             <label>¿Ústed vive en este lugar?:</label> <br>
-                            <label class="radio-inline"><input type="radio" name="live" value="1">Si</label>
-                            <label class="radio-inline"><input type="radio" name="live" value="0">No</label>
+                            <label class="radio-inline"><input @if(isset($result['live']) AND $result['live'] == 1) {{'checked'}} @endif type="radio" name="live" value="1">Si</label>
+                            <label class="radio-inline"><input @if(isset($result['live']) AND $result['live'] == 0) {{'checked'}} @endif type="radio" name="live" value="0">No</label>
                         </div>
                     </div>
                 </div>
-                <input type="hidden" name="service" value="{{ $id }}">
+                <input type="hidden" name="service_id" value="{{ $id }}">
                 {{ csrf_field() }}
                 <!--<input type="submit">-->
+                </form>
+
+                <form id="formNextToBedrooms" method="POST" action="{{ url('/create-space/bedrooms') }}">
+                    <input type="hidden" value="{{ $id }}" name="service_id">
+                    {{ csrf_field() }}
                 </form>
             </div>
         </div>

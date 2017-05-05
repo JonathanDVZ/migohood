@@ -28,7 +28,7 @@
                         <div class="form-group text-right">
                             <div class="text-left">
                                 {{ csrf_field() }}
-                                <input type="hidden" name="service_id" value="{{$service_id}}">
+                                <input type="hidden" name="service_id" value="{{$id}}">
                                 <input type="hidden" name="bedroom_id" value="{{$bedroom_id}}">
                                 @if(isset($beds['double_bed']) AND $beds['double_bed'] != NULL AND $beds['double_bed'] != '')
                                     <input type="number" name="double_bed" min="0" max="10" class="form-control" step="1" placeholder="0 Camas Dobles" value="{{ $beds['double_bed']}}">
