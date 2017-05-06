@@ -26,26 +26,27 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
 
 // Routes for the space creation{ 
     Route::get('/create-space/place-type','CreateSpaceController@First');
-    Route::post('/create-space/place-type','CreateSpaceController@FirstPost');
+    //Route::post('/create-space/place-type','CreateSpaceController@FirstPost');
     Route::post('/create-space/add-place-type','CreateSpaceController@AddPlaceType');
     Route::get('/create-space/bedrooms','CreateSpaceController@Second1');
-    Route::post('/create-space/bedrooms','CreateSpaceController@Second1Post');
+    //Route::post('/create-space/bedrooms','CreateSpaceController@Second1Post');
     Route::post('/create-space/add-bedrooms','CreateSpaceController@AddBedrooms');
     Route::get('/create-space/bedrooms/edit-bedrooms','CreateSpaceController@Second2');
     // editada a post
     Route::post('/create-space/bedrooms/edit-bedrooms/add-bed','CreateSpaceController@Second3');
     Route::post('/create-space/bedrooms/edit-bedrooms/save-beds','CreateSpaceController@SaveBeds');
-    Route::post('/create-space/baths/show-bathroom','CreateSpaceController@ShowBathroom');
+    //Route::post('/create-space/baths/show-bathroom','CreateSpaceController@ShowBathroom');
     Route::get('/create-space/baths','CreateSpaceController@Third');
-    Route::post('/create-space/baths','CreateSpaceController@ThirdPost');
+    //Route::post('/create-space/baths','CreateSpaceController@ThirdPost');
     Route::post('/create-space/baths/add-baths','CreateSpaceController@AddBaths');
     Route::get('/create-space/location','CreateSpaceController@Fourth');
-    Route::post('/create-space/location','CreateSpaceController@FourthPost');
+    //Route::post('/create-space/location','CreateSpaceController@FourthPost');
     Route::post('/create-space/save-location','CreateSpaceController@SaveLocation');
     Route::get('/create-space/amenities','CreateSpaceController@Fifth');
-    Route::post('/create-space/amenities','CreateSpaceController@FifthPost');
+    //Route::post('/create-space/amenities','CreateSpaceController@FifthPost');
     Route::post('/create-space/save-amenities','CreateSpaceController@SaveAmenities');
     Route::get('/create-space/hosting','CreateSpaceController@Sixth');
+    //Route::post('/create-space/hosting','CreateSpaceController@SixthPost');
     Route::get('/create-space/basics','CreateSpaceController@Seventh');
     Route::get('/create-space/listing','CreateSpaceController@Eigth');
     Route::get('/create-space/photos','CreateSpaceController@Ninth');

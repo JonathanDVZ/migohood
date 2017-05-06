@@ -51,7 +51,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a class="backToPlaceType"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{ url('/create-space/place-type') }}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">

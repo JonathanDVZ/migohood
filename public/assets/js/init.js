@@ -151,73 +151,86 @@ $(document).ready(function() {
     }
 
     /**
-    * Funciones NEXT y BACK
+    * Funciones NEXT para ir a bathroom
     */
-    $("#nextToBathrooms").click(function() {
-        $(this).attr('disabled', 'disabled');
-        nextToBathrooms();
-        $(this).removeAttr('disabled');
-    });
+    /*Borrar
+        $("#nextToBathrooms").click(function() {
+            $(this).attr('disabled', 'disabled');
+            nextToBathrooms();
+            $(this).removeAttr('disabled');
+        });
 
-    function nextToBathrooms() {
-        var form = document.getElementById('formNextToBathrooms');
-        form.submit();
-    }
+        function nextToBathrooms() {
+            var form = document.getElementById('formNextToBathrooms');
+            form.submit();
+        }
+        
+        $(".backToPlaceType").click(function() {
+            $(this).attr('disabled', 'disabled');
+            backToPlaceType();
+            $(this).removeAttr('disabled');
+        });
 
-    $(".backToPlaceType").click(function() {
-        $(this).attr('disabled', 'disabled');
-        backToPlaceType();
-        $(this).removeAttr('disabled');
-    });
+        function backToPlaceType() {
+            var form = document.getElementById('formBackToPlaceType');
+            form.submit();
+        }
 
-    function backToPlaceType() {
-        var form = document.getElementById('formBackToPlaceType');
-        form.submit();
-    }
+        $(".backToBedrooms").click(function() {
+            $(this).attr('disabled', 'disabled');
+            backToBedrooms();
+            $(this).removeAttr('disabled');
+        });
 
-    $(".backToBedrooms").click(function() {
-        $(this).attr('disabled', 'disabled');
-        backToBedrooms();
-        $(this).removeAttr('disabled');
-    });
+        function backToBedrooms() {
+            var form = document.getElementById('formBackToBedrooms');
+            form.submit();
+        }
 
-    function backToBedrooms() {
-        var form = document.getElementById('formBackToBedrooms');
-        form.submit();
-    }
+        $(".backToBathrooms").click(function() {
+            $(this).attr('disabled', 'disabled');
+            backToBathrooms();
+            $(this).removeAttr('disabled');
+        });
 
-    $(".backToBathrooms").click(function() {
-        $(this).attr('disabled', 'disabled');
-        backToBathrooms();
-        $(this).removeAttr('disabled');
-    });
+        function backToBathrooms() {
+            var form = document.getElementById('formBackToBathrooms');
+            form.submit();
+        }
 
-    function backToBathrooms() {
-        var form = document.getElementById('formBackToBathrooms');
-        form.submit();
-    }
+        $(".backToLocation").click(function() {
+            $(this).attr('disabled', 'disabled');
+            backToLocation();
+            $(this).removeAttr('disabled');
+        });
 
-    $(".backToLocation").click(function() {
-        $(this).attr('disabled', 'disabled');
-        backToLocation();
-        $(this).removeAttr('disabled');
-    });
+        function backToLocation() {
+            var form = document.getElementById('formBackToLocation');
+            form.submit();
+        }
 
-    function backToLocation() {
-        var form = document.getElementById('formBackToLocation');
-        form.submit();
-    }
+        $(".backToAmenities").click(function() {
+            $(this).attr('disabled', 'disabled');
+            backToAmenities();
+            $(this).removeAttr('disabled');
+        });
 
-    $(".backToAmenities").click(function() {
-        $(this).attr('disabled', 'disabled');
-        backToAmenities();
-        $(this).removeAttr('disabled');
-    });
+        function backToAmenities() {
+            var form = document.getElementById('formBackToAmenities');
+            form.submit();
+        }
 
-    function backToAmenities() {
-        var form = document.getElementById('formBackToAmenities');
-        form.submit();
-    }
+        $(".backToHosting").click(function() {
+            $(this).attr('disabled', 'disabled');
+            backToHosting();
+            $(this).removeAttr('disabled');
+        });
+
+        function backToHosting() {
+            var form = document.getElementById('formBackToHosting');
+            form.submit();
+        }
+    */
 
 
     /**
