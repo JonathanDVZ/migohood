@@ -11,7 +11,22 @@ html {
 }
 
 .choose-img {
-    width: 3.5em;
+    height: 3em;
+}
+
+.choose-img2 {
+    height: 5em;
+}
+
+.topmargin {
+    margin-top: 7em;
+    margin-bottom: 6em;
+}
+
+.title {
+    color: #fff;
+    margin-top: 5em;
+    margin-bottom: 3em;
 }
 
 .option-box {
@@ -19,12 +34,20 @@ html {
     padding: 3em;
     width: 15em;
     height: 12em;
-    margin-top: 7em;
+    margin: 1em;
     display: inline-block;
+    border-radius: 1em;
 }
 
 .sections {
+    padding-right: 0.5em;
     margin-bottom: 1em;
+    color: #0093b4;
+}
+
+.lilicon {
+    height: 1.5em;
+    margin: 0.5em;
 }
 
 .black {

@@ -45,7 +45,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <br>
                             <div class="form-group">
-                                <label for="chekin">Check-in</label>
+                                <span for="chekin">Check-in</span>
                                 <div class='input-group date' id='datetimepicker1'>
                                     <input id="chekin" type='text' class="form-control" />
                                     <span class="input-group-addon">
@@ -57,7 +57,7 @@
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <br>
                             <div class="form-group">
-                                <label for="checkout">Check-out</label>
+                                <span for="checkout">Check-out</span>
                                 <div class='input-group date' id='datetimepicker2'>
                                     <input id="chekout" type='text' class="form-control" />
                                     <span class="input-group-addon">
@@ -68,7 +68,7 @@
                         </div>
 
                     </div>
-                    <label for="selectGuest">Invitados</label>
+                    <span for="selectGuest">Invitados</span>
                     <select id="selectGuest" class="selectpicker form-control required">
                                     <option>1 Invitado</option>
                                     <option>2 Invitado</option>
@@ -103,34 +103,35 @@
                     <br>
                     <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
                     <h4 class="text-center">Username</h4>
+                    <br>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
                     <h3>Espacio Habitable</h3>
-                    <label>Barcelona, Barcelona, Spain</label>
+                    <span>Barcelona, Barcelona, Spain</span>
                     <br>
                     <br>
                     <br>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
                         <br>
-                        <label>Private room</label>
+                        <span>Private room</span>
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
                         <br>
-                        <label>1 Guest</label>
+                        <span>1 Guest</span>
 
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
                         <br>
-                        <label>1 Bedroom<label>
+                        <span>1 Bedroom<span>
 
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                      <img class="imgHom3" src="{{url('/assets/img/Icon-Bed.png')}}" alt="">
                      <br>
-                     <label>1 Bed</label>
+                     <span>1 Bed</span>
                     </div>
                 </div>
             </div>
@@ -141,19 +142,43 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>Accomodates: </strong><span>1</span><br>
+                    <strong>Bathrooms: </strong><span>1</span><br>
+                    <strong>Bedrooms: </strong><span>1</span><br>
+                    <strong>Beds: </strong><span>1</span><br>
+                    <a href="#">House Rules</a>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-sm-4 col-xs-4">
+                    <br>
+                    <strong>Check-in: </strong><span>Ater 3PM</span><br>
+                    <strong>Porperty Type: </strong><span>Apartment</span><br>
+                    <strong>Room Type: </strong><span>Private</span><br>
+                    <strong>Bathroom Type: </strong><span>Private</span><br>
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <br>
+                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                </div>
+            </div>
+            <div class="sections">
+                <hr class="black">
+                <div class="col-sm-3 col-xs-3">
+                    <h3>Amenities</h3>
+                </div>
+                <div class="col-sm-4 col-xs-4">
+                    <br>
+                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>Pets Allowed</span><br>
+                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Elevator.png')}}" alt=""> </strong><span>Elevator in biulding</span><br>
                     <a href="#">Prueba</a>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Family.png')}}" alt=""> </strong><span>Family / kid Fiendly</span><br>
+                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Wifi.png')}}" alt=""> </strong><span>Wifi</span><br>
+
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -167,19 +192,19 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                     <a href="#">Prueba</a>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -193,19 +218,19 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                     <a href="#">Prueba</a>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -219,19 +244,19 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                     <a href="#">Prueba</a>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -245,19 +270,19 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                     <a href="#">Prueba</a>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -271,46 +296,20 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <a href="#">Prueba</a>
-                    <br>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>The Place</h3>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                     <a href="#">Prueba</a>
                     <br>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
-                    <strong>hola</strong><label></label><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
+                    <strong>hola</strong><span></span><br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
