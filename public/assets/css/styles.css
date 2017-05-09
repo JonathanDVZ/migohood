@@ -10,6 +10,25 @@ html {
     height: 1.3em;
 }
 
+.carousel-inner {
+    height: 25.4em;
+    background: none;
+}
+
+.item img {
+    padding-top: 1.5em;
+}
+
+.item {
+    background-size: cover;
+}
+
+.edit2 {
+    height: 1.3em;
+    margin-top: 0.7em;
+    margin-right: 1em;
+}
+
 .choose-img {
     height: 3em;
 }
@@ -339,6 +358,10 @@ textarea {
 
 .lilpadding {
     padding: 1em;
+}
+
+.lilpadding2 {
+    padding: 0 1em;
 }
 
 #lilbox {

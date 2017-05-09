@@ -1,5 +1,5 @@
 @extends('layouts.master') @section('title', 'Preview Created Space') @section('class', 'contenedor') @section( 'content')
-<div class="container-fluid lilmargin">
+<div class="container-fluid lilmargin firstPart">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding-right">
             <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -11,13 +11,13 @@
                 <div class="carousel-inner">
 
                     <div class="item active">
-                        <img src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 1" />
+                        <img class="img-responsive" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 1" />
                     </div>
                     <div class="item">
-                        <img src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 2" />
+                        <img class="img-responsive" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 2" />
                     </div>
                     <div class="item">
-                        <img src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 3" />
+                        <img class="img-responsive" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 3" />
                     </div>
                 </div>
                 <a href="#carousel" class="left carousel-control" data-slide="prev">
@@ -32,10 +32,12 @@
             <div class="bootstrap-iso BlueBack">
                 <div class="row">
                     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                        <h4 class="textwhite">$14 Por Noche </h4>
+                        <h4 class="textwhite lilpadding2">$14 Por Noche </h4>
                     </div>
-                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <a href="text-right"><i class="fa fa-pencil cheks" aria-hidden="true"></i></a>
+                    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 nopadding">
+                        <a href="">
+                            <img class="edit2" src="{{url('/assets/img/Icon-Edit-white.png')}}" alt="">
+                        </a>
                     </div>
                 </div>
             </div>
@@ -166,12 +168,14 @@
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
                     <h3>Amenities</h3>
+                    <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
                     <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>Pets Allowed</span><br>
                     <strong><img class="lilicon" src="{{url('/assets/img/Icon-Elevator.png')}}" alt=""> </strong><span>Elevator in biulding</span><br>
-                    <a href="#">Prueba</a>
+                    <a href="#">+ More</a>
+                    <br>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
@@ -188,23 +192,13 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>The Place</h3>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <a href="#">Prueba</a>
+                    <h3>Prices</h3>
                     <br>
                 </div>
-                <div class="col-sm-4 col-xs-4">
+                <div class="col-sm-8 col-xs-8">
                     <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
+                    <strong>Cancellation: </strong><span>flexible</span><br>
+                    <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -214,23 +208,31 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>The Place</h3>
+                    <h3>Description</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
+                <div class="col-sm-8 col-xs-8">
                     <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <a href="#">Prueba</a>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
                     <br>
                 </div>
-                <div class="col-sm-4 col-xs-4">
+
+                <div class="col-sm-1 col-xs-1">
                     <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
+                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                </div>
+            </div>
+            <div class="sections">
+                <hr class="black">
+                <div class="col-sm-3 col-xs-3">
+                    <h3>House Rules</h3>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                    <br>
+                    <span>Check-in is after 3PM</span><br>
+                    <br>
+                    <a href="#">View Calendar <span class="glyphicon glyphicon-calendar"></span></a>
+                    <br>
+                    <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -240,23 +242,12 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>The Place</h3>
+                    <h3>Also you should know</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
+                <div class="col-sm-8 col-xs-8">
                     <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <a href="#">Prueba</a>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
                     <br>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -266,23 +257,21 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>The Place</h3>
+                    <h3>Safety</h3>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <a href="#">Prueba</a>
+                    <span>Smoke Detector</span><br>
+                    <span></span><br>
+                    <span>Fire Extinguisher</span><br>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
+                    <span>Kitchen roof</span><br>
+                    <span></span><br>
+                    <span>Kitchen right of stove</span><br>
+                    <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -292,24 +281,30 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>The Place</h3>
+                    <h3>Emergency instructions</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
+                <div class="col-sm-8 col-xs-8">
                     <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <a href="#">Prueba</a>
-                    <br>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
                     <br>
                 </div>
-                <div class="col-sm-4 col-xs-4">
+                <div class="col-sm-1 col-xs-1">
                     <br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
-                    <strong>hola</strong><span></span><br>
+                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                </div>
+            </div>
+            <div class="sections">
+                <hr class="black">
+                <div class="col-sm-3 col-xs-3">
+                    <h3>Emergency phone numbers</h3>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                    <br>
+                    <p>
+                        <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt=""> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam
+                        eligendi minima natus voluptatum tempore eius quaerat sunt.
+                    </p>
+                    <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
