@@ -17,7 +17,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 @foreach($detalles1 as $detail)
                                 <div class="checkbox">
-                                    <label><input name="amenities[]" type="checkbox" value="{{$detail['code']}}"> <strong>{{$detail['name']}}</strong></label>
+                                    <label><input @if($detail['is_selected'] == true) {{'checked'}} @endif name="amenities[]" type="checkbox" value="{{$detail['code']}}"> <strong>{{$detail['name']}}</strong></label>
                                 </div>
                                 @endforeach
                                 
@@ -25,7 +25,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 @foreach($detalles2 as $detail)
                                 <div class="checkbox">
-                                    <label><input name="amenities[]" type="checkbox" value="{{$detail['code']}}"> <strong>{{$detail['name']}}</strong></label>
+                                    <label><input @if($detail['is_selected'] == true) {{'checked'}} @endif name="amenities[]" type="checkbox" value="{{$detail['code']}}"> <strong>{{$detail['name']}}</strong></label>
                                 </div>
                                 @endforeach
                             </div>
@@ -36,7 +36,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 @foreach($ofrece1 as $o)
                                 <div class="checkbox">
-                                    <label><input name="amenities[]" type="checkbox" value="{{$o['code']}}"> <strong>{{$o['name']}}</strong></label>
+                                    <label><input @if($o['is_selected'] == true) {{'checked'}} @endif name="amenities[]" type="checkbox" value="{{$o['code']}}"> <strong>{{$o['name']}}</strong></label>
                                 </div>
                                 @endforeach
                                 
@@ -44,7 +44,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 @foreach($ofrece2 as $o)
                                 <div class="checkbox">
-                                    <label><input name="amenities[]" type="checkbox" value="{{$o['code']}}"> <strong>{{$o['name']}}</strong></label>
+                                    <label><input @if($o['is_selected'] == true) {{'checked'}} @endif name="amenities[]" type="checkbox" value="{{$o['code']}}"> <strong>{{$o['name']}}</strong></label>
                                 </div>
                                 @endforeach
                             </div>
@@ -54,7 +54,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 @foreach($lugares1 as $place)
                                 <div class="checkbox">
-                                    <label><input name="amenities[]" type="checkbox" value="{{$place['code']}}"> <strong>{{$place['name']}}</strong></label>
+                                    <label><input @if($place['is_selected'] == true) {{'checked'}} @endif name="amenities[]" type="checkbox" value="{{$place['code']}}"> <strong>{{$place['name']}}</strong></label>
                                 </div>
                                 @endforeach
                                 
@@ -62,7 +62,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 @foreach($lugares2 as $place)
                                 <div class="checkbox">
-                                    <label><input name="amenities[]" type="checkbox" value="{{$place['code']}}"> <strong>{{$place['name']}}</strong></label>
+                                    <label><input @if($place['is_selected'] == true) {{'checked'}} @endif name="amenities[]" type="checkbox" value="{{$place['code']}}"> <strong>{{$place['name']}}</strong></label>
                                 </div>
                                 @endforeach
                             </div>

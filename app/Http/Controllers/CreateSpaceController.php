@@ -682,6 +682,28 @@ class CreateSpaceController extends Controller
                     //session()->forget('message-alert');
                 }
             } else {
+                // Buscamos si existen amenities guardadas para el servicio actual
+
+                $save_amenities = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-5/amenities')
+                        ->withData( array(
+                            'service_id' => $id,
+                            'languaje' => 'ES'
+                            ))
+                        ->asJson( true )
+                        ->get();
+                $saved_detalles = array(); $saved_ofrece = array(); $saved_lugares = array();
+                if (is_array($save_amenities)) {
+                    foreach ($save_amenities as $value) {
+                        if ($value['type_amenities_id'] == 1) {
+                            $saved_detalles[] = $value;
+                        } elseif ($value['type_amenities_id'] == 2) {
+                            $saved_ofrece[] = $value;
+                        } elseif ($value['type_amenities_id'] == 3) {
+                            $saved_lugares[] = $value;
+                        }
+                    }
+                }
+
                 $detalles = array(); $ofrece = array(); $lugares = array();
                 foreach ($amenities as $value) {
                     if ($value['type_amenities_id'] == 1) {
@@ -692,6 +714,75 @@ class CreateSpaceController extends Controller
                         $lugares[] = $value;
                     }
                 }
+                //dd($detalles);
+                if (!empty($detalles)) {
+                    $aux = array(); $agregar = false;
+                    foreach ($detalles as $value) {
+                        foreach ($saved_detalles as $key) {
+                            if ($key['code'] == $value['code']) {
+                                $agregar = true;
+                                break;
+                            }
+                        }
+                        if ($agregar) {
+                            $value['is_selected'] = true;
+                            $aux[] = $value;
+                            $agregar = false;
+                        } else {
+                            $value['is_selected'] = false;
+                            $aux[] = $value;
+                        }
+                    }
+                    $detalles = $aux;
+                    //dd($detalles);
+                }
+
+                if (!empty($ofrece)) {
+                    $aux = array(); $agregar = false;
+                    foreach ($ofrece as $value) {
+                        foreach ($saved_ofrece as $key) {
+                            if ($key['code'] == $value['code']) {
+                                $agregar = true;
+                                break;
+                            }
+                        }
+                        if ($agregar) {
+                            $value['is_selected'] = true;
+                            $aux[] = $value;
+                            $agregar = false;
+                        } else {
+                            $value['is_selected'] = false;
+                            $aux[] = $value;
+                        }
+                    }
+                    $ofrece = $aux;
+                    //dd($detalles);
+                }
+
+                if (!empty($lugares)) {
+                    $aux = array(); $agregar = false;
+                    foreach ($lugares as $value) {
+                        foreach ($saved_lugares as $key) {
+                            if ($key['code'] == $value['code']) {
+                                $agregar = true;
+                                break;
+                            }
+                        }
+                        if ($agregar) {
+                            $value['is_selected'] = true;
+                            $aux[] = $value;
+                            $agregar = false;
+                        } else {
+                            $value['is_selected'] = false;
+                            $aux[] = $value;
+                        }
+                    }
+                    $lugares = $aux;
+                    //dd($lugares);
+                }
+
+
+                
                 // Para detalles
                 $conteo = count($detalles);
                 $mitad = $conteo / 2;
@@ -706,7 +797,7 @@ class CreateSpaceController extends Controller
                 }
 
                 $detalles1 = array_slice($detalles, 0, $mitad1);
-                $detalles2 = array_slice($detalles,$mitad1-1, $mitad2);
+                $detalles2 = array_slice($detalles,$mitad1, $mitad2);
 
                 // Para detalles
                 $conteo = count($ofrece);
@@ -722,7 +813,7 @@ class CreateSpaceController extends Controller
                 }
 
                 $ofrece1 = array_slice($ofrece, 0, $mitad1);
-                $ofrece2 = array_slice($ofrece,$mitad1-1, $mitad2);
+                $ofrece2 = array_slice($ofrece,$mitad1, $mitad2);
                 //print_r($ofrece1);
                 //print_r($ofrece2);
                 //return;
@@ -741,13 +832,14 @@ class CreateSpaceController extends Controller
                 }
 
                 $lugares1 = array_slice($lugares, 0, $mitad1);
-                $lugares2 = array_slice($lugares,$mitad1-1, $mitad2);
+                $lugares2 = array_slice($lugares,$mitad1, $mitad2);
 
-
+                
+                //dd($save_amenities);
             }
             //dd($amenities);
 
-            return view("CreateSpace.amenities", ['id' => $id, 'detalles1' => $detalles1, 'detalles2' => $detalles2, 'ofrece1' => $ofrece1, 'ofrece2' => $ofrece2, 'lugares1' => $lugares1, 'lugares2' => $lugares2]);
+            return view("CreateSpace.amenities", ['id' => $id, 'detalles1' => $detalles1, 'detalles2' => $detalles2, 'ofrece1' => $ofrece1, 'ofrece2' => $ofrece2, 'lugares1' => $lugares1, 'lugares2' => $lugares2, 'saved_detalles' => $saved_detalles, 'saved_ofrece' => $saved_ofrece, 'saved_lugares' => $saved_lugares]);
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha ocurrido un problema por favor recargue la pagina']);
