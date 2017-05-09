@@ -150,6 +150,28 @@ $(document).ready(function() {
         form.submit();
     }
 
+    $("#addBasicsNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        addBasics();
+        $(this).removeAttr('disabled');
+    });
+
+    function addBasics() {
+        var form = document.getElementById('formAddBasics');
+        form.submit();
+    }
+
+    $("#addListingNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        addListing();
+        $(this).removeAttr('disabled');
+    });
+
+    function addListing() {
+        var form = document.getElementById('formAddListing');
+        form.submit();
+    }
+
     /**
     * Funciones NEXT para ir a bathroom
     */

@@ -1010,9 +1010,9 @@ class CreateSpaceController extends Controller
         
     }
 
-
-    public function Eigth()
+    public function SaveBasics(Request $request)
     {
+        
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
             $msg = '';
@@ -1020,11 +1020,165 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
+            if ($request->input('socialize') !== null) {
+                $socialize = ($request->input('socialize') == 'true') ? true:false;
+            } else {
+                $socialize = false;
+            }
+            
+            // Enviar los datos a la API para crear nuevas habitaciones
+            $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-7/description')
+                        ->withHeaders( array( 
+                            'api-token:'.session()->get('user.remember_token') 
+                        ))
+                        ->withData( array( 
+                            'service_id' => $id,
+                            'des_title' => $request->input('title'),
+                            'description' => $request->input('description'),
+                            'des_crib' => $request->input('crib'),
+                            'des_acc' => $request->input('acc'),
+                            'bool_socialize' => $socialize,
+                            'bool_available ' => true,
+                            'des_guest' => $request->input('des_guest'),
+                            'des_note' => $request->input('des_note')
+                            ) )
+                        ->asJson( true )
+                        ->post();
+
+            //dd($response);
+            if ($response == 'Update Step-7' OR $response == 'Add Step-7') {
+                return redirect('/create-space/listing');
+            } else {
+                return redirect('/create-space/basics')->with(['message-alert' =>''.$response.'']);
+            }
+             
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+        
+    }
+
+
+    public function Eigth()
+    {
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            
             return view("CreateSpace.listing", ['id' => $id]);
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
+    }
+
+    public function SaveListing(Request $request)
+    {
+        
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+
+            
+
+            if ($request->input('AptoDe2a12') !== null) {
+                $AptoDe2a12 = ($request->input('AptoDe2a12') == 'on') ? true:false;
+            } else {
+                $AptoDe2a12 = false;
+            }
+            if ($request->input('AptoDe0a2') !== null) {
+                $AptoDe0a2 = ($request->input('AptoDe0a2') == 'on') ? true:false;
+            } else {
+                $AptoDe0a2 = false;
+            }
+            if ($request->input('SeadmitenMascotas') !== null) {
+                $SeadmitenMascotas = ($request->input('SeadmitenMascotas') == 'on') ? true:false;
+            } else {
+                $SeadmitenMascotas = false;
+            }
+            if ($request->input('PermitidoFumar') !== null) {
+                $PermitidoFumar = ($request->input('PermitidoFumar') == 'on') ? true:false;
+            } else {
+                $PermitidoFumar = false;
+            }
+            if ($request->input('Eventos') !== null) {
+                $Eventos = ($request->input('Eventos') == 'on') ? true:false;
+            } else {
+                $Eventos = false;
+            }
+
+            if ($request->input('guest_phone') !== null) {
+                $guest_phone = ($request->input('guest_phone') == 'on') ? true:false;
+            } else {
+                $guest_phone = false;
+            }
+            if ($request->input('guest_email') !== null) {
+                $guest_email = ($request->input('guest_email') == 'on') ? true:false;
+            } else {
+                $guest_email = false;
+            }
+            if ($request->input('guest_profile') !== null) {
+                $guest_profile = ($request->input('guest_profile') == 'on') ? true:false;
+            } else {
+                $guest_profile = false;
+            }
+            if ($request->input('guest_payment') !== null) {
+                $guest_payment = ($request->input('guest_payment') == 'on') ? true:false;
+            } else {
+                $guest_payment = false;
+            }
+            if ($request->input('guest_provided') !== null) {
+                $guest_provided = ($request->input('guest_provided') == 'on') ? true:false;
+            } else {
+                $guest_provided = false;
+            }
+            if ($request->input('guest_recomendation') !== null) {
+                $guest_recomendation = ($request->input('guest_recomendation') == 'on') ? true:false;
+            } else {
+                $guest_recomendation = false;
+            }
+
+            
+            // Enviar los datos a la API para crear nuevas habitaciones
+            $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-8/rules')
+                        ->withHeaders( array( 
+                            'api-token:'.session()->get('user.remember_token') 
+                        ))
+                        ->withData( array( 
+                            'service_id' => $id,
+                            'AptoDe2a12' => $AptoDe2a12,
+                            'AptoDe0a2' => $AptoDe0a2,
+                            'SeadmitenMascotas' => $SeadmitenMascotas,
+                            'PermitidoFumar' => $PermitidoFumar,
+                            'Eventos' => $Eventos,
+                            'Desc_Otro_Evento' => $request->input('Desc_Otro_Evento'),
+                            'guest_phone' => $guest_phone,
+                            'guest_email' => $guest_email,
+                            'guest_profile  ' => $guest_profile,
+                            'guest_payment' => $guest_payment,
+                            'guest_provided' => $guest_provided,
+                            'guest_recomendation' => $guest_recomendation,
+                            'Desc_Instructions' => $request->input('Desc_Instructions'),
+                            'Desc_Name_Network' => $request->input('Desc_Name_Network'),
+                            'Password_Wifi' => $request->input('Password_Wifi')
+                            ) )
+                        ->asJson( true )
+                        ->post();
+
+            //dd($response);
+            if ($response == 'Update Step-8' OR $response == 'Add Step-8') {
+                return redirect('/create-space/photos');
+            } else {
+                return redirect('/create-space/basics')->with(['message-alert' =>''.$response.'']);
+            }
+             
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+        
     }
 
 
