@@ -1259,10 +1259,6 @@ class CreateSpaceController extends Controller
         return view('SpaceType.choose-type');
     }
 
-    public function ChooseSpace()
-    {
-        return view('SpaceType.choose-space');
-    }
 
     public function GetStates(Request $request)
     {     

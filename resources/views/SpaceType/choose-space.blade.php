@@ -28,6 +28,18 @@
                 </label>
                 </div>
             </a>
+
+            <a id="service" class="" href="">
+                <div class="option-box text-center">
+                    <img src="{{url('/assets/img/Icon-Servicio.png')}}" class="choose-img" alt="">
+                    <br>
+                    <br>
+                    <label for="Service" class="textwhite">
+                    Servicio
+                </label>
+                </div>
+            </a>
+
             <a id="workplace" class="" href="">
                 <div class="option-box">
                     <img src="{{url('/assets/img/Icon-Lugar-de-trabajo.png')}}" class="choose-img" alt="">

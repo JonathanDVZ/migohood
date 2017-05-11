@@ -42,7 +42,7 @@ class UserController extends Controller
 
     public function becomeahost()
     {
-        return view ("site.becomeahost");
+        return view ("SpaceType.choose-space");
     }
 
     /**
