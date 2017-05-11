@@ -8,7 +8,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-                <a class="navbar-brand" href="{{url('/')}}"><img class="img-responsive logito" src="{{url('/assets/img/smallBlueLogo.png')}}" alt="Migohood Logo">
+                <a class="navbar-brand" href="{{url('/')}}"><img class="img-responsive logito" src="{{url('/assets/img/WhiteMiniLogo.png')}}" alt="Migohood Logo">
                 </a>
             </div>
             <div id="#navbar2" class="navbar-collapse collapse text-center">

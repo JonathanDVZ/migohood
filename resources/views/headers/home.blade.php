@@ -9,7 +9,7 @@
                       <span class="icon-bar"></span>
                       <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="{{url('/')}}"><img class="img-responsive" src="{{url('/assets/img/Logo.png')}}" alt="Migohood Logo">
+                    <a class="navbar-brand" href="{{url('/')}}"><img class="img-responsive" src="{{url('/assets/img/wlogo.png')}}" alt="Migohood Logo">
                     </a>
                 </div>
                 <div id="navbar3" class="navbar-collapse collapse text-center">
