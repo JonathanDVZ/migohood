@@ -33,6 +33,6 @@
         </div>
     </div>
     <div class="footD">
-        <p class="small text-center">&copy; 2017 Migohood LLC All rights reserved. Crafted with <strong class="small"><i class="fa fa-heart" aria-hidden="true"> </i> by La Casa Creativa </strong></p>
+        <p class="small text-center">&copy; 2017 Migohood LLC All rights reserved.</p>
     </div>
 </div>
