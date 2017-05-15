@@ -29,11 +29,7 @@
                 </div>
             </a>
 
-<<<<<<< HEAD
-            <a id="service" class="" href="{{url('/create-parking/place-type')}}">
-=======
             <a id="service" class="" href="{{url('/create-service/category')}}">
->>>>>>> 7640c7615f477c465127b207fc6e421e7bcdba84
                 <div class="option-box text-center">
                     <img src="{{url('/assets/img/Icon-Servicio.png')}}" class="choose-img" alt="">
                     <br>
