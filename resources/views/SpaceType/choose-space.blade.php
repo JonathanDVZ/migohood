@@ -6,8 +6,8 @@
     </div>
     <div class="col-lg-10 col-md-11 col-sm-10 col-xs-12 text-center">
         <div class="topmargin">
-            <h3 class="text-center title">¿Que tipo de espacios deseas publicar?</h3>
-            <a id="space" class="" href="">
+            <h3 class="text-center title">¿Que tipo de espacio deseas publicar?</h3>
+            <a id="space" class="" href="{{url('/create-space/place-type')}}">
                 <div class="option-box text-center">
                     <img src="{{url('/assets/img/Icon-Espacio-Habitable.png')}}" class="choose-img" alt="">
                     <br>
@@ -18,7 +18,7 @@
                 </div>
             </a>
 
-            <a id="parking" class="" href="">
+            <a id="parking" class="" href="{{url('/create-parking/place-type')}}">
                 <div class="option-box text-center">
                     <img src="{{url('/assets/img/Icon-Aparcamiento.png')}}" class="choose-img" alt="">
                     <br>
@@ -29,7 +29,7 @@
                 </div>
             </a>
 
-            <a id="service" class="" href="">
+            <a id="service" class="" href="{{url('/create-parking/place-type')}}">
                 <div class="option-box text-center">
                     <img src="{{url('/assets/img/Icon-Servicio.png')}}" class="choose-img" alt="">
                     <br>
