@@ -61,6 +61,7 @@ class UserController extends Controller
             if (isset( $checkbox2)) {          
                 try
                 {
+
                     $user = Curl::to(env('MIGOHOOD_API_URL').'/user/create')
                                 ->withData( array( 
                                     'name' => $request->input("name"),                         
@@ -70,7 +71,9 @@ class UserController extends Controller
                                     ) )
                                 ->asJson( true )
                                 ->post();
-            
+
+
+
                     if (is_array($user) && array_key_exists('id', $user)){
                         session()->put('user', $user);
                         return redirect('/')->with(['message-alert' => 'USTED ESTA AHORA REGISTRADO']);

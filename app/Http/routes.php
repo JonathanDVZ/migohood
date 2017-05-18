@@ -83,6 +83,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-parking/services','CreateParkingController@Tenth');
     Route::get('/create-parking/notes','CreateParkingController@Eleven');
     Route::get('/create-parking/co-host','CreateParkingController@Twelve');
+    Route::post('/create-parking/splet','CreateParkingController@storeTemporary');
 //}
 
 //Social Login{

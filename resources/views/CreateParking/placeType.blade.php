@@ -6,13 +6,14 @@
             <div class="row">
                 <h4>¿Qué tipo de aparcamiento esta ofreciendo?</h4>
                 <form>
+                    <input type="hidden"  id="_token" value="{{csrf_token()}}">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-group">
                             <div class="text-left">
                                 <label>¿Qué ofrece?:</label>
                             </div>
                             <br>
-                            <select class="selectpicker form-control required">
+                            <select class="selectpicker form-control required" >
                                     <option>Garage</option>
                                     <option>Garage</option>
                                     <option>Garage</option>
@@ -21,15 +22,15 @@
                             <br>
                             <div id="lilbox">
                                 <div class="radio">
-                                    <label class="textwhite"><input type="radio" name="optradio"><strong>Exterior</strong></label>
+                                    <label class="textwhite"><input data-type="Exterior" onclick="dataType(this)" type="radio" name="optradio" ><strong>Exterior</strong></label>
                                 </div>
                                 <hr>
                                 <div class="radio">
-                                    <label class="textwhite"><input type="radio" name="optradio"><strong>Interior</strong></label>
+                                    <label class="textwhite"><input data-type="Interior" onclick="dataType(this)" type="radio" name="optradio" ><strong>Interior</strong></label>
                                 </div>
                             </div>
                             <br>
-                            <input type="number" name="num_bathroom" min="1" max="20" class="form-control" step="1" placeholder="0" required>
+                            <input type="number" name="num_bathroom" min="1" max="20" class="form-control quantity" step="1" placeholder="0" required>
                             <div>
                             </div>
                         </div>
@@ -66,7 +67,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a id=""><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a id="" onclick="splet()"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

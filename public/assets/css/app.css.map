@@ -1,0 +1,1 @@
+{"version":3,"sources":["bedrooms.scss"],"names":[],"mappings":"AACA;;EAEE,yBAAyB;EACzB,UAAU,EACX;;AACD;EACE,2BAA0B,EAC3B","file":"app.css","sourcesContent":["\r\ninput[type=number]::-webkit-outer-spin-button,\r\ninput[type=number]::-webkit-inner-spin-button {\r\n  -webkit-appearance: none;\r\n  margin: 0;\r\n}\r\ninput[type=number] {\r\n  -moz-appearance:textfield;\r\n}"]}
