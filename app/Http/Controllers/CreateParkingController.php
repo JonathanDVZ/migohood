@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -23,9 +24,9 @@ class CreateParkingController extends Controller
         return view("CreateParking.placeType");
     }
 
-        public function Second()
+        public function Second(Request $request)
     {
-        return view("CreateParking.bedrooms");
+        return view("CreateParking.bedrooms")->with("id", !empty(session('quantity'))?session("quantity"):0);
     }
 
         public function Third()
@@ -76,7 +77,30 @@ class CreateParkingController extends Controller
             public function Twelve()
     {
         return view("CreateParking.co-host");
-    }  
+    }
+
+    public function storeTemporary(Request $request){
+        $jsonRespose = array(
+            'success'=>true,
+            "data"=>"",
+            "route"=>"",
+        );
+
+        if($request->input("step")){
+
+            $request->session()->put('type',$request->input("type"));
+            $request->session()->put('type',$request->input("zone"));
+            $request->session()->put('type',$request->input("quantity"));
+            $request->session()->put('type',$request->input("step1"));
+            $jsonRespose["route"] = "/create-parking/bedrooms";
+
+        }else{
+            $jsonRespose["success"] = false;
+            $jsonRespose["data"]= "por favor complete todo los campos ";
+
+        }
+        return response()->json($jsonRespose);
+    }
 
     /**
      * Show the form for creating a new resource.

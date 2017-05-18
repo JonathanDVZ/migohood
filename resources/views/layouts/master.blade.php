@@ -13,6 +13,7 @@
     <link href="{{url('/assets/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{url('/assets/css/bootstrap-select.min.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700" rel="stylesheet">
+    @yield("stylesheet")
 </head>
 <body class='@yield("class")'>
     @if(session()->has('user')) 
@@ -36,7 +37,9 @@
     <script src="{{url('/assets/js//bootstrap-select.min.js')}}"></script>
     <!-- <script src="{{url('/assets/js/i18n/defaults-*.min.js')}}"></script> -->
     <script src="{{url('/assets/js/init.js')}}"></script>
+    <script src="{{url('/assets/js/parking.js')}}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFDO4osYM3UiwGQxABj2HJaiu-IMQypHA"></script>
+    @yield("script")
 </body>
 
 </html>
