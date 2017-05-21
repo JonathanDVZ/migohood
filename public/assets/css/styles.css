@@ -304,6 +304,10 @@ textarea {
     height: 2.6em;
 }
 
+.imgHom4 {
+    height: 4em;
+}
+
 .cheks {
     display: inline-block;
 }
@@ -1618,6 +1622,12 @@ input[type=checkbox]#checkbox2+label {
     .last {
         padding-top: 1em;
         height: 130px;
+    }
+    .nopadding-right {
+        padding-right: 1em;
+    }
+    .nopadding-left {
+        padding-left: 1em;
     }
     .intro-header-page1 {
         margin-top: -5%;

@@ -97,46 +97,28 @@
             </div>
         </div>
     </div>
-    @include('CreateSpace.PreviewSpace.navbar.preview-navbar',['activo2' => 'preview1'])
+    @include('CreateSpace.PreviewSpace.navbar.preview-navbar',['activo2' => 'preview2'])
     <div class="container-fluid WhiteBack preBody">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
             <div class="sections">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
                     <br>
-                    <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
-                    <h4 class="text-center">Username</h4>
+                    <img class="imgHom4" src="{{url('/assets/img/user-logo.svg')}}" alt="">
                     <br>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
-                    <h3>Espacio Habitable</h3>
-                    <span>Barcelona, Barcelona, Spain</span>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                        <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
+                    <div class="inline-block">
+                        <div class="text-left">
+                            <span><strong>Juan Perez</strong></span>
+                        </div>
+                        <div class="text-right">
+                            <span>12/12/12</span>
+                        </div>
                         <br>
-                        <span>Private room</span>
-                    </div>
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                        <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
-                        <br>
-                        <span>1 Guest</span>
-
-                    </div>
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                        <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
-                        <br>
-                        <span>1 Bedroom<span>
-
-                    </div>
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                     <img class="imgHom3" src="{{url('/assets/img/Icon-Bed.png')}}" alt="">
-                     <br>
-                     <span>1 Bed</span>
                     </div>
                 </div>
-            </div>composedr update
+            </div>
+        </div>
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 light-border">
 
         </div>
