@@ -1254,6 +1254,21 @@ class CreateSpaceController extends Controller
         return view("CreateSpace.PreviewSpace.preview1");
     }
 
+        public function Preview2()
+    {
+        return view("CreateSpace.PreviewSpace.preview2");
+    }
+
+        public function Preview3()
+    {
+        return view("CreateSpace.PreviewSpace.preview3");
+    }
+
+        public function Preview4()
+    {
+        return view("CreateSpace.PreviewSpace.preview4");
+    }
+
     public function ChooseType()
     {
         return view('SpaceType.choose-type');
