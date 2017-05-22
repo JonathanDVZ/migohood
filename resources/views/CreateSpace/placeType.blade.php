@@ -1,5 +1,5 @@
-@extends('layouts.master') 
-@section('title', 'Place Type') 
+@extends('layouts.master')
+@section('title', 'Place Type')
 @section('class', 'contenedor') 
 @section('content')
 @include('CreateSpace.navbar.navbar',['activo' => 'placetype'])

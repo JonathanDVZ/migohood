@@ -87,7 +87,7 @@ class CreateSpaceController extends Controller
                         ) )
                     ->asJson( true )
                     ->get();
-          
+
         return view("CreateSpace.placeType", ['types' => $types, 'accommodation' => $accommodation, 'id' => $id, 'result' => $result]);
     }
 

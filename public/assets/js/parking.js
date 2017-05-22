@@ -27,7 +27,7 @@ var splet = function (){
             }
         });
         req.done(function(data){
-            console.log(data);
+
            if(data.success){
                window.location= data.route;
            } else{
@@ -41,15 +41,20 @@ var splet = function (){
 };
 
 var createItem = function(type,value,opt){
-    var i,d,e;
+    var i,d,e,t;
     if(type == 'input'){
+        var pl="";
+        t = value.split("-");
+            for(var j=0;j<= t.length -1 ; j++){
+               pl = pl+" "+t[j];
+            }
         e = document.createElement("div");
         i = document.createElement("input");
         i.setAttribute('type',"number");
         i.setAttribute("class","form-control");
         i.setAttribute("required", "required");
         i.setAttribute("data-type",value);
-        i.setAttribute("placeholder", value);
+        i.setAttribute("placeholder", pl);
         //i.setAttribute(, value);
         i.addEventListener("keyup",adicionImg,true);
         e.setAttribute("class","form-group");
@@ -60,7 +65,7 @@ var createItem = function(type,value,opt){
         e = document.createElement("div");
         i = document.createElement("img");
         i.setAttribute("src",url+"Icon-"+value+".png");
-        i.style.width="10rem";
+        i.style.width="100%";
         i.setAttribute("class","media-object");
         e.setAttribute("class" ,"media col-md-4 col-lg-4  col-sm-4 col-xs-4");
         e.append(i);
@@ -68,7 +73,8 @@ var createItem = function(type,value,opt){
     }else{
 
         i = document.createElement("span");
-        i.setAttribute("class" ,"media col-md-4 col-lg-4  col-sm-4 col-xs-4");
+        i.setAttribute("class" ,"media col-md-4 col-lg-4  col-sm-4 col-xs-4 find");
+        i.setAttribute("data-leng",type);
         i.append(document.createTextNode(type+" camas más en existencia."));
         type="img";
     }
@@ -79,47 +85,66 @@ var createItem = function(type,value,opt){
 
 };
 
-var adicionImg = function(){
-    var listIcon=[];
-        listIcon['cama de agua']="Cama-Agua";
-        listIcon['cama individual']="Cama-Individual";
-        listIcon[ 'cama matrimonial']="Cama-Matrimonio";
-        listIcon[ 'litera']="Litera";
-        listIcon[ 'cuna']="Cuna";
-        listIcon[ 'colchon']="Cama-Colchon";
-        listIcon[ 'cama ninos']="Cama-ninos";
-        listIcon[ 'sofa']="Sofa";
-        listIcon[ 'sofa cama']="Sofa-Cama";
-        listIcon[ 'hamaca']="Hamaca";
+var adicionImg = function(vm,dool) {
 
+    var listIcon = [];
+    listIcon['cama-de-agua'] = "Cama-Agua";
+    listIcon['cama-individual'] = "Cama-Individual";
+    listIcon['cama-matrimonial'] = "Cama-Matrimonio";
+    listIcon['litera'] = "Litera";
+    listIcon['cuna'] = "Cuna";
+    listIcon['colchon'] = "Cama-Colchon";
+    listIcon['cama-de-ninos'] = "Cama-ninos";
+    listIcon['sofa'] = "Sofa";
+    listIcon['sofa-cama'] = "Sofa-Cama";
+    listIcon['hamaca'] = "Hamaca";
 
-    var e = this.value;
+    var e;
+    var sl="";
+    if (dool ==true) {
+        e = vm.value;
+        sl = $(vm).data("type");
+    } else{
+        sl=$(this).data("type");
+        e = this.value;
+    }
+
     var i = 1;
-    var sl ="";
+
     var conteElement = $(".contentImg");
     var lengthItem = conteElement[0].childElementCount;
-    sl=$(this).data("type");
+
     if(lengthItem > 0){
         var x,y;
         var a = false;
         var u = sl != undefined? sl.split(' '): "";
         var contimg = $(".contentImg > .content-img."+u[u.length-1]);
+
         if(contimg.length > 0){
             for(var j =0 ; j <= contimg.length-1 ; j++){
                 contimg[j].remove();
             }
         }
         x = 6-lengthItem;
+        if(6==lengthItem ){
+            var elemt = $(".contentImg > .content-img");
+            var as = elemt.find(".find");
+            var item = as.data("leng");
+           // if()
 
-        if( x < e ){
-            y = (e-x)+1;
-            console.log(y,x,e ,"= "+(x-e));
-            e=x -1;
-            a=true;
+            as.parent().remove();
+            e=parseInt(e)+parseInt(item);
+        }
+        if( x <= e ){
+           y=e;
+           e=  lengthItem - 5;
+           a = true;
+
         }
 
         for(i; i <= e; i++){
             conteElement.append(createItem('img', listIcon[sl], sl));
+            y=y-1;
         }
         if(a==true){
             conteElement.append(createItem(y, listIcon[sl],sl));
@@ -131,7 +156,6 @@ var adicionImg = function(){
         }
     }
 
-    $("#bedrooms-icon").css("display","");
-    $("#information").css("display","none");
+
 
 };
