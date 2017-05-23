@@ -74,6 +74,7 @@ var adicionImg = function(vm,dool) {
     listIcon['cama-de-agua'] = "Cama-Agua";
     listIcon['cama-individual'] = "Cama-Individual";
     listIcon['cama-matrimonial'] = "Cama-Matrimonio";
+    listIcon['cama-doble'] = "Cama-Matrimonio";
     listIcon['litera'] = "Litera";
     listIcon['cuna'] = "Cuna";
     listIcon['colchon'] = "Cama-Colchon";
@@ -103,9 +104,8 @@ var adicionImg = function(vm,dool) {
     }else if(e == "") {
         itemcount=0;
         for(var j in listItems){
-            console.log(!isNaN(parseInt(listItems[j])),listItems[j]);
             if(!isNaN(parseInt(listItems[j]))){
-                itemcount = (parseInt(itemcount) + parseInt(listItems[j]));
+                itemcount = (parseInt(itemcount) + parseInt(lengthItem[j]));
             }
         }
     }
