@@ -115,14 +115,6 @@
         var url = '/assets/img/iconos-bed/';
         $(document).ready(function(){
 
-            $("#selectbed").on('change',function(){
-                var value = $(this).val();
-                if(value != -1) {
-                    var item = createItem('input', value);
-                    $(".contentSelect").append(item);
-                }
-            });
-
             $("input[name=sofa_bed]").on("keyup",function(){adicionImg(this,true) });
             $("input[name=double_bed]").on("keyup",function(){adicionImg(this,true) });
             $("input[name=queen_bed]").on("keyup",function(){adicionImg(this,true) });
