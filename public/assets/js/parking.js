@@ -105,7 +105,7 @@ var adicionImg = function(vm,dool) {
         itemcount=0;
         for(var j in listItems){
             if(!isNaN(parseInt(listItems[j]))){
-                itemcount = (parseInt(itemcount) + parseInt(lengthItem[j]));
+                itemcount = (parseInt(itemcount) + parseInt(listItems[j]));
             }
         }
     }
