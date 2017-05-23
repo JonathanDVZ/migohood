@@ -42,26 +42,7 @@ var splet = function (){
 
 var createItem = function(type,value,opt){
     var i,d,e,t;
-    if(type == 'input'){
-        var pl="";
-        t = value.split("-");
-            for(var j=0;j<= t.length -1 ; j++){
-               pl = pl+" "+t[j];
-            }
-        e = document.createElement("div");
-        i = document.createElement("input");
-        i.setAttribute('type',"number");
-        i.setAttribute("class","form-control");
-        i.setAttribute("required", "required");
-        i.setAttribute("data-type",value);
-        i.setAttribute("placeholder", pl);
-        //i.setAttribute(, value);
-        i.addEventListener("keyup",adicionImg,true);
-        e.setAttribute("class","form-group");
-        e.eve
-        e.appendChild(i);
-        i=e;
-    }else if(type == 'img'){
+    if(type == 'img'){
         e = document.createElement("div");
         i = document.createElement("img");
         i.setAttribute("src",url+"Icon-"+value+".png");
@@ -84,7 +65,9 @@ var createItem = function(type,value,opt){
     return d;
 
 };
-
+var listItems=[];
+var itemcount = 0;
+var count=0;
 var adicionImg = function(vm,dool) {
 
     var listIcon = [];
@@ -101,61 +84,64 @@ var adicionImg = function(vm,dool) {
 
     var e;
     var sl="";
-    if (dool ==true) {
-        e = vm.value;
-        sl = $(vm).data("type");
-    } else{
-        sl=$(this).data("type");
-        e = this.value;
-    }
+
+    e = vm.value;
+    sl = $(vm).data("type");
 
     var i = 1;
+    var l=0;
 
     var conteElement = $(".contentImg");
+    if($(".contentImg .content-img").length > 0){
+        $(".contentImg .content-img").remove();
+    }
+
     var lengthItem = conteElement[0].childElementCount;
-
-    if(lengthItem > 0){
-        var x,y;
-        var a = false;
-        var u = sl != undefined? sl.split(' '): "";
-        var contimg = $(".contentImg > .content-img."+u[u.length-1]);
-
-        if(contimg.length > 0){
-            for(var j =0 ; j <= contimg.length-1 ; j++){
-                contimg[j].remove();
+    listItems[sl] = e;
+    if(e != ""){
+        itemcount = (parseInt(itemcount) + parseInt(e));
+    }else if(e == "") {
+        itemcount=0;
+        for(var j in listItems){
+            console.log(!isNaN(parseInt(listItems[j])),listItems[j]);
+            if(!isNaN(parseInt(listItems[j]))){
+                itemcount = (parseInt(itemcount) + parseInt(listItems[j]));
             }
-        }
-        x = 6-lengthItem;
-        if(6==lengthItem ){
-            var elemt = $(".contentImg > .content-img");
-            var as = elemt.find(".find");
-            var item = as.data("leng");
-           // if()
-
-            as.parent().remove();
-            e=parseInt(e)+parseInt(item);
-        }
-        if( x <= e ){
-           y=e;
-           e=  lengthItem - 5;
-           a = true;
-
-        }
-
-        for(i; i <= e; i++){
-            conteElement.append(createItem('img', listIcon[sl], sl));
-            y=y-1;
-        }
-        if(a==true){
-            conteElement.append(createItem(y, listIcon[sl],sl));
-        }
-    }else{
-
-        for(i; i <= e; i++){
-            conteElement.append(createItem('img',listIcon[sl],sl));
         }
     }
 
+    var c=0;
+    if(itemcount > 6){
+        c = 6-count;
+    }else{
+        count = (parseInt(e)+parseInt(count));
+    }
+    console.log(listItems);
+    var a=false;
+    var b=0;
 
+    for (var j in  listItems) {
+        var e = listItems[j];
+        if(itemcount >6) {
+
+            for (var i = 1; i <= e; i++) {
+                console.log(b);
+                if(b < 5) {
+                    b=b+1;
+                    conteElement.append(createItem('img', listIcon[j], j));
+                }else{
+                    a=true;
+                    l=l+1;
+                }
+            }
+        }else{
+            for (var i = 1; i <= e; i++) {
+                    conteElement.append(createItem('img', listIcon[j], j));
+            }
+        }
+    }
+    if (a) {
+        conteElement.append(createItem(l, listIcon[sl], sl));
+    }
 
 };
