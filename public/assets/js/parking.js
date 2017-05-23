@@ -45,7 +45,7 @@ var createItem = function(type,value,opt){
     if(type == 'img'){
         e = document.createElement("div");
         i = document.createElement("img");
-        i.setAttribute("src",url+"Icon-"+value+".png");
+        i.setAttribute("src",url+"/Icon-"+value+".png");
         i.style.width="100%";
         i.setAttribute("class","media-object");
         e.setAttribute("class" ,"media col-md-4 col-lg-4  col-sm-4 col-xs-4");
@@ -71,11 +71,10 @@ var count=0;
 var adicionImg = function(vm,dool) {
 
     var listIcon = [];
-    listIcon['cama-de-agua'] = "Cama-Agua";
+    listIcon['cama-queen'] = "Cama-Agua";
     listIcon['cama-individual'] = "Cama-Individual";
     listIcon['cama-matrimonial'] = "Cama-Matrimonio";
-    listIcon['cama-doble'] = "Cama-Doble";
-    listIcon['cama-agua'] = "Cama-Agua";
+    listIcon['cama-doble'] = "Cama-Matrimonio";
     listIcon['litera'] = "Litera";
     listIcon['cuna'] = "Cuna";
     listIcon['colchon'] = "Cama-Colchon";
@@ -117,7 +116,7 @@ var adicionImg = function(vm,dool) {
     }else{
         count = (parseInt(e)+parseInt(count));
     }
-    console.log(listItems);
+
     var a=false;
     var b=0;
 
@@ -126,7 +125,7 @@ var adicionImg = function(vm,dool) {
         if(itemcount >6) {
 
             for (var i = 1; i <= e; i++) {
-                console.log(b);
+
                 if(b < 5) {
                     b=b+1;
                     conteElement.append(createItem('img', listIcon[j], j));

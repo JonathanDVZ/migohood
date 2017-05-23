@@ -115,7 +115,9 @@
 
 @section("script")
     <script>
-        var url = '/assets/img/iconos-bed/';
+        var url = "{{URL::asset('/assets/img/iconos-bed/')}}";
+        url +"/";
+        console.log(url);
         $(document).ready(function(){
 
             $("input[name=sofa_bed]").on("keyup",function(){adicionImg(this,true) });
