@@ -79,14 +79,17 @@
                                     <option value="3">3</option>
                             </select>--}}
                             <select name="other_bed" id="selectbed" class="selectpicker form-control required">
-                                <option value="-1">adicionar otra cama </option>
-                                <option value="cama-matrimonial">Cama matrimonial</option>
-                                <option value="litera">Litera</option>
-                                <option value="colchon">Colchoneta</option>
-                                <option value="cama-de-ninos">Cama de niños</option>
-                                <option value="cuna">Cuna</option>
-                                <option value="sofa">Sofa</option>
-                                <option value="hamaca">Hamaca</option>
+                                <option value="-1"> adcionar otra cama </option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
                             </select>
                             <div class="contentSelect"></div>
                         </div>
