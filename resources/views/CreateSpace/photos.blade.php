@@ -12,36 +12,10 @@
                     <br>
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                            <input class="fileinputs thumb" type="file" id="files" name="files[]" />
-                            <label class="Giant text-center" for="files"> <span id="plus1">+</span> <output id="list"></output></label>
+                            <input class="fileinputs thumb file1" data-idFile="1" type="file" id="files1" name="files[]" />
+                            <label class="Giant text-center" for="files1"><span class="add">+</span> <output id="list1"></output></label>
                             <!-- FALTA ARREGLAR EL HEIGHT Y WIDTH DE LA IMAGEN QUE SE MUESTRA -->
-                            <script>
-                                function archivo(evt) {
-                                    var files = evt.target.files; // FileList object
 
-                                    // Obtenemos la imagen del campo "file".
-                                    for (var i = 0, f; f = files[i]; i++) {
-                                        //Solo admitimos imágenes.
-                                        if (!f.type.match('image.*')) {
-                                            continue;
-                                        }
-
-                                        var reader = new FileReader();
-
-                                        reader.onload = (function(theFile) {
-                                            return function(e) {
-                                                // Insertamos la imagen
-                                                document.getElementById("list").innerHTML = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-                                            };
-                                        })(f);
-
-                                        reader.readAsDataURL(f);
-                                    }
-                                    $('#plus1').css('display','none');
-                                }
-
-                                document.getElementById('files').addEventListener('change', archivo, false);
-                            </script>
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                             <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
@@ -50,8 +24,8 @@
                     <br>
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                            <input class="fileinputs thumb" type="file" id="files" name="files[]" />
-                            <label class="Giant text-center" for="files">+ <output id="list"></output></label>
+                            <input class="fileinputs thumb file2" data-idFile="2" type="file" id="files2" name="files[]" />
+                            <label class="Giant text-center" for="files2"><span class="add">+</span><output id="list2"></output></label>
                         </div>
                         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                             <textarea class="form-control textA" placeholder="Coloque un pie de pagina a esta foto" rows="5" id="comment"></textarea>
@@ -71,8 +45,7 @@
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2"></div>
 </div>
-</div>
-</div>
+
 <div class="container">
     <div class="row">
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-lg-offset-1 col-md-offset-1 col-sm-offset1 col-xs-offset-1 text-left">
@@ -91,4 +64,56 @@
     </div>
 </div>
 
+@endsection
+@section("script")
+    <script>
+
+        function archivo(evt,vm) {
+            var files = evt.target.files; // FileList object
+            var parent = vm.parentNode;
+            var id = $(vm).data("idfile");
+            // Obtenemos la imagen del campo "file".
+            for (var i = 0, f; f = files[i]; i++) {
+                //Solo admitimos imágenes.
+                if (!f.type.match('image.*')) {
+                    continue;
+                }
+
+                var reader = new FileReader();
+
+                reader.onload = (function(theFile) {
+                    return function(e) {
+                        var a = $(parent).find('#list'+id);
+                        var img = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
+                        a.append(img);
+                        a = $(a).find('img.thumb');
+                        a.css("width","100%");
+                        a.css("height","11.5em");
+                        a.css("margin","0px");
+                    };
+                })(f);
+
+                reader.readAsDataURL(f);
+            }
+        }
+        var h;
+        //document.getElementById('files').addEventListener('change', archivo, false);
+        var ActionEvent = function(vm){
+            var  i =vm.parentNode;
+            $(i).find("label.Giant").css("padding","0px");
+            $(i).find("label.Giant output").css("padding","0px");
+            i = $(i).find(".add").remove();
+        };
+        $(".file1").on("change",function(e){
+
+            ActionEvent(this);
+            archivo(e,this);
+        });
+        $(".file2").on("change",function(e){
+
+            ActionEvent(this);
+            archivo(e,this);
+        });
+
+    </script>
 @endsection

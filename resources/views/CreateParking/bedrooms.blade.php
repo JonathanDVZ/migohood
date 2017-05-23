@@ -1,7 +1,4 @@
 @extends('layouts.master')
-@section("stylesheet")
-    <link rel="stylesheet" href="{{url('/assets/css/app.css')}}">
-@endsection
 @section('title', 'Bedrooms') 
 @section('class', 'contenedor') 
 @section( 'content')
@@ -29,24 +26,7 @@
 
                             </div>
                         </div>
-                        <div class="form-group text-right">
-                            <div class="text-left">
-                                <label>¿Con que tipo de cama cuenta ?:</label>
-                                <select name="typobed" id="selectbed" class="selectpicker form-control required">
-                                    <option value="-1">adicionar otra cama </option>
-                                    <option value="cama individual">Cama individual</option>
-                                    <option value="cama matrimonial">Cama matrimonial</option>
-                                    <option value="litera">Litera</option>
-                                    <option value="colchon">Colchoneta</option>
-                                    <option value="cama ninos">Cama de niños</option>
-                                    <option value="cuna">Cuna</option>
-                                    <option value="sofa cama">Sofa cama</option>
-                                    <option value="sofa">Sofa</option>
-                                    <option value="hamaca">Hamaca</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="contentSelect"></div>
+
                     </div>
                     {{ csrf_field() }}
                 </form>
@@ -90,24 +70,3 @@
 
 @endsection
 
-@section("script")
-    <script>
-        var url = '/assets/img/iconos-bed/';
-        $(document).ready(function(){
-
-             $("#bedrooms-icon").css("display","none");
-
-             $("#guests_number").on("change, keypress",function(){
-                 console.log("cambio");
-             });
-             $("#selectbed").on('change',function(){
-                 var value = $(this).val();
-                if(value != -1) {
-                    var item = createItem('input', value);
-                    $(".contentSelect").append(item);
-                    //item.addEventListener("keypress", adicionImg, true);
-                }
-             });
-        });
-    </script>
-@endsection
