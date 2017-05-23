@@ -1021,9 +1021,15 @@ class CreateSpaceController extends Controller
                 session()->forget('message-alert');
             }
             if ($request->input('socialize') !== null) {
-                $socialize = ($request->input('socialize') == 'true') ? true:false;
+                $socialize = true;
             } else {
                 $socialize = false;
+            }
+
+            if ($request->input('available') !== null) {
+                $available = true;
+            } else {
+                $available = false;
             }
             
             // Enviar los datos a la API para crear nuevas habitaciones
@@ -1038,7 +1044,7 @@ class CreateSpaceController extends Controller
                             'des_crib' => $request->input('crib'),
                             'des_acc' => $request->input('acc'),
                             'bool_socialize' => $socialize,
-                            'bool_available' => true,
+                            'bool_available' => $available,
                             'des_guest' => $request->input('des_guest'),
                             'des_note' => $request->input('des_note')
                             ) )

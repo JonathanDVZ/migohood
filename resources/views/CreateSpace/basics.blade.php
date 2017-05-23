@@ -47,22 +47,22 @@
                             <div class="text-left">
                                 <label>Interaccion con los invitados</label>
                             </div>
-                            <div class="text-center">
+                            <!--<div class="text-center">
                                 <input type="text" name="bool_available" value="true" placeholder="dejat true por defecto por ahora" class="form-control">
-                            </div>
+                            </div>-->
                         </div>
 
                         <div class="form-group text-left">
-                            <div class="radio">
-                                <input id="male" type="radio" name="socialize" value="true">
-                                <label for="guest">Planeo compartir con mis invitados</label>
-                                <br>
-                                <input id="male" type="radio" name="socialize" value="false">
-                                <label for="noguest">Les dare su espacio a mis invitados, pero estare disponible cuando lo necesiten.</label>
+                            <div class="checkbox">
+                                <label for="guest"><input id="male" type="checkbox" name="socialize" value="1">
+                                Planeo compartir con mis invitados</label>
+                                <br> 
+                                <label for="noguest"><input id="male" type="checkbox" name="available" value="1">
+                                Les dare su espacio a mis invitados, pero estare disponible cuando lo necesiten.</label>
                             </div>
                         </div>
                         <div class="text-left">
-                            <input type="text" name="des_guest" class="form-control">
+                            <input type="text" name="des_guest" class="form-control" placeholder="Describe otro tipo de Interaccion">
                         </div>
 
                         <div class="form-group text-left">
