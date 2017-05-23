@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                             <input class="fileinputs thumb" type="file" id="files" name="files[]" />
-                            <label class="Giant text-center" for="files">+ <output id="list"></output></label>
+                            <label class="Giant text-center" for="files"> <span id="plus1">+</span> <output id="list"></output></label>
                             <!-- FALTA ARREGLAR EL HEIGHT Y WIDTH DE LA IMAGEN QUE SE MUESTRA -->
                             <script>
                                 function archivo(evt) {
@@ -37,6 +37,7 @@
 
                                         reader.readAsDataURL(f);
                                     }
+                                    $('#plus1').css('display','none');
                                 }
 
                                 document.getElementById('files').addEventListener('change', archivo, false);

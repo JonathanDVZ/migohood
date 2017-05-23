@@ -1038,7 +1038,7 @@ class CreateSpaceController extends Controller
                             'des_crib' => $request->input('crib'),
                             'des_acc' => $request->input('acc'),
                             'bool_socialize' => $socialize,
-                            'bool_available ' => true,
+                            'bool_available' => true,
                             'des_guest' => $request->input('des_guest'),
                             'des_note' => $request->input('des_note')
                             ) )
