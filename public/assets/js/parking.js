@@ -1,6 +1,7 @@
 /**
  * Created by andy on 16/05/2017.
  */
+
 var zonetype="";
 var dataType=function(e){
     zonetype=type=$(e).data('type');
@@ -65,6 +66,21 @@ var createItem = function(type,value,opt){
     return d;
 
 };
+
+var loadItems=function () {
+  'use strict';
+  var conteElement = $(".contentImg");
+  var e = $("input[type=number]");
+  for(var i in e){
+
+      var vm= (e[i]);
+      var value = vm.value;
+      if(value){
+          adicionImg(vm,true);
+      }
+  }
+};
+
 var listItems=[];
 var itemcount = 0;
 var count=0;
