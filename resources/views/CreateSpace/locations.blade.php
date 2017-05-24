@@ -94,9 +94,6 @@
                                     <br>-->
                                 </div>
                                 <div id="googleMap" style="width:100%;height:300px;"></div>
-                                <script>
-                                    
-                                </script>
                             </div>
                             <div>
                                 <div class="form-group text-left">
