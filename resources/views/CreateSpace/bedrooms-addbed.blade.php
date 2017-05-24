@@ -111,13 +111,16 @@
     <script>
         var url = "{{URL::asset('/assets/img/iconos-bed/')}}";
         url +"/";
-        console.log(url);
+
         $(document).ready(function(){
 
             $("input[name=sofa_bed]").on("keyup",function(){adicionImg(this,true) });
             $("input[name=double_bed]").on("keyup",function(){adicionImg(this,true) });
             $("input[name=queen_bed]").on("keyup",function(){adicionImg(this,true) });
             $("input[name=individual_bed]").on("keyup",function(){adicionImg(this,true) });
+
+            loadItems();
+
         });
     </script>
 @endsection
