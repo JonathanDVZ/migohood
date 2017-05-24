@@ -79,7 +79,7 @@
                                     <option value="3">3</option>
                             </select>--}}
                             <select name="other_bed" id="selectbed" class="selectpicker form-control required">
-                                <option value="-1"> adcionar otra cama </option>
+                                <option value=""> Adicionar otra cama </option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>

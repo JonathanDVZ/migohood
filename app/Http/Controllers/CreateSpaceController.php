@@ -410,7 +410,7 @@ class CreateSpaceController extends Controller
                         ) )
                     ->asJson( true )
                     ->post();
-        var_dump($response);exit();
+        //var_dump($response);exit();
         if ($response == 'Add Bedroom-Beds' OR $response == 'Update  Bedroom-Beds') {
             return redirect('/create-space/bedrooms/edit-bedrooms');
         } else {
