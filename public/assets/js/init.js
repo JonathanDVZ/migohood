@@ -45,8 +45,18 @@ $(document).ready(function() {
                     position:{lat: result[0].geometry.location.lat(),lng: result[0].geometry.location.lng() },
                     map:map,
                     cursor: 'default',
-                    draggable: false
+                    draggable: true
                 }); 
+                $('#longitude').val(result[0].geometry.location.lng());
+                $('#latitude').val(result[0].geometry.location.lat());
+
+                // Evento de captura para arrastre de marca
+                google.maps.event.addListener(marker, 'dragend', function(evt){
+                    console.log(evt.latLng.lat());
+                    console.log(evt.latLng.lng());
+                    $('#longitude').val(evt.latLng.lng());
+                    $('#latitude').val(evt.latLng.lat());
+                });
 
             });
             
@@ -63,9 +73,18 @@ $(document).ready(function() {
     }
 
     if ($('#googleMap').length > 0 ) {
+        /*var map; 
+        var marker;*/
         myMap();
         addressFill();
+
+        
+
+        /*google.maps.event.addListener(myMarker, 'dragstart', function(evt){
+            document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+        });*/
     }
+
 
 
     // contador de texto de los texarea
@@ -316,6 +335,11 @@ $(document).ready(function() {
 
 
         opcion = $('#spaceCountry option:selected').text();
+        //alert(opcion);
+        if (opcion == 'Selecciona un Pais') {
+            opcion = '';
+            //alert(opcion);
+        }
         //console.log('Pais: ' + opcion);
         fullAddress += opcion;
         $("#selectedCountry").text(opcion);

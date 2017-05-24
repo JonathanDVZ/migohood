@@ -410,7 +410,7 @@ class CreateSpaceController extends Controller
                         ) )
                     ->asJson( true )
                     ->post();
-        //var_dump($response);exit();
+        dd($response);
         if ($response == 'Add Bedroom-Beds' OR $response == 'Update  Bedroom-Beds') {
             return redirect('/create-space/bedrooms/edit-bedrooms');
         } else {
@@ -517,13 +517,14 @@ class CreateSpaceController extends Controller
         //$id = '';
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
+            dd($id);
             $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-4/location')
                         ->withData( array(
                             'service_id'  => $id
                             ) )
                         ->asJson( true )
                         ->get();
-            //dd($result);           
+            dd($result);           
             $address = ''; $apartment = ''; $description = ''; $around = ''; $states = ''; $cities = '';
             if (isset($result) AND !empty($result) AND !is_null($result) AND $result != 'Not Found') {
                 foreach ($result as $key) {
@@ -535,7 +536,11 @@ class CreateSpaceController extends Controller
                         $description = $key['content'];
                     } elseif ($key['type'] == 'Desc_Surroundings') {
                         $around = $key['content'];
-                    }
+                    } /*elseif ($key['type'] == 'Desc_Surroundings') {
+                        $around = $key['content'];
+                    } elseif ($key['type'] == 'Desc_Surroundings') {
+                        $around = $key['content'];
+                    }*/
                 }
 
                 $states = Curl::to(env('MIGOHOOD_API_URL').'/state/get-state')
@@ -652,7 +657,9 @@ class CreateSpaceController extends Controller
                         'address1' => $request->input('address'),
                         'apt ' => $request->input('apartment'),
                         'des_neighborhood' => $request->input('info'),
-                        'des_around' => $request->input('around')
+                        'des_around' => $request->input('around'),
+                        'des_longitude' => $request->input('longitude'),
+                        'des_latitude' => $request->input('latitude')
                         ) )
                     ->asJson( true )
                     ->put();

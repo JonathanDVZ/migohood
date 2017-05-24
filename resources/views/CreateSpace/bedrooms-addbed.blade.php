@@ -72,13 +72,7 @@
                             <div class="text-left">
                                 <label>¿Agregar Cama Adicional?:</label>
                             </div>
-                          {{--  <select name="other_bed" class="selectpicker form-control">
-                                    <option value="0"></option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                            </select>--}}
-                            <select name="other_bed" id="selectbed" class="selectpicker form-control required">
+                            <select name="other_bed" id="selectbed" class="selectpicker form-control">
                                 <option value=""> Adicionar otra cama </option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
