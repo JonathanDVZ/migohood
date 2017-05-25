@@ -38,6 +38,27 @@ class CreateServiceController extends Controller
     {
         return view("CreateService.co-host");
     } 
+
+    public function Preview1()
+    {
+        return view("CreateService.PreviewService.preview1");
+    }
+
+        public function Preview2()
+    {
+        return view("CreateService.PreviewService.preview2");
+    }
+
+        public function Preview3()
+    {
+        return view("CreateService.PreviewService.preview3");
+    }
+
+        public function Preview4()
+    {
+        return view("CreateService.PreviewService.preview4");
+    }
+
     /**
      * Display a listing of the resource.
      *

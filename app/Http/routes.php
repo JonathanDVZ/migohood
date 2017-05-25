@@ -71,6 +71,10 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-service/location','CreateServiceController@Location');
     Route::get('/create-service/notes','CreateServiceController@Notes');
     Route::get('/create-service/co-host','CreateServiceController@CoHost');
+    Route::get('/create-service/preview-overview','CreateSpaceController@Preview1');
+    Route::get('/create-service/preview-reviews','CreateSpaceController@Preview2');
+    Route::get('/create-service/preview-host','CreateSpaceController@Preview3');
+    Route::get('/create-service/preview-location','CreateSpaceController@Preview4');
 //}
 
 // Routes for the parking creation{ 
@@ -86,6 +90,10 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-parking/services','CreateParkingController@Tenth');
     Route::get('/create-parking/notes','CreateParkingController@Eleven');
     Route::get('/create-parking/co-host','CreateParkingController@Twelve');
+    Route::get('/create-parking/preview-overview','CreateSpaceController@Preview1');
+    Route::get('/create-parking/preview-reviews','CreateSpaceController@Preview2');
+    Route::get('/create-parking/preview-host','CreateSpaceController@Preview3');
+    Route::get('/create-parking/preview-location','CreateSpaceController@Preview4');
     Route::post('/create-parking/splet','CreateParkingController@storeTemporary');
 //}
 

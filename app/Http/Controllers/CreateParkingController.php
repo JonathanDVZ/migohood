@@ -79,6 +79,26 @@ class CreateParkingController extends Controller
         return view("CreateParking.co-host");
     }
 
+    public function Preview1()
+    {
+        return view("CreateParking.PreviewParking.preview1");
+    }
+
+        public function Preview2()
+    {
+        return view("CreateParking.PreviewParking.preview2");
+    }
+
+        public function Preview3()
+    {
+        return view("CreateParking.PreviewParking.preview3");
+    }
+
+        public function Preview4()
+    {
+        return view("CreateParking.PreviewParking.preview4");
+    }
+
     public function storeTemporary(Request $request){
         $jsonRespose = array(
             'success'=>true,
