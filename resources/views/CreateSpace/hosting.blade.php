@@ -36,11 +36,9 @@
                                 </div>
                                 <div class="text-left">
                                     <select class="selectpicker form-control required">
-                                    <option>Elige uno</option>
-                                    <option>Distrito Capital</option>
-                                    <option>Barinas</option>
-                                    <option>Barquisimeto</option>
-                                    <option></option>
+                                        @foreach($durations as $durat)
+                                            <option value="{{ $durat['code'] }}">{{ $durat['type'] }}</option>
+                                        @endforeach
                                 </select>
                                 </div>
                             </div>
@@ -52,10 +50,10 @@
                                 </div>
                                 <div class="text-left">
                                     <select class="selectpicker form-control required">
-                                    <option>USD</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
+                                        @foreach($currencies as $curren)
+                                            <option value="{{ $curren['id'] }}">{{ $curren['currency_iso'] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -74,9 +72,30 @@
                                 </div>
                                 <div class="text-left">
                                     <select class="selectpicker form-control required">
+                                    <option>12 AM</option>
+                                    <option>1 AM</option>
+                                    <option>2 AM</option>
+                                    <option>3 AM</option>
+                                    <option>4 AM</option>
+                                    <option>5 AM</option>
+                                    <option>6 AM</option>
+                                    <option>7 AM</option>
+                                    <option>8 AM</option>
+                                    <option>9 AM</option>
                                     <option>10 AM</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
+                                    <option>11 AM</option>
+                                    <option>12 PM</option>
+                                    <option>1 PM</option>
+                                    <option>2 PM</option>
+                                    <option>3 PM</option>
+                                    <option>4 PM</option>
+                                    <option>5 PM</option>
+                                    <option>6 PM</option>
+                                    <option>7 PM</option>
+                                    <option>8 PM</option>
+                                    <option>9 PM</option>
+                                    <option>10 PM</option>
+                                    <option>11 PM</option>
                                 </select>
                                 </div>
                             </div>
@@ -88,9 +107,30 @@
                                 </div>
                                 <div class="text-left">
                                     <select class="selectpicker form-control required">
-                                    <option>2 AM (Next Day)</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
+                                        <option>12 AM</option>
+                                        <option>1 AM</option>
+                                        <option>2 AM</option>
+                                        <option>3 AM</option>
+                                        <option>4 AM</option>
+                                        <option>5 AM</option>
+                                        <option>6 AM</option>
+                                        <option>7 AM</option>
+                                        <option>8 AM</option>
+                                        <option>9 AM</option>
+                                        <option>10 AM</option>
+                                        <option>11 AM</option>
+                                        <option>12 PM</option>
+                                        <option>1 PM</option>
+                                        <option>2 PM</option>
+                                        <option>3 PM</option>
+                                        <option>4 PM</option>
+                                        <option>5 PM</option>
+                                        <option>6 PM</option>
+                                        <option>7 PM</option>
+                                        <option>8 PM</option>
+                                        <option>9 PM</option>
+                                        <option>10 PM</option>
+                                        <option>11 PM</option>
                                 </select>
                                 </div>
                             </div>
@@ -105,10 +145,31 @@
                                 </div>
                                 <div class="text-left">
                                     <select class="selectpicker form-control required">
-                                    <option>10 AM</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
+                                        <option>12 AM</option>
+                                        <option>1 AM</option>
+                                        <option>2 AM</option>
+                                        <option>3 AM</option>
+                                        <option>4 AM</option>
+                                        <option>5 AM</option>
+                                        <option>6 AM</option>
+                                        <option>7 AM</option>
+                                        <option>8 AM</option>
+                                        <option>9 AM</option>
+                                        <option>10 AM</option>
+                                        <option>11 AM</option>
+                                        <option>12 PM</option>
+                                        <option>1 PM</option>
+                                        <option>2 PM</option>
+                                        <option>3 PM</option>
+                                        <option>4 PM</option>
+                                        <option>5 PM</option>
+                                        <option>6 PM</option>
+                                        <option>7 PM</option>
+                                        <option>8 PM</option>
+                                        <option>9 PM</option>
+                                        <option>10 PM</option>
+                                        <option>11 PM</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -120,33 +181,25 @@
                         <span class="textwhite">Elige tu tipo de politica.</span>
                     </div>
                     <div class="row">
+                        @foreach($payments as $pay)
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                             <div class="form-group text-left">
                                 <div class="radio">
-                                    <label class="textwhite"><input type="radio" name="optradio"><strong>Flexible</strong></label>
-                                    <hr class="green">
+                                    <label class="textwhite"><input type="radio" name="optradio" value="{{ $pay['code'] }}"><strong>{{ $pay['type'] }}</strong></label>
+                                    @if($pay['code'] == 1)
+                                        <hr class="green">
+                                    @elseif($pay['code'] == 2)
+                                        <hr class="orange">
+                                    @else
+                                        <hr class="red">
+                                    @endif
+                                    
                                     <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-left">
-                                <div class="radio">
-                                    <label class="textwhite"><input type="radio" name="optradio"><strong>Moderado</strong></label>
-                                    <hr class="orange">
-                                    <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                            <div class="form-group text-left">
-                                <div class="radio">
-                                    <label class="textwhite"><input class="textwhite" type="radio" name="optradio"><strong>Estricto</strong></label>
-                                    <hr class="red">
-                                    <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+                        
                     </div>
                 </div>
             </div>

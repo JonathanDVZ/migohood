@@ -19,7 +19,8 @@ $(document).ready(function() {
     $('#datetimepicker3').datetimepicker({
         inline: true,
         sideBySide: true,
-        format: 'YYYY-MM-DD'
+        format: 'YYYY-MM-DD',
+        //multidate: true
     });
     // tooltip de un span 
     $('[data-toggle="tooltip"]').tooltip();
@@ -41,7 +42,7 @@ $(document).ready(function() {
                     zoom: 15
                 });
 
-                var marker = new google.maps.Marker({
+                marker = new google.maps.Marker({
                     position:{lat: result[0].geometry.location.lat(),lng: result[0].geometry.location.lng() },
                     map:map,
                     cursor: 'default',
@@ -64,26 +65,56 @@ $(document).ready(function() {
         }
         // De no existir, se ubica en sitio por defecto
         else{
-            var mapProp = {
-            center: new google.maps.LatLng(51.508742, -0.120850),
-            zoom: 5,
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            
+
+            if ($('#longitude').val() != '' && $('#longitude').val() != undefined && $('#latitude').val() != '' && $('#latitude').val() != undefined) {
+                var lat = parseFloat($('#latitude').val());
+                var lon = parseFloat($('#longitude').val());
+                console.log(lat + ", " + lon );
+                var mapProp = {
+                    center: new google.maps.LatLng(lat, lon),
+                    zoom: 15,
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                marker = new google.maps.Marker({
+                    position:{lat: lat, lng: lon },
+                    map: map,
+                    cursor: 'default',
+                    draggable: true
+                });
+                google.maps.event.addListener(marker, 'dragend', function(evt){
+                    console.log(evt.latLng.lat());
+                    console.log(evt.latLng.lng());
+                    $('#longitude').val(evt.latLng.lng());
+                    $('#latitude').val(evt.latLng.lat());
+                });
+
+                /*
+                listengForMark();*/
+            } else {
+                var mapProp = {
+                center: new google.maps.LatLng(51.508742, -0.120850),
+                zoom: 5,
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            }
         }
+    }
+
+    function listengForMark(){
+        
     }
 
     if ($('#googleMap').length > 0 ) {
         /*var map; 
         var marker;*/
+        //var marker;
+        var marker;
         myMap();
         addressFill();
-
-        
-
-        /*google.maps.event.addListener(myMarker, 'dragstart', function(evt){
-            document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
-        });*/
     }
+
+    
 
 
 
