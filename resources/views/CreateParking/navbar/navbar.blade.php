@@ -7,9 +7,9 @@
                 <li><a @if(strcmp($activo,'baths')==0) class="activo" @endif href="{{url('/create-parking/baths')}}">Baños</a></li>
                 <li><a @if(strcmp($activo,'location')==0) class="activo" @endif href="{{url('/create-parking/location')}}">Locación</a></li>
                 <li><a @if(strcmp($activo,'amenities')==0) class="activo" @endif href="{{url('/create-parking/amenities')}}">Comodidades</a></li>
-                <li><a @if(strcmp($activo,'hosting')==0) class="activo" @endif href="{{url('/create-parking/hosting')}}">Alojamiento</a></li>
+                <li><a @if(strcmp($activo,'hosting')==0) class="activo" @endif href="{{url('/create-parking/hosting')}}">Alquiler</a></li>
                 <li><a @if(strcmp($activo,'basics')==0) class="activo" @endif href="{{url('/create-parking/basics')}}">Esencial</a></li>
-                <li><a @if(strcmp($activo,'listing')==0) class="activo" @endif href="{{url('/create-parking/listing')}}">Listado</a></li>
+                <li><a @if(strcmp($activo,'listing')==0) class="activo" @endif href="{{url('/create-parking/listing')}}">Publicación</a></li>
                 <li><a @if(strcmp($activo,'photos')==0) class="activo" @endif href="{{url('/create-parking/photos')}}">Fotos</a></li>
                 <li><a @if(strcmp($activo,'services')==0) class="activo" @endif href="{{url('/create-parking/services')}}">Servicios</a></li>
                 <li><a @if(strcmp($activo,'notes')==0) class="activo" @endif href="{{url('/create-parking/notes')}}">Notas</a></li>

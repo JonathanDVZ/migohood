@@ -96,9 +96,7 @@
                                 <div id="googleMap" style="width:100%;height:300px;"></div>
                                 <input type="hidden" name="latitude" id="latitude" value="@if(isset($latitude) AND !empty($latitude)){{ $latitude }}@endif">
                                 <input type="hidden" name="longitude" id="longitude" value="@if(isset($longitude) AND !empty($longitude)){{ $longitude }}@endif">
-                                <script>
-                                    
-                                </script>
+
                             </div>
                             <div>
                                 <div class="form-group text-left">

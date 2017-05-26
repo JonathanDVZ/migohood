@@ -10,6 +10,15 @@ html {
     height: 1.3em;
 }
 
+.carrousel2 {
+    height: 10em !important;
+    width: auto;
+}
+
+.item .img2 {
+    padding-top: 0.9em;
+}
+
 .carousel-inner {
     height: 25.4em;
     background: none;
@@ -62,6 +71,12 @@ html {
     padding-right: 0.5em;
     margin-bottom: 1em;
     color: #0093b4;
+}
+
+.lilcarrousel {
+    width: 15em;
+    height: 10em;
+    display: inline-block;
 }
 
 .sections2 {
