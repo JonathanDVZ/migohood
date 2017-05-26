@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
-                                <label>Direccion:</label>
+                                <label>Calle:</label>
                             </div>
                             <div class="text-left">
                                 <input type="text" name="quantity" class="form-control" placeholder="Calle 1" required>

@@ -97,6 +97,26 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::post('/create-parking/splet','CreateParkingController@storeTemporary');
 //}
 
+// Routes for the Workspace creation{ 
+    Route::get('/create-workspace/place-type','CreateWorkspaceController@First');
+    Route::get('/create-workspace/bedrooms','CreateWorkspaceController@Second');
+    Route::get('/create-workspace/baths','CreateWorkspaceController@Third');
+    Route::get('/create-workspace/location','CreateWorkspaceController@Fourth');
+    Route::get('/create-workspace/amenities','CreateWorkspaceController@Fifth');
+    Route::get('/create-workspace/hosting','CreateWorkspaceController@Sixth');
+    Route::get('/create-workspace/basics','CreateWorkspaceController@Seventh');
+    Route::get('/create-workspace/listing','CreateWorkspaceController@Eigth');
+    Route::get('/create-workspace/photos','CreateWorkspaceController@Ninth');
+    Route::get('/create-workspace/services','CreateWorkspaceController@Tenth');
+    Route::get('/create-workspace/notes','CreateWorkspaceController@Eleven');
+    Route::get('/create-workspace/co-host','CreateWorkspaceController@Twelve');
+    Route::get('/create-workspace/preview-overview','CreateWorkspaceController@Preview1');
+    Route::get('/create-workspace/preview-reviews','CreateWorkspaceController@Preview2');
+    Route::get('/create-workspace/preview-host','CreateWorkspaceController@Preview3');
+    Route::get('/create-workspace/preview-location','CreateWorkspaceController@Preview4');
+    Route::post('/create-workspace/splet','CreateWorkspaceController@storeTemporary');
+//}
+
 //Social Login{
 //Route::get('social/{provider?}', 'SocialController@getSocialAuth');
 Route::get('social/callback/{provider?}', 'SocialController@getSocialAuthCallback'); 

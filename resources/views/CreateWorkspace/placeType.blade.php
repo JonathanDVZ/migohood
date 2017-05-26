@@ -6,15 +6,22 @@
             <div class="row">
                 <h4>¿Qué tipo de aparcamiento esta ofreciendo?</h4>
                 <form>
-                    <input type="hidden"  id="_token" value="{{csrf_token()}}">
+                    <input type="hidden" id="_token" value="{{csrf_token()}}">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-group">
                             <div class="text-left">
                                 <label>¿Qué ofrece?:</label>
                             </div>
                             <br>
-                            <select class="selectpicker form-control required" >
+                            <select class="selectpicker form-control required">
+                                    <option>Coworking</option>
                                     <option>Garage</option>
+                                    <option>Garage</option>
+                            </select>
+                            <br>
+                            <br>
+                            <select class="selectpicker form-control required">
+                                    <option>Todo el espacio</option>
                                     <option>Garage</option>
                                     <option>Garage</option>
                             </select>
@@ -22,17 +29,47 @@
                             <br>
                             <div id="lilbox">
                                 <div class="radio">
-                                    <label class="textwhite"><input data-type="Exterior" onclick="dataType(this)" type="radio" name="optradio" ><strong>Exterior</strong></label>
+                                    <label class="textwhite"><input data-type="Exterior" onclick="dataType(this)" type="radio" name="optradio" ><strong>Privado</strong></label>
                                 </div>
                                 <hr>
                                 <div class="radio">
-                                    <label class="textwhite"><input data-type="Interior" onclick="dataType(this)" type="radio" name="optradio" ><strong>Interior</strong></label>
+                                    <label class="textwhite"><input data-type="Interior" onclick="dataType(this)" type="radio" name="optradio" ><strong>Compartido</strong></label>
                                 </div>
                             </div>
+
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lilpadding">
+                            <button type="button" class="btn Giantb">
+                            Solo
                             <br>
-                            <input type="number" name="num_bathroom" min="1" max="20" class="form-control quantity" step="1" placeholder="0" required>
-                            <div>
-                            </div>
+                            1 persona
+                            <br>
+                            </button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn Giantb">
+                            Grupo Pequeño
+                            <br>
+                            Hasta 6 Personas
+                            <br>
+
+                            </button>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lilpadding">
+                            <button type="button" class="btn Giantb">
+                            Grupo Grande
+                            <br>
+                            Hasta 12 personas
+                            <br>
+                            </button>
+                            <br>
+                            <br>
+                            <button type="button" class="btn Giantb">
+                            Evento
+                            <br>
+                            Mas de 12 personas
+                            <br>
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -40,17 +77,7 @@
         </div>
 
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-            <div class="Wbox">
-                <span><strong>Lugar Entero</strong></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla deleniti ipsum, aspernatur voluptatum neque provident ipsam.</p>
-                <br>
-                <span><strong>Habitacion Privada</strong></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla deleniti ipsum, aspernatur voluptatum neque provident ipsam.</p>
-                <br>
-                <span><strong>Habitacion Compartida</strong></span>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla deleniti ipsum, aspernatur voluptatum neque provident ipsam.</p>
-                <br>
-            </div>
+
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2"></div>
     </div>
