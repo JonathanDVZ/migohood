@@ -1024,6 +1024,37 @@ class CreateSpaceController extends Controller
         }
     }
 
+    public function SaveHosting(Request $request)
+    {    
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            // Enviar los datos a la API para guardar 
+            $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-6/hosting')
+                            ->withHeaders( array( 
+                                'api-token:'.session()->get('user.remember_token') 
+                            ))
+                            ->withData( array( 
+                                'service_id' => $id,
+                                'currency_id' => $request->input('currency'),
+                                'price' => $request->input('price'),
+                                'duration_code' => $request->input('duration'),
+                                'politic_payment_code' => $request->input('politic_payment'),
+                                'time_entry' => $request->input('time_entry'),
+                                'until' => $request->input('until'),
+                                'departure_time' => $request->input('departure_time'),
+                                ) )
+                            ->asJson( true )
+                            ->post();
+            //dd($response);
+            if ($response == 'Update Step 6' OR $response == 'Add Step 6') {
+                return redirect('/create-space/basics');
+            } else 
+                return redirect('/create-space/hosting')->with(['message-alert' =>''.$response.'']);
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+    }
+
 
     public function Seventh()
     {

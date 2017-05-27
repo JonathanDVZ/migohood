@@ -200,6 +200,17 @@ $(document).ready(function() {
         form.submit();
     }
 
+    $("#addHostingNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        addHosting();
+        $(this).removeAttr('disabled');
+    });
+
+    function addHosting() {
+        var form = document.getElementById('formAddHosting');
+        form.submit();
+    }
+
     $("#addBasicsNext").click(function() {
         $(this).attr('disabled', 'disabled');
         addBasics();
