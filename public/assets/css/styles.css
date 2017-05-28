@@ -9,6 +9,10 @@ html {
 .edit {
     height: 1.3em;
 }
+/*estilos para servicio botton*/
+.alingRight{
+    text-align:right;
+}
 
 .carrousel2 {
     height: 10em !important;

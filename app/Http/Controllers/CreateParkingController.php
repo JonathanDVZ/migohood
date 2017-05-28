@@ -39,9 +39,36 @@ class CreateParkingController extends Controller
         return view("CreateParking.locations");
     }
 
-    public function Fifth()
+    public function Fifth(Request $request)
     {
-        return view("CreateParking.amenities");
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+            if (!empty($request->input("files")) && $request->input("files") != null) {
+                $imgs = $request->input("files");
+            }
+            $res = Curl::to(env('MIGOHOOD_API_URL') . '/amenities/get-space-amenities')
+                ->withHeaders(array(
+                    'api-token:' . session()->get('user.remember_token')
+                ))
+                ->withData(array(
+                    'languaje' => 'ES'
+                ))
+                ->asJson(true)
+                ->get();
+            var_dump($res);
+            if(!is_array($res) && $res =="menities not found"){
+
+            }else{
+                return view("CreateParking.amenities")->with(["result"=>$res,'id' => $id,]);
+            }
+        }else{
+            return view("CreateParking.amenities")->with(['message-alert' => 'Ha ocurrido un problema por favor recargue la pagina']);
+        }
     }
 
         public function Sixth()

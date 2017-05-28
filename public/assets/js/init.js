@@ -1,6 +1,19 @@
 var opcion = '';
 var previous = '';
 
+
+// contador de texto de los texarea
+
+function textCounter(field, field2, maxlimit) {
+    var countfield = document.getElementById(field2);
+    if (field.value.length > maxlimit) {
+        field.value = field.value.substring(0, maxlimit);
+        return false;
+    } else {
+        countfield.value = maxlimit - field.value.length + " Caracters remaining ";
+    }
+}
+
 $(document).ready(function() {
     // togle del boton de agregar mas en Hosting
     $("#show").click(function() {
@@ -128,17 +141,6 @@ $(document).ready(function() {
 
 
 
-    // contador de texto de los texarea
-
-    function textCounter(field, field2, maxlimit) {
-        var countfield = document.getElementById(field2);
-        if (field.value.length > maxlimit) {
-            field.value = field.value.substring(0, maxlimit);
-            return false;
-        } else {
-            countfield.value = maxlimit - field.value.length + " Caracters remaining ";
-        }
-    }
 
     /**
      *   Funciones para envio de formulario en

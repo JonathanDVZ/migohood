@@ -10,7 +10,7 @@
             <br>
             <p>Mencione cualquier cosa que el huesped debera traer consigo o encargarse el mismo, como el transporte.</p>
             <br>
-            <textarea onkeyup="textCounter(this,'counter',200)" id="message" class="form-control" rows="5" maxlength="200"></textarea>
+            <textarea  id="message" class="form-control note" rows="5" maxlength="200"></textarea>
             <input disabled value="200 caracters remaining" id="counter">
             <span id='remainingC'></span>
             <br>
@@ -164,7 +164,7 @@
                                                             </tbody>
                                                         </table>
                                                     </div>
-                                                    <button id="addMore" type="button" class="btn btn-default hidden"></button>
+                                                    <button id="addMore"  id="addnew" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#addNew"> </button>
                                                     <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
                                                 </div>
                                             </div>
@@ -172,7 +172,42 @@
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                             </div>
                                         </div>
+                                        <!--fin modal-->
 
+
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="addNew" role="dialog">
+                                    <div class="modal-dialog">
+
+                                        <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Add With Badges</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="container-fluid">
+                                            <div class="table-responsive">
+                                                <form  name="formAddWithBadges" action="post">
+                                                    <div class="form-group">
+                                                        <lable>Name</lable>
+                                                        <input type="text" id="name" name="name" placeholder="polices" minlength="4" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <lable>Phone Number</lable>
+                                                        <input type="text" id="name" name="phoneNumber" placeholder="000-000-0000" minlength="4" class="form-control">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <buttom class="btn btn-default">Save</buttom>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                    </div>
+                                </div>
                                     </div>
                                 </div>
 
@@ -186,6 +221,7 @@
         </div>
     </div>
 </div>
+
 <div class="container ">
     <div class="row ">
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 "></div>
@@ -198,10 +234,22 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right ">
             <div class="RetNex ">
                 <br>
-                <a href="{{url( '/create-space/amenities')}} "><strong>NEXT</strong><i class="fa fa-chevron-right " aria-hidden="true "></i></a>
+                <a href="{{url( '/create-space/co-host')}} "><strong>NEXT</strong><i class="fa fa-chevron-right " aria-hidden="true "></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 "></div>
     </div>
 </div>
+@endsection
+@section("script")
+    <script>
+        $(".note").on("keyup",function () {
+            textCounter(this,'counter',200);
+        });
+        $("#editar").on("click",function () {
+            var lista  = {
+
+            };
+        });
+    </script>
 @endsection

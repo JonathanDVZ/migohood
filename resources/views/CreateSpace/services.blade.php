@@ -8,8 +8,8 @@
         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                    <input class="fileinputs" acce type="file" name="file" id="file1" class="inputfile" accept="image/*" />
-                    <label class="Giant text-center" for="file1">+</label>
+                    <input class="fileinputs file1" acce type="file" data-idFile="1" name="file" id="file1" class="inputfile" accept="image/*" />
+                    <label class="Giant text-center" for="file1"><span class="add">+</span> <output id="list1"></output></label>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                     <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
@@ -67,8 +67,8 @@
         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
             <div class="row">
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                    <input class="fileinputs" acce type="file" name="file" id="file1" class="inputfile" accept="image/*" />
-                    <label class="Giant text-center" for="file1">+</label>
+                    <input class="fileinputs file2" acce type="file" data-idFile="2" name="file" id="file2" class="inputfile" accept="image/*" />
+                    <label class="Giant text-center" for="file2"><span class="add">+</span> <output id="list2"></output></label>
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                     <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
@@ -120,6 +120,11 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alingRight" >
+            <button  class="btn btnbar2 save-continue">Guardar y Continuar</button>
+        </div>
+    </div>
 
     <div class="container">
         <div class="row">
@@ -139,4 +144,67 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section("script")
+    <script>
+        function archivo(evt,vm) {
+            var files = evt.target.files; // FileList object
+            var parent = vm.parentNode;
+            var id = $(vm).data("idfile");
+            // Obtenemos la imagen del campo "file".
+            for (var i = 0, f; f = files[i]; i++) {
+                //Solo admitimos imágenes.
+                if (!f.type.match('image.*')) {
+                    continue;
+                }
+
+                var reader = new FileReader();
+
+                reader.onload = (function(theFile) {
+                    return function(e) {
+                        var a = $(parent).find('#list'+id);
+                        var img = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
+                        a.append(img);
+                        a = $(a).find('img.thumb');
+                        a.css("width","100%");
+                        a.css("height","11.5em");
+                        a.css("margin","0px");
+                    };
+                })(f);
+
+                reader.readAsDataURL(f);
+            }
+        }
+        var h;
+        $(".save-continue").attr("disabled",true);
+        var ActionEvent = function(vm){
+            var  i =vm.parentNode;
+            $(i).find("label.Giant").css("padding","0px");
+            $(i).find("label.Giant output").css("padding","0px");
+            i = $(i).find(".add").remove();
+        };
+        $(".file1").on("change",function(e){
+
+            ActionEvent(this);
+            archivo(e,this);
+            if($(this).val()!=""){
+                    $(".save-continue").attr("disabled",false);
+            }
+
+        });
+        $(".file2").on("change",function(e){
+
+            ActionEvent(this);
+            archivo(e,this);
+            if($(this).val()!=""){
+                $(".save-continue").attr("disabled",false);
+            }
+        });
+
+        $(".save-continue").on("click",function(){
+
+        });
+
+    </script>
 @endsection

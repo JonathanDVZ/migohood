@@ -46,6 +46,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     //Route::post('/create-space/amenities','CreateSpaceController@FifthPost');
     Route::post('/create-space/save-amenities','CreateSpaceController@SaveAmenities');
     Route::get('/create-space/hosting','CreateSpaceController@Sixth');
+
     Route::post('/create-space/save-hosting','CreateSpaceController@SaveHosting');
     //Route::post('/create-space/hosting','CreateSpaceController@SixthPost');
     Route::get('/create-space/basics','CreateSpaceController@Seventh');
@@ -53,6 +54,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-space/listing','CreateSpaceController@Eigth');
     Route::post('/create-space/save-listing','CreateSpaceController@SaveListing');
     Route::get('/create-space/photos','CreateSpaceController@Ninth');
+    Route::post('/create-space/photos','CreateSpaceController@NinthSave');
     Route::get('/create-space/services','CreateSpaceController@Tenth');
     Route::get('/create-space/notes','CreateSpaceController@Eleven');
     Route::get('/create-space/co-host','CreateSpaceController@Twelve');

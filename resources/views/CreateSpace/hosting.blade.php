@@ -40,7 +40,7 @@
                                             @foreach($durations as $durat)
                                                 <option @if(!empty($selected_duration) AND $selected_duration == $durat['type']) {{ 'selected' }} @endif value="{{ $durat['code'] }}">{{ $durat['type'] }}</option>
                                             @endforeach
-                                    </select>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +132,8 @@
                                             <option @if(!empty($selected_until) AND $selected_until == '21:00:00') {{ 'selected' }} @endif value="21:00:00">9 PM</option>
                                             <option @if(!empty($selected_until) AND $selected_until == '22:00:00') {{ 'selected' }} @endif value="22:00:00">10 PM</option>
                                             <option @if(!empty($selected_until) AND $selected_until == '23:00:00') {{ 'selected' }} @endif value="23:00:00">11 PM</option>
-                                    </select>
+
+                                        </select>
                                     </div>
                                 </div>
                             </div>
