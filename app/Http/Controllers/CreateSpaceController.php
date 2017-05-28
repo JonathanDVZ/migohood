@@ -411,11 +411,7 @@ class CreateSpaceController extends Controller
                         ) )
                     ->asJson( true )
                     ->post();
-<<<<<<< HEAD
 
-=======
-        //dd($response);
->>>>>>> 92a314db2fce33597c4a99fe9c4800f2697e4651
         if ($response == 'Add Bedroom-Beds' OR $response == 'Update  Bedroom-Beds') {
             return redirect('/create-space/bedrooms/edit-bedrooms');
         } else {
@@ -1001,21 +997,7 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-<<<<<<< HEAD
-            $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-6/hosting')
-                ->withData( array(
-                    'service_id' => $id
-                ))
-                ->asJson( true )
-                ->get();
-            if(!is_array($res) && $res == "Not Found"){
-                if (session()->has('message-alert')) {
-                    session()->put('message-alert',$res);
-                }
-            }
-            return view("CreateSpace.hosting", ['id' => $id,"result"=>$res] );
 
-=======
             $currencies = Curl::to(env('MIGOHOOD_API_URL').'/currency/get-currency')
                         ->withData( array( 
                             //'service_id' => $id,
@@ -1040,17 +1022,13 @@ class CreateSpaceController extends Controller
             //dd($payments);
             return view("CreateSpace.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments] );
              
->>>>>>> 92a314db2fce33597c4a99fe9c4800f2697e4651
+
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
     }
 
-<<<<<<< HEAD
-    public function SixthPost(){
 
-    }
-=======
     public function SaveHosting(Request $request)
     {    
         if (session()->has('service_id')) {
@@ -1082,7 +1060,6 @@ class CreateSpaceController extends Controller
         }
     }
 
->>>>>>> 92a314db2fce33597c4a99fe9c4800f2697e4651
 
     public function Seventh()
     {
@@ -1309,7 +1286,7 @@ class CreateSpaceController extends Controller
     }
     public function NinthSave(Request $request)
     {
-        var_dump($request->input("image"));exit();
+
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
             $msg = '';

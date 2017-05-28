@@ -46,12 +46,9 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     //Route::post('/create-space/amenities','CreateSpaceController@FifthPost');
     Route::post('/create-space/save-amenities','CreateSpaceController@SaveAmenities');
     Route::get('/create-space/hosting','CreateSpaceController@Sixth');
-<<<<<<< HEAD
-    Route::post('/create-space/hosting','CreateSpaceController@SixthPost');
-=======
+
     Route::post('/create-space/save-hosting','CreateSpaceController@SaveHosting');
     //Route::post('/create-space/hosting','CreateSpaceController@SixthPost');
->>>>>>> 92a314db2fce33597c4a99fe9c4800f2697e4651
     Route::get('/create-space/basics','CreateSpaceController@Seventh');
     Route::post('/create-space/save-basics','CreateSpaceController@SaveBasics');
     Route::get('/create-space/listing','CreateSpaceController@Eigth');
