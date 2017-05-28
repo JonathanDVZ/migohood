@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 use Curl;
 use Session;
 use Hash;
@@ -1016,8 +1017,28 @@ class CreateSpaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
+            // Buscamos si existen amenities guardadas para el servicio actual
+
+            $saved_hosting = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-6/hosting')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+            $selected_currency = ''; $selected_duration = ''; $selected_payment = ''; $price = ''; $selected_entry = ''; $selected_until = ''; $selected_departure = '';
+            if (isset($saved_hosting) AND !empty($saved_hosting) AND !is_null($saved_hosting) AND $saved_hosting != 'Not Found') {
+                $selected_currency = $saved_hosting[0]['Currency-Name']; 
+                $selected_duration = $saved_hosting[0]['Type-Duration']; 
+                $selected_payment = $saved_hosting[0]['Type-Payment']; 
+                $price = $saved_hosting[0]['Price']; 
+                $selected_entry = $saved_hosting[0]['Time-Entry']; 
+                $selected_until = $saved_hosting[0]['Until']; 
+                $selected_departure = $saved_hosting[0]['Departure-Time'];
+            } 
+            //dd($saved_hosting);
             //dd($payments);
-            return view("CreateSpace.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments] );
+            return view("CreateSpace.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments, 'selected_currency' => $selected_currency, 'selected_duration' => $selected_duration, 'selected_payment' => $selected_payment, 'price' => $price, 'selected_entry' => $selected_entry, 'selected_until' => $selected_until, 'selected_departure' => $selected_departure] );
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
@@ -1046,7 +1067,7 @@ class CreateSpaceController extends Controller
                             ->asJson( true )
                             ->post();
             //dd($response);
-            if ($response == 'Update Step 6' OR $response == 'Add Step 6') {
+            if ($response == 'Update Step 6' OR $response == 'Add Step-6') {
                 return redirect('/create-space/basics');
             } else 
                 return redirect('/create-space/hosting')->with(['message-alert' =>''.$response.'']);
@@ -1066,7 +1087,39 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            return view("CreateSpace.basics", ['id' => $id]);
+
+            $saved_basics = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-7/description')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+            $title = ''; $description = ''; $place = ''; $access = ''; $share1 = ''; $share2 = ''; $interaction = ''; $other = '';
+            if (isset($saved_basics) AND !empty($saved_basics) AND !is_null($saved_basics) AND $saved_basics != 'Not Found') {
+                foreach ($saved_basics as $value) {
+                    if ($value['description_id'] == 1) {
+                        $title = $value['content'];
+                    } elseif ($value['description_id'] == 8) {
+                        $description = $value['content'];
+                    } elseif ($value['description_id'] == 9) {
+                        $place = $value['content'];
+                    } elseif ($value['description_id'] == 10) {
+                        $access = $value['content'];
+                    } elseif ($value['description_id'] == 11) {
+                        $share1 = $value['check'];
+                    } elseif ($value['description_id'] == 12) {
+                        $share2 = $value['check'];
+                    } elseif ($value['description_id'] == 13) {
+                        $interaction = $value['content'];
+                    } elseif ($value['description_id'] == 14) {
+                        $other = $value['content'];
+                    }
+                }
+            } 
+            //print_r($saved_basics);
+            //return;
+            return view("CreateSpace.basics", ['id' => $id, 'title' => $title, 'description' => $description, 'place' => $place, 'access' => $access, 'share1' => $share1, 'share2' => $share2, 'interaction' => $interaction, 'other' => $other]);
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
@@ -1105,12 +1158,12 @@ class CreateSpaceController extends Controller
                             'service_id' => $id,
                             'des_title' => $request->input('title'),
                             'description' => $request->input('description'),
-                            'des_crib' => $request->input('crib'),
-                            'des_acc' => $request->input('acc'),
+                            'desc_crib' => $request->input('crib'),
+                            'desc_acc' => $request->input('acc'),
                             'bool_socialize' => $socialize,
                             'bool_available' => $available,
-                            'des_guest' => $request->input('des_guest'),
-                            'des_note' => $request->input('des_note')
+                            'desc_guest' => $request->input('des_guest'),
+                            'desc_note' => $request->input('des_note')
                             ) )
                         ->asJson( true )
                         ->post();
@@ -1133,8 +1186,54 @@ class CreateSpaceController extends Controller
     {
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
+
+            $saved_listing = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-8/rules')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+            $AptoDe2a12 = ''; $AptoDe0a2 = ''; $SeadmitenMascotas = ''; $PermitidoFumar = ''; $Eventos = ''; $Desc_Otro_Evento = ''; $guest_phone = ''; $guest_email = '';  $guest_profile = ''; $guest_payment = ''; $guest_provided = ''; $guest_recomendation = ''; $Desc_Instructions = ''; $Desc_Name_Network = ''; $Password_Wifi = ''; 
+            if (isset($saved_listing) AND !empty($saved_listing) AND !is_null($saved_listing) AND $saved_listing != 'Not Found') {
+                foreach ($saved_listing as $value) {
+                    if ($value['rules_id'] == 1) {
+                        $AptoDe2a12 = $value['Check'];
+                    } elseif ($value['rules_id'] == 2) {
+                        $AptoDe0a2 = $value['Check'];
+                    } elseif ($value['rules_id'] == 3) {
+                        $SeadmitenMascotas = $value['Check'];
+                    } elseif ($value['rules_id'] == 4) {
+                        $PermitidoFumar = $value['Check'];
+                    } elseif ($value['rules_id'] == 5) {
+                        $Eventos = $value['Check'];
+                    } elseif ($value['rules_id'] == 6) {
+                        $Desc_Otro_Evento = $value['Description'];
+                    } elseif ($value['rules_id'] == 7) {
+                        $guest_phone = $value['Check'];
+                    } elseif ($value['rules_id'] == 8) {
+                        $guest_email = $value['Check'];
+                    } elseif ($value['rules_id'] == 9) {
+                        $guest_profile = $value['Check'];
+                    } elseif ($value['rules_id'] == 10) {
+                        $guest_payment = $value['Check'];
+                    } elseif ($value['rules_id'] == 11) {
+                        $guest_provided = $value['Check'];
+                    } elseif ($value['rules_id'] == 12) {
+                        $guest_recomendation = $value['Check'];
+                    } elseif ($value['rules_id'] == 13) {
+                        $Desc_Instructions = $value['Description'];
+                    } elseif ($value['rules_id'] == 14) {
+                        $Desc_Name_Network = $value['Description'];
+                    } elseif ($value['rules_id'] == 15) {
+                        $Password_Wifi = Crypt::decrypt($value['Description']);
+                    }
+                }
+            } 
+            //dd($saved_listing);
+            //return;
             
-            return view("CreateSpace.listing", ['id' => $id]);
+            return view("CreateSpace.listing", ['id' => $id, 'AptoDe2a12' => $AptoDe2a12, 'AptoDe0a2' => $AptoDe0a2, 'SeadmitenMascotas' => $SeadmitenMascotas, 'PermitidoFumar' => $PermitidoFumar, 'Eventos' => $Eventos, 'Desc_Otro_Evento' => $Desc_Otro_Evento, 'guest_phone' => $guest_phone, 'guest_email' => $guest_email,  'guest_profile' => $guest_profile, 'guest_payment' => $guest_payment, 'guest_provided' => $guest_provided, 'guest_recomendation' => $guest_recomendation, 'Desc_Instructions' => $Desc_Instructions, 'Desc_Name_Network' => $Desc_Name_Network, 'Password_Wifi' => $Password_Wifi ]);
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);

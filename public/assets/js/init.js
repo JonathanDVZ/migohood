@@ -16,12 +16,22 @@ $(document).ready(function() {
     // calendarios dentro del hosting
     $('#datetimepicker1').datetimepicker({ format: 'YYYY-MM-DD' });
     $('#datetimepicker2').datetimepicker({ format: 'YYYY-MM-DD' });
-    $('#datetimepicker3').datetimepicker({
+    /*$('#datetimepicker3').datetimepicker({
         inline: true,
         sideBySide: true,
         format: 'YYYY-MM-DD',
         //multidate: true
-    });
+    });*/
+
+    //$('#datetimepicker3').datepick({multiSelect: 30,dateFormat: 'dd-mm-yyyy',onSelect: showDate,minDate: '+1d'});
+
+
+    /*function showDate(date) {
+        //console.log('The date chosen is ' + date);
+        var fecha = $.datepick.formatDate($.datepick.parseDate('dd-mm-yyyy', date));
+        alert(fecha);
+    }  */  
+
     // tooltip de un span 
     $('[data-toggle="tooltip"]').tooltip();
 
