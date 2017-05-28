@@ -17,7 +17,7 @@
                                         <label>Pais:</label>
                                     </div>
                                     <select id="spaceCountry" name="country" class="selectpicker form-control" required>
-                                        <option> Selecciona un Pais</option>
+                                        <option>Selecciona un Pais</option>
                                         @foreach($countries as $country)
                                             <option @if(isset($result[0]['country']) AND !empty($result[0]['country']) AND $result[0]['country'] == $country['name']) {{'selected'}} @endif value="{{$country['id']}}">{{$country['name']}}</option>
                                         @endforeach
@@ -94,9 +94,9 @@
                                     <br>-->
                                 </div>
                                 <div id="googleMap" style="width:100%;height:300px;"></div>
-                                <script>
-                                    
-                                </script>
+                                <input type="hidden" name="latitude" id="latitude" value="@if(isset($latitude) AND !empty($latitude)){{ $latitude }}@endif">
+                                <input type="hidden" name="longitude" id="longitude" value="@if(isset($longitude) AND !empty($longitude)){{ $longitude }}@endif">
+
                             </div>
                             <div>
                                 <div class="form-group text-left">

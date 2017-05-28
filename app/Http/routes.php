@@ -46,7 +46,12 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     //Route::post('/create-space/amenities','CreateSpaceController@FifthPost');
     Route::post('/create-space/save-amenities','CreateSpaceController@SaveAmenities');
     Route::get('/create-space/hosting','CreateSpaceController@Sixth');
+<<<<<<< HEAD
     Route::post('/create-space/hosting','CreateSpaceController@SixthPost');
+=======
+    Route::post('/create-space/save-hosting','CreateSpaceController@SaveHosting');
+    //Route::post('/create-space/hosting','CreateSpaceController@SixthPost');
+>>>>>>> 92a314db2fce33597c4a99fe9c4800f2697e4651
     Route::get('/create-space/basics','CreateSpaceController@Seventh');
     Route::post('/create-space/save-basics','CreateSpaceController@SaveBasics');
     Route::get('/create-space/listing','CreateSpaceController@Eigth');
@@ -72,6 +77,10 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-service/location','CreateServiceController@Location');
     Route::get('/create-service/notes','CreateServiceController@Notes');
     Route::get('/create-service/co-host','CreateServiceController@CoHost');
+    Route::get('/create-service/preview-overview','CreateSpaceController@Preview1');
+    Route::get('/create-service/preview-reviews','CreateSpaceController@Preview2');
+    Route::get('/create-service/preview-host','CreateSpaceController@Preview3');
+    Route::get('/create-service/preview-location','CreateSpaceController@Preview4');
 //}
 
 // Routes for the parking creation{ 
@@ -87,7 +96,31 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-parking/services','CreateParkingController@Tenth');
     Route::get('/create-parking/notes','CreateParkingController@Eleven');
     Route::get('/create-parking/co-host','CreateParkingController@Twelve');
+    Route::get('/create-parking/preview-overview','CreateSpaceController@Preview1');
+    Route::get('/create-parking/preview-reviews','CreateSpaceController@Preview2');
+    Route::get('/create-parking/preview-host','CreateSpaceController@Preview3');
+    Route::get('/create-parking/preview-location','CreateSpaceController@Preview4');
     Route::post('/create-parking/splet','CreateParkingController@storeTemporary');
+//}
+
+// Routes for the Workspace creation{ 
+    Route::get('/create-workspace/place-type','CreateWorkspaceController@First');
+    Route::get('/create-workspace/bedrooms','CreateWorkspaceController@Second');
+    Route::get('/create-workspace/baths','CreateWorkspaceController@Third');
+    Route::get('/create-workspace/location','CreateWorkspaceController@Fourth');
+    Route::get('/create-workspace/amenities','CreateWorkspaceController@Fifth');
+    Route::get('/create-workspace/hosting','CreateWorkspaceController@Sixth');
+    Route::get('/create-workspace/basics','CreateWorkspaceController@Seventh');
+    Route::get('/create-workspace/listing','CreateWorkspaceController@Eigth');
+    Route::get('/create-workspace/photos','CreateWorkspaceController@Ninth');
+    Route::get('/create-workspace/services','CreateWorkspaceController@Tenth');
+    Route::get('/create-workspace/notes','CreateWorkspaceController@Eleven');
+    Route::get('/create-workspace/co-host','CreateWorkspaceController@Twelve');
+    Route::get('/create-workspace/preview-overview','CreateWorkspaceController@Preview1');
+    Route::get('/create-workspace/preview-reviews','CreateWorkspaceController@Preview2');
+    Route::get('/create-workspace/preview-host','CreateWorkspaceController@Preview3');
+    Route::get('/create-workspace/preview-location','CreateWorkspaceController@Preview4');
+    Route::post('/create-workspace/splet','CreateWorkspaceController@storeTemporary');
 //}
 
 //Social Login{

@@ -15,7 +15,7 @@
                             
                             <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
                                 <div class="form-group text-left">
-                                    <label><strong>Titulo de la publicacion</strong></label>
+                                    <label><strong>Se permiten niños (de 2 a 12 años)</strong></label>
                                 </div>
                                 <div class="form-group text-left">
                                     <label><strong>Video o Fotos permitidas</strong></label>
@@ -136,11 +136,11 @@
                             </div>
                         </div>
 
-                        <div class="text-center">
+                        <!--<div class="text-center">
                             <div class="cheks">
                                 <button type="button" class="btn btn-md works2" data-toggle="button">Agregar Idioma</button>
                             </div>
-                        </div>
+                        </div>-->
                         {{csrf_field()}}
                     </form>
                 </div>

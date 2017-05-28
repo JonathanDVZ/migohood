@@ -75,11 +75,11 @@
                             </div>
                         </div>
 
-                        <div class="text-center">
+                        <!--<div class="text-center">
                             <div class="cheks">
                                 <button type="button" class="btn btn-md works2" data-toggle="button">Agregar Idioma</button>
                             </div>
-                        </div>
+                        </div>-->
                         {{csrf_field()}}
                     </form>
                 </div>

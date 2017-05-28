@@ -62,6 +62,20 @@
                         <br>
                         <textarea class="form-control" rows="5" id="comment"></textarea>
                     </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group text-left">
+                            <br>
+                            <label for="wifiName">Nombre del Wifi</label>
+                            <input name="Desc_Name_Network" type="text" class="form-control" id="wifiName">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                        <div class="form-group text-left">
+                            <br>
+                            <label for="wifiPas">Clave del Wifi</label>
+                            <input name="Password_Wifi" type="password" class="form-control" id="wifiPas">
+                        </div>
+                    </div>
 
                 </div>
             </div>

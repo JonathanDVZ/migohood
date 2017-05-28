@@ -32,7 +32,8 @@ $(document).ready(function() {
     $('#datetimepicker3').datetimepicker({
         inline: true,
         sideBySide: true,
-        format: 'YYYY-MM-DD'
+        format: 'YYYY-MM-DD',
+        //multidate: true
     });
     // tooltip de un span 
     $('[data-toggle="tooltip"]').tooltip();
@@ -54,12 +55,22 @@ $(document).ready(function() {
                     zoom: 15
                 });
 
-                var marker = new google.maps.Marker({
+                marker = new google.maps.Marker({
                     position:{lat: result[0].geometry.location.lat(),lng: result[0].geometry.location.lng() },
                     map:map,
                     cursor: 'default',
-                    draggable: false
+                    draggable: true
                 }); 
+                $('#longitude').val(result[0].geometry.location.lng());
+                $('#latitude').val(result[0].geometry.location.lat());
+
+                // Evento de captura para arrastre de marca
+                google.maps.event.addListener(marker, 'dragend', function(evt){
+                    console.log(evt.latLng.lat());
+                    console.log(evt.latLng.lng());
+                    $('#longitude').val(evt.latLng.lng());
+                    $('#latitude').val(evt.latLng.lat());
+                });
 
             });
             
@@ -67,18 +78,57 @@ $(document).ready(function() {
         }
         // De no existir, se ubica en sitio por defecto
         else{
-            var mapProp = {
-            center: new google.maps.LatLng(51.508742, -0.120850),
-            zoom: 5,
-            };
-            var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            
+
+            if ($('#longitude').val() != '' && $('#longitude').val() != undefined && $('#latitude').val() != '' && $('#latitude').val() != undefined) {
+                var lat = parseFloat($('#latitude').val());
+                var lon = parseFloat($('#longitude').val());
+                console.log(lat + ", " + lon );
+                var mapProp = {
+                    center: new google.maps.LatLng(lat, lon),
+                    zoom: 15,
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                marker = new google.maps.Marker({
+                    position:{lat: lat, lng: lon },
+                    map: map,
+                    cursor: 'default',
+                    draggable: true
+                });
+                google.maps.event.addListener(marker, 'dragend', function(evt){
+                    console.log(evt.latLng.lat());
+                    console.log(evt.latLng.lng());
+                    $('#longitude').val(evt.latLng.lng());
+                    $('#latitude').val(evt.latLng.lat());
+                });
+
+                /*
+                listengForMark();*/
+            } else {
+                var mapProp = {
+                center: new google.maps.LatLng(51.508742, -0.120850),
+                zoom: 5,
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+            }
         }
     }
 
+    function listengForMark(){
+        
+    }
+
     if ($('#googleMap').length > 0 ) {
+        /*var map; 
+        var marker;*/
+        //var marker;
+        var marker;
         myMap();
         addressFill();
     }
+
+    
+
 
 
 
@@ -149,6 +199,17 @@ $(document).ready(function() {
 
     function addAmenities() {
         var form = document.getElementById('formAddAmenities');
+        form.submit();
+    }
+
+    $("#addHostingNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        addHosting();
+        $(this).removeAttr('disabled');
+    });
+
+    function addHosting() {
+        var form = document.getElementById('formAddHosting');
         form.submit();
     }
 
@@ -318,6 +379,11 @@ $(document).ready(function() {
 
 
         opcion = $('#spaceCountry option:selected').text();
+        //alert(opcion);
+        if (opcion == 'Selecciona un Pais') {
+            opcion = '';
+            //alert(opcion);
+        }
         //console.log('Pais: ' + opcion);
         fullAddress += opcion;
         $("#selectedCountry").text(opcion);

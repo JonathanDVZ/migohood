@@ -40,7 +40,7 @@
                 </div>
             </a>
 
-            <a id="workplace" class="" href="">
+            <a id="workplace" class="" href="{{url('/create-workspace/place-type')}}">
                 <div class="option-box">
                     <img src="{{url('/assets/img/Icon-Lugar-de-trabajo.png')}}" class="choose-img" alt="">
                     <br>
