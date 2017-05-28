@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Curl;
+use phpDocumentor\Reflection\Types\Null_;
 use Session;
 use Hash;
 
@@ -523,6 +524,7 @@ class CreateSpaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
+
             //dd($result);           
             $address = ''; $apartment = ''; $description = ''; $around = ''; $states = ''; $cities = '';
             if (isset($result) AND !empty($result) AND !is_null($result) AND $result != 'Not Found') {
@@ -985,13 +987,27 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            return view("CreateSpace.hosting", ['id' => $id] );
-             
+            $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-6/hosting')
+                ->withData( array(
+                    'service_id' => $id
+                ))
+                ->asJson( true )
+                ->get();
+            if(!is_array($res) && $res == "Not Found"){
+                if (session()->has('message-alert')) {
+                    session()->put('message-alert',$res);
+                }
+            }
+            return view("CreateSpace.hosting", ['id' => $id,"result"=>$res] );
+
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
     }
 
+    public function SixthPost(){
+
+    }
 
     public function Seventh()
     {
@@ -1013,7 +1029,7 @@ class CreateSpaceController extends Controller
 
     public function SaveBasics(Request $request)
     {
-        
+
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
             $msg = '';
@@ -1181,7 +1197,8 @@ class CreateSpaceController extends Controller
             } else {
                 return redirect('/create-space/basics')->with(['message-alert' =>''.$response.'']);
             }
-             
+
+
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
@@ -1199,8 +1216,51 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
+
+            $res= Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-8/rules')
+                ->withHeaders( array(
+                    'api-token:'.session()->get('user.remember_token')
+                ))
+                ->withData( array(
+                ) )
+                ->asJson( true )
+                ->get();
+
             return view("CreateSpace.photos", ['id' => $id]);
              
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+    }
+    public function NinthSave(Request $request)
+    {
+        var_dump($request->input("image"));exit();
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+            if(!empty($request->input("files")) &&$request->input("files")!=null ){
+                $imgs = $request->input("files");
+            }
+            $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
+                ->withHeaders( array(
+                    'api-token:'.session()->get('user.remember_token')
+                ))
+                ->withData( array(
+                    "service_id"=>$id,
+                    "image"=>$imgs
+                ))
+                ->asJson(true)
+                ->post();
+            if ($res == 'Update Step-8' OR $res == 'Add Step-8') {
+                return redirect('/create-space/services');
+            } else {
+                return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
+            }
+
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }

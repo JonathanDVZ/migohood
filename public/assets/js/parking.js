@@ -1,7 +1,21 @@
 /**
  * Created by andy on 16/05/2017.
  */
-
+var AppCore=function(){
+  return{
+      url:"",
+      type:"",
+      data:"",
+      ajax:function(){
+         var e= $.ajax({
+              url:url,
+              type:type,
+              data:data
+          });
+         return e;
+      }
+  };
+};
 var zonetype="";
 var dataType=function(e){
     zonetype=type=$(e).data('type');
