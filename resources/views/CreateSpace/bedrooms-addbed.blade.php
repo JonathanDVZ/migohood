@@ -28,6 +28,7 @@
                         </div>
 
                         <hr>
+                        <!--
                         <div class="form-group text-right">
                             <div class="text-left">
                                 {{ csrf_field() }}
@@ -67,26 +68,25 @@
                                 @endif
                             </div>
                         </div>
-
+-->
                         <div class="form-group text-right">
                             <div class="text-left">
                                 <label>¿Agregar Cama Adicional?:</label>
                             </div>
-                            <select name="other_bed" id="selectbed" class="selectpicker form-control">
-                                <option value=""> Adicionar otra cama </option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
+                            <select name="typobed" id="selectbed" class="selectpicker form-control required">
+                                <option value="-1">adicionar otra cama </option>
+                                <option value="cama individual">Cama individual</option>
+                                <option value="cama matrimonial">Cama matrimonial</option>
+                                <option value="litera">Litera</option>
+                                <option value="colchon">Colchoneta</option>
+                                <option value="cama ninos">Cama de niños</option>
+                                <option value="cuna">Cuna</option>
+                                <option value="sofa cama">Sofa cama</option>
+                                <option value="sofa">Sofa</option>
+                                <option value="hamaca">Hamaca</option>
                             </select>
-                            <div class="contentSelect"></div>
                         </div>
+                        <div class="contentSelect"></div>
                     </form>
                     <hr>
                 </div>
@@ -118,8 +118,14 @@
             $("input[name=double_bed]").on("keyup",function(){adicionImg(this,true) });
             $("input[name=queen_bed]").on("keyup",function(){adicionImg(this,true) });
             $("input[name=individual_bed]").on("keyup",function(){adicionImg(this,true) });
-
-            loadItems();
+            $("#selectbed").on('change',function(){
+                var value = $(this).val();
+                if(value != -1) {
+                   var item = createItem('input', value);
+                   $(".contentSelect").append(item);
+                    loadItems();
+                }
+             });
 
         });
     </script>

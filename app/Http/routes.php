@@ -49,6 +49,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
 
     Route::post('/create-space/save-hosting','CreateSpaceController@SaveHosting');
     //Route::post('/create-space/hosting','CreateSpaceController@SixthPost');
+
     Route::get('/create-space/basics','CreateSpaceController@Seventh');
     Route::post('/create-space/save-basics','CreateSpaceController@SaveBasics');
     Route::get('/create-space/listing','CreateSpaceController@Eigth');
