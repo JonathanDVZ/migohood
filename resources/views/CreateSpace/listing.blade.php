@@ -34,27 +34,27 @@
 
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
                                 <label class="switch">
-                                    <input name="AptoDe2a12" type="checkbox">
+                                    <input name="AptoDe2a12" @if(!empty($AptoDe2a12) AND $AptoDe2a12 == 1) {{ 'checked' }} @endif type="checkbox">
                                     <div class="slider round"></div>
                                 </label>
                                 <br>
                                 <label class="switch">
-                                    <input name="AptoDe0a2" type="checkbox">
+                                    <input name="AptoDe0a2" type="checkbox" @if(!empty($AptoDe0a2) AND $AptoDe0a2 == 1) {{ 'checked' }} @endif>
                                     <div class="slider round"></div>
                                 </label>
                                 <br>
                                 <label class="switch">
-                                    <input name="SeadmitenMascotas" type="checkbox">
+                                    <input name="SeadmitenMascotas" type="checkbox" @if(!empty($SeadmitenMascotas) AND $SeadmitenMascotas == 1) {{ 'checked' }} @endif>
                                     <div class="slider round"></div>
                                 </label>
                                 <br>
                                 <label class="switch">
-                                    <input name="PermitidoFumar" type="checkbox">
+                                    <input name="PermitidoFumar" type="checkbox" @if(!empty($PermitidoFumar) AND $PermitidoFumar == 1) {{ 'checked' }} @endif>
                                     <div class="slider round"></div>
                                 </label>
                                 <br>
                                 <label class="switch">
-                                    <input name="Eventos" type="checkbox">
+                                    <input name="Eventos" type="checkbox" @if(!empty($Eventos) AND $Eventos == 1) {{ 'checked' }} @endif>
                                     <div class="slider round"></div>
                                 </label>
                             </div>
@@ -67,7 +67,7 @@
                             </div>
                             <div class="text-left">
                                 <br>
-                                <textarea name="Desc_Otro_Evento" class="form-control" rows="5" id="comment"></textarea>
+                                <textarea name="Desc_Otro_Evento" class="form-control" rows="5" id="comment">@if(!empty($Desc_Otro_Evento)) {{ $Desc_Otro_Evento }} @endif</textarea>
                             </div>
                         </div>
                         <div class="form-group text-left">
@@ -81,28 +81,28 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="checkbox">
-                                    <label><input name="guest_phone" type="checkbox"><strong>Numero de Telefono</strong></label>
+                                    <label><input name="guest_phone" type="checkbox" @if(!empty($guest_phone) AND $guest_phone == 1) {{ 'checked' }} @endif><strong>Numero de Telefono</strong></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" name="guest_email"><strong>Dirección de Correo</strong></label>
+                                    <label><input type="checkbox" name="guest_email" @if(!empty($guest_email) AND $guest_email == 1) {{ 'checked' }} @endif><strong>Dirección de Correo</strong></label>
                                 </div>
                                 <div class="text-left">
                                     <br>
                                     <label><strong>Requerimientos adicionales</strong></label><br>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" name="guest_provided"><strong>Identificacion requerida</strong></label>
+                                    <label><input type="checkbox" name="guest_provided" @if(!empty($guest_provided) AND $guest_provided == 1) {{ 'checked' }} @endif><strong>Identificacion requerida</strong></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" name="guest_recomendation"><strong>Recomendacion</strong></label>
+                                    <label><input type="checkbox" name="guest_recomendation" @if(!empty($guest_recomendation) AND $guest_recomendation == 1) {{ 'checked' }} @endif><strong>Recomendacion</strong></label>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="checkbox">
-                                    <label><input type="checkbox" name="guest_profile"><strong>Foto de Perfil</strong></label>
+                                    <label><input type="checkbox" name="guest_profile" @if(!empty($guest_profile) AND $guest_profile == 1) {{ 'checked' }} @endif><strong>Foto de Perfil</strong></label>
                                 </div>
                                 <div class="checkbox">
-                                    <label><input type="checkbox" name="guest_payment"><strong>Informacion de Pago</strong></label>
+                                    <label><input type="checkbox" name="guest_payment" @if(!empty($guest_payment) AND $guest_payment == 1) {{ 'checked' }} @endif><strong>Informacion de Pago</strong></label>
                                 </div>
                             </div>
                         </div>
@@ -117,21 +117,21 @@
                         </div>
                         <div class="text-left">
                             <br>
-                            <textarea name="Desc_Instructions" class="form-control" rows="5" id="comment"></textarea>
+                            <textarea name="Desc_Instructions" class="form-control" rows="5" id="comment">@if(!empty($Desc_Instructions)) {{ $Desc_Instructions }} @endif</textarea>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group text-left">
                                     <br>
                                     <label for="wifiName">Nombre del Wifi</label>
-                                    <input name="Desc_Name_Network" type="text" class="form-control" id="wifiName">
+                                    <input name="Desc_Name_Network" type="text" class="form-control" id="wifiName" value="@if(!empty($Desc_Name_Network)) {{ $Desc_Name_Network }} @endif">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="form-group text-left">
                                     <br>
                                     <label for="wifiPas">Clave del Wifi</label>
-                                    <input name="Password_Wifi" type="password" class="form-control" id="wifiPas">
+                                    <input name="Password_Wifi" type="password" class="form-control" id="wifiPas" value="@if(!empty($Password_Wifi)) {{ $Password_Wifi }} @endif">
                                 </div>
                             </div>
                         </div>

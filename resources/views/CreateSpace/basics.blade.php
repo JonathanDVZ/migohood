@@ -16,14 +16,14 @@
                     <form id="formAddBasics" method="POST" action="{{url('/create-space/save-basics')}}">
                         <div class="form-group text-left">
                             <h4 class="text-left">Titulo de la publicacion</h4>
-                            <input type="text" name="title" class="form-control" required>
+                            <input type="text" name="title" class="form-control" value="@if(!empty($title)) {{ $title }} @endif" required>
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
                                 <label>Descripcion:</label>
                             </div>
                             <div class="text-left">
-                                <textarea class="form-control" name="description" rows="5" id="comment"></textarea>
+                                <textarea class="form-control" name="description" rows="5" id="comment">@if(!empty($description)) {{ $description }} @endif</textarea>
                             </div>
                         </div>
                         <h3 class="titulo text-left">CUENTANOS MÁS</h3>
@@ -32,7 +32,7 @@
                                 <label>Tu Lugar</label>
                             </div>
                             <div class="text-left">
-                                <input type="text" name="crib" class="form-control">
+                                <input type="text" name="crib" class="form-control" value="@if(!empty($place)) {{ $place }} @endif">
                             </div>
                         </div>
                         <div class="form-group text-right">
@@ -40,7 +40,7 @@
                                 <label>¿Cómo accederan los huespedes?</label>
                             </div>
                             <div class="text-left">
-                                <input type="text" name="acc" class="form-control">
+                                <input type="text" name="acc" class="form-control" value="@if(!empty($access)) {{ $access }} @endif">
                             </div>
                         </div>
                         <div class="form-group text-left">
@@ -54,15 +54,15 @@
 
                         <div class="form-group text-left">
                             <div class="checkbox">
-                                <label for="guest"><input id="male" type="checkbox" name="socialize" value="1">
+                                <label for="guest"><input id="male" type="checkbox" @if(!empty($share1) AND $share1 == 1) {{ 'checked' }} @endif name="socialize" value="1">
                                 Planeo compartir con mis invitados</label>
                                 <br> 
-                                <label for="noguest"><input id="male" type="checkbox" name="available" value="1">
+                                <label for="noguest"><input id="male" type="checkbox" name="available" value="1" @if(!empty($share2) AND $share2 == 1) {{ 'checked' }} @endif>
                                 Les dare su espacio a mis invitados, pero estare disponible cuando lo necesiten.</label>
                             </div>
                         </div>
                         <div class="text-left">
-                            <input type="text" name="des_guest" class="form-control" placeholder="Describe otro tipo de Interaccion">
+                            <input type="text" name="des_guest" class="form-control" placeholder="Describe otro tipo de Interaccion" value="@if(!empty($interaction)) {{ $interaction }} @endif">
                         </div>
 
                         <div class="form-group text-left">
@@ -71,7 +71,7 @@
                                 <label>¿Alguna otra cosa que agregar?</label>
                             </div>
                             <div class="text-center">
-                                <input type="text" name="des_note" class="form-control">
+                                <input type="text" name="des_note" class="form-control" value="@if(!empty($other)) {{ $other }} @endif">
                             </div>
                         </div>
 
