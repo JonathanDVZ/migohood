@@ -11,6 +11,7 @@ use Curl;
 use phpDocumentor\Reflection\Types\Null_;
 use Session;
 use Hash;
+use validator;
 
 class CreateSpaceController extends Controller
 {
@@ -1368,14 +1369,16 @@ class CreateSpaceController extends Controller
                 session()->forget('message-alert');
             }
 
-            $res= Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-8/rules')
-                ->withHeaders( array(
-                    'api-token:'.session()->get('user.remember_token')
-                ))
-                ->withData( array(
-                ) )
-                ->asJson( true )
-                ->get();
+            $res= Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/get-image')
+                        ->withHeaders( array(
+                            'api-token:'.session()->get('user.remember_token')
+                        ))
+                        ->withData( array(
+                            'service_id' => $id
+                        ) )
+                        ->asJson( true )
+                        ->get();
+            //dd($res);
 
             return view("CreateSpace.photos", ['id' => $id]);
              
@@ -1393,24 +1396,64 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            if(!empty($request->input("files")) &&$request->input("files")!=null ){
-                $imgs = $request->input("files");
+            $rules = array(
+                'file1' => 'required|image',
+                //'file2' => 'required|image'
+            );
+            //return $request->all();
+            $validator = \Validator::make($request->all(), $rules);
+            if($validator->fails())
+            {
+                return response()->json($validator->errors()->all());
+                //return;
             }
-            $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
-                ->withHeaders( array(
-                    'api-token:'.session()->get('user.remember_token')
-                ))
-                ->withData( array(
-                    "service_id"=>$id,
-                    "image"=>$imgs
-                ))
-                ->asJson(true)
-                ->post();
-            if ($res == 'Update Step-8' OR $res == 'Add Step-8') {
-                return redirect('/create-space/services');
-            } else {
-                return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
+            $imgs = array();
+            //dd($request->file('files'));
+            //if(!empty($request->input("files")) && $request->input("files") != null ){
+                $imgs = $request->file('file1');
+                //print_r($imgs);
+                $name = 'imagen'.str_random(20).'_service_'.$id.'.'.$imgs->getClientOriginalExtension();
+                //$ext = $imgs->getClientOriginalExtension(); 
+                //print_r($name);
+                //return;
+                $imgs->move('files/images/',$name);    
+                //return;    
+                
+            //}
+            $desc = array();
+            if(!empty($request->input("description")) && $request->input("description") != null ){
+                $desc = $request->input("description");
             }
+            $success = true;
+            //dd($imgs);
+            $conteo = count($desc);
+            if ($conteo > 0) {
+                for ($i=1; $i < $conteo; $i++) { 
+                    $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
+                                ->withHeaders( array(
+                                    'api-token:'.session()->get('user.remember_token')
+                                ))
+                                ->withData( array(
+                                    "service_id"=>$id,
+                                    "name" => $name,
+                                    "description" => $desc[$i]
+                                ))
+                                ->asJson(true)
+                                ->post();
+                    unlink('files/images/'.$name);
+                    //dd($res);
+                    if ($res != 'Update completed!') {
+                        $success = false;
+                    }
+                }
+                if ($success) {
+                    return redirect('/create-space/services');
+                } else {
+                    return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
+                }
+            }
+
+            return redirect('/create-space/services');
 
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);

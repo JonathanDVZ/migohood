@@ -10,28 +10,30 @@
                         <br>
                     </div>
                     <br>
-                    <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                            <input class="fileinputs thumb file1" data-idFile="1" type="file" id="files1" name="files[]" />
-                            <label class="Giant text-center" for="files1"><span class="add">+</span> <output id="list1"></output></label>
-                            <!-- FALTA ARREGLAR EL HEIGHT Y WIDTH DE LA IMAGEN QUE SE MUESTRA -->
+                    <form id="formAddPhotos" method="POST" action="{{url('/create-space/save-photos')}}" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                <input class="fileinputs thumb file1" data-idFile="1" type="file" id="files1" name="file1" />
+                                <label class="Giant text-center" for="files1"><span class="add">+</span> <output id="list1"></output></label>
 
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <textarea name="description[]" class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
+                            </div>
                         </div>
-                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                            <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                                <input class="fileinputs thumb file2" data-idFile="2" type="file" id="files2" name="files[]" />
+                                <label class="Giant text-center" for="files2"><span class="add">+</span><output id="list2"></output></label>
+                            </div>
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <textarea name="description[]" class="form-control textA" placeholder="Coloque un pie de pagina a esta foto" rows="5" id="comment"></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <br>
-                    <div class="row">
-                        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                            <input class="fileinputs thumb file2" data-idFile="2" type="file" id="files2" name="files[]" />
-                            <label class="Giant text-center" for="files2"><span class="add">+</span><output id="list2"></output></label>
-                        </div>
-                        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                            <textarea class="form-control textA" placeholder="Coloque un pie de pagina a esta foto" rows="5" id="comment"></textarea>
-                        </div>
-                    </div>
-                    <br>
+                        <br>
+                        {{ csrf_field() }}
+                    </form>
                 </div>
             </div>
         </div>
@@ -57,7 +59,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-space/services')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a id="addPhotosNext"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
