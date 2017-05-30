@@ -1444,12 +1444,106 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            return view("CreateSpace.notes", ['id' => $id]);
+            $emergency = Curl::to(env('MIGOHOOD_API_URL') . ' /service/space/step-11/number-emergency')
+                ->withHeaders(array(
+                    'api-token:' . session()->get('user.remember_token')
+                ))
+                ->withData(array(
+                    "service_id" => $id,
+                    "languaje" => "ES"
+                ))
+
+                ->asJson(true)
+                ->get();
+
+            if(!is_array($emergency) && $emergency == "Not Found"){
+                $emergency = false;
+            }
+
+            return view("CreateSpace.notes", ['id' => $id,"emergency"=>$emergency]);
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
-    }            
+    }
+    public function ElevenAdd(Request $request){
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+            $post=array(
+                  "bool_smoke"=>!empty($request->input("bool_smoke"))?  $request->input("bool_smoke"):false,
+                  "bool_carbon"=>!empty($request->input("bool_carbon"))?  $request->input("bool_carbon"):false,
+                  "bool_first"=>!empty($request->input("bool_first"))?  $request->input("bool_first"):false,
+                  "bool_safety"=>!empty($request->input("bool_safety"))?  $request->input("bool_safety"):false,
+                  "bool_fire"=>!empty($request->input("bool_fire"))?  $request->input("bool_fire"):false,
+                  "desc_fire"=>!empty($request->input("desc_fire"))?  $request->input("desc_fire"):"",
+                  "desc_alarm"=>!empty($request->input("desc_alarm"))?  $request->input("desc_alarm"):"",
+                  "desc_gas"=>!empty($request->input("desc_gas"))?  $request->input("desc_gas"):"",
+                  "desc_exit"=>!empty($request->input("desc_exit"))?  $request->input("desc_exit"):"",
+                  "service_id"=>$id
+            );
+            $res =Curl::to(env('MIGOHOOD_API_URL'). ' /service/space/step-11')
+                ->withHeaders(array(
+                    'api-token:'.session()->get('user.remember_token')
+                ))
+                ->withData($post)
+                ->asJson(true)
+                ->post();
+            
+            if($res == "Service not found" && $res !="Update Note emergency"){
+                return redirect("create-space/note")->with(['message-alert' =>''.$res.'']);
+            }elseif($res=="Update Note emergency" || $res == "Add Note emergency"){
+                return redirect('/create-space/co-host');
+            }
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+
+    }
+    public function ElevenEmergency(){
+        $json = array(
+            "status"=>false,
+            "error"=>"",
+            "msj"=>""
+        );
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+            $res = Curl::to(env('MIGOHOOD_API_URL') . ' /service/space/step-11/number-emergency')
+                ->withHeaders(array(
+                    'api-token:' . session()->get('user.remember_token')
+                ))
+                ->withData(array(
+                    "service_id" => $id,
+                    "languaje" => "ES"
+                ))
+                ->asJson(true)
+                ->get();
+            if(!is_array($res) && $res == "Not Found"){
+                    $json["error"]=$res;
+                    $json["status"]=false;
+                return response()->json($json);
+            }else{
+                $json["msj"]=$res;
+                $json["status"]=true;
+                return response()->json($json);
+            }
+        }else{
+            $json["status"]=false;
+            $json["error"]="Algo a pasado Intente de nuevo";
+            return response()->json($json);
+
+        }
+
+    }
 
     public function Twelve()
     {

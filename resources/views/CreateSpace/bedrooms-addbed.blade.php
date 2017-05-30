@@ -77,16 +77,19 @@
                                 <option value="-1">adicionar otra cama </option>
                                 <option value="cama individual">Cama individual</option>
                                 <option value="cama matrimonial">Cama matrimonial</option>
-                                <option value="litera">Litera</option>
-                                <option value="colchon">Colchoneta</option>
-                                <option value="cama ninos">Cama de niños</option>
-                                <option value="cuna">Cuna</option>
-                                <option value="sofa cama">Sofa cama</option>
+                                <option value="cama queen">Cama de agua</option>
                                 <option value="sofa">Sofa</option>
-                                <option value="hamaca">Hamaca</option>
+                                <option value="cama individual">Otra...</option>
+
+                                <!-- <option value="litera">Litera</option>
+                                 <option value="colchon">Colchoneta</option>
+                                 <option value="cama ninos">Cama de niños</option>
+                                 <option value="cuna">Cuna</option>
+                                 <option value="sofa cama">Sofa cama</option>
+                                 <option value="hamaca">Hamaca</option>-->
                             </select>
                         </div>
-                        <div class="contentSelect"></div>
+                        <div class="contentSelect "></div>
                     </form>
                     <hr>
                 </div>
@@ -98,7 +101,7 @@
                 <p>Aqui veras las opciones en detalle para tu cama</p>
                 <br>
                 <br>
-                <div class="contentImg "></div>
+                <div class="contentImg col-md-10 col-md-offset-1"></div>
             </div>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2"></div>

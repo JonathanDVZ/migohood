@@ -25,6 +25,9 @@ input[type=number] {
     margin-left: 0.2rem;
 
   }
+  input:read-only{
+    text-align: left!important;
+  }
 }
 
 @media screen {

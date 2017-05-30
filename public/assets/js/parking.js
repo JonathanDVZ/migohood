@@ -22,7 +22,7 @@ var AppCore=function(){
             if(opt=="minus"){
                 e.setAttribute("class","btn btn-default btn-number");
                 e.setAttribute("type","button");
-                //e.setAttribute("disabled","disabled");
+                e.setAttribute("disabled","disabled");
                 e.setAttribute("data-type","minus");
                 e.setAttribute("data-field",val);
             }
@@ -47,7 +47,7 @@ var AppCore=function(){
             e.setAttribute("name", val);
             e.setAttribute("value", 1);
             e.setAttribute("data-type",val);
-            e.setAttribute("placeholder", opt);
+            e.setAttribute("readonly","");
         }
 
 
@@ -132,15 +132,18 @@ var createItem = function(type,value,opt){
         e = document.createElement("div");
         i = document.createElement("img");
         i.setAttribute("src",url+"/Icon-"+value+".png");
-        i.style.width="50%";
+        i.style.width="85%";
+
         i.setAttribute("class","media-object");
         e.setAttribute("class" ,"media col-md-4 col-lg-4  col-sm-4 col-xs-4");
+        e.setAttribute("style","padding-top:2rem");
         e.append(i);
         i = e;
     }else{
 
         i = document.createElement("span");
         i.setAttribute("class" ,"media col-md-4 col-lg-4  col-sm-4 col-xs-4 find");
+        i.setAttribute("style","padding-top:2rem");
         i.setAttribute("data-leng",type);
         i.append(document.createTextNode(type+" camas más en existencia."));
         type="img";
@@ -189,7 +192,7 @@ var adicionImg = function(vm,dool) {
     var sl="";
     e = $(vm).val();
     sl = $(vm).data("type");
-debugger;
+
     var i = 1;
     var l=0;
 
@@ -256,6 +259,7 @@ var button=function(e){
     var input = $("input[name='"+fieldName+"']");
     var currentVal = parseInt(input.val());
     if (!isNaN(currentVal)) {
+
         if(type == 'minus') {
 
             if(currentVal > input.attr('min')) {
@@ -263,7 +267,7 @@ var button=function(e){
                 adicionImg(input,false);
             }
             if(parseInt(input.val()) == input.attr('min')) {
-                $(this).attr('disabled', true);
+                $(".btn-number[data-type='minus'][data-field='"+fieldName+"']").attr('disabled', true);
                 adicionImg(input,false);
             }
 
@@ -272,11 +276,11 @@ var button=function(e){
             if(currentVal < input.attr('max')) {
                 input.val(currentVal + 1).change();
                 adicionImg(input,false);
+                $(".btn-number[data-type='minus'][data-field='"+fieldName+"']").attr('disabled', false);
             }
             if(parseInt(input.val()) == input.attr('max')) {
                 $(this).attr('disabled', true);
                 adicionImg(input,false);
-
             }
 
         }

@@ -58,6 +58,8 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::post('/create-space/photos','CreateSpaceController@NinthSave');
     Route::get('/create-space/services','CreateSpaceController@Tenth');
     Route::get('/create-space/notes','CreateSpaceController@Eleven');
+    Route::post('/create-space/notesAdd','CreateSpaceController@ElevenAdd');
+    Route::get('/create-space/notes/emergency-number','CreateSpaceController@ElevenEmergecy');
     Route::get('/create-space/co-host','CreateSpaceController@Twelve');
     Route::get('/create-space/preview-overview','CreateSpaceController@Preview1');
     Route::get('/create-space/preview-reviews','CreateSpaceController@Preview2');

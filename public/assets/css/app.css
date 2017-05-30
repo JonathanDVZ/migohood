@@ -19,6 +19,8 @@ input[type=number] {
     display: -ms-flexbox;
     display: flex;
     margin-left: 0.2rem; }
+  .caja input:read-only {
+    text-align: left !important; }
 
 @media screen {
   .caja {
