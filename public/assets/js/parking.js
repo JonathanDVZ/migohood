@@ -8,9 +8,9 @@ var AppCore=function(){
       data:"",
       ajax:function(){
          var e= $.ajax({
-              url:url,
-              type:type,
-              data:data
+              url:this.url,
+              type:this.type,
+              data:this.data
           });
          return e;
       },

@@ -1650,7 +1650,7 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            $res = Curl::to(env('MIGOHOOD_API_URL') . ' /service/space/step-11/number-emergency')
+            $res = Curl::to(env('MIGOHOOD_API_URL') . '/service/space/step-11/number-emergency')
                 ->withHeaders(array(
                     'api-token:' . session()->get('user.remember_token')
                 ))
@@ -1661,6 +1661,47 @@ class CreateSpaceController extends Controller
                 ->asJson(true)
                 ->get();
             if(!is_array($res) && $res == "Not Found"){
+                    $json["error"]=$res;
+                    $json["status"]=false;
+                return response()->json($json);
+            }else{
+                $json["msj"]=$res;
+                $json["status"]=true;
+                return response()->json($json);
+            }
+        }else{
+            $json["status"]=false;
+            $json["error"]="Algo a pasado Intente de nuevo";
+            return response()->json($json);
+
+        }
+
+    }
+    public function ElevenEmergecyAdd(Request $request){
+        $json = array(
+            "status"=>false,
+            "error"=>"",
+            "msj"=>""
+        );
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+            $res = Curl::to(env('MIGOHOOD_API_URL') . '/service/space/step-11/emergency-add')
+                ->withHeaders(array(
+                    'api-token:' . session()->get('user.remember_token')
+                ))
+                ->withData(array(
+                        'service_id'=>$id,
+                        'number'=>$request->input("phoneNumber"),
+                        'name'=>$request->input("name")
+                ))
+                ->asJson(true)
+                ->post();
+            if(!is_array($res) && $res == "Service not found"){
                     $json["error"]=$res;
                     $json["status"]=false;
                 return response()->json($json);

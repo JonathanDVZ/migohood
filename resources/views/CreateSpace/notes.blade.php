@@ -164,39 +164,6 @@
 
                                         </div>
                                     </div>
-                                    <div class="modal fade" id="addNew" role="dialog">
-                                        <div class="modal-dialog">
-
-                                            <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title">Add With Badges</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="container-fluid">
-                                                <div class="table-responsive">
-                                                    <form  name="formAddWithBadges" action="post">
-                                                        <div class="form-group">
-                                                            <lable>Name</lable>
-                                                            <input type="text" id="name" name="name" placeholder="polices" minlength="4" class="form-control">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <lable>Phone Number</lable>
-                                                            <input type="text" id="name" name="phoneNumber" placeholder="000-000-0000" minlength="4" class="form-control">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <buttom class="btn btn-default">Save</buttom>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        </div>
-                                    </div>
-                                        </div>
-                                    </div>
 
                                 </div>
                             </div>
@@ -211,6 +178,41 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="addNew" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add With Badges</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="table-responsive">
+                        <form  id="formAddWithBadges" action="post">
+                            <div class="form-group">
+                                <lable>Name</lable>
+                                <input type="text" id="name" name="name" placeholder="polices" minlength="4" class="form-control name">
+                            </div>
+                            <div class="form-group">
+                                <lable>Phone Number</lable>
+                                <input type="number" id="name" name="phoneNumber" placeholder="000-000-0000" minlength="4" class="number form-control">
+                            </div>
+                            <div class="form-group">
+                                <buttom class="btn btn-default saveAdd">Save</buttom>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container ">
     <div class="row ">
@@ -233,6 +235,7 @@
 @endsection
 @section("script")
     <script>
+        var urlEmergicy = "{{url('/create-space/notes/emergency-number')}}";
         $(".note").on("keyup",function () {
             textCounter(this,'counter',200);
         });
@@ -248,4 +251,6 @@
             form.submit();
         });
     </script>
+    <script src="{{url('/assets/js/notes.js')}}"></script>
 @endsection
+
