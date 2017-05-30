@@ -1489,15 +1489,16 @@ class CreateSpaceController extends Controller
             if (!empty($name2)) {
                 $img2->move('files/images/',$name2);
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
+                            ->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
                             ->withData( array(
                                 "service_id"=>$id,
-                                "name" => $name2,
+                                "image" => new \CURLFile('files/images/'.$name2),
                                 "description" => $desc2
                             ))
-                            ->asJson(true)
+                            ->containsFile()
                             ->post();
                 unlink('files/images/'.$name2);
                 if ($res != 'Update completed!') {
