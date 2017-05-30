@@ -2,7 +2,7 @@
  * Created by andy on 30/05/2017.
  */
 
-
+var listEmergicy = [];
 var CORE = AppCore();
 //setiamos el formulario
 var formNumberEmergicy = function (e) {
@@ -22,7 +22,8 @@ var formNumberEmergicy = function (e) {
         }
     }).done(function (res) {
         if(res.status ){
-
+            listEmergicy.push(res.msj);
+            $("button.close").click();
         }else{}
     }).fail(function (status) {
         console.log(status);

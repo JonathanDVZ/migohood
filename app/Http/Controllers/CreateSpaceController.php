@@ -1578,6 +1578,7 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
+
             $emergency = Curl::to(env('MIGOHOOD_API_URL') . ' /service/space/step-11/number-emergency')
                 ->withHeaders(array(
                     'api-token:' . session()->get('user.remember_token')
@@ -1608,14 +1609,13 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            var_dump($request->all());exit();
             $post=array(
                   "desc_anything"=>!empty($request->input("desc_anything"))?  $request->input("desc_anything"):"",
-                  "bool_smoke"=>!empty($request->input("bool_smoke"))?  1:0,
-                  "bool_carbon"=>!empty($request->input("bool_carbon"))?  1:0,
-                  "bool_first"=>!empty($request->input("bool_first"))?  1:0,
-                  "bool_safety"=>!empty($request->input("bool_safety"))? 1:0,
-                  "bool_fire"=>!empty($request->input("bool_fire"))?  1:0,
+                  "bool_smoke"=> $request->input("bool_smoke") !=null ?  1:0,
+                  "bool_carbon"=>$request->input("bool_carbon")!=null ?  1:0,
+                  "bool_first"=> $request->input("bool_first")!=null ?  1:0,
+                  "bool_safety"=>$request->input("bool_safety")!=null ? 1:0,
+                  "bool_fire"=> $request->input("bool_fire")!=null ?  1:0,
                   "desc_fire"=>!empty($request->input("desc_fire"))?  $request->input("desc_fire"):"",
                   "desc_alarm"=>!empty($request->input("desc_alarm"))?  $request->input("desc_alarm"):"",
                   "desc_gas"=>!empty($request->input("desc_gas"))?  $request->input("desc_gas"):"",
@@ -1629,7 +1629,7 @@ class CreateSpaceController extends Controller
                 ->withData($post)
                 ->asJson(true)
                 ->post();
-            
+            var_dump($res);
             if($res == "Service not found" && $res !="Update Note emergency"){
                 return redirect("create-space/note")->with(['message-alert' =>''.$res.'']);
             }elseif($res=="Update Note emergency" || $res == "Add Note emergency"){
