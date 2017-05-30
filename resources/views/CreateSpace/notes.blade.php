@@ -11,7 +11,7 @@
                 <br>
                 <p>Mencione cualquier cosa que el huesped debera traer consigo o encargarse el mismo, como el transporte.</p>
                 <br>
-                <textarea  id="message" class="form-control note" rows="5" maxlength="200"></textarea>
+                <textarea  id="message" name="desc_anything" class="form-control note" rows="5" maxlength="200"></textarea>
                 <input disabled value="200 caracters remaining" id="counter">
                 <span id='remainingC'></span>
                 <br>
@@ -78,7 +78,7 @@
                                 <label for="Emergency">Instrucciones de la Salida de Emergencia</label>
                                 <input type="text" name="desc_exit" class="form-control" id="Emergency">
                             </div>
-
+                            {{var_dump($emergency)}}
                             <div class="form-group">
                                 <label>Numeros de Emergencia</label>
                                 <div class="container">
@@ -93,21 +93,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>1</td>
-                                                    <td>Bomberos</td>
-                                                    <td>098029385029</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td>Policia</td>
-                                                    <td>123592304</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3</td>
-                                                    <td>Medico</td>
-                                                    <td>9285798234</td>
-                                                </tr>
+                                                @if(is_array($emergency))
+                                                    @foreach($emergency as $emg)
+                                                        <tr>
+                                                            <td>1</td>
+                                                            <td>Bomberos</td>
+                                                            <td>098029385029</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
                                             </tbody>
                                         </table>
                                     </div>
@@ -128,44 +122,34 @@
                                                 <div class="modal-body">
                                                     <div class="container-fluid">
                                                         <div class="table-responsive">
-                                                            <table class="table table-condensed">
-                                                                <thead>
+                                                            @if(is_array($emergency))
+                                                                <table class="table table-condensed">
+                                                                    <thead>
                                                                     <tr>
                                                                         <th>#</th>
                                                                         <th>Local</th>
                                                                         <th>Numero</th>
                                                                     </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>1</td>
-                                                                        <td>Bomberos</td>
-                                                                        <td>098029385029</td>
-                                                                        <td>
-                                                                            <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
-                                                                            <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>2</td>
-                                                                        <td>Policia</td>
-                                                                        <td>123592304</td>
-                                                                        <td>
-                                                                            <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
-                                                                            <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>3</td>
-                                                                        <td>Medico</td>
-                                                                        <td>9285798234</td>
-                                                                        <td>
-                                                                            <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
-                                                                            <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
+                                                                    </thead>
+                                                                    <tbody>
+
+                                                                    @foreach($emergency as $emg)
+                                                                        <tr>
+                                                                            <td>1</td>
+                                                                            <td>Bomberos</td>
+                                                                            <td>098029385029</td>
+                                                                            <td>
+                                                                                <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
+                                                                                <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                                                                            </td>
+                                                                        </tr>
+                                                                    @endforeach
+
+                                                                    </tbody>
+                                                                </table>
+                                                            @else
+
+                                                            @endif
                                                         </div>
                                                         <button id="addMore"  id="addnew" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#addNew"> </button>
                                                         <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>

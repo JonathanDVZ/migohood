@@ -1605,12 +1605,14 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
+            var_dump($request->all());exit();
             $post=array(
-                  "bool_smoke"=>!empty($request->input("bool_smoke"))?  $request->input("bool_smoke"):false,
-                  "bool_carbon"=>!empty($request->input("bool_carbon"))?  $request->input("bool_carbon"):false,
-                  "bool_first"=>!empty($request->input("bool_first"))?  $request->input("bool_first"):false,
-                  "bool_safety"=>!empty($request->input("bool_safety"))?  $request->input("bool_safety"):false,
-                  "bool_fire"=>!empty($request->input("bool_fire"))?  $request->input("bool_fire"):false,
+                  "desc_anything"=>!empty($request->input("desc_anything"))?  $request->input("desc_anything"):"",
+                  "bool_smoke"=>!empty($request->input("bool_smoke"))?  1:0,
+                  "bool_carbon"=>!empty($request->input("bool_carbon"))?  1:0,
+                  "bool_first"=>!empty($request->input("bool_first"))?  1:0,
+                  "bool_safety"=>!empty($request->input("bool_safety"))? 1:0,
+                  "bool_fire"=>!empty($request->input("bool_fire"))?  1:0,
                   "desc_fire"=>!empty($request->input("desc_fire"))?  $request->input("desc_fire"):"",
                   "desc_alarm"=>!empty($request->input("desc_alarm"))?  $request->input("desc_alarm"):"",
                   "desc_gas"=>!empty($request->input("desc_gas"))?  $request->input("desc_gas"):"",

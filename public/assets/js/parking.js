@@ -187,6 +187,7 @@ var adicionImg = function(vm,dool) {
     listIcon['sofa'] = "Sofa";
     listIcon['cama'] = "Sofa-Cama";
     listIcon['hamaca'] = "Hamaca";
+    listIcon['otras'] = "Cama-Individual";
 
     var e;
     var sl="";
