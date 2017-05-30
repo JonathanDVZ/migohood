@@ -1477,7 +1477,7 @@ class CreateSpaceController extends Controller
                             ))
                             ->asJson(true)
                             ->post();
-                //dd($res);
+                dd($res);
                 unlink('files/images/'.$name1);
                 if ($res != 'Update completed!') {
                     return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
