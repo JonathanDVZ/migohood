@@ -245,6 +245,17 @@ $(document).ready(function() {
         form.submit();
     }
 
+    $("#addPhotosNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        addPhotos();
+        $(this).removeAttr('disabled');
+    });
+
+    function addPhotos() {
+        var form = document.getElementById('formAddPhotos');
+        form.submit();
+    }
+
     /**
     * Funciones NEXT para ir a bathroom
     */

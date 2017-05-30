@@ -11,6 +11,7 @@ use Curl;
 use phpDocumentor\Reflection\Types\Null_;
 use Session;
 use Hash;
+use validator;
 
 class CreateSpaceController extends Controller
 {
@@ -1368,16 +1369,31 @@ class CreateSpaceController extends Controller
                 session()->forget('message-alert');
             }
 
-            $res= Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-8/rules')
-                ->withHeaders( array(
-                    'api-token:'.session()->get('user.remember_token')
-                ))
-                ->withData( array(
-                ) )
-                ->asJson( true )
-                ->get();
+            $res= Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/get-image')
+                        ->withHeaders( array(
+                            'api-token:'.session()->get('user.remember_token')
+                        ))
+                        ->withData( array(
+                            'service_id' => $id
+                        ) )
+                        ->asJson( true )
+                        ->get();
+            //dd($res);
+            $photo1 = ''; $description1 = '';$photo2 = ''; $description2 = '';
+            if (isset($res) AND !empty($res) AND !is_null($res) AND $res != 'Not Found') {
+                if (isset($res[0]['ruta'])) {
+                    $photo1 = $res[0]['ruta'];
+                    $description1 = $res[0]['description'];
+                }
 
-            return view("CreateSpace.photos", ['id' => $id]);
+                if (isset($res[1]['ruta'])) {
+                    $photo2 = $res[1]['ruta'];
+                    $description2 = $res[1]['description'];
+                }
+
+            }
+
+            return view("CreateSpace.photos", ['id' => $id, 'photo1' => $photo1, 'description1' => $description1, 'photo2' => $photo2, 'description2' => $description2]);
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
@@ -1393,24 +1409,101 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            if(!empty($request->input("files")) &&$request->input("files")!=null ){
-                $imgs = $request->input("files");
+            $rules = array(
+                'file1' => 'image',
+                'file2' => 'image'
+            );
+            $validator = \Validator::make($request->all(), $rules);
+            if($validator->fails())
+            {
+                //return response()->json($validator->errors()->all());
+                return redirect('/create-space/photos')->with(['message-alert' =>''.$validator->errors()->all().'']);
             }
-            $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
-                ->withHeaders( array(
-                    'api-token:'.session()->get('user.remember_token')
-                ))
-                ->withData( array(
-                    "service_id"=>$id,
-                    "image"=>$imgs
-                ))
-                ->asJson(true)
-                ->post();
-            if ($res == 'Update Step-8' OR $res == 'Add Step-8') {
-                return redirect('/create-space/services');
-            } else {
-                return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
+            $img1 = ''; $desc1 = ''; $name1 = '';
+            // Verifico si me da indicio de que ya habia una foto guardada
+            if ($request->has('old1') AND $request->input('old1') == '1') {
+                //echo "string";
+                // se va a reemplazar el viejo
+                if ($request->hasFile('file1')) {
+                    //echo "string1";
+                    $img1 = $request->file('file1');
+                    $name1 = 'imagen'.str_random(20).'_service_'.$id.'.'.$img1->getClientOriginalExtension();
+                }
+
+                if ($request->has('description1')) {
+                    //echo "string2";
+                    $desc1 = $request->input('description1');
+                }
+            } elseif ($request->hasFile('file1')) {
+                //echo "string3";
+                $img1 = $request->file('file1');
+                $name1 = 'imagen'.str_random(20).'_service_'.$id.'.'.$img1->getClientOriginalExtension();
+                if ($request->has('description1')) {
+                    //echo "string4";
+                    $desc1 = $request->input('description1');
+                }
             }
+
+            $img2 = ''; $desc2 = ''; $name2 = '';
+            // Verifico si me da indicio de que ya habia una foto guardada
+            if ($request->has('old2') AND $request->input('old2') == 1) {
+                // se va a reemplazar el viejo
+                if ($request->hasFile('file2')) {
+                    $img2 = $request->file('file2');
+                    $name2 = 'imagen'.str_random(20).'_service_'.$id.'.'.$img2->getClientOriginalExtension();
+                }
+
+                if ($request->has('description2')) {
+                    $desc2 = $request->input('description2');
+                }
+            } elseif ($request->hasFile('file2')) {
+                $img2 = $request->file('file2');
+                $name2 = 'imagen'.str_random(20).'_service_'.$id.'.'.$img2->getClientOriginalExtension();
+                if ($request->has('description2')) {
+                    $desc2 = $request->input('description2');
+                }
+            }
+            
+            if (!empty($name1)) {
+                $img1->move('files/images/',$name1);
+                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
+                            ->withHeaders( array(
+                                'api-token:'.session()->get('user.remember_token')
+                            ))
+                            ->withData( array(
+                                "service_id"=>$id,
+                                "name" => $name1,
+                                "description" => $desc1
+                            ))
+                            ->asJson(true)
+                            ->post();
+                //dd($res);
+                unlink('files/images/'.$name1);
+                if ($res != 'Update completed!') {
+                    return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
+                }
+            }
+
+            if (!empty($name2)) {
+                $img2->move('files/images/',$name2);
+                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
+                            ->withHeaders( array(
+                                'api-token:'.session()->get('user.remember_token')
+                            ))
+                            ->withData( array(
+                                "service_id"=>$id,
+                                "name" => $name2,
+                                "description" => $desc2
+                            ))
+                            ->asJson(true)
+                            ->post();
+                unlink('files/images/'.$name2);
+                if ($res != 'Update completed!') {
+                    return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
+                }
+            }
+
+            return redirect('/create-space/services');
 
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
@@ -1427,12 +1520,50 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            return view("CreateSpace.services", ['id' => $id]);
+            $currencies = Curl::to(env('MIGOHOOD_API_URL').'/currency/get-currency')
+                                ->withData( array( 
+                                    //'service_id' => $id,
+                                    'languaje' => 'ES',
+                                    ) )
+                                ->asJson( true )
+                                ->get();
+            $durations = Curl::to(env('MIGOHOOD_API_URL').'/duration/get-duration')
+                                ->withData( array( 
+                                    //'service_id' => $id,
+                                    'languaje' => 'ES',
+                                    ) )
+                                ->asJson( true )
+                                ->get();
+            $description1 = ''; $description2 = ''; $selected_duration1 = '';  $selected_duration2 = ''; $selected_currency1 = ''; $selected_currency2 = ''; $price1 = ''; $price2 = '';
+            return view("CreateSpace.services", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations]);
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
-    }            
+    }   
+
+    public function SaveServices(Request $request)
+    {
+        
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+
+            
+            
+            return redirect('/create-space/notes');
+            
+
+
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+        
+    }         
 
     public function Eleven()
     {

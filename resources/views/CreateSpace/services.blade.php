@@ -4,127 +4,126 @@
         <h3 class="titulo text-center">AGREGA TUS SERVICIOS</h3>
         <br>
     </div>
-    <div class="row">
-        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-            <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                    <input class="fileinputs file1" acce type="file" data-idFile="1" name="file" id="file1" class="inputfile" accept="image/*" />
-                    <label class="Giant text-center" for="file1"><span class="add">+</span> <output id="list1"></output></label>
-                </div>
-                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                    <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <label class="textwhite">Precio:</label>
-                        </div>
-                        <div class="text-left">
-                            <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
-                        </div>
+    <form id="formAddServices" method="POST" action="{{url('/create-space/save-services')}}" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <input class="fileinputs file1" acce type="file" data-idFile="1" name="file1" id="file1" class="inputfile" accept="image/*" />
+                        <label class="Giant text-center" for="file1"><span class="add">+</span> <output id="list1"></output></label>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <label class="textwhite">Por:</label>
-                        </div>
-                        <div class="text-left">
-                            <select class="selectpicker form-control required">
-                                    <option>Elige uno</option>
-                                    <option>Distrito Capital</option>
-                                    <option>Barinas</option>
-                                    <option>Barquisimeto</option>
-                                    <option></option>
-                                </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <label class="textwhite">Moneda:</label>
-                        </div>
-                        <div class="text-left">
-                            <select class="selectpicker form-control required">
-                                    <option>USD</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
-                        </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <textarea name="description1" class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment">@if(!empty($description1)) {{ $description1 }} @endif</textarea>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="form-group text-right">
+                            <div class="text-left">
+                                <label class="textwhite">Precio:</label>
+                            </div>
+                            <div class="text-left">
+                                <input type="number" id="price1" name="price1" value="@if(isset($price1) AND !empty($price1)){{ $price1 }}@endif" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="form-group text-right">
+                            <div class="text-left">
+                                <label class="textwhite">Por:</label>
+                            </div>
+                            <div class="text-left">
+                                <select name="duration1" class="selectpicker form-control required">
+                                    @foreach($durations as $durat)
+                                        <option @if(!empty($selected_duration1) AND $selected_duration1 == $durat['type']) {{ 'selected' }} @endif value="{{ $durat['code'] }}">{{ $durat['type'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="form-group text-right">
+                            <div class="text-left">
+                                <label class="textwhite">Moneda:</label>
+                            </div>
+                            <div class="text-left">
+                                <select name="currency1" class="selectpicker form-control required">
+                                    @foreach($currencies as $curren)
+                                        <option @if(!empty($selected_currency1) AND $selected_currency1 == $curren['currency_iso']) {{ 'selected' }} @endif value="{{ $curren['id'] }}">{{ $curren['currency_iso'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
 
-    <br>
-    <div class="row">
-        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
-            <div class="row">
-                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                    <input class="fileinputs file2" acce type="file" data-idFile="2" name="file" id="file2" class="inputfile" accept="image/*" />
-                    <label class="Giant text-center" for="file2"><span class="add">+</span> <output id="list2"></output></label>
-                </div>
-                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                    <textarea class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment"></textarea>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <label class="textwhite">Precio:</label>
-                        </div>
-                        <div class="text-left">
-                            <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
-                        </div>
+        <br>
+        <div class="row">
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                        <input class="fileinputs file2" acce type="file" data-idFile="2" name="file2" id="file2" class="inputfile" accept="image/*" />
+                        <label class="Giant text-center" for="file2"><span class="add">+</span> <output id="list2"></output></label>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <label class="textwhite">Por:</label>
-                        </div>
-                        <div class="text-left">
-                            <select class="selectpicker form-control required">
-                                    <option>Elige uno</option>
-                                    <option>Distrito Capital</option>
-                                    <option>Barinas</option>
-                                    <option>Barquisimeto</option>
-                                    <option></option>
-                                </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <label class="textwhite">Moneda:</label>
-                        </div>
-                        <div class="text-left">
-                            <select class="selectpicker form-control required">
-                                    <option>USD</option>
-                                    <option>VEF</option>
-                                    <option>COP</option>
-                                </select>
-                        </div>
+                    <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                        <textarea name="description2" class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment">@if(!empty($description2)) {{ $description2 }} @endif</textarea>
                     </div>
                 </div>
             </div>
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="form-group text-right">
+                            <div class="text-left">
+                                <label class="textwhite">Precio:</label>
+                            </div>
+                            <div class="text-left">
+                                <input type="number" name="price2" id="price2" value="@if(isset($price2) AND !empty($price2)){{ $price2 }}@endif" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="form-group text-right">
+                            <div class="text-left">
+                                <label class="textwhite">Por:</label>
+                            </div>
+                            <div class="text-left">
+                                <select name="duration2" class="selectpicker form-control required">
+                                    @foreach($durations as $durat)
+                                        <option @if(!empty($selected_duration2) AND $selected_duration2 == $durat['type']) {{ 'selected' }} @endif value="{{ $durat['code'] }}">{{ $durat['type'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div class="form-group text-right">
+                            <div class="text-left">
+                                <label class="textwhite">Moneda:</label>
+                            </div>
+                            <div class="text-left">
+                                <select name="currency2" class="selectpicker form-control required">
+                                    @foreach($currencies as $curren)
+                                        <option @if(!empty($selected_currency2) AND $selected_currency2 == $curren['currency_iso']) {{ 'selected' }} @endif value="{{ $curren['id'] }}">{{ $curren['currency_iso'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alingRight" >
-            <button  class="btn btnbar2 save-continue">Guardar y Continuar</button>
+        {{ csrf_field() }}
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 alingRight" >
+                <button type="submit" class="btn btnbar2 save-continue">Guardar y Continuar</button>
+            </div>
         </div>
-    </div>
+    </form>
 
     <div class="container">
         <div class="row">
@@ -165,7 +164,7 @@
                     return function(e) {
                         var a = $(parent).find('#list'+id);
                         var img = ['<img class="thumb" src="', e.target.result, '" title="', escape(theFile.name), '"/>'].join('');
-                        a.append(img);
+                        a.html(img);
                         a = $(a).find('img.thumb');
                         a.css("width","100%");
                         a.css("height","11.5em");
@@ -189,7 +188,7 @@
             ActionEvent(this);
             archivo(e,this);
             if($(this).val()!=""){
-                    $(".save-continue").attr("disabled",false);
+                $(".save-continue").attr("disabled",false);
             }
 
         });
