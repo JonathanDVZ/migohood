@@ -1520,12 +1520,50 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            return view("CreateSpace.services", ['id' => $id]);
+            $currencies = Curl::to(env('MIGOHOOD_API_URL').'/currency/get-currency')
+                                ->withData( array( 
+                                    //'service_id' => $id,
+                                    'languaje' => 'ES',
+                                    ) )
+                                ->asJson( true )
+                                ->get();
+            $durations = Curl::to(env('MIGOHOOD_API_URL').'/duration/get-duration')
+                                ->withData( array( 
+                                    //'service_id' => $id,
+                                    'languaje' => 'ES',
+                                    ) )
+                                ->asJson( true )
+                                ->get();
+            $description1 = ''; $description2 = ''; $selected_duration1 = '';  $selected_duration2 = ''; $selected_currency1 = ''; $selected_currency2 = ''; $price1 = ''; $price2 = '';
+            return view("CreateSpace.services", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations]);
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
-    }            
+    }   
+
+    public function SaveServices(Request $request)
+    {
+        
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+
+            
+            
+            return redirect('/create-space/notes');
+            
+
+
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+        
+    }         
 
     public function Eleven()
     {

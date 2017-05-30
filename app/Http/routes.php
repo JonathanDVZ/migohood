@@ -57,6 +57,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-space/photos','CreateSpaceController@Ninth');
     Route::post('/create-space/save-photos','CreateSpaceController@NinthSave');
     Route::get('/create-space/services','CreateSpaceController@Tenth');
+    Route::post('/create-space/save-services','CreateSpaceController@SaveServices');
     Route::get('/create-space/notes','CreateSpaceController@Eleven');
     Route::get('/create-space/co-host','CreateSpaceController@Twelve');
     Route::get('/create-space/preview-overview','CreateSpaceController@Preview1');
