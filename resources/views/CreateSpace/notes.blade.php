@@ -78,7 +78,7 @@
                                 <label for="Emergency">Instrucciones de la Salida de Emergencia</label>
                                 <input type="text" name="desc_exit" class="form-control" id="Emergency">
                             </div>
-                            {{var_dump($emergency)}}
+
                             <div class="form-group">
                                 <label>Numeros de Emergencia</label>
                                 <div class="container">
@@ -92,7 +92,7 @@
                                                     <th>Numero</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody  id="contentTable">
                                                 @if(is_array($emergency))
                                                     @foreach($emergency as $emg)
                                                         <tr>
@@ -122,7 +122,7 @@
                                                 <div class="modal-body">
                                                     <div class="container-fluid">
                                                         <div class="table-responsive">
-                                                            @if(is_array($emergency))
+
                                                                 <table class="table table-condensed">
                                                                     <thead>
                                                                     <tr>
@@ -131,25 +131,25 @@
                                                                         <th>Numero</th>
                                                                     </tr>
                                                                     </thead>
-                                                                    <tbody>
-
-                                                                    @foreach($emergency as $emg)
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>Bomberos</td>
-                                                                            <td>098029385029</td>
-                                                                            <td>
-                                                                                <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
-                                                                                <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
-                                                                            </td>
-                                                                        </tr>
-                                                                    @endforeach
+                                                                    <tbody id="contentTable2">
+                                                                    @if(is_array($emergency))
+                                                                        @foreach($emergency as $emg)
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Bomberos</td>
+                                                                                <td>098029385029</td>
+                                                                                <td>
+                                                                                    <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
+                                                                                    <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                    @endif
 
                                                                     </tbody>
                                                                 </table>
-                                                            @else
 
-                                                            @endif
+
                                                         </div>
                                                         <button id="addMore"  id="addnew" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#addNew"> </button>
                                                         <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
