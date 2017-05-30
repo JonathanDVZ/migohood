@@ -1480,8 +1480,8 @@ class CreateSpaceController extends Controller
                             ->post();
                 
                 unlink('files/images/'.$name1);
-                //dd($res);
-                if ($res != 'Update completed!') {
+                dd($res);
+                if ($res != 'Update completed!' OR $res != false) {
                     return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
@@ -1501,7 +1501,7 @@ class CreateSpaceController extends Controller
                             ->containsFile()
                             ->post();
                 unlink('files/images/'.$name2);
-                if ($res != 'Update completed!') {
+                if ($res != 'Update completed!' OR $res != false) {
                     return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
