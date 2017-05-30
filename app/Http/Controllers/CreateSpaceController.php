@@ -1467,19 +1467,21 @@ class CreateSpaceController extends Controller
             if (!empty($name1)) {
                 $img1->move('files/images/',$name1);
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
+                            ->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
                             ->withData( array(
                                 "service_id"=>$id,
-                                "name" => $name1,
+                                "image" => new \CURLFile('files/images/'.$name1),
                                 "description" => $desc1
                             ))
-                            ->asJson(true)
+                            ->containsFile()
                             ->post();
-                //dd($res);
+                
                 unlink('files/images/'.$name1);
-                if ($res != 'Update completed!') {
+                dd($res);
+                if ($res != 'Update completed!' OR $res != false) {
                     return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
@@ -1487,18 +1489,19 @@ class CreateSpaceController extends Controller
             if (!empty($name2)) {
                 $img2->move('files/images/',$name2);
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
+                            ->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
                             ->withData( array(
                                 "service_id"=>$id,
-                                "name" => $name2,
+                                "image" => new \CURLFile('files/images/'.$name2),
                                 "description" => $desc2
                             ))
-                            ->asJson(true)
+                            ->containsFile()
                             ->post();
                 unlink('files/images/'.$name2);
-                if ($res != 'Update completed!') {
+                if ($res != 'Update completed!' OR $res != false) {
                     return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
