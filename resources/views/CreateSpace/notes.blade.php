@@ -96,9 +96,9 @@
                                                 @if(is_array($emergency))
                                                     @foreach($emergency as $emg)
                                                         <tr>
-                                                            <td>1</td>
-                                                            <td>Bomberos</td>
-                                                            <td>098029385029</td>
+                                                            <td>{{ $emg['id'] }}</td>
+                                                            <td>{{ $emg['name'] }}</td>
+                                                            <td>{{ $emg['number'] }}</td>
                                                         </tr>
                                                     @endforeach
                                                 @endif

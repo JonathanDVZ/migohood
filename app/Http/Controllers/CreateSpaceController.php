@@ -1586,17 +1586,18 @@ class CreateSpaceController extends Controller
                 session()->forget('message-alert');
             }
 
-            $emergency = Curl::to(env('MIGOHOOD_API_URL') . ' /service/space/step-11/number-emergency')
+            $emergency = Curl::to(env('MIGOHOOD_API_URL') . '/space/get-number-emergency')
                                 ->withHeaders(array(
                                     'api-token:' . session()->get('user.remember_token')
                                 ))
                                 ->withData(array(
                                     "service_id" => $id,
-                                    "languaje" => "ES"
+                                    //"languaje" => "ES"
                                 ))
 
                                 ->asJson(true)
                                 ->get();
+            //dd($emergency);
 
             if(!is_array($emergency) && $emergency == "Not Found"){
                 $emergency = false;
