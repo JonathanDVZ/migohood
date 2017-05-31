@@ -9,8 +9,8 @@
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                        <input class="fileinputs file1" acce type="file" data-idFile="1" name="file1" id="file1" class="inputfile" accept="image/*" />
-                        <label class="Giant text-center" for="file1"><span class="add">+</span> <output id="list1"></output></label>
+                        <input class="fileinputs thumb file1" data-idFile="1" type="file" id="files1" name="file1"/>
+                            <label class="Giant text-center" for="files1" @if(!empty($photo1)) style="padding: 0px;" @endif>@if(empty($photo1))<span class="add">+</span> @else <input type="hidden" name="old1" value="1"> @endif <output id="list1" @if(!empty($photo1)) style="padding: 0px" @endif> @if(!empty($photo1)) <img id="img1" style="width:100%;height:11.5em;margin:0px;" class="thumb" src="{{ $photo1 }}" title="{{ $description1 }}"/> @endif </output> </label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                         <textarea name="description1" class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment">@if(!empty($description1)) {{ $description1 }} @endif</textarea>
@@ -66,8 +66,8 @@
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                 <div class="row">
                     <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
-                        <input class="fileinputs file2" acce type="file" data-idFile="2" name="file2" id="file2" class="inputfile" accept="image/*" />
-                        <label class="Giant text-center" for="file2"><span class="add">+</span> <output id="list2"></output></label>
+                        <input class="fileinputs thumb file2" data-idFile="2" type="file" id="files2" name="file2" />
+                        <label class="Giant text-center" for="files2" @if(!empty($photo2)) style="padding: 0px;" @endif>@if(empty($photo2))<span class="add">+</span> @else <input type="hidden" name="old2" value="1"> @endif <output id="list2" @if(!empty($photo2)) style="padding: 0px" @endif > @if(!empty($photo2)) <img id="img2" style="width:100%;height:11.5em;margin:0px;" class="thumb" src="{{ $photo2 }}" title="{{ $description2 }}"/> @endif </output></label>
                     </div>
                     <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
                         <textarea name="description2" class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment">@if(!empty($description2)) {{ $description2 }} @endif</textarea>
