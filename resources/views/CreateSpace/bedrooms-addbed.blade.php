@@ -242,6 +242,8 @@
                     });
                 }
             }
+
+            $("button.btn-number").click(button);
         });
     </script>
 @endsection
