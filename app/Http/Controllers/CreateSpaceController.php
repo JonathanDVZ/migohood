@@ -38,13 +38,14 @@ class CreateSpaceController extends Controller
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
             // 
-            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-1/create')
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-1/get-create')
                             ->withData( array(
                                 'service_id'  => $id,
                                 'languaje' => 'ES'
                                 ) )
                             ->asJson( true )
                             ->get();
+            //dd($result);
         } else {
             $service = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step/create')
                         ->withData( array( 
@@ -90,6 +91,7 @@ class CreateSpaceController extends Controller
                         ) )
                     ->asJson( true )
                     ->get();
+                    //dd($accommodation);
 
         return view("CreateSpace.placeType", ['types' => $types, 'accommodation' => $accommodation, 'id' => $id, 'result' => $result]);
     }
@@ -150,6 +152,8 @@ class CreateSpaceController extends Controller
                     ->asJson( true )
                     ->post();
 
+        //dd($response);
+
         $caracters = array('"','[',']',',');
         $response = str_replace($caracters,'',$response);
         if (is_array($response)) {
@@ -175,7 +179,7 @@ class CreateSpaceController extends Controller
             $id = session()->get('service_id');
             // 
 
-            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-2/bedrooms')
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-2/get-bedrooms')
                             ->withData( array(
                                 'service_id'  => $id
                                 ) )
@@ -443,7 +447,7 @@ class CreateSpaceController extends Controller
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
             //dd($id);
-            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-3/bathroom')
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-3/get-bathroom')
                         ->withData( array(
                             'service_id'  => $id
                             ) )
@@ -528,7 +532,7 @@ class CreateSpaceController extends Controller
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
             //dd($id);
-            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-4/location')
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-4/get-location')
                         ->withData( array(
                             'service_id'  => $id
                             ) )
@@ -705,7 +709,7 @@ class CreateSpaceController extends Controller
             } else {
                 // Buscamos si existen amenities guardadas para el servicio actual
 
-                $save_amenities = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-5/amenities')
+                $save_amenities = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-5/get-amenities')
                         ->withData( array(
                             'service_id' => $id,
                             'languaje' => 'ES'
@@ -1030,7 +1034,7 @@ class CreateSpaceController extends Controller
                         ->get();
             // Buscamos si existen amenities guardadas para el servicio actual
 
-            $saved_hosting = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-6/hosting')
+            $saved_hosting = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-6/get-hosting')
                             ->withData( array(
                                 'service_id' => $id,
                                 'languaje' => 'ES'
@@ -1101,7 +1105,7 @@ class CreateSpaceController extends Controller
                 session()->forget('message-alert');
             }
 
-            $saved_basics = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-7/description')
+            $saved_basics = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-7/get-description')
                             ->withData( array(
                                 'service_id' => $id,
                                 'languaje' => 'ES'
@@ -1200,7 +1204,7 @@ class CreateSpaceController extends Controller
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
 
-            $saved_listing = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-8/rules')
+            $saved_listing = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-8/get-rules')
                             ->withData( array(
                                 'service_id' => $id,
                                 'languaje' => 'ES'
