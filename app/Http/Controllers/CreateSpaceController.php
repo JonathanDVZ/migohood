@@ -1690,7 +1690,7 @@ class CreateSpaceController extends Controller
                             ->post();
                 
                 unlink('files/images/'.$name1);
-                dd($res);
+                //dd($res);
                 if ($res == 'Duration not found' OR $res == 'Service not found') {
                     return redirect('/create-space/services')->with(['message-alert' =>''.$res.'']);
                 }
