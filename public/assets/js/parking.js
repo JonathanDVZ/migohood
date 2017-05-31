@@ -1,6 +1,8 @@
 /**
  * Created by andy on 16/05/2017.
  */
+
+var attr= new Array();
 var AppCore=function(){
   return{
       url:"",
@@ -106,7 +108,10 @@ var createItem = function(type,value,opt){
         }
         var btnName= pl.split(" ");
         btnName= btnName[btnName.length-1];
+        if(attr.indexOf(btnName) >=0 )
+            return;
 
+        attr.push(btnName);
         e = document.createElement("div");
         s1=core.creatElementApend("span","glyphicon glyphicon-minus");
         s=core.creatElementApend("span","input-group-btn");

@@ -7,13 +7,13 @@
 @section( 'content')
 @include('CreateSpace.navbar.navbar',['activo' => 'bedrooms'])
 <div class="container-fluid">
-    <div class="row">
+
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-5">
                     <br>
                     <form action="{{ url('/create-space/bedrooms/edit-bedrooms/save-beds') }}" method="POST">
-                        {{ csrf_field() }}
+
                         <div class="text-right">
                             <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
                             <div class='beds-detail'>
@@ -91,9 +91,8 @@
                             </select>
                         </div>
                         <div class="contentSelect ">
-<<<<<<< HEAD
                         </div>
-=======
+                        <div id="contentInput">
                             @if(isset($beds['double_bed']) AND $beds['double_bed'] != NULL AND $beds['double_bed'] != '')
                                 <div class="content-input undefined">
                                     <div class="form-group caja">   
@@ -183,16 +182,17 @@
                                     </div>
                                 </div>
                             @endif
+                        </div>
 
                         </div>
                         {{ csrf_field() }}
                         <input type="hidden" name="bedroom_id" value="{{$bedroom_id}}">
->>>>>>> 6328dc6be82a119c11888cb7b686697f65f107c3
+
                     </form>
                     <hr>
                 </div>
             </div>
-        </div>
+
 
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="Wbox col-md-12 col-lg-12  col-sm-12 col-xs-12">
@@ -204,14 +204,13 @@
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2"></div>
     </div>
-</div>
-</div>
 @endsection
 
 @section("script")
     <script>
         var url = "{{URL::asset('/assets/img/iconos-bed/')}}";
         url +"/";
+
 
         $(document).ready(function(){
             //loadItems();
@@ -231,15 +230,18 @@
                 }
              });
 
+            var e =$("#contentInput");
+            if(e.length > 0){
+                e = $(e).find("input");
+                if(e.length ==1 ){
+                    attr.push($(e).attr("name"));
+                }else{
+                    console.log(e);
+                    e.each(function (item,key) {
+                        attr.push($(key).attr("name"));
+                    });
+                }
+            }
         });
     </script>
-
-    @if(is_array($beds))
-        @foreach($beds as $bed =>$key)
-            {{$key}} + {{$bed}}
-            <script>
-
-            </script>
-        @endforeach
-    @endif
 @endsection
