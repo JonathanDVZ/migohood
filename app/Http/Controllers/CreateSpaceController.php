@@ -1563,7 +1563,7 @@ class CreateSpaceController extends Controller
                     $description1 = $res[0]['description'];
                     $selected_duration1 = $res[0]['type'];
                     $selected_currency1 = $res[0]['currency_iso'];
-                    $price1 = $res[0]['price']
+                    $price1 = $res[0]['price'];
                 }
 
                 if (isset($res[1]['ruta'])) {
@@ -1571,7 +1571,7 @@ class CreateSpaceController extends Controller
                     $description2 = $res[1]['description'];
                     $selected_duration2 = $res[1]['type'];
                     $selected_currency2 = $res[1]['currency_iso'];
-                    $price2 = $res[1]['price']
+                    $price2 = $res[1]['price'];
                 }
 
             }
