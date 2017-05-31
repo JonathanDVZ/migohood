@@ -1243,7 +1243,7 @@ class CreateSpaceController extends Controller
                     } elseif ($value['rules_id'] == 14) {
                         $Desc_Name_Network = $value['Description'];
                     } elseif ($value['rules_id'] == 15) {
-                        $Password_Wifi = Crypt::decrypt($value['Description']);
+                        $Password_Wifi = $value['Description'];
                     }
                 }
             } 
@@ -1694,7 +1694,7 @@ class CreateSpaceController extends Controller
                             ->post();
                 
                 unlink('files/service_images/'.$name1);
-                dd($res);
+                //dd($res);
                 if ($res == 'Duration not found' OR $res == 'Service not found') {
                     return redirect('/create-space/services')->with(['message-alert' =>''.$res.'']);
                 }
