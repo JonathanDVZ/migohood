@@ -13,6 +13,7 @@
                 <div class="col-sm-6 col-sm-offset-5">
                     <br>
                     <form action="{{ url('/create-space/bedrooms/edit-bedrooms/save-beds') }}" method="POST">
+                        {{ csrf_field() }}
                         <div class="text-right">
                             <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
                             <div class='beds-detail'>
@@ -31,7 +32,7 @@
                         <!--
                         <div class="form-group text-right">
                             <div class="text-left">
-                                {{ csrf_field() }}
+
                                 <input type="hidden" name="service_id" value="{{$id}}">
                                 <input type="hidden" name="bedroom_id" value="{{$bedroom_id}}">
                                 @if(isset($beds['double_bed']) AND $beds['double_bed'] != NULL AND $beds['double_bed'] != '')
@@ -89,7 +90,8 @@
                                  <option value="hamaca">Hamaca</option>-->
                             </select>
                         </div>
-                        <div class="contentSelect "></div>
+                        <div class="contentSelect ">
+                        </div>
                     </form>
                     <hr>
                 </div>
@@ -132,4 +134,13 @@
 
         });
     </script>
+
+    @if(is_array($beds))
+        @foreach($beds as $bed =>$key)
+            {{$key}} + {{$bed}}
+            <script>
+
+            </script>
+        @endforeach
+    @endif
 @endsection
