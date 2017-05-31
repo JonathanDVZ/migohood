@@ -1585,23 +1585,58 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            $emergency = Curl::to(env('MIGOHOOD_API_URL') . ' /service/space/step-11/number-emergency')
-                ->withHeaders(array(
-                    'api-token:' . session()->get('user.remember_token')
-                ))
-                ->withData(array(
-                    "service_id" => $id,
-                    "languaje" => "ES"
-                ))
 
-                ->asJson(true)
-                ->get();
+            $emergency = Curl::to(env('MIGOHOOD_API_URL') . ' /service/space/step-11/number-emergency')
+                                ->withHeaders(array(
+                                    'api-token:' . session()->get('user.remember_token')
+                                ))
+                                ->withData(array(
+                                    "service_id" => $id,
+                                    "languaje" => "ES"
+                                ))
+
+                                ->asJson(true)
+                                ->get();
 
             if(!is_array($emergency) && $emergency == "Not Found"){
                 $emergency = false;
             }
 
-            return view("CreateSpace.notes", ['id' => $id,"emergency"=>$emergency]);
+            $saved_notes = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-11/number-emergency')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+            $anything = ''; $smoke = ''; $carbon = ''; $first = ''; $safety = ''; $fire = ''; $fired = ''; $alarm = ''; $gas = ''; $exit = '';   
+            if (isset($saved_notes) AND !empty($saved_notes) AND !is_null($saved_notes) AND $saved_notes != 'Not Found') {
+                foreach ($saved_notes as $value) {
+                    if ($value['emergency_id'] == 11) {
+                        $anything = $value['content'];
+                    } elseif ($value['emergency_id'] == 12) {
+                        $smoke = $value['check'];
+                    } elseif ($value['emergency_id'] == 13) {
+                        $carbon = $value['check'];
+                    } elseif ($value['emergency_id'] == 14) {
+                        $first = $value['check'];
+                    } elseif ($value['emergency_id'] == 15) {
+                        $safety = $value['check'];
+                    } elseif ($value['emergency_id'] == 16) {
+                        $fire = $value['check'];
+                    } elseif ($value['emergency_id'] == 17) {
+                        $fired = $value['content'];
+                    } elseif ($value['emergency_id'] == 18) {
+                        $alarm = $value['content'];
+                    } elseif ($value['emergency_id'] == 19) {
+                        $gas = $value['content'];
+                    } elseif ($value['emergency_id'] == 20) {
+                        $exit = $value['content'];
+                    }
+                }
+            }
+            //dd($saved_notes);
+            return view("CreateSpace.notes", ['id' => $id,'emergency' => $emergency, 'anything' => $anything, 'smoke' => $smoke, 'carbon' => $carbon, 'first' => $first, 'safety' => $safety, 'fire' => $fire, 'fired' => $fired, 'alarm' => $alarm, 'gas' => $gas, 'exit' => $exit]);
              
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
@@ -1615,27 +1650,6 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            //var_dump($request->all());exit();
-            /*$post=array(
-                  "desc_anything"=>!empty($request->input("desc_anything"))?  $request->input("desc_anything"):"",
-                  "bool_smoke"=>!empty($request->input("bool_smoke"))?  1:0,
-                  "bool_carbon"=>!empty($request->input("bool_carbon"))?  1:0,
-                  "bool_first"=>!empty($request->input("bool_first"))?  1:0,
-                  "bool_safety"=>!empty($request->input("bool_safety"))? 1:0,
-                  "bool_fire"=>!empty($request->input("bool_fire"))?  1:0,
-                  "desc_fire"=>!empty($request->input("desc_fire"))?  $request->input("desc_fire"):"",
-                  "desc_alarm"=>!empty($request->input("desc_alarm"))?  $request->input("desc_alarm"):"",
-                  "desc_gas"=>!empty($request->input("desc_gas"))?  $request->input("desc_gas"):"",
-                  "desc_exit"=>!empty($request->input("desc_exit"))?  $request->input("desc_exit"):"",
-                  "service_id"=>$id
-            );
-            $res =Curl::to(env('MIGOHOOD_API_URL'). ' /service/space/step-11')
-                ->withHeaders(array(
-                    'api-token:'.session()->get('user.remember_token')
-                ))
-                ->withData($post)
-                ->asJson(true)
-                ->post();*/
 
             $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-11')
                         ->withHeaders( array( 
@@ -1643,11 +1657,20 @@ class CreateSpaceController extends Controller
                         ))
                         ->withData( array( 
                             'service_id' => $id,
-                            
+                            'desc_anything'=> !empty($request->input('desc_anything')) ? $request->input('desc_anything'):'',
+                            'bool_smoke'=> $request->input('bool_smoke') !== null ?  1 : 0,
+                            'bool_carbon'=> $request->input('bool_carbon') !== null ?  1 : 0,
+                            'bool_first'=> $request->input('bool_first') !== null ?  1 : 0,
+                            'bool_safety'=> $request->input('bool_safety') !== null ? 1 : 0,
+                            'bool_fire'=> $request->input('bool_fire') !== null ?  1 : 0,
+                            'desc_fire'=> !empty($request->input('desc_fire'))?  $request->input('desc_fire'):'',
+                            'desc_alarm'=> !empty($request->input('desc_alarm'))?  $request->input('desc_alarm'):'',
+                            'desc_gas'=> !empty($request->input('desc_gas'))?  $request->input('desc_gas'):'',
+                            'desc_exit'=> !empty($request->input('desc_exit'))?  $request->input('desc_exit'):'',
                             ) )
                         ->asJson( true )
                         ->post();
-            dd($res);
+            //dd($res);
             
             if($res == "Service not found" && $res !="Update Note emergency"){
                 return redirect("create-space/note")->with(['message-alert' =>''.$res.'']);

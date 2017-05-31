@@ -11,7 +11,7 @@
                 <br>
                 <p>Mencione cualquier cosa que el huesped debera traer consigo o encargarse el mismo, como el transporte.</p>
                 <br>
-                <textarea  id="message" name="desc_anything" class="form-control note" rows="5" maxlength="200"></textarea>
+                <textarea  id="message" name="desc_anything" class="form-control note" rows="5" maxlength="200">@if(!empty($anything)) {{ $anything }} @endif</textarea>
                 <input disabled value="200 caracters remaining" id="counter">
                 <span id='remainingC'></span>
                 <br>
@@ -27,19 +27,19 @@
                         <h4 class="text-left">Informacion de Seguridad</h4>
 
                             <div class="checkbox">
-                                <label><input name="bool_smoke" type="checkbox" value="">Detector de humo <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                                <label><input @if(!empty($smoke) AND $smoke == 1) checked @endif name="bool_smoke" type="checkbox" value="">Detector de humo <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="bool_carbon" type="checkbox" value="">Detector de Monoxido de Carbono <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                                <label><input name="bool_carbon" @if(!empty($carbon) AND $carbon == 1) checked @endif type="checkbox" value="">Detector de Monoxido de Carbono <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="bool_first" type="checkbox" value="">Kit de Primeros Auxilios</label>
+                                <label><input name="bool_first" @if(!empty($first) AND $first == 1) checked @endif type="checkbox" value="">Kit de Primeros Auxilios</label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="bool_safety" type="checkbox" value="">Tarjeta de Seguridad <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                                <label><input name="bool_safety" @if(!empty($safety) AND $safety == 1) checked @endif type="checkbox" value="">Tarjeta de Seguridad <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                             </div>
                             <div class="checkbox">
-                                <label><input  name="bool_fire" type="checkbox" value="">Extintor</label>
+                                <label><input  name="bool_fire" @if(!empty($fire) AND $fire == 1) checked @endif type="checkbox" value="">Extintor</label>
                             </div>
 
                     </div>
@@ -54,7 +54,7 @@
                                     <label for="fireExting">Extintor de Fuego</label>
                                 </div>
                                 <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <input class="form-control" name="desc_fire" type="text " id="fireExting ">
+                                    <input class="form-control" value="@if(!empty($fired)) {{ $fired }} @endif" name="desc_fire" type="text " id="fireExting ">
                                 </div>
 
                             </div>
@@ -63,7 +63,7 @@
                                     <label for="fireAlarm ">Alarma de Fuego</label>
                                 </div>
                                 <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <input class="form-control " name="desc_alarm" type="text " id="fireAlarm ">
+                                    <input class="form-control " name="desc_alarm" value="@if(!empty($alarm)) {{ $alarm }} @endif" type="text " id="fireAlarm ">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -71,14 +71,14 @@
                                     <label for="gasValve ">Valvula de Gas</label>
                                 </div>
                                 <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <input class="form-control " name="desc_gas" type="text " id="gasValve ">
+                                    <input class="form-control " name="desc_gas" value="@if(!empty($gas)) {{ $gas }} @endif" type="text " id="gasValve ">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="Emergency">Instrucciones de la Salida de Emergencia</label>
-                                <input type="text" name="desc_exit" class="form-control" id="Emergency">
+                                <input type="text" name="desc_exit" value="@if(!empty($exit)) {{ $exit }} @endif" class="form-control" id="Emergency">
                             </div>
-                            
+
                             <div class="form-group">
                                 <label>Numeros de Emergencia</label>
                                 <div class="container">
@@ -92,7 +92,7 @@
                                                     <th>Numero</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody  id="contentTable">
                                                 @if(is_array($emergency))
                                                     @foreach($emergency as $emg)
                                                         <tr>
@@ -122,7 +122,7 @@
                                                 <div class="modal-body">
                                                     <div class="container-fluid">
                                                         <div class="table-responsive">
-                                                            @if(is_array($emergency))
+
                                                                 <table class="table table-condensed">
                                                                     <thead>
                                                                     <tr>
@@ -131,25 +131,25 @@
                                                                         <th>Numero</th>
                                                                     </tr>
                                                                     </thead>
-                                                                    <tbody>
-
-                                                                    @foreach($emergency as $emg)
-                                                                        <tr>
-                                                                            <td>1</td>
-                                                                            <td>Bomberos</td>
-                                                                            <td>098029385029</td>
-                                                                            <td>
-                                                                                <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
-                                                                                <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
-                                                                            </td>
-                                                                        </tr>
-                                                                    @endforeach
+                                                                    <tbody id="contentTable2">
+                                                                    @if(is_array($emergency))
+                                                                        @foreach($emergency as $emg)
+                                                                            <tr>
+                                                                                <td>1</td>
+                                                                                <td>Bomberos</td>
+                                                                                <td>098029385029</td>
+                                                                                <td>
+                                                                                    <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
+                                                                                    <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                    @endif
 
                                                                     </tbody>
                                                                 </table>
-                                                            @else
 
-                                                            @endif
+
                                                         </div>
                                                         <button id="addMore"  id="addnew" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#addNew"> </button>
                                                         <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
