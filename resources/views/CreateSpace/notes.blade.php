@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 lg-offset-3 xs-offset-3 md-offset-3 sm-offset-3">
-            <form name="noteAdd" id="noteAdd" method="post" action="{{url("/create-space/notesAdd")}}">
+            <form name="noteAdd" id="noteAdd" method="post" action="{{ url('/create-space/save-notes') }}">
                 {{ csrf_field() }}
                 <br>
                 <h3 class="titulo text-center">¿Qué mas deberian saber los Invitados?</h3>
@@ -78,7 +78,7 @@
                                 <label for="Emergency">Instrucciones de la Salida de Emergencia</label>
                                 <input type="text" name="desc_exit" class="form-control" id="Emergency">
                             </div>
-                            {{var_dump($emergency)}}
+                            
                             <div class="form-group">
                                 <label>Numeros de Emergencia</label>
                                 <div class="container">

@@ -400,24 +400,31 @@ class CreateSpaceController extends Controller
     public function SaveBeds(Request $request)
     {
 
-        // Enviar los datos a la API para crear nuevas habitaciones
-        $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-2/beds/details')
-                    ->withData( array( 
-                        'service_id' => $request->input('service_id'),
-                        'bedroom_id' => $request->input('bedroom_id'),
-                        'queen_bed' => $request->input('queen_bed'),
-                        'double_bed' => $request->input('double_bed'),
-                        'individual_bed'  => $request->input('individual_bed'),
-                        'sofa_bed' => $request->input('sofa_bed'),
-                        'other_bed'  => $request->input('other_bed'),
-                        ) )
-                    ->asJson( true )
-                    ->post();
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            //dd($request->all());
+            // Enviar los datos a la API para crear nuevas habitaciones
+            $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-2/beds/details')
+                        ->withData( array( 
+                            'service_id' => $id,
+                            'bedroom_id' => $request->input('bedroom_id'),
+                            'queen_bed' => ($request->has('queen') AND !empty($request->input('queen'))) ? $request->input('queen') : '',
+                            'double_bed' => ($request->has('matrimonial') AND !empty($request->input('matrimonial'))) ? $request->input('matrimonial') : '',
+                            'individual_bed'  => ($request->has('individual') AND !empty($request->input('individual'))) ? $request->input('individual') : '',
+                            'sofa_bed' => ($request->has('sofa') AND !empty($request->input('sofa'))) ? $request->input('sofa') : '',
+                            'other_bed'  => ($request->has('otras') AND !empty($request->input('otras'))) ? $request->input('otras') : '',
+                            ) )
+                        ->asJson( true )
+                        ->post();
+            //dd($response);
 
-        if ($response == 'Add Bedroom-Beds' OR $response == 'Update  Bedroom-Beds') {
-            return redirect('/create-space/bedrooms/edit-bedrooms');
+            if ($response == 'Add Bedroom-Beds' OR $response == 'Update  Bedroom-Beds') {
+                return redirect('/create-space/bedrooms/edit-bedrooms');
+            } else {
+                return redirect('/create-space/bedrooms/edit-bedrooms')->with(['msg' => ''.$response.'']);
+            }
         } else {
-            return redirect('/create-space/bedrooms/edit-bedrooms')->with(['msg' => ''.$response.'']);
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
         
     }
@@ -1608,8 +1615,8 @@ class CreateSpaceController extends Controller
                 $msg = session()->get('message-alert');
                 session()->forget('message-alert');
             }
-            var_dump($request->all());exit();
-            $post=array(
+            //var_dump($request->all());exit();
+            /*$post=array(
                   "desc_anything"=>!empty($request->input("desc_anything"))?  $request->input("desc_anything"):"",
                   "bool_smoke"=>!empty($request->input("bool_smoke"))?  1:0,
                   "bool_carbon"=>!empty($request->input("bool_carbon"))?  1:0,
@@ -1628,7 +1635,19 @@ class CreateSpaceController extends Controller
                 ))
                 ->withData($post)
                 ->asJson(true)
-                ->post();
+                ->post();*/
+
+            $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-11')
+                        ->withHeaders( array( 
+                            'api-token:'.session()->get('user.remember_token') 
+                        ))
+                        ->withData( array( 
+                            'service_id' => $id,
+                            
+                            ) )
+                        ->asJson( true )
+                        ->post();
+            dd($res);
             
             if($res == "Service not found" && $res !="Update Note emergency"){
                 return redirect("create-space/note")->with(['message-alert' =>''.$res.'']);
