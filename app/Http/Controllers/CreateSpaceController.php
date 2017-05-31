@@ -1558,7 +1558,7 @@ class CreateSpaceController extends Controller
                         ) )
                         ->asJson( true )
                         ->get();
-            dd($res);
+            //dd($res);
 
             $photo1 = ''; $description1 = '';$photo2 = ''; $description2 = ''; $selected_duration1 = '';  $selected_duration2 = ''; $selected_currency1 = ''; $selected_currency2 = ''; $price1 = ''; $price2 = '';
             if (isset($res) AND !empty($res) AND !is_null($res) AND $res != 'Not Found') {
@@ -1676,7 +1676,7 @@ class CreateSpaceController extends Controller
             }
             
             if (!empty($name1)) {
-                $img1->move('files/images/',$name1);
+                $img1->move('files/service_images/',$name1);
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-10/service')
                             ->withContentType('multipart/form-data')
                             ->withHeaders( array(
@@ -1693,15 +1693,15 @@ class CreateSpaceController extends Controller
                             ->containsFile()
                             ->post();
                 
-                unlink('files/images/'.$name1);
-                //dd($res);
+                unlink('files/service_images/'.$name1);
+                dd($res);
                 if ($res == 'Duration not found' OR $res == 'Service not found') {
                     return redirect('/create-space/services')->with(['message-alert' =>''.$res.'']);
                 }
             }
 
             if (!empty($name2)) {
-                $img2->move('files/images/',$name2);
+                $img2->move('files/service_images/',$name2);
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-10/service')
                             ->withContentType('multipart/form-data')
                             ->withHeaders( array(
@@ -1717,7 +1717,7 @@ class CreateSpaceController extends Controller
                             ))
                             ->containsFile()
                             ->post();
-                unlink('files/images/'.$name2);
+                unlink('files/service_images/'.$name2);
                 if ($res == 'Duration not found' OR $res == 'Service not found') {
                     return redirect('/create-space/services')->with(['message-alert' =>''.$res.'']);
                 }
