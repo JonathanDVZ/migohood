@@ -222,6 +222,7 @@ class CreateSpaceController extends Controller
 
     public function AddBedrooms(Request $request)
     {
+        //dd($request->all());
         // Enviar los datos a la API para crear nuevas habitaciones
         $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-2/bedrooms')
                     ->withData( array( 
