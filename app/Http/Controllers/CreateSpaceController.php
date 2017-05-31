@@ -1558,7 +1558,7 @@ class CreateSpaceController extends Controller
                         ) )
                         ->asJson( true )
                         ->get();
-            //dd($res);
+            dd($res);
 
             $photo1 = ''; $description1 = '';$photo2 = ''; $description2 = ''; $selected_duration1 = '';  $selected_duration2 = ''; $selected_currency1 = ''; $selected_currency2 = ''; $price1 = ''; $price2 = '';
             if (isset($res) AND !empty($res) AND !is_null($res) AND $res != 'Not Found') {
