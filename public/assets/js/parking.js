@@ -258,6 +258,7 @@ var button=function(e){
     var fieldName = $(this).attr('data-field');
     var type      = $(this).attr('data-type');
     var input = $("input[name='"+fieldName+"']");
+    console.log(fieldName);
     var currentVal = parseInt(input.val());
     if (!isNaN(currentVal)) {
 

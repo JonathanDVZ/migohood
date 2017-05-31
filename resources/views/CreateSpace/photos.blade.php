@@ -4,7 +4,7 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-3">
-                    <br>
+                    <br> 
                     <div class="titulos">
                         <h3 class="titulo text-center">AGREGA FOTOS DE TU PROPIEDAD</h3>
                         <br>

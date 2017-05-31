@@ -59,7 +59,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-space/services','CreateSpaceController@Tenth');
     Route::post('/create-space/save-services','CreateSpaceController@SaveServices');
     Route::get('/create-space/notes','CreateSpaceController@Eleven');
-    Route::post('/create-space/notesAdd','CreateSpaceController@ElevenAdd');
+    Route::post('/create-space/save-notes','CreateSpaceController@ElevenAdd');
     Route::get('/create-space/notes/emergency-number','CreateSpaceController@ElevenEmergecy');
     Route::post('/create-space/notes/emergency-number','CreateSpaceController@ElevenEmergecyAdd');
     Route::get('/create-space/co-host','CreateSpaceController@Twelve');

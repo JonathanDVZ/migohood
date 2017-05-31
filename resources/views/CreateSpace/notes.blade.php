@@ -4,14 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 lg-offset-3 xs-offset-3 md-offset-3 sm-offset-3">
-            <form name="noteAdd" id="noteAdd" method="post" action="{{url("/create-space/notesAdd")}}">
+            <form name="noteAdd" id="noteAdd" method="post" action="{{ url('/create-space/save-notes') }}">
                 {{ csrf_field() }}
                 <br>
                 <h3 class="titulo text-center">¿Qué mas deberian saber los Invitados?</h3>
                 <br>
                 <p>Mencione cualquier cosa que el huesped debera traer consigo o encargarse el mismo, como el transporte.</p>
                 <br>
-                <textarea  id="message" name="desc_anything" class="form-control note" rows="5" maxlength="200"></textarea>
+                <textarea  id="message" name="desc_anything" class="form-control note" rows="5" maxlength="200">@if(!empty($anything)) {{ $anything }} @endif</textarea>
                 <input disabled value="200 caracters remaining" id="counter">
                 <span id='remainingC'></span>
                 <br>
@@ -27,19 +27,19 @@
                         <h4 class="text-left">Informacion de Seguridad</h4>
 
                             <div class="checkbox">
-                                <label><input name="bool_smoke" type="checkbox" value="">Detector de humo <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                                <label><input @if(!empty($smoke) AND $smoke == 1) checked @endif name="bool_smoke" type="checkbox" value="">Detector de humo <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="bool_carbon" type="checkbox" value="">Detector de Monoxido de Carbono <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                                <label><input name="bool_carbon" @if(!empty($carbon) AND $carbon == 1) checked @endif type="checkbox" value="">Detector de Monoxido de Carbono <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="bool_first" type="checkbox" value="">Kit de Primeros Auxilios</label>
+                                <label><input name="bool_first" @if(!empty($first) AND $first == 1) checked @endif type="checkbox" value="">Kit de Primeros Auxilios</label>
                             </div>
                             <div class="checkbox">
-                                <label><input name="bool_safety" type="checkbox" value="">Tarjeta de Seguridad <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                                <label><input name="bool_safety" @if(!empty($safety) AND $safety == 1) checked @endif type="checkbox" value="">Tarjeta de Seguridad <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                             </div>
                             <div class="checkbox">
-                                <label><input  name="bool_fire" type="checkbox" value="">Extintor</label>
+                                <label><input  name="bool_fire" @if(!empty($fire) AND $fire == 1) checked @endif type="checkbox" value="">Extintor</label>
                             </div>
 
                     </div>
@@ -54,7 +54,7 @@
                                     <label for="fireExting">Extintor de Fuego</label>
                                 </div>
                                 <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <input class="form-control" name="desc_fire" type="text " id="fireExting ">
+                                    <input class="form-control" value="@if(!empty($fired)) {{ $fired }} @endif" name="desc_fire" type="text " id="fireExting ">
                                 </div>
 
                             </div>
@@ -63,7 +63,7 @@
                                     <label for="fireAlarm ">Alarma de Fuego</label>
                                 </div>
                                 <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <input class="form-control " name="desc_alarm" type="text " id="fireAlarm ">
+                                    <input class="form-control " name="desc_alarm" value="@if(!empty($alarm)) {{ $alarm }} @endif" type="text " id="fireAlarm ">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -71,12 +71,12 @@
                                     <label for="gasValve ">Valvula de Gas</label>
                                 </div>
                                 <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                    <input class="form-control " name="desc_gas" type="text " id="gasValve ">
+                                    <input class="form-control " name="desc_gas" value="@if(!empty($gas)) {{ $gas }} @endif" type="text " id="gasValve ">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="Emergency">Instrucciones de la Salida de Emergencia</label>
-                                <input type="text" name="desc_exit" class="form-control" id="Emergency">
+                                <input type="text" name="desc_exit" value="@if(!empty($exit)) {{ $exit }} @endif" class="form-control" id="Emergency">
                             </div>
 
                             <div class="form-group">
@@ -96,9 +96,9 @@
                                                 @if(is_array($emergency))
                                                     @foreach($emergency as $emg)
                                                         <tr>
-                                                            <td>1</td>
-                                                            <td>Bomberos</td>
-                                                            <td>098029385029</td>
+                                                            <td>{{ $emg['id'] }}</td>
+                                                            <td>{{ $emg['name'] }}</td>
+                                                            <td>{{ $emg['number'] }}</td>
                                                         </tr>
                                                     @endforeach
                                                 @endif
