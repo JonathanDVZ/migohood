@@ -134,7 +134,7 @@ $(document).ready(function() {
         //var marker;
         var marker;
         myMap();
-        addressFill();
+        addressFill(true);
     }
 
     
@@ -256,94 +256,12 @@ $(document).ready(function() {
         form.submit();
     }
 
-    /**
-    * Funciones NEXT para ir a bathroom
-    */
-    /*Borrar
-        $("#nextToBathrooms").click(function() {
-            $(this).attr('disabled', 'disabled');
-            nextToBathrooms();
-            $(this).removeAttr('disabled');
-        });
-
-        function nextToBathrooms() {
-            var form = document.getElementById('formNextToBathrooms');
-            form.submit();
-        }
-        
-        $(".backToPlaceType").click(function() {
-            $(this).attr('disabled', 'disabled');
-            backToPlaceType();
-            $(this).removeAttr('disabled');
-        });
-
-        function backToPlaceType() {
-            var form = document.getElementById('formBackToPlaceType');
-            form.submit();
-        }
-
-        $(".backToBedrooms").click(function() {
-            $(this).attr('disabled', 'disabled');
-            backToBedrooms();
-            $(this).removeAttr('disabled');
-        });
-
-        function backToBedrooms() {
-            var form = document.getElementById('formBackToBedrooms');
-            form.submit();
-        }
-
-        $(".backToBathrooms").click(function() {
-            $(this).attr('disabled', 'disabled');
-            backToBathrooms();
-            $(this).removeAttr('disabled');
-        });
-
-        function backToBathrooms() {
-            var form = document.getElementById('formBackToBathrooms');
-            form.submit();
-        }
-
-        $(".backToLocation").click(function() {
-            $(this).attr('disabled', 'disabled');
-            backToLocation();
-            $(this).removeAttr('disabled');
-        });
-
-        function backToLocation() {
-            var form = document.getElementById('formBackToLocation');
-            form.submit();
-        }
-
-        $(".backToAmenities").click(function() {
-            $(this).attr('disabled', 'disabled');
-            backToAmenities();
-            $(this).removeAttr('disabled');
-        });
-
-        function backToAmenities() {
-            var form = document.getElementById('formBackToAmenities');
-            form.submit();
-        }
-
-        $(".backToHosting").click(function() {
-            $(this).attr('disabled', 'disabled');
-            backToHosting();
-            $(this).removeAttr('disabled');
-        });
-
-        function backToHosting() {
-            var form = document.getElementById('formBackToHosting');
-            form.submit();
-        }
-    */
-
 
     /**
     * Funciones para manejar los select de location en creacion de espacios
     */
 
-    function addressFill() {
+    function addressFill(no_mymap = false) {
         var fullAddress = '';
 
         opcion = $('#spaceAddress').val();
@@ -410,7 +328,12 @@ $(document).ready(function() {
         $("#selectedCountry").text(opcion);
 
         console.log(fullAddress);
-        myMap(fullAddress);
+        if (no_mymap) {
+
+        } else {
+            myMap(fullAddress);
+        }
+        
     }
 
     $("#spaceCountry").change(function() {

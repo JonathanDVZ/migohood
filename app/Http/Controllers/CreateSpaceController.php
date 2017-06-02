@@ -222,6 +222,7 @@ class CreateSpaceController extends Controller
 
     public function AddBedrooms(Request $request)
     {
+        //dd($request->all());
         // Enviar los datos a la API para crear nuevas habitaciones
         $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-2/bedrooms')
                     ->withData( array( 
@@ -1243,7 +1244,7 @@ class CreateSpaceController extends Controller
                     } elseif ($value['rules_id'] == 14) {
                         $Desc_Name_Network = $value['Description'];
                     } elseif ($value['rules_id'] == 15) {
-                        $Password_Wifi = Crypt::decrypt($value['Description']);
+                        $Password_Wifi = $value['Description'];
                     }
                 }
             } 
@@ -1694,7 +1695,7 @@ class CreateSpaceController extends Controller
                             ->post();
                 
                 unlink('files/service_images/'.$name1);
-                dd($res);
+                //dd($res);
                 if ($res == 'Duration not found' OR $res == 'Service not found') {
                     return redirect('/create-space/services')->with(['message-alert' =>''.$res.'']);
                 }
