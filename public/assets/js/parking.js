@@ -135,6 +135,7 @@ var createItem = function(type,value,opt){
         i=e;
     }else if(type == 'img'){
         e = document.createElement("div");
+        var l = document.createElement("label");
         i = document.createElement("img");
         i.setAttribute("src",url+"/Icon-"+value+".png");
         i.style.width="85%";
@@ -142,7 +143,9 @@ var createItem = function(type,value,opt){
         i.setAttribute("class","media-object");
         e.setAttribute("class" ,"media col-md-4 col-lg-4  col-sm-4 col-xs-4");
         e.setAttribute("style","padding-top:2rem");
+        l.append(document.createTextNode(opt));
         e.append(i);
+        e.append(l);
         i = e;
     }else{
 

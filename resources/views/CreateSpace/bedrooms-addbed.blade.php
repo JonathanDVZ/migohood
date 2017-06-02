@@ -76,7 +76,7 @@
                             </div>
                             <select name="typobed" id="selectbed" class="selectpicker form-control required">
                                 <option value="-1">Adicionar otra cama </option>
-                                <option value="cama matrimonial">Cama doble</option>
+                                <option value="cama doble">Cama doble</option>
                                 <option value="cama queen">Cama  queen</option>
                                 <option value="cama individual">Cama individual</option>
                                 <option value="sofa">Sofa</option>
