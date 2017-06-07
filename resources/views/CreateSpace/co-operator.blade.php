@@ -35,12 +35,10 @@
                                     <label class="textwhite">Por:</label>
                                 </div>
                                 <div class="text-left">
-                                    <select class="selectpicker form-control required">
-                                    <option>Elige uno</option>
+                                    <select class="selectpicker form-control required" placeholder="Elige Uno">
                                     <option>Distrito Capital</option>
                                     <option>Barinas</option>
                                     <option>Barquisimeto</option>
-                                    <option></option>
                                 </select>
                                 </div>
                             </div>

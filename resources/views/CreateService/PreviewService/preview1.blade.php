@@ -116,48 +116,48 @@
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
                         <br>
-                        <span>Private room</span>
+                        <span>Habitacion Privada</span>
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
                         <br>
-                        <span>1 Guest</span>
+                        <span>1 Invitado</span>
 
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
                         <br>
-                        <span>1 Bedroom<span>
+                        <span>1 Habitacion<span>
 
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                      <img class="imgHom3" src="{{url('/assets/img/Icon-Bed.png')}}" alt="">
                      <br>
-                     <span>1 Bed</span>
+                     <span>1 Cama</span>
                     </div>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>The Place</h3>
+                    <h3>El Lugar</h3>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
                     <strong>Accomodates: </strong><span>1</span><br>
-                    <strong>Bathrooms: </strong><span>1</span><br>
-                    <strong>Bedrooms: </strong><span>1</span><br>
-                    <strong>Beds: </strong><span>1</span><br>
-                    <a href="#">House Rules</a>
+                    <strong>Baños:</strong><span>1</span><br>
+                    <strong>Habitaciones: </strong><span>1</span><br>
+                    <strong>Camas: </strong><span>1</span><br>
+                    <a href="#">Reglas de la Casa</a>
                     <br>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>Check-in: </strong><span>Ater 3PM</span><br>
-                    <strong>Porperty Type: </strong><span>Apartment</span><br>
-                    <strong>Room Type: </strong><span>Private</span><br>
-                    <strong>Bathroom Type: </strong><span>Private</span><br>
+                    <strong>Check-in: </strong><span>Despues de las 3PM</span><br>
+                    <strong>Tipo de Propiedad: </strong><span>Apartamento</span><br>
+                    <strong>Tipo de Habitacion: </strong><span>Privado</span><br>
+                    <strong>Tipo de Baño: </strong><span>Privadoe</span><br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -167,22 +167,21 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>Amenities</h3>
+                    <h4>Comodidades</h4>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>Pets Allowed</span><br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Elevator.png')}}" alt=""> </strong><span>Elevator in biulding</span><br>
-                    <a href="#">+ More</a>
+                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>Se Permiten Mascotas</span><br>
+                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Elevator.png')}}" alt=""> </strong><span>Elevador en el Edificio</span><br>
+                    <a href="#">+ Mas</a>
                     <br>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Family.png')}}" alt=""> </strong><span>Family / kid Fiendly</span><br>
+                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Family.png')}}" alt=""> </strong><span>Familia / niños Amistoso</span><br>
                     <strong><img class="lilicon" src="{{url('/assets/img/Icon-Wifi.png')}}" alt=""> </strong><span>Wifi</span><br>
-
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -192,12 +191,12 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>Prices</h3>
+                    <h3>Precios</h3>
                     <br>
                 </div>
                 <div class="col-sm-8 col-xs-8">
                     <br>
-                    <strong>Cancellation: </strong><span>flexible</span><br>
+                    <strong>Cancelacion: </strong><span>Flexible</span><br>
                     <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
@@ -208,47 +207,14 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>Description</h3>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                    <br>
-                </div>
-
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>House Rules</h3>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <span>Check-in is after 3PM</span><br>
-                    <br>
-                    <a href="#">View Calendar <span class="glyphicon glyphicon-calendar"></span></a>
-                    <br>
-                    <br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Also you should know</h3>
+                    <h3>Descripcion</h3>
                 </div>
                 <div class="col-sm-8 col-xs-8">
                     <br>
                     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
                     <br>
                 </div>
+
                 <div class="col-sm-1 col-xs-1">
                     <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
@@ -257,13 +223,46 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>Safety</h3>
+                    <h3>Reglas de la Casa</h3>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                    <br>
+                    <span>Check-in es despues de las 3PM</span><br>
+                    <br>
+                    <a href="#">Ver Calendario <span class="glyphicon glyphicon-calendar"></span></a>
+                    <br>
+                    <br>
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <br>
+                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                </div>
+            </div>
+            <div class="sections">
+                <hr class="black">
+                <div class="col-sm-3 col-xs-3">
+                    <h3>Tambien deberias saber</h3>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                    <br>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
+                    <br>
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <br>
+                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                </div>
+            </div>
+            <div class="sections">
+                <hr class="black">
+                <div class="col-sm-3 col-xs-3">
+                    <h3>Seguridad</h3>
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <span>Smoke Detector</span><br>
+                    <span>Detector de Humo</span><br>
                     <span></span><br>
-                    <span>Fire Extinguisher</span><br>
+                    <span>Extintor de Fuego</span><br>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
@@ -281,7 +280,7 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>Emergency instructions</h3>
+                    <h3>Instrucciones de Emergencia</h3>
                 </div>
                 <div class="col-sm-8 col-xs-8">
                     <br>
@@ -296,7 +295,7 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>Emergency phone numbers</h3>
+                    <h3>Numeros de Emergencia</h3>
                 </div>
                 <div class="col-sm-8 col-xs-8">
                     <br>

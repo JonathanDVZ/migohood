@@ -102,7 +102,7 @@
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
             <div class="sections">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
-                    <h4 class="text-center">Your Host</h4>
+                    <h4 class="text-center">Tu Host</h4>
                     <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
                     <br>
                     <br>
@@ -111,9 +111,9 @@
                     <br>
                     <br>
                     <h4>Username</h4>
-                    <span>ES - Joined in February</span>
+                    <span>ES - Entro en Febrero</span>
                     <br>
-                    <button class="btn btn-lg">Contact Host</button>
+                    <button class="btn btn-lg">Contactar Host</button>
                 </div>
             </div>
         </div>

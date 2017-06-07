@@ -18,17 +18,18 @@
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 text-center insideB">
                                 <div class="form-group">
                                     <select size="" class="selectpicker form-control action" data-live-search="true">
-                            <option data-tokens="ketchup mustard">Hot Dog, Fries and a Soda</option>
-                            <option data-tokens="mustard">Burger, Shake and a Smile</option>
-                            <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-                            </select>
+                                        <option data-tokens="espacio">Espacio</option>
+                                        <option data-tokens="servicio">Servicio</option>
+                                        <option data-tokens="aparcamiento estacionamiento">Aparcamiento</option>
+                                        <option data-tokens="trabajo">Lugar de Trabajo</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 text-center insideB">
-                                <input type="text" class="form-control action" placeholder="APARTMENTS,HOUSE, B&B">
+                                <input type="text" class="form-control action" placeholder="Apartamentos, casas, aparcamiento">
                             </div>
                             <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center insideB">
-                                <button type="button" class="btn btn-md works"><i class="fa fa-search" aria-hidden="true"></i> SEARCH</button>
+                                <button type="button" class="btn btn-md works"><i class="fa fa-search" aria-hidden="true"></i> BUSCAR</button>
                             </div>
                         </div>
                     </div>
@@ -69,22 +70,5 @@
                 </div>
             </div>
         </div>
-        <div class="container-fluid last">
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4"></div>
-                <div class="col-lg-3 col-md- col-sm-3 col-xs-12 text-center list-inline">
-                    <a href=""><img src="{{url('/assets/img/FacebookB.png')}}" alt="Facebook Page"></a>
-                    <a href=""><img src="{{url('/assets/img/GoogleP.png')}}" alt="Google Plus account"></a>
-                    <a href=""><img src="{{url('/assets/img/Instagram.png')}}" alt=" Instagram Page"></a>
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 text-center">
-                    <br>
-                    <a href="{{url('/')}}" class="">www.migohood.com</a>
-                </div>
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-center"></div>
-            </div>
-        </div>
-        <div></div>
     </div>
-</div>
-@endsection
+    @endsection

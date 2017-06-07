@@ -19,17 +19,17 @@
                                 <span class="input-group-btn">
                                                 <button class="btn btn-default btn-sm" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
                                             </span>
-                                <input type="text" class="form-control input-sm navSearch" placeholder="Search">
+                                <input type="text" class="form-control input-sm navSearch" placeholder="Buscar">
                             </div>
                         </form>
                     </div>
                     <ul class="nav navbar-nav navbar-right navright">
-                        <li><a class="nav-link" href="{{url('/')}}">Home</a></li>
-                        <li><a class="nav-link" href="#">Category</a></li>
+                        <li><a class="nav-link" href="{{url('/')}}">Inicio</a></li>
+                        <li><a class="nav-link" href="#">Categorias</a></li>
                         <li><a class="nav-link" href="#">Featured</a></li>
-                        <li><a class="nav-link" href="{{url('/accessuser')}}">Sign in</a></li>
+                        <li><a class="nav-link" href="{{url('/accessuser')}}">Entrar</a></li>
                         <li>
-                            <div class="divbtnbar"><a href="{{url('/registeruser')}}" class="btn btnbar" role="button"><strong>Register</strong></a></div>
+                            <div class="divbtnbar"><a href="{{url('/registeruser')}}" class="btn btnbar" role="button"><strong>Registrate</strong></a></div>
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">USD<span class="caret"></span></a>
