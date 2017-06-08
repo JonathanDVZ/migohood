@@ -143,7 +143,9 @@ var createItem = function(type,value,opt){
         i.setAttribute("class","media-object");
         e.setAttribute("class" ,"media col-md-4 col-lg-4  col-sm-4 col-xs-4");
         e.setAttribute("style","padding-top:2rem");
+        e.setAttribute("align","center");
         l.append(document.createTextNode(opt));
+        l.setAttribute("style","color:white;text-transform: capitalize;");
         e.append(i);
         e.append(l);
         i = e;
