@@ -24,7 +24,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
 
 
 
-// Routes for the space creation{ 
+// Routes for the space creation{
     Route::get('/create-space/place-type','CreateSpaceController@First');
     //Route::post('/create-space/place-type','CreateSpaceController@FirstPost');
     Route::post('/create-space/add-place-type','CreateSpaceController@AddPlaceType');
@@ -69,9 +69,11 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-space/preview-location','CreateSpaceController@Preview4');
     Route::post('/create-space/get-states','CreateSpaceController@GetStates');
     Route::post('/create-space/get-cities','CreateSpaceController@GetCities');
+    Route::post('/create-space/save-service-day','CreateSpaceController@SaveServiceDay');
+    Route::put('/create-space/update-service-day','CreateSpaceController@UpdateServiceDay');
 //}
 
-// Routes for the service creation{ 
+// Routes for the service creation{
     Route::get('/create-service/category','CreateServiceController@Category');
     Route::get('/create-service/hosting','CreateServiceController@Hosting');
     Route::get('/create-service/basics','CreateServiceController@Basics');
@@ -85,7 +87,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-service/preview-location','CreateSpaceController@Preview4');
 //}
 
-// Routes for the parking creation{ 
+// Routes for the parking creation{
     Route::get('/create-parking/place-type','CreateParkingController@First');
     Route::get('/create-parking/bedrooms','CreateParkingController@Second');
     Route::get('/create-parking/baths','CreateParkingController@Third');
@@ -105,7 +107,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::post('/create-parking/splet','CreateParkingController@storeTemporary');
 //}
 
-// Routes for the Workspace creation{ 
+// Routes for the Workspace creation{
     Route::get('/create-workspace/place-type','CreateWorkspaceController@First');
     Route::get('/create-workspace/bedrooms','CreateWorkspaceController@Second');
     Route::get('/create-workspace/baths','CreateWorkspaceController@Third');
@@ -127,7 +129,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
 
 //Social Login{
 //Route::get('social/{provider?}', 'SocialController@getSocialAuth');
-Route::get('social/callback/{provider?}', 'SocialController@getSocialAuthCallback'); 
+Route::get('social/callback/{provider?}', 'SocialController@getSocialAuthCallback');
 // New social Login
-Route::get('/social/{action}/{provider}', 'SocialController@getSocialAuth'); 
+Route::get('/social/{action}/{provider}', 'SocialController@getSocialAuth');
 //}

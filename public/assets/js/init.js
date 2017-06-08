@@ -29,34 +29,110 @@ $(document).ready(function() {
     // calendarios dentro del hosting
     $('#datetimepicker1').datetimepicker({ format: 'YYYY-MM-DD' });
     $('#datetimepicker2').datetimepicker({ format: 'YYYY-MM-DD' });
-    /*$('#datetimepicker3').datetimepicker({
-        inline: true,
-        sideBySide: true,
-        format: 'YYYY-MM-DD',
-        //multidate: true
-    });*/
+    // $('#datetimepicker3').datetimepicker({
+    //     inline: true,
+    //     sideBySide: true,
+    //     format: 'YYYY-MM-DD',
+    //     //multidate: true
+    // });
+
+
+    $('#calendar').fullCalendar({
+      defaultView:'month',
+      displayEventTime: false,
+      editable: false,
+      droppable: false,
+      durationEditable: false,
+      
+
+      dayClick: function() {
+        var valboolean;
+        debugger;
+        var moment = $('#calendar').fullCalendar('getDate');
+        var date = $(this).data("date");
+        //debugger;
+        //console.log(date);
+        valboolean = $(this).data('data-select');
+        if (typeof valboolean == typeof undefined) {
+
+          valboolean = 0;
+          $(this).attr('data-select' , valboolean);
+        }
+        //debugger;
+
+
+        valboolean=!valboolean;
+        $(this).data('data-select', valboolean);
+        data = {
+          'service_id':$("[name='service_id']").val(),
+          'date':date,
+          'lock':valboolean
+        };
+        //console.log(valboolean);
+        console.log(valboolean);
+        console.log(data);
+        if (valboolean) {
+
+          $(this).css('background-color', 'red');
+          $.ajax({
+              url: 'save-service-day',
+              data: data,
+              type: 'POST',
+              dataType: 'json',
+              success: function(data) {
+                  console.log(data);
+
+
+              },
+              error: function(jqXHR, textStatus, errorThrown) {
+
+              }
+          });
+      }
+      else if (!valboolean){
+
+        $(this).css('background-color', '');
+        $.ajax({
+            url: 'update-service-day',
+            data: data,
+            type: 'PUT',
+            dataType: 'json',
+            success: function(data) {
+                console.log(data);
+
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+
+            }
+          });
+      }
+    }
+
+    });
+
 
     //$('#datetimepicker3').datepick({multiSelect: 30,dateFormat: 'dd-mm-yyyy',onSelect: showDate,minDate: '+1d'});
+    //
+    //
+    // function showDate(date) {
+    //     //console.log('The date chosen is ' + date);
+    //     var fecha = $.datepick.formatDate($.datepick.parseDate('dd-mm-yyyy', date));
+    //     alert(fecha);
+    // }
 
-
-    /*function showDate(date) {
-        //console.log('The date chosen is ' + date);
-        var fecha = $.datepick.formatDate($.datepick.parseDate('dd-mm-yyyy', date));
-        alert(fecha);
-    }  */  
-
-    // tooltip de un span 
+    // tooltip de un span
     $('[data-toggle="tooltip"]').tooltip();
 
     // mapa de Google junto con sus modificaciones
     function myMap(address=null) {
-        
+
         // Se comprueba si existe la dirección del request, ya que si existe debemos ubicarnos en la posición adecuada
         if ( address != '' && address != null ){
             console.log(address);
             var geoCoder = new google.maps.Geocoder(address);
             var request = {address:address};
-            geoCoder.geocode(request, function(result, status){            
+            geoCoder.geocode(request, function(result, status){
                 geometry_request = new google.maps.LatLng(result[0].geometry.location.lat(), result[0].geometry.location.lng());
 
                 map = new google.maps.Map(document.getElementById("googleMap"), {
@@ -70,7 +146,7 @@ $(document).ready(function() {
                     map:map,
                     cursor: 'default',
                     draggable: true
-                }); 
+                });
                 $('#longitude').val(result[0].geometry.location.lng());
                 $('#latitude').val(result[0].geometry.location.lat());
 
@@ -83,12 +159,12 @@ $(document).ready(function() {
                 });
 
             });
-            
+
             //setInterval(requestBusiness,1000);
         }
         // De no existir, se ubica en sitio por defecto
         else{
-            
+
 
             if ($('#longitude').val() != '' && $('#longitude').val() != undefined && $('#latitude').val() != '' && $('#latitude').val() != undefined) {
                 var lat = parseFloat($('#latitude').val());
@@ -125,11 +201,11 @@ $(document).ready(function() {
     }
 
     function listengForMark(){
-        
+
     }
 
     if ($('#googleMap').length > 0 ) {
-        /*var map; 
+        /*var map;
         var marker;*/
         //var marker;
         var marker;
@@ -137,7 +213,7 @@ $(document).ready(function() {
         addressFill(true);
     }
 
-    
+
 
 
 
@@ -265,7 +341,7 @@ $(document).ready(function() {
         var fullAddress = '';
 
         opcion = $('#spaceAddress').val();
-        
+
         previous = '';
         if ($('#spaceAddress').val() != '' && ($("#spaceCountry option:selected").val() != '' || $("#spaceState option:selected").text() != '' || $("#spaceCities option:selected").text() != '' || $("#selectedZipcode").text() != '')) {
             previous = ', ';
@@ -278,7 +354,7 @@ $(document).ready(function() {
         $("#selectedAddress").text(opcion + previous);
 
         opcion = $('#spaceZipcode').val();
-        
+
         previous = '';
         if ($('#spaceZipcode').val() != '' && ($("#spaceCountry option:selected").val() != '' || $("#spaceState option:selected").text() != '' || $("#spaceCities option:selected").text() != '')) {
             previous = ', ';
@@ -291,7 +367,7 @@ $(document).ready(function() {
         $("#selectedZipcode").text(opcion + previous);
 
         opcion = $("#spaceCities option:selected").text();
-        
+
         previous = '';
         if (opcion != 'Seleccione una Ciudad' && opcion != '' && ($("#spaceCountry option:selected").val() != '' || $("#spaceState option:selected").text() != '')) {
             previous = ', ';
@@ -304,7 +380,7 @@ $(document).ready(function() {
         $("#selectedCity").text(opcion + previous);
 
         opcion = $("#spaceState option:selected").text();
-        
+
         previous = '';
         if (opcion != 'Seleccione un Estado' && opcion != '' && ($("#spaceCountry option:selected").val() != '')) {
             previous = ', ';
@@ -333,7 +409,7 @@ $(document).ready(function() {
         } else {
             myMap(fullAddress);
         }
-        
+
     }
 
     $("#spaceCountry").change(function() {
@@ -347,7 +423,7 @@ $(document).ready(function() {
                 url: 'get-states',
                 data: {id : id},
                 type: 'POST',
-                dataType: 'json',      
+                dataType: 'json',
                 success: function(data) {
                     console.log(data);
                     $("#resultCity").html('<select id="spaceCities" name="city" class="selectpicker form-control" required><option>Seleccione una Ciudad</option></select>');
@@ -357,7 +433,7 @@ $(document).ready(function() {
                     content += '<option>Seleccione un Estado</option>';
                     for (var i = data.length - 1; i >= 0; i--) {
                         content += '<option value="'+data[i]['id']+'">'+data[i]['state']+'</option>';
-                    } 
+                    }
                     content += '</select>';
                     $("#resultState").html(content);
                     $('#resultState #spaceState').selectpicker('refresh');
@@ -365,14 +441,14 @@ $(document).ready(function() {
 
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    swal('Locacion no encontrada! Intente de nuevo'); 
+                    swal('Locacion no encontrada! Intente de nuevo');
                 }
-            }); 
+            });
         }
     }
 
     $("#resultState").on("change","#spaceState",function() {
-        var id = $(this).val();       
+        var id = $(this).val();
         getCities(id);
     });
 
@@ -382,14 +458,14 @@ $(document).ready(function() {
                 url: 'get-cities',
                 data: {id : id},
                 type: 'POST',
-                dataType: 'json',      
+                dataType: 'json',
                 success: function(data) {
                     console.log(data);
                     var content = '<select id="spaceCities" name="city" class="selectpicker form-control" required>';
                     content += '<option>Seleccione una Ciudad</option>';
                     for (var i = data.length - 1; i >= 0; i--) {
                         content += '<option value="'+data[i]['id']+'">'+data[i]['city']+'</option>';
-                    } 
+                    }
                     content += '</select>';
                     $("#resultCity").html(content);
                     $("#resultCity #spaceCities").selectpicker('refresh');
@@ -397,9 +473,9 @@ $(document).ready(function() {
 
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    swal('Locacion no encontrada! Intente de nuevo'); 
+                    swal('Locacion no encontrada! Intente de nuevo');
                 }
-            }); 
+            });
         }
     }
 

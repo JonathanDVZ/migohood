@@ -7,9 +7,11 @@
                     <br>
                     <br>
                     <br>
-                    <div style="overflow:hidden;">
-                        <div class="form-group">
+                    <div style="overflow:hidden; ">
+                        <div class="form-group" style="width:85%; overflow:hidden;">
                             <div id="datetimepicker3"></div>
+                            <div id="calendar" ></div>
+
                         </div>
                     </div>
                     <form id="formAddHosting" method="POST" action="{{url('/create-space/save-hosting')}}">
@@ -195,13 +197,13 @@
                                         @else
                                             <hr class="red">
                                         @endif
-                                        
+
                                         <p class="textwhite">lorem ipsum baslkbjalsk valskdjlaskdf asldckaS</p>
                                     </div>
                                 </div>
                             </div>
                             @endforeach
-                            
+
                         </div>
                         <input type="hidden" name="service_id" value="{{ $id }}">
                         {{ csrf_field() }}
