@@ -97,13 +97,13 @@
                                 <div class="content-input undefined">
                                     <div class="form-group caja">   
                                         <span class="input-group-btn">
-                                            <button class="btn btn-default btn-number" type="button" data-type="minus" data-field="matrimonial">
+                                            <button class="btn btn-default btn-number" type="button" data-type="minus" data-field="doble">
                                                 <span class="glyphicon glyphicon-minus"></span>
                                             </button>
                                         </span>                                 
-                                        <input type="number" data-type="matrimonial" name="matrimonial" min="1" max="10" class="form-control savedBeds" readonly value="{{ $beds['double_bed']}}" required>
+                                        <input type="number" data-type="doble" name="doble" min="1" max="10" class="form-control savedBeds" readonly value="{{ $beds['double_bed']}}" required>
                                         <span class="input-group-btn span-plus">
-                                            <button class="btn btn-default btn-number" type="button" data-type="plus" data-field="matrimonial">
+                                            <button class="btn btn-default btn-number" type="button" data-type="plus" data-field="doble">
                                                 <span class="glyphicon glyphicon-plus"></span>
                                             </button>
                                         </span>      

@@ -43,7 +43,7 @@ $(document).ready(function() {
       editable: false,
       droppable: false,
       durationEditable: false,
-      
+
 
       dayClick: function() {
         var valboolean;
@@ -103,6 +103,7 @@ $(document).ready(function() {
 
             },
             error: function(jqXHR, textStatus, errorThrown) {
+
 
             }
           });
