@@ -16,7 +16,7 @@ function textCounter(field, field2, maxlimit) {
 
 $(document).ready(function() {
     // togle del boton de agregar mas en Hosting
-    //getServicesDay();
+
     $("#show").click(function() {
         $("#Hidden").toggle(500);
     });
@@ -36,51 +36,67 @@ $(document).ready(function() {
     //     format: 'YYYY-MM-DD',
     //     //multidate: true
     // });
-    function getServicesDay(){
-      data = {
-        'service_id':$("[name='service_id']").val(),
-      };
-      console.log(data);
-        $.ajax({
-            url: 'get-service-day',
-            data: data,
-            type: 'GET',
-            dataType: 'json',
-            success: function(data) {
-                console.log(data);
-                valboolean = $(this).data('data-select');
-                $(this).attr('data-select' , false);
-                $(this).css('background-color', 'red');
+    // function getServicesDay(){
+    //   data = {
+    //     'service_id':$("[name='service_id']").val(),
+    //   };
+    //   console.log(data);
+    //     $.ajax({
+    //         url: 'get-service-day',
+    //         data: data,
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         success: function(data) {
+    //             console.log(data);
+    //             valboolean = $(this).data('data-select');
+    //             $(this).attr('data-select' , false);
+    //             $(this).css('background-color', 'red');
+    //
+    //         },
+    //         error: function(jqXHR, textStatus, errorThrown) {
+    //
+    //         }
+    //     });
+    //
+    // }
+    function GetServiceDay() {
+      //debugger;
+      var service_id = $("[name='service_id']").val();
+      $.get('get-service-day', { service_id : service_id }, function(data) {
+          console.log(data);
+          if (Array.isArray(data)) {
 
-            },
-            error: function(jqXHR, textStatus, errorThrown) {
+            $.each(data, function(i) {
+              console.log(data[i]["day"]);
+              $('.fc-day[data-date="'+data[i]["day"]+'"]').attr('data-select' , true);
+              $('.fc-day[data-date="'+data[i]["day"]+'"]').css('background', 'red');
+            });
+          }
 
-            }
-        });
-
+      });
     }
 
     $('#calendar').fullCalendar({
       defaultView:'month',
       displayEventTime: false,
-      editable: false,
+      editable: true,
       droppable: false,
       durationEditable: false,
-      // viewRender: function(view,element){
-      //               service_id = $("[name='service_id']").val();
-      //               $.ajax({
-      //                   url: 'get-service-day/'+service_id,
-      //                   type: 'GET',
-      //                   dataType: "json",
-      //                   contentType: "application/json",
-      //                   success: function (data) {
-      //                       $.each(data, function(i) {
-      //                           $('.fc-day[data-date="'+data[i]["date"]+'"]').css('background', 'red');
-      //                           $('.fc-day[data-date="'+data[i]["date"]+'"]').attr('data-select' , true);
-      //                       });
-      //                   }
-      //               });
-      //           },
+      viewRender: function (view,element) {
+        var service_id = $("[name='service_id']").val();
+        $.get('get-service-day', { service_id : service_id }, function(data) {
+            console.log(data);
+            if (Array.isArray(data)) {
+
+              $.each(data, function(i) {
+                console.log(data[i]["day"]);
+                $('.fc-day[data-date="'+data[i]["day"]+'"]').attr('data-select' , 1);
+                $('.fc-day[data-date="'+data[i]["day"]+'"]').css('background', 'red');
+              });
+            }
+
+        });
+      },
 
       dayClick: function() {
         var valboolean;
@@ -148,6 +164,7 @@ $(document).ready(function() {
     }
 
     });
+    //GetServiceDay();
 
 
     //$('#datetimepicker3').datepick({multiSelect: 30,dateFormat: 'dd-mm-yyyy',onSelect: showDate,minDate: '+1d'});

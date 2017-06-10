@@ -71,6 +71,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::post('/create-space/get-cities','CreateSpaceController@GetCities');
     Route::post('/create-space/save-service-day','CreateSpaceController@SaveServiceDay');
     Route::put('/create-space/update-service-day','CreateSpaceController@UpdateServiceDay');
+    Route::get('/create-space/get-service-day','CreateSpaceController@GetServiceDay');
 //}
 
 // Routes for the service creation{

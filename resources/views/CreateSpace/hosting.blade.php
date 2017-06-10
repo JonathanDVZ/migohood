@@ -10,7 +10,7 @@
                     <div style="overflow:hidden; ">
                         <div class="form-group" style="overflow:hidden;">
                             <div id="datetimepicker3"></div>
-                            <div id="calendar" ></div>
+                            <div id="calendar" style="overflow:hidden;"></div>
 
                         </div>
                     </div>

@@ -1988,8 +1988,8 @@ class CreateSpaceController extends Controller
     }
     public function SaveServiceDay(Request $request)
     {
-
         $data = $request->all();
+        //dd($data);
         settype($data['lock'], 'boolean');
         $rsp = Curl::to(env('MIGOHOOD_API_URL').'/service/day')
                         ->withData( array(
@@ -2018,6 +2018,21 @@ class CreateSpaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->put();
+
+        return $rsp;
+    }
+
+    public function GetServiceDay(Request $request)
+    {
+        //dd('hola');
+        $data = $request->all();
+        //dd($data);
+        $rsp = Curl::to(env('MIGOHOOD_API_URL').'/service/get-day')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
 
         return $rsp;
     }
