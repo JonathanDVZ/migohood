@@ -8,7 +8,7 @@
                     <br>
                     <br>
                     <div style="overflow:hidden; ">
-                        <div class="form-group" style="width:85%; overflow:hidden;">
+                        <div class="form-group" style="overflow:hidden;">
                             <div id="datetimepicker3"></div>
                             <div id="calendar" ></div>
 

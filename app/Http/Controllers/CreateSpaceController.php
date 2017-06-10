@@ -2008,8 +2008,8 @@ class CreateSpaceController extends Controller
     {
 
         $data = $request->all();
-        dd($data);
-        settype($data['lock'], 'boolean');
+        //settype($data['lock'], 'boolean');
+        $data['lock']=json_decode($request['lock']);
         $rsp = Curl::to(env('MIGOHOOD_API_URL').'/service/update-day')
                         ->withData( array(
                             'service_id' => $data['service_id'],

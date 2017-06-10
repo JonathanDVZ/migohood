@@ -9,6 +9,7 @@
     <link href="{{url('/assets/css/font-awesome.css')}}" rel="stylesheet">
     <link href="{{url('/assets/css/fullcalendar.min.css')}}" rel="stylesheet">
     <link href="{{url('/assets/css/styles.css')}}" rel="stylesheet">
+    <!-- <link href="{{url('/assets/css/fullcalendar.print.min.css')}}" rel="stylesheet"> -->
     <link rel="shortcut icon" href="{{url('/assets/img/favicon.ico')}}">
     <link href="{{url('/assets/css/sweetalert.css')}}" rel="stylesheet">
     <link href="{{url('/assets/css/bootstrap-datetimepicker.min.css')}}" rel="stylesheet">
@@ -36,12 +37,15 @@
 
     <script src="{{url('assets/js/jquery-3.2.0.min.js')}}"></script>
     <script src="{{url('/assets/js/moment.js')}}"></script>
+    <script src="{{url('/assets/js/moment.min.js')}}"></script>
     <script src="{{url('/assets/js/bootstrap.min.js')}}"></script>
     <script src="{{url('/assets/js/bootstrap-datetimepicker.js')}}"></script>
     <script src="{{url('/assets/js//bootstrap-select.min.js')}}"></script>
-    <script src="{{url('/assets/js/fullcalendar.min.js')}}"></script>
+    <!-- <script src="{{url('/assets/js/fullcalendar.min.js')}}"></script> -->
     <script src="{{url('/assets/js/fullcalendar.js')}}"></script>
     <script src="{{url('/assets/js/moment.min.js')}}"></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js'></script>
+
     <!-- <script src="{{url('/assets/js/i18n/defaults-*.min.js')}}"></script> -->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>-->
     <script src="{{url('/assets/js/jquery.plugin.js')}}"></script>
