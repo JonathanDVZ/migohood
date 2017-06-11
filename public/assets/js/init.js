@@ -68,7 +68,7 @@ $(document).ready(function() {
 
             $.each(data, function(i) {
               console.log(data[i]["day"]);
-              $('.fc-day[data-date="'+data[i]["day"]+'"]').attr('data-select' , true);
+              $('.fc-day[data-date="'+data[i]["day"]+'"]').attr('data-select' , data[i]["lock"]);
               $('.fc-day[data-date="'+data[i]["day"]+'"]').css('background', 'red');
             });
           }
@@ -89,8 +89,8 @@ $(document).ready(function() {
             if (Array.isArray(data)) {
 
               $.each(data, function(i) {
-                console.log(data[i]["day"]);
-                $('.fc-day[data-date="'+data[i]["day"]+'"]').attr('data-select' , 1);
+                $('.fc-day[data-date="'+data[i]["day"]+'"]').attr('data-select');
+                $('.fc-day[data-date="'+data[i]["day"]+'"]').data('data-select', data[i]["lock"]);
                 $('.fc-day[data-date="'+data[i]["day"]+'"]').css('background', 'red');
               });
             }
@@ -105,37 +105,40 @@ $(document).ready(function() {
         var date = $(this).data("date");
         //debugger;
         //console.log(date);
-        valboolean = $(this).data('data-select');
+        valboolean = $('.fc-day[data-date="'+date+'"]').data("data-select");
+
         if (typeof valboolean == typeof undefined) {
 
           valboolean = 0;
-          $(this).attr('data-select' , valboolean);
+          //$(this).attr('data-select' , valboolean);
         }
         //debugger;
 
 
         valboolean=!valboolean;
-        $(this).data('data-select', valboolean);
+        //$(this).data('data-select', valboolean);
         data = {
           'service_id':$("[name='service_id']").val(),
           'date':date,
           'lock':valboolean
         };
         //console.log(valboolean);
-        console.log(valboolean);
-        console.log(data);
+        //console.log(valboolean);
+        //console.log(data);
         if (valboolean) {
 
-          $(this).css('background-color', 'red');
+
           $.ajax({
               url: 'save-service-day',
               data: data,
               type: 'POST',
               dataType: 'json',
               success: function(data) {
-                  console.log(data);
-
-
+                  //console.log(data["lock"]);
+                  $('.fc-day[data-date="'+data["day"]+'"]').css('background', 'red');
+                  $('.fc-day[data-date="'+data["day"]+'"]').attr('data-select');
+                  $('.fc-day[data-date="'+data["day"]+'"]').data('data-select', data["lock"]);
+                  console.log($('.fc-day[data-date="'+data["day"]+'"]').data('data-select'));
               },
               error: function(jqXHR, textStatus, errorThrown) {
 
@@ -144,16 +147,16 @@ $(document).ready(function() {
       }
       else if (!valboolean){
 
-        $(this).css('background-color', '');
+
         $.ajax({
             url: 'update-service-day',
             data: data,
             type: 'PUT',
             dataType: 'json',
             success: function(data) {
-                console.log(data);
-
-
+                $('.fc-day[data-date="'+data["day"]+'"]').css('background', '');
+                $('.fc-day[data-date="'+data["day"]+'"]').removeData( "data-select" );
+                console.log($('.fc-day[data-date="'+data["day"]+'"]').data('data-select'));
             },
             error: function(jqXHR, textStatus, errorThrown) {
 
@@ -161,6 +164,7 @@ $(document).ready(function() {
             }
           });
       }
+
     }
 
     });
