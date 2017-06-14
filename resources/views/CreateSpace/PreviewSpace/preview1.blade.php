@@ -103,8 +103,8 @@
             <div class="sections">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
                     <br>
-                    <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
-                    <h4 class="text-center">Username</h4>
+                    <img class="imgHom2" src="" alt="">
+                    <h4 class="text-center">Username </h4>
                     <br>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">

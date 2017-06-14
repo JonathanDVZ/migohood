@@ -1939,7 +1939,57 @@ class CreateSpaceController extends Controller
 
     public function Preview1()
     {
-        return view("CreateSpace.PreviewSpace.preview1");
+      $data['service_id'] = 4;
+      $data['languaje'] = 'ES';
+      
+        $exit_emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-exit-emergency')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $note_emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-note-emergency')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-emergency')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $amenities = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-amenities')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $rules = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-rules')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $overview = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-overviews')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $beds = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-beds')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        dd($overview);
+        return view("CreateSpace.PreviewSpace.preview1", ['emergency' => $emergency, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds ]);
     }
 
         public function Preview2()
