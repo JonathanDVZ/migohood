@@ -1939,9 +1939,9 @@ class CreateSpaceController extends Controller
 
     public function Preview1()
     {
-      $data['service_id'] = 4;
+      $data['service_id'] = 5;
       $data['languaje'] = 'ES';
-      
+
         $exit_emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-exit-emergency')
                         ->withData( array(
                             'service_id' => $data['service_id'],
@@ -1952,10 +1952,11 @@ class CreateSpaceController extends Controller
         $note_emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-note-emergency')
                         ->withData( array(
                             'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
                             ) )
                         ->asJson( true )
                         ->get();
-        $emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-emergency')
+        $emergencies = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-emergency')
                         ->withData( array(
                             'service_id' => $data['service_id'],
                             ) )
@@ -1988,8 +1989,8 @@ class CreateSpaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
-        dd($overview);
-        return view("CreateSpace.PreviewSpace.preview1", ['emergency' => $emergency, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds ]);
+        //dd($note_emergency);
+        return view("CreateSpace.PreviewSpace.preview1", ['emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds ]);
     }
 
         public function Preview2()

@@ -103,25 +103,25 @@
             <div class="sections">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
                     <br>
-                    <img class="imgHom2" src="" alt="">
-                    <h4 class="text-center">Username </h4>
+                    <img class="imgHom2" src="{{$overview["avatar"]}}" alt="">
+                    <h4 class="text-center">{{$overview["name"]}} </h4>
                     <br>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
-                    <h3>Espacio Habitable</h3>
-                    <span>Barcelona, Barcelona, Spain</span>
+                    <h3>{{$overview["title"]}}</h3>
+                    <span>{{$overview["state"]}} , {{$overview["country"]}}</span>
                     <br>
                     <br>
                     <br>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
                         <br>
-                        <span>Habitacion Privada</span>
+                        <span>{{$overview["category"]}}</span>
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
                         <br>
-                        <span>1 Invitado</span>
+                        <span>{{$overview["guest"]}} invitado(s)</span>
 
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
@@ -144,8 +144,8 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>Accomodates: </strong><span>1</span><br>
-                    <strong>Baños:</strong><span>1</span><br>
+                    <strong>Accomodates: </strong><span>{{$overview["accommodation"]}}</span><br>
+                    <strong>Baños:</strong><span>{{$overview["bathrooms"]}}</span><br>
                     <strong>Habitaciones: </strong><span>1</span><br>
                     <strong>Camas: </strong><span>1</span><br>
                     <a href="#">Reglas de la Casa</a>
@@ -154,10 +154,10 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong>Check-in: </strong><span>Despues de las 3PM</span><br>
-                    <strong>Tipo de Propiedad: </strong><span>Apartamento</span><br>
-                    <strong>Tipo de Habitacion: </strong><span>Privado</span><br>
-                    <strong>Tipo de Baño: </strong><span>Privadoe</span><br>
+                    <strong>Check-in: </strong><span>Despues de las {{$overview["check_in"]}}</span><br>
+                    <strong>Tipo de Propiedad: </strong><span>{{$overview["type"]}}</span><br>
+                    <strong>Tipo de Habitacion: </strong><span>{{$overview["accommodation"]}}</span><br>
+                    {{-- <strong>Tipo de Baño: </strong><span>Privadoe</span><br> --}}
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -172,16 +172,17 @@
                 </div>
                 <div class="col-sm-4 col-xs-4">
                     <br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>Se Permiten Mascotas</span><br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Elevator.png')}}" alt=""> </strong><span>Elevador en el Edificio</span><br>
+                    @foreach($amenities as $amenitie)
+                      <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>{{$amenitie["amenities"]}}</span><br>
+                    @endforeach
                     <a href="#">+ Mas</a>
                     <br>
                     <br>
                 </div>
                 <div class="col-sm-4 col-xs-4">
-                    <br>
+                    {{-- <br>
                     <strong><img class="lilicon" src="{{url('/assets/img/Icon-Family.png')}}" alt=""> </strong><span>Familia / niños Amistoso</span><br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Wifi.png')}}" alt=""> </strong><span>Wifi</span><br>
+                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Wifi.png')}}" alt=""> </strong><span>Wifi</span><br> --}}
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -196,7 +197,7 @@
                 </div>
                 <div class="col-sm-8 col-xs-8">
                     <br>
-                    <strong>Cancelacion: </strong><span>Flexible</span><br>
+                    <strong>Cancelacion: </strong><span>{{$overview["prices"]}}</span><br>
                     <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
@@ -226,9 +227,14 @@
                     <h3>Reglas de la Casa</h3>
                 </div>
                 <div class="col-sm-8 col-xs-8">
+                  @foreach($rules as $rule)
                     <br>
-                    <span>Check-in es despues de las 3PM</span><br>
-                    <br>
+                    <span>{{$rule["type"]}}</span><br>
+                    @if($rule["description"])
+                        Descripcion:  <span>{{$rule["description"]}}</span>
+                        <br>
+                    @endif
+                  @endforeach
                     <a href="#">Ver Calendario <span class="glyphicon glyphicon-calendar"></span></a>
                     <br>
                     <br>
@@ -259,18 +265,18 @@
                     <h3>Seguridad</h3>
                 </div>
                 <div class="col-sm-4 col-xs-4">
+                  @foreach($note_emergency as $note)
                     <br>
-                    <span>Detector de Humo</span><br>
+                    <span>{{$note["type"]}}</span><br>
                     <span></span><br>
-                    <span>Extintor de Fuego</span><br>
-                    <br>
+                  @endforeach
                 </div>
                 <div class="col-sm-4 col-xs-4">
-                    <br>
+                    {{-- <br>
                     <span>Kitchen roof</span><br>
                     <span></span><br>
                     <span>Kitchen right of stove</span><br>
-                    <br>
+                    <br> --}}
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -283,9 +289,11 @@
                     <h3>Instrucciones de Emergencia</h3>
                 </div>
                 <div class="col-sm-8 col-xs-8">
+                  @foreach($exit_emergency as $exit)
                     <br>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
+                    <p>{{$exit["type"]}}         :        {{$exit["content"]}} </p>
                     <br>
+                  @endforeach
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -300,8 +308,10 @@
                 <div class="col-sm-8 col-xs-8">
                     <br>
                     <p>
-                        <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt=""> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam
-                        eligendi minima natus voluptatum tempore eius quaerat sunt.
+                        @foreach($emergencies as $emergency)
+                          <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt="">{{$emergency["name"]}}   :    {{$emergency["number"]}}
+                          <br>
+                        @endforeach
                     </p>
                     <br>
                 </div>
