@@ -1941,7 +1941,7 @@ class CreateSpaceController extends Controller
     {
       $data['service_id'] = 4;
       $data['languaje'] = 'ES';
-      
+
         $exit_emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-exit-emergency')
                         ->withData( array(
                             'service_id' => $data['service_id'],
@@ -1988,7 +1988,7 @@ class CreateSpaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
-        dd($overview);
+        //dd($overview);
         return view("CreateSpace.PreviewSpace.preview1", ['emergency' => $emergency, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds ]);
     }
 
