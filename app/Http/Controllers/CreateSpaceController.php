@@ -1989,8 +1989,23 @@ class CreateSpaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
+        $description = Curl::to(env('MIGOHOOD_API_URL').'/service/space/getDescription')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ))
+                        ->asJson( true )
+                        ->get();
 
-        return view("CreateSpace.PreviewSpace.preview1", ['emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds ]);
+        $tknow = Curl::to(env('MIGOHOOD_API_URL').'/service/space/getTooKnow')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ))
+                        ->asJson( true )
+                        ->get();
+
+        return view("CreateSpace.PreviewSpace.preview1", ['emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description, 'tknow' => $tknow ]);
     }
 
         public function Preview2()
