@@ -673,7 +673,7 @@ class CreateSpaceController extends Controller
                         'zipcode' => $request->input('zipcode'),
                         'state_id' => $request->input('state'),
                         'address1' => $request->input('address'),
-                        'apt ' => $request->input('apartment'),
+                        'apt' => $request->input('apartment'),
                         'des_neighborhood' => $request->input('info'),
                         'des_around' => $request->input('around'),
                         'des_longitude' => $request->input('longitude'),
@@ -1941,6 +1941,7 @@ class CreateSpaceController extends Controller
     {
       $data['service_id'] = session()->get('service_id');
       $data['languaje'] = 'ES';
+      
 
         $exit_emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-exit-emergency')
                         ->withData( array(
@@ -2005,7 +2006,24 @@ class CreateSpaceController extends Controller
                         ->asJson( true )
                         ->get();
 
-        return view("CreateSpace.PreviewSpace.preview1", ['emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description, 'tknow' => $tknow ]);
+        $bedrooms = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-bedrooms')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+
+        $price = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-price')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+       // dd($emergencies);
+
+        return view("CreateSpace.PreviewSpace.preview1", ['bedrooms'=>$bedrooms, 'emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description, 'tknow' => $tknow, 'price'=>$price ]);
     }
 
         public function Preview2()
@@ -2015,12 +2033,50 @@ class CreateSpaceController extends Controller
 
         public function Preview3()
     {
-        return view("CreateSpace.PreviewSpace.preview3");
+        $data['service_id'] = session()->get('service_id');
+        $data['languaje'] = 'ES';
+      
+        $overview3 = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-overviews')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+
+        return view("CreateSpace.PreviewSpace.preview3",['overview3'=>$overview3]);
     }
 
         public function Preview4()
     {
-        return view("CreateSpace.PreviewSpace.preview4");
+          $data['service_id'] = session()->get('service_id');
+          $data['languaje'] = 'ES';
+
+          $overview4 = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-map-neighborhood')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+
+            $latitude = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-map-neighborhood-latitude')
+                            ->withData( array(
+                                'service_id' => $data['service_id'],
+                                'languaje' => $data['languaje'],
+                                ) )
+                            ->asJson( true )
+                            ->get();
+
+            $longitude = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-map-neighborhood-longitude')
+                            ->withData( array(
+                                'service_id' => $data['service_id'],
+                                'languaje' => $data['languaje'],
+                                ) )
+                            ->asJson( true )
+                            ->get();
+
+        return view("CreateSpace.PreviewSpace.preview4",['latitude' => $latitude, 'longitude' =>$longitude,'overview4'=>$overview4]);
     }
 
     public function ChooseType()

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Curl;
 
 class CreateParkingController extends Controller
 {
@@ -31,7 +32,10 @@ class CreateParkingController extends Controller
 
         public function Third()
     {
-        return view("CreateParking.baths");
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+        }
+        return view("CreateParking.baths",['id'=>$id]);
     }
 
         public function Fourth()
@@ -61,7 +65,7 @@ class CreateParkingController extends Controller
                 ->asJson(true)
                 ->get();
             var_dump($res);
-            if(!is_array($res) && $res =="menities not found"){
+            if(!is_array($res) && $res =="amenities not found"){
 
             }else{
                 return view("CreateParking.amenities")->with(["result"=>$res,'id' => $id,]);

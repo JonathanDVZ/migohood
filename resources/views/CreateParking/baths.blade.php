@@ -16,7 +16,7 @@
                         <form id="formAddBaths" action="{{ url('/create-space/baths/add-baths') }}" method="POST">
                             <div class="text-left">
                                 <input type="number" name="num_bathroom" min="1" max="20" class="form-control" step="1" placeholder="0" required>
-                                <input type="hidden" name="service_id" value="{{ $service_id }}">
+                                <input type="hidden" name="service_id" value="{{ $id }}">
                                 {{ csrf_field() }}
                             </div>
                         </form>

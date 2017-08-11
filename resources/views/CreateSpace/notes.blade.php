@@ -135,9 +135,9 @@
                                                                     @if(is_array($emergency))
                                                                         @foreach($emergency as $emg)
                                                                             <tr>
-                                                                                <td>1</td>
-                                                                                <td>Bomberos</td>
-                                                                                <td>098029385029</td>
+                                                                                <td>{{ $emg['id'] }}</td>
+                                                                                <td>{{ $emg['name'] }}</td>
+                                                                                <td>{{ $emg['number'] }}</td>
                                                                                 <td>
                                                                                     <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
                                                                                     <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>

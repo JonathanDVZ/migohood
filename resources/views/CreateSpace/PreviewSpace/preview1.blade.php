@@ -127,13 +127,12 @@
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
                         <br>
-                        <span>1 Habitacion<span>
-
+                        <span>{{$bedrooms[0]["num_bedrooms"]}} Habitacion(es)<span>
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                      <img class="imgHom3" src="{{url('/assets/img/Icon-Bed.png')}}" alt="">
                      <br>
-                     <span>1 Cama</span>
+                     <span>1  Cama</span>
                     </div>
                 </div>
             </div>
@@ -146,7 +145,7 @@
                     <br>
                     <strong>Accomodates: </strong><span>{{$overview["accommodation"]}}</span><br>
                     <strong>Baños:</strong><span>{{$overview["bathrooms"]}}</span><br>
-                    <strong>Habitaciones: </strong><span>1</span><br>
+                    <strong>Habitaciones: </strong><span>{{$bedrooms[0]["num_bedrooms"]}}</span><br>
                     <strong>Camas: </strong><span>1</span><br>
                     <a href="#">Reglas de la Casa</a>
                     <br>
@@ -161,7 +160,7 @@
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-space/place-type')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
@@ -175,7 +174,7 @@
                     @foreach($amenities as $amenitie)
                       <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>{{$amenitie["amenities"]}}</span><br>
                     @endforeach
-                    <a href="#">+ Mas</a>
+                    <a href="{{url('/create-space/amenities')}}">+ Mas</a>
                     <br>
                     <br>
                 </div>
@@ -186,7 +185,7 @@
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-space/amenities')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
@@ -202,7 +201,7 @@
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-space/hosting')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
@@ -218,7 +217,7 @@
 
                 <div class="col-sm-1 col-xs-1">
                     <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-space/basics')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
@@ -241,7 +240,7 @@
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-space/listing')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
@@ -256,7 +255,7 @@
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-space/basics')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
@@ -280,7 +279,7 @@
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-space/notes')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
@@ -296,8 +295,8 @@
                   @endforeach
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <br>@if($overview['servid'] == $overview['userid'])
+                    <a href="{{url('/create-space/notes')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>@endif
                 </div>
             </div>
             <div class="sections">
@@ -308,21 +307,24 @@
                 <div class="col-sm-8 col-xs-8">
                     <br>
                     <p>
-                    @if(isset($emergencies['name']) || isset($emergencies['number']))
-                        @foreach($emergencies as $emergency)
-                          <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt="">{{$emergency["name"]}}   :    {{$emergency["number"]}}
-                          <br>
-                        @endforeach
-                        
-                    </p>
-                    <br>
-                    @else
-                    @endif
+                    @if($overview['servid'] == $overview['userid'])
+                        @if(!isset($emergencies))
+                            @foreach($emergencies as $emergency)
+                              <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt="">{{$emergency["name"]}}   :    {{$emergency["number"]}}
+                              <br>
+                            @endforeach
+                        </p>
+                        <br>
+                        @endif
+                        @else
+                    <p>You must be a guest to see emergency numbers</p>
+                    @endif 
+                      
                 </div>
                 
                 <div class="col-sm-1 col-xs-1">
                     <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-space/notes')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
         </div>

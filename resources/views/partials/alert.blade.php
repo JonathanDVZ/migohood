@@ -3,7 +3,7 @@
     <script type="text/javascript">                 
         swal({
             title: "{{ Session::get('message-alert') }}",                           
-            imageUrl: "assets/img/Logo.png",
+            imageUrl: "/assets/img/Logo.png",
             imageSize: '233x51',    
             confirmButtonColor:"#1994B5"                                        
         }); 
