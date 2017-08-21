@@ -158,7 +158,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-lg-offset-1 col-md-offset-1 col-sm-offset1 col-xs-offset-1 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-servicw/category')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-service/category')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">

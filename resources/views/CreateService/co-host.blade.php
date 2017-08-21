@@ -62,13 +62,13 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-space/hosting')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-service/notes')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-space/listing')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a href="{{url('/create-service/preview-overview')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

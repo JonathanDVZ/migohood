@@ -550,4 +550,19 @@ $(document).ready(function() {
         addressFill();
     });
 
+    /**
+     *   Funciones para envio de formulario en
+     *   creacion de Servicios
+     */
+    $("#CategoryService").click(function() {
+        $(this).attr('disabled', 'disabled');
+        sendCategoryService();
+        $(this).removeAttr('disabled');
+    });
+
+    function sendCategoryService() {
+        var form = document.getElementById('formAddCategoryService');
+        form.submit();
+    }
+
 })

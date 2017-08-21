@@ -45,7 +45,7 @@ class CreateSpaceController extends Controller
                                 ) )
                             ->asJson( true )
                             ->get();
-            //dd($result);
+           
         } else {
             $service = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step/create')
                         ->withData( array(
@@ -67,7 +67,7 @@ class CreateSpaceController extends Controller
                 } else {
                     $res = $service;
                 }
-
+               
                 return redirect('/becomeahost')->with(['message-alert' => '' . $res . '']);
             }
 
@@ -91,7 +91,8 @@ class CreateSpaceController extends Controller
                         ) )
                     ->asJson( true )
                     ->get();
-                    //dd($accommodation);
+
+                  //  dd($service);
 
         return view("CreateSpace.placeType", ['types' => $types, 'accommodation' => $accommodation, 'id' => $id, 'result' => $result]);
     }
@@ -987,7 +988,7 @@ class CreateSpaceController extends Controller
                                     ) )
                                 ->asJson( true )
                                 ->post();
-                //print_r($response);
+                //dd($response);
                 if ($response == 'Update Step 5' OR $response == 'Add Step 5') {
                 } else
                     return redirect('/create-space/amenities')->with(['message-alert' =>''.$response.'']);
@@ -1053,6 +1054,7 @@ class CreateSpaceController extends Controller
             }
             //dd($saved_hosting);
             //dd($payments);
+            //dd($selected_until);
             return view("CreateSpace.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments, 'selected_currency' => $selected_currency, 'selected_duration' => $selected_duration, 'selected_payment' => $selected_payment, 'price' => $price, 'selected_entry' => $selected_entry, 'selected_until' => $selected_until, 'selected_departure' => $selected_departure] );
 
 
@@ -1343,7 +1345,7 @@ class CreateSpaceController extends Controller
                             'Desc_Otro_Evento' => $request->input('Desc_Otro_Evento'),
                             'guest_phone' => $guest_phone,
                             'guest_email' => $guest_email,
-                            'guest_profile  ' => $guest_profile,
+                            'guest_profile' => $guest_profile,
                             'guest_payment' => $guest_payment,
                             'guest_provided' => $guest_provided,
                             'guest_recomendation' => $guest_recomendation,
