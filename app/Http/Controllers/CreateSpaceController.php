@@ -35,7 +35,7 @@ class CreateSpaceController extends Controller
     {
 
         $id = ''; $result = '';
-        if (session()->has('service_id')) {
+        if (session()->has('service_id') AND session('category_code') ==1 ) {
             $id = session()->get('service_id');
             //
             $result = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-1/get-create')
@@ -74,6 +74,7 @@ class CreateSpaceController extends Controller
             $id = $service['id'];
 
             session()->put('service_id', $id);
+            Session::put('category_code',1);
         }
 
 

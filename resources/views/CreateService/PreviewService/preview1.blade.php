@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    @include('CreateSpace.PreviewSpace.navbar.preview-navbar',['activo2' => 'preview1'])
+    @include('CreateService.PreviewService.navbar.preview-navbar',['activo2' => 'preview1'])
     <div class="container-fluid WhiteBack preBody">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
             <div class="sections">
@@ -116,48 +116,38 @@
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
                         <br>
-                        <span>Habitacion Privada</span>
+                        <span>Recreacional</span>
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
                         <br>
-                        <span>1 Invitado</span>
+                        <span>Familiar</span>
 
                     </div>
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
                         <br>
-                        <span>1 Habitacion<span>
+                        <span>3 Invitado(s)<span>
 
-                    </div>
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                     <img class="imgHom3" src="{{url('/assets/img/Icon-Bed.png')}}" alt="">
-                     <br>
-                     <span>1 Cama</span>
                     </div>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h3>El Lugar</h3>
+                    <h3>Sobre este servicio</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
+                <div class="col-sm-8 col-xs-8">
                     <br>
-                    <strong>Accomodates: </strong><span>1</span><br>
-                    <strong>Baños:</strong><span>1</span><br>
-                    <strong>Habitaciones: </strong><span>1</span><br>
-                    <strong>Camas: </strong><span>1</span><br>
-                    <a href="#">Reglas de la Casa</a>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     <br>
                     <br>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong>Check-in: </strong><span>Despues de las 3PM</span><br>
-                    <strong>Tipo de Propiedad: </strong><span>Apartamento</span><br>
-                    <strong>Tipo de Habitacion: </strong><span>Privado</span><br>
-                    <strong>Tipo de Baño: </strong><span>Privadoe</span><br>
+                    <a href="">contactar anfiltrion</a>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -167,21 +157,17 @@
             <div class="sections">
                 <hr class="black">
                 <div class="col-sm-3 col-xs-3">
-                    <h4>Comodidades</h4>
+                    <h4>Itinerario</h4>
                     <br>
                 </div>
-                <div class="col-sm-4 col-xs-4">
+                <div class="col-sm-8 col-xs-8">
                     <br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>Se Permiten Mascotas</span><br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Elevator.png')}}" alt=""> </strong><span>Elevador en el Edificio</span><br>
-                    <a href="#">+ Mas</a>
-                    <br>
-                    <br>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Family.png')}}" alt=""> </strong><span>Familia / niños Amistoso</span><br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Wifi.png')}}" alt=""> </strong><span>Wifi</span><br>
+                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>

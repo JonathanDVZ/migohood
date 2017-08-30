@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    @include('CreateSpace.PreviewSpace.navbar.preview-navbar',['activo2' => 'preview2'])
+    @include('CreateService.PreviewService.navbar.preview-navbar',['activo2' => 'preview2'])
     <div class="container-fluid WhiteBack preBody">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">

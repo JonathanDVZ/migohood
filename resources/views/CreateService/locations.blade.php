@@ -6,6 +6,7 @@
             <br>
             <div class="text-right">
                 <div class="row">
+                        <form id="formAddLocationService" action="{{ url('/create-service/save-location') }}" method="POST">
                     <div class="col-sm-10 col-sm-offset-2">
                         <h3 class="titulo text-center">Agrega un lugar de Reunion</h3>
                         <br>
@@ -15,7 +16,7 @@
                                     <label>Nombre de la Locacion</label>
                                 </div>
                                 <div class="text-left">
-                                    <input type="text" name="quantity" class="form-control" placeholder="">
+                                    <input type="text" name="around" class="form-control" placeholder="" value="@if(isset($around) AND !empty($around)){{ $around }}@endif">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -23,12 +24,12 @@
                                     <div class="text-left">
                                         <label>Pais:</label>
                                     </div>
-                                    <select class="selectpicker form-control required">
-                                    <option></option>
-                                    <option>España</option>
-                                    <option>Colombia</option>
-                                    <option>Venezuela</option>
-                                </select>
+                                    <select id="spaceCountry" name="country" class="selectpicker form-control" required>
+                                        <option>Selecciona un Pais</option>
+                                        @foreach($countries as $country)
+                                            <option @if(isset($result[0]['country']) AND !empty($result[0]['country']) AND $result[0]['country'] == $country['name']) {{'selected'}} @endif value="{{$country['id']}}">{{$country['name']}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -39,12 +40,16 @@
                                     <div class="text-left">
                                         <label>Estado:</label>
                                     </div>
-                                    <select class="selectpicker form-control required">
-                                    <option></option>
-                                    <option>España</option>
-                                    <option>Colombia</option>
-                                    <option>Venezuela</option>
-                                </select>
+                                    <div id="resultState">
+                                    <select id="spaceState" name="state" class="selectpicker form-control" required>
+                                        <option>Seleccione un Estado</option>
+                                        @if(isset($states) AND !empty($states))
+                                            @foreach($states as $state)
+                                                <option @if(isset($result[0]['state']) AND !empty($result[0]['state']) AND $result[0]['state'] == $state['state']) {{'selected'}} @endif value="{{$state['id']}}">{{$state['state']}}</option>
+                                            @endforeach
+                                        @endif
+                                    </select>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -52,7 +57,7 @@
                                     <label>Calle</label>
                                 </div>
                                 <div class="text-left">
-                                    <input type="text" name="quantity" class="form-control" placeholder="Street 1">
+                                    <input type="text" id="spaceAddress" name="address" class="form-control" placeholder="Calle 1" value="@if(isset($address) AND !empty($address)){{ $address }}@endif" required>
                                 </div>
                             </div>
                         </div>
@@ -63,19 +68,24 @@
                                     <label>Apt, Suite, Bdg</label>
                                 </div>
                                 <div class="text-left">
-                                    <input type="text" name="quantity" class="form-control" placeholder="e.g Apt #7">
+                                   <input type="text" id="spaceApartment" name="apartment" value="@if(isset($apartment) AND !empty($apartment)){{ $apartment }}@endif" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="text-left">
                                     <label>Ciudad</label>
                                 </div>
-                                <select class="selectpicker form-control required">
-                                    <option>Distrito Capital</option>
-                                    <option>Barinas</option>
-                                    <option>Barquisimeto</option>
-                                    <option></option>
-                                </select>
+                                <div id="resultCity">
+                                            <select id="spaceCities" name="city" class="selectpicker form-control" required>
+                                                <option>Seleccione una Ciudad</option>
+                                                @if(isset($cities) AND !empty($cities))
+                                                    @foreach($cities as $city)
+                                                        <option @if(isset($result[0]['city']) AND !empty($result[0]['city']) AND $result[0]['city'] == $city['city']) {{'selected'}} @endif value="{{$city['id']}}">{{$city['city']}}</option>
+                                                    @endforeach
+                                                @endif
+                                            </select>
+                                        </div>
+                                </div>
                             </div>
                         </div>
                         <br>
@@ -85,7 +95,7 @@
                                     <label>Codigo Postal</label>
                                 </div>
                                 <div class="text-left">
-                                    <input type="text" name="quantity" class="form-control" placeholder="123456">
+                                    <input type="text"id="spaceZipcode" name="zipcode" class="form-control" placeholder="19875" value="@if(isset($result[0]['zipcode']) AND !empty($result[0]['zipcode'])){{ $result[0]['zipcode'] }}@endif">
                                 </div>
                             </div>
                         </div>
@@ -94,28 +104,26 @@
                             <div class="text-left">
                                 <label>¿Dónde esta ubicada tu servicio</label>
                                 <br>
-                                <span>Calle 1, España, Barcelona 198756, España</span>
+                                 <br>
+                                    <span id="selectedAddress"></span><span id="selectedZipcode"></span><span id="selectedCity"></span><span id="selectedState"></span><span id="selectedCountry"></span></span>
+                                    <br>
                                 <br>
                                 <a href="">Editar Direccion</a>
                                 <br>
                             </div>
                             <div id="googleMap" style="width:100%;height:300px;"></div>
-                            <script>
-                                function myMap() {
-                                    var mapProp = {
-                                        center: new google.maps.LatLng(51.508742, -0.120850),
-                                        zoom: 5,
-                                    };
-                                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-                                }
-                            </script>
+                            <input type="hidden" name="latitude" id="latitude" value="@if(isset($latitude) AND !empty($latitude)){{ $latitude }}@endif">
+                                <input type="hidden" name="longitude" id="longitude" value="@if(isset($longitude) AND !empty($longitude)){{ $longitude }}@endif">
                         </div>
                         <div>
                             <div class="form-group text-left">
                                 <h4 class="text-left">Menciona donde estarás</h4>
-                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                                <textarea name="info" class="form-control" rows="5" id="comment">@if(isset($description) AND !empty($description)){{ $description }}@endif</textarea>
                             </div>
                         </div>
+                        <input type="hidden" name="service_id" value="{{$id}}">
+                            {{ csrf_field() }}
+                        </form>
                     </div>
                 </div>
             </div>
@@ -142,7 +150,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-service/notes')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a id="LocationService"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

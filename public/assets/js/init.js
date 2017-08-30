@@ -565,4 +565,63 @@ $(document).ready(function() {
         form.submit();
     }
 
+    $("#HostingService").click(function() {
+        $(this).attr('disabled', 'disabled');
+        sendHostingService();
+        $(this).removeAttr('disabled');
+    });
+
+    function sendHostingService() {
+        var form = document.getElementById('formAddHostingService');
+        form.submit();
+    }
+
+    $("#BasicsService").click(function() {
+        $(this).attr('disabled', 'disabled');
+        sendBasicsService();
+        $(this).removeAttr('disabled');
+    });
+
+    function sendBasicsService() {
+        var form = document.getElementById('formAddBasicsService');
+        form.submit();
+    }
+
+    $("#PhotosService").click(function() {
+        $(this).attr('disabled', 'disabled');
+        sendPhotosService();
+        $(this).removeAttr('disabled');
+    });
+
+    function sendPhotosService() {
+        var form = document.getElementById('formAddPhotosService');
+        form.submit();
+    }
+
+
+    $("#LocationService").click(function() {
+        $(this).attr('disabled', 'disabled');
+        sendLocationService();
+        $(this).removeAttr('disabled');
+    });
+
+    function sendLocationService() {
+        var form = document.getElementById('formAddLocationService');
+        form.submit();
+    }
+
+    $("#AddNoteService").click(function() {
+        $(this).attr('disabled', 'disabled');
+        sendNoteService();
+        $(this).removeAttr('disabled');
+    });
+
+    function sendNoteService() {
+        var form = document.getElementById('noteAddService');
+        form.submit();
+    }
+
+
+
+
 })

@@ -67,7 +67,7 @@
                             </div>
                             <div class="text-left">
                                 <br>
-                                <textarea name="Desc_Otro_Evento" class="form-control" rows="5" id="comment">@if(!empty($Desc_Otro_Evento)) {{ $Desc_Otro_Evento }} @endif</textarea>
+                                <textarea name="Desc_Otro_Evento" class="form-control" rows="5" id="comment">@if(!empty($Desc_Otro_Evento)) {{ $Desc_Otro_Evento }} @endif></textarea>
                             </div>
                         </div>
                         <div class="form-group text-left">
@@ -141,6 +141,7 @@
                                 <button type="button" class="btn btn-md works2" data-toggle="button">Agregar Idioma</button>
                             </div>
                         </div>-->
+                        <input type="hidden" name="service_id" value="{{ $id }}">
                         {{csrf_field()}}
                     </form>
                 </div>

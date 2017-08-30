@@ -78,15 +78,25 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-service/category','CreateServiceController@Category');
     Route::post('/create-service/save-category','CreateServiceController@SaveCategory');
     Route::get('/create-service/hosting','CreateServiceController@Hosting');
+    Route::post('/create-service/save-hosting','CreateServiceController@SaveHosting');
     Route::get('/create-service/basics','CreateServiceController@Basics');
+    Route::post('/create-service/save-basics','CreateServiceController@SaveBasics');
     Route::get('/create-service/photos','CreateServiceController@Photos');
+    Route::post('/create-service/save-photos','CreateServiceController@SavePhotos');
     Route::get('/create-service/location','CreateServiceController@Location');
+    Route::post('/create-service/save-location','CreateServiceController@SaveLocation');
     Route::get('/create-service/notes','CreateServiceController@Notes');
+    Route::post('/create-service/save-notes','CreateServiceController@SaveNotes');
     Route::get('/create-service/co-host','CreateServiceController@CoHost');
     Route::get('/create-service/preview-overview','CreateServiceController@Preview1');
     Route::get('/create-service/preview-reviews','CreateServiceController@Preview2');
     Route::get('/create-service/preview-host','CreateServiceController@Preview3');
     Route::get('/create-service/preview-location','CreateServiceController@Preview4');
+    Route::post('/create-service/get-states','CreateSpaceController@GetStates');
+    Route::post('/create-service/get-cities','CreateSpaceController@GetCities');
+    Route::post('/create-service/save-service-day','CreateSpaceController@SaveServiceDay');
+    Route::put('/create-service/update-service-day','CreateSpaceController@UpdateServiceDay');
+    Route::get('/create-service/get-service-day','CreateSpaceController@GetServiceDay');
 //}
 
 // Routes for the parking creation{
