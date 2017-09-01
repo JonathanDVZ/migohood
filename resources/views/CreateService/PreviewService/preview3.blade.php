@@ -110,7 +110,7 @@
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
                     <br>
                     <br>
-                    <h4>Username</h4>
+                    <h4>{{$overview3["name"]}} {{$overview3["lastname"]}}</h4>
                     <span>ES - Entro en Febrero</span>
                     <br>
                     <button class="btn btn-lg">Contactar Host</button>

@@ -1,9 +1,9 @@
 @extends('layouts.master') @section('title', 'Hosting') @section('class', 'contenedor') @section( 'content') @include('CreateService.navbar.navbar',['activo' => 'hosting'])
 <div class="container-fluid">
+    <form id="formAddHostingService" method="POST" action="{{url('/create-service/save-hosting')}}">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
-                <form id="formAddHostingService" method="POST" action="{{url('/create-service/save-hosting')}}">
                 <div class="col-sm-8 col-sm-offset-3">
                     <h3 class="titulo text-center">Fechas Disponibles</h3>
                     <div style="overflow:hidden;">
@@ -100,7 +100,7 @@
                             <div class="text-center">
                                 <div class="cheks"><label for="selectin">Desde:   </label></div>
                                 <div class="cheks">
-                                    <select id="selectin" class="selectpicker form-control required" name="time_entry">
+                                    <select class="selectpicker form-control required" name="time_entry">
                                         <option @if(!empty($selected_entry) AND $selected_entry == '00:00:00') {{ 'selected' }} @endif value="00:00:00">12 AM</option>
                                         <option @if(!empty($selected_entry) AND $selected_entry == '01:00:00') {{ 'selected' }} @endif value="01:00:00">1 AM</option>
                                         <option @if(!empty($selected_entry) AND $selected_entry == '02:00:00') {{ 'selected' }} @endif value="02:00:00">2 AM</option>

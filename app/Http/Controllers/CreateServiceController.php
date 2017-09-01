@@ -827,12 +827,50 @@ class CreateServiceController extends Controller
 
     public function Preview3(Request $request)
     {
-        return view("CreateService.PreviewService.preview3");
+        $data['service_id'] = session()->get('service_id');
+        $data['languaje'] = 'ES';
+      
+        $overview3 = Curl::to(env('MIGOHOOD_API_URL').'/service/services/preview-overviews')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+
+        return view("CreateService.PreviewService.preview3",['overview3'=>$overview3]);
     }
 
     public function Preview4(Request $request)
     {
-        return view("CreateService.PreviewService.preview4");
+        $data['service_id'] = session()->get('service_id');
+          $data['languaje'] = 'ES';
+
+          $overview4 = Curl::to(env('MIGOHOOD_API_URL').'/service/services/preview-map-neighborhood')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+
+            $latitude = Curl::to(env('MIGOHOOD_API_URL').'/service/services/preview-map-neighborhood-latitude')
+                            ->withData( array(
+                                'service_id' => $data['service_id'],
+                                'languaje' => $data['languaje'],
+                                ) )
+                            ->asJson( true )
+                            ->get();
+
+            $longitude = Curl::to(env('MIGOHOOD_API_URL').'/service/services/preview-map-neighborhood-longitude')
+                            ->withData( array(
+                                'service_id' => $data['service_id'],
+                                'languaje' => $data['languaje'],
+                                ) )
+                            ->asJson( true )
+                            ->get();
+
+        return view("CreateService.PreviewService.preview4",['latitude' => $latitude, 'longitude' =>$longitude,'overview4'=>$overview4]);
     }
 
     public function GetStates(Request $request)

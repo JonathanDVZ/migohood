@@ -92,11 +92,11 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-service/preview-reviews','CreateServiceController@Preview2');
     Route::get('/create-service/preview-host','CreateServiceController@Preview3');
     Route::get('/create-service/preview-location','CreateServiceController@Preview4');
-    Route::post('/create-service/get-states','CreateSpaceController@GetStates');
-    Route::post('/create-service/get-cities','CreateSpaceController@GetCities');
-    Route::post('/create-service/save-service-day','CreateSpaceController@SaveServiceDay');
-    Route::put('/create-service/update-service-day','CreateSpaceController@UpdateServiceDay');
-    Route::get('/create-service/get-service-day','CreateSpaceController@GetServiceDay');
+    Route::post('/create-service/get-states','CreateServiceController@GetStates');
+    Route::post('/create-service/get-cities','CreateServiceController@GetCities');
+    Route::post('/create-service/save-service-day','CreateServiceController@SaveServiceDay');
+    Route::put('/create-service/update-service-day','CreateServiceController@UpdateServiceDay');
+    Route::get('/create-service/get-service-day','CreateServiceController@GetServiceDay');
 //}
 
 // Routes for the parking creation{
