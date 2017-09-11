@@ -10,7 +10,7 @@
                         <br>
                     </div>
                     <br>
-                    <form id="formAddPhotosService" method="POST" action="{{url('/create-service/save-photos')}}" enctype="multipart/form-data">
+                    <form id="formAddPhotosService" file="true" method="POST" action="{{url('/create-service/save-photos')}}" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                             <input class="fileinputs thumb file1" data-idFile="1" type="file" id="files1" name="file1"/>

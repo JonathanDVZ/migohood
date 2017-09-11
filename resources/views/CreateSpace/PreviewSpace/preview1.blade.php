@@ -308,14 +308,14 @@
                     <br>
                     <p>
                     @if($overview['servid'] == $overview['userid'])
-                        @if(!isset($emergencies))
+                        @if(!empty($emergencies))
                             @foreach($emergencies as $emergency)
                               <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt="">{{$emergency["name"]}}   :    {{$emergency["number"]}}
                               <br>
                             @endforeach
                         </p>
-                        <br>
                         @endif
+                        <br>
                         @else
                     <p>You must be a guest to see emergency numbers</p>
                     @endif 

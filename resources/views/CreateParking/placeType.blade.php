@@ -13,20 +13,21 @@
                                 <label>¿Qué ofrece?:</label>
                             </div>
                             <br>
-                            <select class="selectpicker form-control required" >
-                                    <option>Garage</option>
-                                    <option>Garage</option>
-                                    <option>Garage</option>
+                            <select class="selectpicker form-control required" name="type">
+                                @foreach($types as $type)
+                                    
+                                    <option @if(isset($result['Type']) AND !empty($result['Type']) AND $result['Type'] == $type['name']) {{'selected'}} @endif value="{{ $type['code'] }}">{{ $type['name'] }}</option>
+                                @endforeach
                             </select>
                             <br>
                             <br>
                             <div id="lilbox">
                                 <div class="radio">
-                                    <label class="textwhite"><input data-type="Exterior" onclick="dataType(this)" type="radio" name="optradio" ><strong>Exterior</strong></label>
+                                    <label class="textwhite"><input data-type="Exterior" onclick="dataType(this)" type="radio" name="optradio" value="0" ><strong>Exterior</strong></label>
                                 </div>
                                 <hr>
                                 <div class="radio">
-                                    <label class="textwhite"><input data-type="Interior" onclick="dataType(this)" type="radio" name="optradio" ><strong>Interior</strong></label>
+                                    <label class="textwhite"><input data-type="Interior" onclick="dataType(this)" type="radio" name="optradio" value="1" ><strong>Interior</strong></label>
                                 </div>
                             </div>
                             <br>

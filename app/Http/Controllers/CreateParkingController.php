@@ -7,10 +7,20 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Crypt;
 use Curl;
+use phpDocumentor\Reflection\Types\Null_;
+use Session;
+use Hash;
+use validator;
 
 class CreateParkingController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('customAuth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -22,7 +32,60 @@ class CreateParkingController extends Controller
     }
         public function First()
     {
-        return view("CreateParking.placeType");
+        $id = ''; $result = '';
+        if (session()->has('service_id') AND session('category_code') ==3 ) {
+            $id = session()->get('service_id');
+            //
+            $result = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-1/get-create')
+                            ->withData( array(
+                                'service_id'  => $id,
+                                'languaje' => 'ES'
+                                ) )
+                            ->asJson( true )
+                            ->get();
+           
+        } else {
+            $service = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step/create')
+                        ->withData( array(
+                            'category_code' => '3',
+                            'user_id'  => session()->get('user.id')
+                            ) )
+                        ->asJson( true )
+                        ->post();
+            if (is_array($service) && array_key_exists('id', $service)){
+
+            } else {
+                $caracters = array('"','[',']',',');
+                $service = str_replace($caracters,'',$service);
+                if (is_array($service)) {
+                    $res = '';
+                    foreach ($service as $r) {
+                        $res .= $r . '\\n';
+                    }
+                } else {
+                    $res = $service;
+                }
+               
+                return redirect('/becomeahost')->with(['message-alert' => '' . $res . '']);
+            }
+
+            $id = $service['id'];
+
+            session()->put('service_id', $id);
+            Session::put('category_code',3);
+        }
+
+
+        $types = Curl::to(env('MIGOHOOD_API_URL').'/category/parking/get-type')
+                    ->withData( array(
+                        'category_id' => '3',
+                        'languaje'  => "ES",
+                        ) )
+                    ->asJson( true )
+                    ->get();
+
+
+        return view("CreateParking.placeType", ['types' => $types, 'id' => $id, 'result' => $result]);
     }
 
         public function Second(Request $request)
@@ -64,7 +127,7 @@ class CreateParkingController extends Controller
                 ))
                 ->asJson(true)
                 ->get();
-            var_dump($res);
+           // var_dump($res);
             if(!is_array($res) && $res =="amenities not found"){
 
             }else{

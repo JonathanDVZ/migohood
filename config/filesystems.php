@@ -64,10 +64,10 @@ return [
 
         's3' => [
             'driver' => 's3',
-            'key'    => 'your-key',
-            'secret' => 'your-secret',
-            'region' => 'your-region',
-            'bucket' => 'your-bucket',
+            'key'    => 'AKIAIAR23M6PGMY3JJ2Q',
+            'secret' => 'ykAlQ18inkLSIQrRPn+EAXXUBF4RPr/U1dN0vR7T2',
+            'region' => 'us-east-2',
+            'bucket' => 'migohood',
         ],
 
         'rackspace' => [

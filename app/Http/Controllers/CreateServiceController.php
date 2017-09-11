@@ -496,6 +496,7 @@ class CreateServiceController extends Controller
                 //return response()->json($validator->errors()->all());
                 return redirect('/create-service/photos')->with(['message-alert' =>''.$validator->errors()->all().'']);
             }
+
             $img1 = ''; $desc1 = ''; $name1 = '';
             // Verifico si me da indicio de que ya habia una foto guardada
             if ($request->has('old1') AND $request->input('old1') == '1') {
@@ -542,7 +543,7 @@ class CreateServiceController extends Controller
             }
 
             if (!empty($name1)) {
-                $img1->move('/files/images/',$name1);
+                $img1->move('files/images/',$name1);
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-4/image')
                             ->withContentType('multipart/form-data')
                             ->withHeaders( array(
@@ -558,13 +559,13 @@ class CreateServiceController extends Controller
 
                 //unlink('files/images/'.$name1);
                 //dd($res);
-                if ($res == 'Duration not found' OR $res == 'Service not found') {
+                if ($res == 'Duration not found' OR $res == 'Service not found' OR $res == 'false') {
                     return redirect('/create-services/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
 
             if (!empty($name2)) {
-                $img2->move('/files/images/',$name2);
+                $img2->move('files/images/',$name2);
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-4/image')
                             ->withContentType('multipart/form-data')
                             ->withHeaders( array(
@@ -577,12 +578,12 @@ class CreateServiceController extends Controller
                             ))
                             ->containsFile()
                             ->post();
-               // unlink('files/images/'.$name2);
-                if ($res == 'Duration not found' OR $res == 'Service not found') {
+                //unlink('files/images/'.$name2);
+                if ($res == 'Duration not found' OR $res == 'Service not found' OR $res == 'false') {
                     return redirect('/create-service/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
-
+           // dd($request->input('file1'));
             return redirect('/create-service/location');
 
         } else {
