@@ -11,18 +11,18 @@
             <h3 class="titulo text-center">¿CUÁNTOS HUESPEDES PUEDEN HOSPEDARSE?</h3>
             <br>
             <div class="row">
-                <form id="formAddBedrooms" method="POST" action="{{ url('/create-space/add-bedrooms') }}">
+                <form id="formAddBedrooms" method="POST" action="{{ url('/create-parking/add-bedrooms') }}">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="form-group text-right">
                             <div class="text-left">
-                                <input type="number" name="guests_number" min="1" max="20" class="form-control" id="guests_number" step="1" placeholder="0" required>
+                                <input type="number" name="guests_number" min="1" max="20" class="form-control" step="1" placeholder="0" value="@if(isset($result[0]['num_guest']) AND !empty($result[0]['num_guest'])){{ $result[0]['num_guest'] }}@endif" required>
                             </div>
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
                                 <label>¿Cuántas Habitaciones ofrece?:</label>
-                                <input type="number" name="bedrooms_number" min="1" max="20" class="form-control" step="1" placeholder="0" required>
-                                <input name="service" type="hidden" value="{{ $id }}">
+                               <input type="number" name="bedrooms_number" min="1" max="20" class="form-control" step="1" placeholder="0" value="@if(isset($result[0]['num_bedroom']) AND !empty($result[0]['num_bedroom'])){{$result[0]['num_bedroom']}}@endif" required>
+                                <input name="service_id" type="hidden" value="{{ $id }}">
 
                             </div>
                         </div>

@@ -100,7 +100,7 @@
                                 <label><input type="checkbox" value="">mes</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Detector de Monoxido de Carbono</label>
+                                <label><input type="checkbox" value="">hora</label>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">

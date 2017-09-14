@@ -102,10 +102,14 @@
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
             <div style="margin: 1em;">
                 <h3 style="color:#0093b4">The Neigborhood</h3>
-                <span>Username's </span> <span>place is lcoated in</span><span> Barcelona, Spain</span>
+                <span>Username's </span> <span>place is lcoated in</span><span> {{$overview4["city"]}} {{$overview4["state"]}} , {{$overview4["country"]}}</span>
             </div>
 
             <div id="googleMap" style="width:95%;height:250px;margin:1.5em;"></div>
+            <input type="hidden" name="latitude" id="latitude" value="@if(isset($latitude['content']) AND !empty($latitude['content'])){{ $latitude['content'] }}@endif">
+            <input type="hidden" name="longitude" id="longitude" value="@if(isset($longitude['content']) AND !empty($longitude['content'])){{ $longitude['content'] }}@endif">
+            <input type="hidden" name="service_id" value="$data['service_id']">
+                            {{ csrf_field() }}
             <hr style="color:#ccc; margin: auto 1em;">
             <h5 style="color:#0093b4; margin: 1em;">Similar Listing</h5>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

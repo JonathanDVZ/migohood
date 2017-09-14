@@ -621,6 +621,16 @@ $(document).ready(function() {
         form.submit();
     }
 
+    $("#addBathroomsNext").click(function() {
+        $(this).attr('disabled', 'disabled');
+        sendBedroom();
+        $(this).removeAttr('disabled');
+    });
+
+    function sendBedroom() {
+        var form = document.getElementById('formAddBathrooms');
+        form.submit();
+    }
 
 
 

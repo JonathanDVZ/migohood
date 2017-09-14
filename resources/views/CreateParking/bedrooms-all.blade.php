@@ -10,13 +10,14 @@
             <div class="row">
                 <div class="col-lg-8 col-md-9 col-lg-offset-2 col-md-offset-1">
                     <br>
+                    
                     <h3 class="titulo text-center">DETALLES DE LA ESTADIA</h3>
                     <hr>
                     <!-- Agregado for para mostrar el numero de habitaciones segun el numero ingresado 
                     previamente por el cliente -->
                     @for($i = 0; $i < count($bedrooms); $i++)
                         <div>
-                            <form id="form{{ $i }}" method="POST" action="{{ url('/create-space/bedrooms/edit-bedrooms/add-bed') }}">
+                            <form id="form{{ $i }}" method="POST" action="{{ url('/create-parking/bedrooms/edit-bedrooms/add-bed') }}">
                                 <div class="titulos">
                                     <span>Habitacion {{ $i+1 }}</span>
                                     <input type="hidden" value="{{ $bedrooms[$i]['bedroom_id'] }}" name="bedroom_id">
@@ -34,8 +35,8 @@
                         </div>
                         <hr>
                     @endfor
+                    <form id="formAddBathrooms" method="POST" action="{{ url('/create-space/bedrooms/edit-bedrooms/save-beds') }}">
 
-                    <form id="formAddBathrooms" method="POST" action="{{ url('/create-space/baths/show-bathroom') }}">
                         <input type="hidden" value="{{ $id }}" name="service_id">
                         {{ csrf_field() }}
                     </form>
@@ -61,13 +62,13 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-space/bedrooms')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-parking/bedrooms')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a id="addBathroomsNext"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a  href="{{ url('/create-parking/baths') }}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

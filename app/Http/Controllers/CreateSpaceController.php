@@ -2024,9 +2024,10 @@ class CreateSpaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
-       // dd($emergencies);
+       // dd($beds);
 
-        return view("CreateSpace.PreviewSpace.preview1", ['bedrooms'=>$bedrooms, 'emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description, 'tknow' => $tknow, 'price'=>$price ]);
+
+        return view("CreateSpace.PreviewSpace.preview1", ['bedrooms'=>$bedrooms, 'emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description, 'tknow' => $tknow, 'price'=>$price]);
     }
 
         public function Preview2()

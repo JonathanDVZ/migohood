@@ -5,8 +5,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="row">
                 <h4>¿Qué tipo de aparcamiento esta ofreciendo?</h4>
-                <form>
-                    <input type="hidden"  id="_token" value="{{csrf_token()}}">
+                <form id="formPlaceType" method="POST" action="{{ url('/create-parking/save-first') }}">
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-group">
                             <div class="text-left">
@@ -23,19 +22,21 @@
                             <br>
                             <div id="lilbox">
                                 <div class="radio">
-                                    <label class="textwhite"><input data-type="Exterior" onclick="dataType(this)" type="radio" name="optradio" value="0" ><strong>Exterior</strong></label>
+                                    <label class="textwhite"><input  @if(isset($result['live']) AND $result['live'] == 0) {{'checked'}} @endif data-type="Exterior" onclick="dataType(this)" type="radio" name="live" value="0" ><strong>Exterior</strong></label>
                                 </div>
                                 <hr>
                                 <div class="radio">
-                                    <label class="textwhite"><input data-type="Interior" onclick="dataType(this)" type="radio" name="optradio" value="1" ><strong>Interior</strong></label>
+                                    <label class="textwhite"><input  @if(isset($result['live']) AND $result['live'] == 1) {{'checked'}} @endif data-type="Interior" onclick="dataType(this)" type="radio" name="live" value="1" ><strong>Interior</strong></label>
                                 </div>
                             </div>
                             <br>
-                            <input type="number" name="num_bathroom" min="1" max="20" class="form-control quantity" step="1" placeholder="0" required>
+                            <input type="number" name="num_space" min="1" max="20" class="form-control quantity" step="1" placeholder="0" value="@if(isset($result['num_space']) AND !empty($result['num_space'])){{ $result['num_space'] }}@endif" required>
                             <div>
                             </div>
                         </div>
                     </div>
+                <input type="hidden" name="service_id" value="{{ $id }}">
+                {{ csrf_field() }}
                 </form>
             </div>
         </div>
@@ -68,7 +69,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a id="" onclick="splet()"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a id="placeTypeNext" ><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

@@ -132,7 +132,7 @@
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                      <img class="imgHom3" src="{{url('/assets/img/Icon-Bed.png')}}" alt="">
                      <br>
-                     <span>1  Cama</span>
+                     <span>{{ $beds[0]["num_bed"] }}  Cama</span>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@
                     <strong>Accomodates: </strong><span>{{$overview["accommodation"]}}</span><br>
                     <strong>Baños:</strong><span>{{$overview["bathrooms"]}}</span><br>
                     <strong>Habitaciones: </strong><span>{{$bedrooms[0]["num_bedrooms"]}}</span><br>
-                    <strong>Camas: </strong><span>1</span><br>
+                    <strong>Camas: </strong><span>{{ $beds[0]["num_bed"] }}</span><br>
                     <a href="#">Reglas de la Casa</a>
                     <br>
                     <br>
@@ -308,7 +308,7 @@
                     <br>
                     <p>
                     @if($overview['servid'] == $overview['userid'])
-                        @if(!empty($emergencies))
+                        @if(!isset($emergencies) OR !empty($emergencies))
                             @foreach($emergencies as $emergency)
                               <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt="">{{$emergency["name"]}}   :    {{$emergency["number"]}}
                               <br>

@@ -13,7 +13,7 @@
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="form-group text-right">
-                        <form id="formAddBaths" action="{{ url('/create-space/baths/add-baths') }}" method="POST">
+                        <form id="formAddBaths" action="{{ url('/create-parking/baths/save-third') }}" method="POST">
                             <div class="text-left">
                                 <input type="number" name="num_bathroom" min="1" max="20" class="form-control" step="1" placeholder="0" required>
                                 <input type="hidden" name="service_id" value="{{ $id }}">
@@ -43,7 +43,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-space/bedrooms/edit-bedrooms')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-parking/bedrooms/edit-bedrooms')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
