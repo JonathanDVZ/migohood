@@ -42,13 +42,14 @@
                             <!-- Modal content-->
                             <div class="modal-content">
                                 <div class="modal-header">
+                                    <form id="formAddAmenites" method="POST" action="{{url('/create-parking/save-hosting')}}" >
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title">Agregar Comodidades</h4>
                                 </div>
                                 <div class="modal-body">
                                     <div class="container-fluid">
                                         <div class="text-left">
-                                            <input type="text" name="quantity" class="form-control">
+                                            <input type="text" name="name" class="form-control">
                                         </div>
                                         <br>
                                     </div>
@@ -58,6 +59,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                 </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -96,7 +98,7 @@
                     <br>
                     <label>Instrucciones de Acceso (opcional)</label>
                     <br>
-                    <input type="text" name="instruction" class="form-control">
+                    <input type="text" name="instruction" class="form-control" value="@if(isset($instruction) AND !empty($instruction)){{ $instruction }}@endif">
                     {{csrf_field()}}
                         <input type="hidden" name="service_id" value="{{$id}}">
                     </form>

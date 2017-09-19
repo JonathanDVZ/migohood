@@ -622,24 +622,228 @@ public function Second1()
 
     public function SaveSixth(Request $request){
         
+
     }
 
         public function Seventh()
     {
-        return view("CreateParking.basics");
+        $id = '';
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+
+            $saved_basics = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-7/get-basics')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+            $title = ''; $description = ''; $place = ''; $access = ''; $share1 = ''; $share2 = ''; $interaction = ''; $other = '';
+            if (isset($saved_basics) AND !empty($saved_basics) AND !is_null($saved_basics) AND $saved_basics != 'Not Found') {
+                foreach ($saved_basics as $value) {
+                    if ($value['description_id'] == 1) {
+                        $title = $value['content'];
+                    } elseif ($value['description_id'] == 8) {
+                        $description = $value['content'];
+                    } elseif ($value['description_id'] == 9) {
+                        $place = $value['content'];
+                    } elseif ($value['description_id'] == 10) {
+                        $access = $value['content'];
+                    } elseif ($value['description_id'] == 11) {
+                        $share1 = $value['check'];
+                    } elseif ($value['description_id'] == 12) {
+                        $share2 = $value['check'];
+                    } elseif ($value['description_id'] == 13) {
+                        $interaction = $value['content'];
+                    } elseif ($value['description_id'] == 14) {
+                        $other = $value['content'];
+                    }
+                }
+            }
+            //print_r($saved_basics);
+            //return;
+            return view("CreateParking.basics", ['id' => $id, 'title' => $title, 'description' => $description, 'place' => $place, 'access' => $access, 'share1' => $share1, 'share2' => $share2, 'interaction' => $interaction, 'other' => $other]);
+
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
     }
 
     public function SaveSeventh(Request $request){
-        
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+
+            // Enviar los datos a la API para crear nuevas habitaciones
+            $response = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-7/basics')
+                        ->withHeaders( array(
+                            'api-token:'.session()->get('user.remember_token')
+                        ))
+                        ->withData( array(
+                            'service_id' => $id,
+                            'des_title' => $request->input('title'),
+                            'description' => $request->input('description'),
+                            'desc_crib' => $request->input('crib'),
+                            'desc_acc' => $request->input('acc'),
+                            ) )
+                        ->asJson( true )
+                        ->post();
+
+            //dd($response);
+            if ($response == 'Update Step-7' OR $response == 'Add Step-7') {
+                return redirect('/create-parking/listing');
+            } else {
+                return redirect('/create-parking/basics')->with(['message-alert' =>''.$response.'']);
+            }
+
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
     }
 
         public function Eigth()
-    {
-        return view("CreateParking.listing");
+    {if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+
+            $saved_listing = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-8/get-rules')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+            $AptoDe2a12 = ''; $AptoDe0a2 = ''; $SeadmitenMascotas = ''; $PermitidoFumar = ''; $Eventos = ''; $Desc_Otro_Evento = ''; $guest_phone = ''; $guest_email = '';  $guest_profile = ''; $guest_payment = ''; $guest_provided = ''; $guest_recomendation = ''; $Desc_Instructions = ''; $Desc_Name_Network = ''; $Password_Wifi = '';
+            if (isset($saved_listing) AND !empty($saved_listing) AND !is_null($saved_listing) AND $saved_listing != 'Not Found') {
+                foreach ($saved_listing as $value) {
+                    if ($value['rules_id'] == 1) {
+                        $AptoDe2a12 = $value['Check'];
+                    } elseif ($value['rules_id'] == 2) {
+                        $AptoDe0a2 = $value['Check'];
+                    } elseif ($value['rules_id'] == 3) {
+                        $SeadmitenMascotas = $value['Check'];
+                    } elseif ($value['rules_id'] == 4) {
+                        $PermitidoFumar = $value['Check'];
+                    } elseif ($value['rules_id'] == 5) {
+                        $Eventos = $value['Check'];
+                    } elseif ($value['rules_id'] == 6) {
+                        $Desc_Otro_Evento = $value['Description'];
+                    } elseif ($value['rules_id'] == 7) {
+                        $guest_phone = $value['Check'];
+                    } elseif ($value['rules_id'] == 8) {
+                        $guest_email = $value['Check'];
+                    } elseif ($value['rules_id'] == 9) {
+                        $guest_profile = $value['Check'];
+                    } elseif ($value['rules_id'] == 10) {
+                        $guest_payment = $value['Check'];
+                    } elseif ($value['rules_id'] == 11) {
+                        $guest_provided = $value['Check'];
+                    } elseif ($value['rules_id'] == 12) {
+                        $guest_recomendation = $value['Check'];
+                    } elseif ($value['rules_id'] == 13) {
+                        $Desc_Instructions = $value['Description'];
+                    } elseif ($value['rules_id'] == 14) {
+                        $Desc_Name_Network = $value['Description'];
+                    } elseif ($value['rules_id'] == 15) {
+                        $Password_Wifi = $value['Description'];
+                    }
+                }
+            }
+            //dd($saved_listing);
+            //return;
+
+            return view("CreateParking.listing", ['id' => $id, 'AptoDe2a12' => $AptoDe2a12, 'AptoDe0a2' => $AptoDe0a2, 'SeadmitenMascotas' => $SeadmitenMascotas, 'PermitidoFumar' => $PermitidoFumar, 'Eventos' => $Eventos, 'Desc_Otro_Evento' => $Desc_Otro_Evento, 'guest_phone' => $guest_phone, 'guest_email' => $guest_email,  'guest_profile' => $guest_profile, 'guest_payment' => $guest_payment, 'guest_provided' => $guest_provided, 'guest_recomendation' => $guest_recomendation, 'Desc_Instructions' => $Desc_Instructions, 'Desc_Name_Network' => $Desc_Name_Network, 'Password_Wifi' => $Password_Wifi ]);
+
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+        
     }
 
     public function SaveEigth(Request $request){
-        
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+
+
+
+
+            if ($request->input('guest_phone') !== null) {
+                $guest_phone = ($request->input('guest_phone') == 'on') ? true:false;
+            } else {
+                $guest_phone = false;
+            }
+            if ($request->input('guest_email') !== null) {
+                $guest_email = ($request->input('guest_email') == 'on') ? true:false;
+            } else {
+                $guest_email = false;
+            }
+            if ($request->input('guest_profile') !== null) {
+                $guest_profile = ($request->input('guest_profile') == 'on') ? true:false;
+            } else {
+                $guest_profile = false;
+            }
+            if ($request->input('guest_payment') !== null) {
+                $guest_payment = ($request->input('guest_payment') == 'on') ? true:false;
+            } else {
+                $guest_payment = false;
+            }
+            if ($request->input('guest_provided') !== null) {
+                $guest_provided = ($request->input('guest_provided') == 'on') ? true:false;
+            } else {
+                $guest_provided = false;
+            }
+            if ($request->input('guest_recomendation') !== null) {
+                $guest_recomendation = ($request->input('guest_recomendation') == 'on') ? true:false;
+            } else {
+                $guest_recomendation = false;
+            }
+
+
+            // Enviar los datos a la API para crear nuevas habitaciones
+            $response = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-8/rules')
+                        ->withHeaders( array(
+                            'api-token:'.session()->get('user.remember_token')
+                        ))
+                        ->withData( array(
+                            'service_id' => $id,
+                            'Desc_Otro_Evento' => $request->input('Desc_Otro_Evento'),
+                            'guest_phone' => $guest_phone,
+                            'guest_email' => $guest_email,
+                            'guest_profile' => $guest_profile,
+                            'guest_payment' => $guest_payment,
+                            'guest_provided' => $guest_provided,
+                            'guest_recomendation' => $guest_recomendation,
+                            'Desc_Instructions' => $request->input('Desc_Instructions'),
+                            'Desc_Name_Network' => $request->input('Desc_Name_Network'),
+                            'Password_Wifi' => $request->input('Password_Wifi')
+                            ) )
+                        ->asJson( true )
+                        ->post();
+
+            //dd($response);
+            if ($response == 'Update Step-8' OR $response == 'Add Step-8') {
+                return redirect('/create-parking/photos');
+            } else {
+                return redirect('/create-parking/basics')->with(['message-alert' =>''.$response.'']);
+            }
+
+
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
     }
 
         public function Ninth()

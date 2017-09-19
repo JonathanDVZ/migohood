@@ -67,7 +67,7 @@
                             </div>
                             <div class="text-left">
                                 <br>
-                                <textarea name="Desc_Otro_Evento" class="form-control" rows="5" id="comment">@if(!empty($Desc_Otro_Evento)) {{ $Desc_Otro_Evento }} @endif></textarea>
+                                <textarea name="Desc_Otro_Evento" class="form-control" rows="5" id="comment">@if(!empty($Desc_Otro_Evento)) {{ $Desc_Otro_Evento }} @endif</textarea>
                             </div>
                         </div>
                         <div class="form-group text-left">

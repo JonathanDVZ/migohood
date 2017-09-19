@@ -1490,6 +1490,7 @@ class CreateSpaceController extends Controller
                                 "image" => new \CURLFile('files/images/'.$name1),
                                 "description" => $desc1
                             ))
+                            ->withFile( 'image' , 'new \CURLFile('files/images/'.$name1' )
                             ->containsFile()
                             ->post();
 

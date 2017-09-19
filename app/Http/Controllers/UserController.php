@@ -123,7 +123,7 @@ class UserController extends Controller
             // Regenero el id de sesion
             session()->regenerate();
             // Establezco la sesion
-            session()->put('user', $user);
+            session()->put('user', $user); dd(session::all());
             // Redirecciono a home
             return redirect('/')->with(['message-alert' => 'Bienvenido has accedido']);
         } else{
