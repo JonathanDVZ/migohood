@@ -13,9 +13,9 @@
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
                     <div class="form-group text-right">
-                        <form id="formAddBaths" action="{{ url('/create-parking/baths/save-third') }}" method="POST">
+                        <form id="formAddBaths" action="{{ url('/create-parking/save-third') }}" method="POST">
                             <div class="text-left">
-                                <input type="number" name="num_bathroom" min="1" max="20" class="form-control" step="1" placeholder="0" required>
+                                <input type="number" name="num_bathroom" min="1" max="20" class="form-control" step="1" placeholder="0" value="@if(isset($result['num_bathroom']) AND !empty($result['num_bathroom'])){{ $result['num_bathroom'] }}@endif" required>
                                 <input type="hidden" name="service_id" value="{{ $id }}">
                                 {{ csrf_field() }}
                             </div>

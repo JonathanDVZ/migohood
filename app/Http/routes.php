@@ -102,17 +102,14 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
 // Routes for the parking creation{
     Route::get('/create-parking/place-type','CreateParkingController@First');
     Route::post('/create-parking/save-first','CreateParkingController@SaveFirst');
-
     //Route::get('/create-parking/bedrooms','CreateParkingController@Second');
     //Route::post('/create-parking/save-second','CreateParkingController@SaveSecond');
-
     Route::get('/create-parking/bedrooms','CreateParkingController@Second1');
     Route::post('/create-parking/add-bedrooms','CreateParkingController@AddBedrooms');
     Route::get('/create-parking/bedrooms/edit-bedrooms','CreateParkingController@Second2');
     // editada a post
     Route::post('/create-parking/bedrooms/edit-bedrooms/add-bed','CreateParkingController@Second3');
     Route::post('/create-parking/bedrooms/edit-bedrooms/save-beds','CreateParkingController@SaveBeds');
-
     Route::get('/create-parking/baths','CreateParkingController@Third');
     Route::post('/create-parking/save-third','CreateParkingController@SaveThird');
     Route::get('/create-parking/location','CreateParkingController@Fourth');

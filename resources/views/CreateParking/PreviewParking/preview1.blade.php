@@ -1,4 +1,4 @@
-@extends('layouts.master') @section('title', 'Preview Created Space') @section('class', 'contenedor') @section( 'content')
+@extends('layouts.master') @section('title', 'Preview Created Parking') @section('class', 'contenedor') @section( 'content')
 <div class="container-fluid lilmargin firstPart">
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding-right">
@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    @include('CreateSpace.PreviewSpace.navbar.preview-navbar',['activo2' => 'preview1'])
+    @include('CreateParking.PreviewParking.navbar.preview-navbar',['activo2' => 'preview1'])
     <div class="container-fluid WhiteBack preBody">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
             <div class="sections">
