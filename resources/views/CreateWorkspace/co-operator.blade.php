@@ -1,4 +1,4 @@
-@extends('layouts.master') @section('title', 'Co-Operator') @section('class', 'contenedor') @section( 'content')
+@extends('layouts.master') @section('title', 'Co-Operator') @section('class', 'contenedor') @section( 'content')@include('CreateWorkspace.navbar.navbar',['activo' => 'co-operator'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">

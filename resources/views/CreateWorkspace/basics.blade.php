@@ -2,7 +2,7 @@
 @extends('layouts.master') 
 @section('class', 'contenedor') 
 @section( 'content') 
-@include('CreateParking.navbar.navbar',['activo' => 'basics'])
+@include('CreateWorkspace.navbar.navbar',['activo' => 'basics'])
 
 <div class="container-fluid">
     <div class="row">

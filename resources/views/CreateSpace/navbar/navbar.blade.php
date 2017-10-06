@@ -53,6 +53,7 @@
                 <li><a @if(strcmp($activo,'photos')==0) class="activo" @endif href="{{url('/create-space/photos')}}">Fotos</a></li>
                 <li><a @if(strcmp($activo,'services')==0) class="activo" @endif href="{{url('/create-space/services')}}">Servicios</a></li>
                 <li><a @if(strcmp($activo,'notes')==0) class="activo" @endif href="{{url('/create-space/notes')}}">Notas</a></li>
+                <li><a @if(strcmp($activo,'co-host')==0) class="activo" @endif href="{{url('/create-space/co-host')}}">Co-host</a></li>
             </ul>
         </div>
     </nav>

@@ -8,8 +8,8 @@
                 <li><a @if(strcmp($activo,'photos')==0) class="activo" @endif href="{{url('/create-service/photos')}}">Fotos</a></li>
                 <li><a @if(strcmp($activo,'location')==0) class="activo" @endif href="{{url('/create-service/location')}}">Ubicación</a></li>
                 <li><a @if(strcmp($activo,'notes')==0) class="activo" @endif href="{{url('/create-service/notes')}}">Notas</a></li>
+                <li><a @if(strcmp($activo,'co-host')==0) class="activo" @endif href="{{url('/create-service/co-host')}}">Co-Host</a></li>
             </ul>
         </div>
-    </nav><
 </div>
 

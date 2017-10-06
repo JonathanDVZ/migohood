@@ -1,4 +1,4 @@
-@extends('layouts.master') @section('title', 'Co-Host') @section('class', 'contenedor') @section( 'content')
+@extends('layouts.master') @section('title', 'Co-Host') @section('class', 'contenedor') @section( 'content')@include('CreateParking.navbar.navbar',['activo' => 'co-host'])
 <div class="container-fluid">
     <br>
     <br>
@@ -29,16 +29,22 @@
                         <hr>
                     </div>
                     <div class="form-group text-right" style="cursor: pointer;" onclick="theFunction()">
-                        <div class="text-left">
+                        <div class="text-left relative">
+                            <label class="xlabel"><i class="fa fa-times" aria-hidden="true"></i></i></label>
                             <div class="text-left cheks">
-                                <img src="{{url('/assets/img/User.png')}}" alt="">
+                                <img style="vertical-align:baseline;" src="{{url('/assets/img/User.png')}}" alt="">
                             </div>
-                            <div class="text-left cheks">
+                            <div class="text-left cheks" style="margin-top:10px; margin-left:10px;cursor:pointer" id="show" data-toggle="cheks">
                                 <h3 class="titulo">Other username</h3>
                                 <span>Tu co-host desde <strong>Feb 5, 2017</strong></span>
-                            </div>
-                            <div class="text-right">
-                                <label class="xlabel"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                                <br>
+                                <div id="Hidden">
+                                    <a href=""><i class="fa fa-mobile" aria-hidden="true"></i> Informacion de Contacto</a>
+                                    <br>
+                                    <a href=""><i class="fa fa-user-plus" aria-hidden="true"></i> Convertilo en Primer Anfitrión</a>
+                                    <br>
+                                    <a href=""><i class="fa fa-power-off" aria-hidden="true"></i> Activar ingresos compartidos</a>
+                                </div>
                             </div>
                         </div>
                         <hr>

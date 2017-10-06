@@ -1,4 +1,4 @@
-@extends('layouts.master') @section('title', 'Place Type') @section('class', 'contenedor') @section('content') @include('CreateParking.navbar.navbar',['activo' => 'placetype'])
+@extends('layouts.master') @section('title', 'Place Type') @section('class', 'contenedor') @section('content') @include('CreateWorkspace.navbar.navbar',['activo' => 'placetype'])
 <div class="container-fluid">
     <div class="row">
         <div class="col-lg-1 col-md-1 col-sm-1"></div>

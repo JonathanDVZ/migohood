@@ -1,4 +1,4 @@
-@section('title', 'Notas') @extends('layouts.master') @section('class', 'contenedor') @section( 'content')@include('CreateParking.navbar.navbar',['activo' => 'notes'])
+@section('title', 'Notas') @extends('layouts.master') @section('class', 'contenedor') @section( 'content')@include('CreateWorkspace.navbar.navbar',['activo' => 'notes'])
 
 
 <div class="container">

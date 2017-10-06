@@ -127,7 +127,7 @@
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
                         <br>
-                        <span>3 Invitado(s)<span>
+                        <span>3 <span><span>Invitado(s)<span>
 
                     </div>
                 </div>
@@ -147,7 +147,7 @@
                     proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     <br>
                     <br>
-                    <a href="">contactar anfiltrion</a>
+                    <a href="" style="font-weight:bolder">Contactar anfiltrion</a>
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
@@ -183,125 +183,125 @@
                 <div class="col-sm-8 col-xs-8">
                     <br>
                     <strong>Cancelacion: </strong><span>Flexible</span><br>
-                    <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        <br>
+                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    </div>
                 </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Descripcion</h3>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                    <br>
-                </div>
+                <div class="sections">
+                    <hr class="black">
+                    <div class="col-sm-3 col-xs-3">
+                        <h3>Descripcion</h3>
+                    </div>
+                    <div class="col-sm-8 col-xs-8">
+                        <br>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
+                        <br>
+                    </div>
 
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <div class="col-sm-1 col-xs-1">
+                        <br>
+                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    </div>
+                </div>
+                <div class="sections">
+                    <hr class="black">
+                    <div class="col-sm-3 col-xs-3">
+                        <h3>Reglas de la Casa</h3>
+                    </div>
+                    <div class="col-sm-8 col-xs-8">
+                        <br>
+                        <span>Check-in es despues de las 3PM</span><br>
+                        <br>
+                        <a href="#">Ver Calendario <span class="glyphicon glyphicon-calendar"></span></a>
+                        <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        <br>
+                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    </div>
+                </div>
+                <div class="sections">
+                    <hr class="black">
+                    <div class="col-sm-3 col-xs-3">
+                        <h3>Tambien deberias saber</h3>
+                    </div>
+                    <div class="col-sm-8 col-xs-8">
+                        <br>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
+                        <br>
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        <br>
+                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    </div>
+                </div>
+                <div class="sections">
+                    <hr class="black">
+                    <div class="col-sm-3 col-xs-3">
+                        <h3>Seguridad</h3>
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                        <br>
+                        <span>Detector de Humo</span><br>
+                        <span></span><br>
+                        <span>Extintor de Fuego</span><br>
+                        <br>
+                    </div>
+                    <div class="col-sm-4 col-xs-4">
+                        <br>
+                        <span>Kitchen roof</span><br>
+                        <span></span><br>
+                        <span>Kitchen right of stove</span><br>
+                        <br>
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        <br>
+                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    </div>
+                </div>
+                <div class="sections">
+                    <hr class="black">
+                    <div class="col-sm-3 col-xs-3">
+                        <h3>Instrucciones de Emergencia</h3>
+                    </div>
+                    <div class="col-sm-8 col-xs-8">
+                        <br>
+                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
+                        <br>
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        <br>
+                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    </div>
+                </div>
+                <div class="sections">
+                    <hr class="black">
+                    <div class="col-sm-3 col-xs-3">
+                        <h3>Numeros de Emergencia</h3>
+                    </div>
+                    <div class="col-sm-8 col-xs-8">
+                        <br>
+                        <p>
+                            <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt=""> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero
+                            magnam eligendi minima natus voluptatum tempore eius quaerat sunt.
+                        </p>
+                        <br>
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        <br>
+                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    </div>
                 </div>
             </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Reglas de la Casa</h3>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <span>Check-in es despues de las 3PM</span><br>
-                    <br>
-                    <a href="#">Ver Calendario <span class="glyphicon glyphicon-calendar"></span></a>
-                    <br>
-                    <br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Tambien deberias saber</h3>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                    <br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Seguridad</h3>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <span>Detector de Humo</span><br>
-                    <span></span><br>
-                    <span>Extintor de Fuego</span><br>
-                    <br>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <span>Kitchen roof</span><br>
-                    <span></span><br>
-                    <span>Kitchen right of stove</span><br>
-                    <br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Instrucciones de Emergencia</h3>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                    <br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Numeros de Emergencia</h3>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <p>
-                        <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt=""> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam
-                        eligendi minima natus voluptatum tempore eius quaerat sunt.
-                    </p>
-                    <br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 light-border">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 light-border">
 
+            </div>
         </div>
     </div>
-</div>
 
 
-@endsection
+    @endsection

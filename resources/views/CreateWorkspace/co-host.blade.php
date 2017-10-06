@@ -1,4 +1,4 @@
-@extends('layouts.master') @section('title', 'Co-Host') @section('class', 'contenedor') @section( 'content')
+@extends('layouts.master') @section('title', 'Co-Host') @section('class', 'contenedor') @section( 'content')@include('CreateWorkspace.navbar.navbar',['activo' => 'co-host'])
 <div class="container-fluid">
     <br>
     <br>
@@ -6,39 +6,43 @@
     <div class="row">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <br>
-            <div class="row">
-                <div class="col-sm-10 col-sm-offset-2">
-                    <h2 class="titulo text-left">Co-Host</h2>
-                    <h3 class="titulo text-left">Hostear es mucho más facil con ayuda</h3>
-                    <span class="titulo text-center">Tu co-host  puede ayudarte con tu listado, para que asi puedas disgrutar con un poco mas de ayuda ofreciendo tu espacio.</span>
-                    <br>
-                    <br>
-                    <button id="inviteF" type="button" class="btn btn-default hidden"></button>
-                    <label class="textwhite" for="inviteF">Invitar Amigo <i class="fa fa-plus" aria-hidden="true"></i></label>
-                    <hr>
-                    <div class="form-group text-right">
-                        <div class="text-left">
-                            <div class="text-left cheks">
-                                <img src="{{url('/assets/img/User.png')}}" alt="">
-                            </div>
-                            <div class="text-left cheks">
-                                <h3 class="titulo">Username</h3>
-                                <span>Administrador</span>
-                            </div>
+            <div class="col-sm-10 col-sm-offset-2">
+                <h2 class="titulo text-left">Co-Host</h2>
+                <h3 class="titulo text-left">Hostear es mucho más facil con ayuda</h3>
+                <span class="titulo text-center">Tu co-host  puede ayudarte con tu listado, para que asi puedas disgrutar con un poco mas de ayuda ofreciendo tu espacio.</span>
+                <br>
+                <br>
+                <button id="inviteF" type="button" class="btn btn-default hidden"></button>
+                <label class="textwhite" for="inviteF">Invitar Amigo <i class="fa fa-plus" aria-hidden="true"></i></label>
+                <hr>
+                <div class="form-group text-right">
+                    <div class="text-left">
+                        <div class="text-left cheks">
+                            <img src="{{url('/assets/img/User.png')}}" alt="">
                         </div>
-                        <hr>
+                        <div class="text-left cheks">
+                            <h3 class="titulo">Username</h3>
+                            <span>Administrador</span>
+                        </div>
                     </div>
-                    <div class="form-group text-right" style="cursor: pointer;" onclick="theFunction()">
-                        <div class="text-left">
-                            <div class="text-left cheks">
-                                <img src="{{url('/assets/img/User.png')}}" alt="">
-                            </div>
-                            <div class="text-left cheks">
-                                <h3 class="titulo">Other username</h3>
-                                <span>Tu co-host desde <strong>Feb 5, 2017</strong></span>
-                            </div>
-                            <div class="text-right">
-                                <label class="xlabel"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                    <hr>
+                </div>
+                <div class="form-group text-right" style="cursor: pointer;" onclick="theFunction()">
+                    <div class="text-left relative">
+                        <label class="xlabel"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                        <div class="text-left cheks">
+                            <img style="vertical-align:baseline;" src="{{url('/assets/img/User.png')}}" alt="">
+                        </div>
+                        <div class="text-left cheks" style="margin-top:10px; margin-left:10px;cursor:pointer" id="show" data-toggle="cheks">
+                            <h3 class="titulo">Other username</h3>
+                            <span>Tu co-host desde <strong>Feb 5, 2017</strong></span>
+                            <br>
+                            <div id="Hidden">
+                                <a href=""><i class="fa fa-mobile" aria-hidden="true"></i> Informacion de Contacto</a>
+                                <br>
+                                <a href=""><i class="fa fa-user-plus" aria-hidden="true"></i> Convertilo en Primer Anfitrión</a>
+                                <br>
+                                <a href=""><i class="fa fa-power-off" aria-hidden="true"></i> Activar ingresos compartidos</a>
                             </div>
                         </div>
                         <hr>
@@ -91,7 +95,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-space/listing')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a href="{{url('/create-space/preview-overview')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
