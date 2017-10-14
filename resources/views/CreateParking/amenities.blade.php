@@ -9,6 +9,7 @@
                     <h3 class="titulo text-center">COMODIDADES</h3>
                     <br>
                     <form id="formAddAmenities" method="POST" action="{{url('/create-parking/save-fifth')}}">
+                         {{csrf_field()}}
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <div class="checkbox">
@@ -36,33 +37,6 @@
                     <label for="editar">Agregar Comodidades <i class="fa fa-pencil" aria-hidden="true"></i></label>
                     <button id="editar" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#myModal">Open Modal</button>
 
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal" role="dialog">
-                        <div class="modal-dialog">
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <form id="formAddAmenites" method="POST" action="{{url('/create-parking/save-hosting')}}" >
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Agregar Comodidades</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="container-fluid">
-                                        <div class="text-left">
-                                            <input type="text" name="name" class="form-control">
-                                        </div>
-                                        <br>
-                                    </div>
-                                    <button id="addMore" type="button" class="btn btn-default hidden"></button>
-                                    <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
                     <h4>Información de Contacto</h4>
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -99,7 +73,7 @@
                     <label>Instrucciones de Acceso (opcional)</label>
                     <br>
                     <input type="text" name="instruction" class="form-control" value="@if(isset($instruction) AND !empty($instruction)){{ $instruction }}@endif">
-                    {{csrf_field()}}
+                   
                         <input type="hidden" name="service_id" value="{{$id}}">
                     </form>
                 </div>
@@ -136,4 +110,35 @@
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
     </div>
 </div>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <form id="formAddAmenites" method="POST" action="{{url('/create-parking/save-hosting')}}" >
+                                     {{csrf_field()}}
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Agregar Comodidades</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="text-left">
+                                            <input type="text" name="name" class="form-control">
+                                        </div>
+                                        <br>
+                                    </div>
+                                    <button id="addMore" type="button" class="btn btn-default hidden"></button>
+                                    <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 @endsection

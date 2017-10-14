@@ -818,7 +818,34 @@ class CreateServiceController extends Controller
 
     public function Preview1(Request $request)
     {
-        return view("CreateService.PreviewService.preview1");
+        $data['service_id'] = session()->get('service_id');
+        $data['languaje'] = 'ES';
+
+        $overview = Curl::to(env('MIGOHOOD_API_URL').'/service/services/preview-overviews')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        
+        $description = Curl::to(env('MIGOHOOD_API_URL').'/service/services/getDescription')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ))
+                        ->asJson( true )
+                        ->get();
+
+        $type = Curl::to(env('MIGOHOOD_API_URL').'/service/services/getType')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ))
+                        ->asJson( true )
+                        ->get();
+
+        return view("CreateService.PreviewService.preview1",compact('overview','description','type'));
     }
 
     public function Preview2(Request $request)

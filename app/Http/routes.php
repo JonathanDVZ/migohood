@@ -102,38 +102,48 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
 // Routes for the parking creation{
     Route::get('/create-parking/place-type','CreateParkingController@First');
     Route::post('/create-parking/save-first','CreateParkingController@SaveFirst');
-    //Route::get('/create-parking/bedrooms','CreateParkingController@Second');
-    //Route::post('/create-parking/save-second','CreateParkingController@SaveSecond');
+
     Route::get('/create-parking/bedrooms','CreateParkingController@Second1');
     Route::post('/create-parking/add-bedrooms','CreateParkingController@AddBedrooms');
     Route::get('/create-parking/bedrooms/edit-bedrooms','CreateParkingController@Second2');
-    // editada a post
     Route::post('/create-parking/bedrooms/edit-bedrooms/add-bed','CreateParkingController@Second3');
     Route::post('/create-parking/bedrooms/edit-bedrooms/save-beds','CreateParkingController@SaveBeds');
+
     Route::get('/create-parking/baths','CreateParkingController@Third');
     Route::post('/create-parking/save-third','CreateParkingController@SaveThird');
+
     Route::get('/create-parking/location','CreateParkingController@Fourth');
     Route::post('/create-parking/save-fourth','CreateParkingController@SaveFourth');
+
     Route::get('/create-parking/amenities','CreateParkingController@Fifth');
     Route::post('/create-parking/save-fifth','CreateParkingController@SaveFifth');
+
     Route::get('/create-parking/hosting','CreateParkingController@Sixth');
     Route::post('/create-parking/save-sixth','CreateParkingController@SaveSixth');
+
     Route::get('/create-parking/basics','CreateParkingController@Seventh');
     Route::post('/create-parking/save-seventh','CreateParkingController@SaveSeventh');
+
     Route::get('/create-parking/listing','CreateParkingController@Eigth');
-    Route::post('/create-parking/save-eight','CreateParkingController@SaveEight');
+    Route::post('/create-parking/save-eight','CreateParkingController@SaveEigth');
+
     Route::get('/create-parking/photos','CreateParkingController@Ninth');
     Route::post('/create-parking/save-ninth','CreateParkingController@SaveNinth');
+
     Route::get('/create-parking/services','CreateParkingController@Tenth');
     Route::post('/create-parking/save-tenth','CreateParkingController@SaveTenth');
+
     Route::get('/create-parking/notes','CreateParkingController@Eleven');
     Route::post('/create-parking/save-eleven','CreateParkingController@SaveEleven');
+
     Route::get('/create-parking/co-host','CreateParkingController@Twelve');
     Route::post('/create-parking/save-twelve','CreateParkingController@SaveTwelve');
+
     Route::get('/create-parking/preview-overview','CreateSpaceController@Preview1');
     Route::get('/create-parking/preview-reviews','CreateSpaceController@Preview2');
     Route::get('/create-parking/preview-host','CreateSpaceController@Preview3');
     Route::get('/create-parking/preview-location','CreateSpaceController@Preview4');
+    
     Route::post('/create-parking/splet','CreateParkingController@storeTemporary');
     Route::post('/create-parking/get-states','CreateServiceController@GetStates');
     Route::post('/create-parking/get-cities','CreateServiceController@GetCities');
@@ -145,9 +155,24 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
 
 // Routes for the Workspace creation{
     Route::get('/create-workspace/place-type','CreateWorkspaceController@First');
-    Route::get('/create-workspace/bedrooms','CreateWorkspaceController@Second');
+    Route::post('/create-workspace/save-first','CreateWorkspaceController@SaveFirst');
+
+    Route::get('/create-workspace/bedrooms','CreateWorkspaceController@Second1');
+    Route::post('/create-workspace/add-bedrooms','CreateWorkspaceController@AddBedrooms');
+    Route::get('/create-workspace/bedrooms/edit-bedrooms','CreateWorkspaceController@Second2');
+    Route::post('/create-workspace/bedrooms/edit-bedrooms/add-bed','CreateWorkspaceController@Second3');
+    Route::post('/create-workspace/bedrooms/edit-bedrooms/save-beds','CreateWorkspaceController@SaveBeds');
+
     Route::get('/create-workspace/baths','CreateWorkspaceController@Third');
+    Route::post('/create-workspace/save-third','CreateWorkspaceController@SaveThird');
+
     Route::get('/create-workspace/location','CreateWorkspaceController@Fourth');
+    Route::post('/create-workspace/save-Fourth','CreateWorkspaceController@SaveFourth');
+
+
+    Route::get('/create-workspace/notes/emergency-number','CreateWorkspaceController@ElevenEmergency');
+    Route::post('/create-workspace/notes/emergency-number','CreateWorkspaceController@ElevenEmergecyAdd');
+
     Route::get('/create-workspace/amenities','CreateWorkspaceController@Fifth');
     Route::get('/create-workspace/hosting','CreateWorkspaceController@Sixth');
     Route::get('/create-workspace/basics','CreateWorkspaceController@Seventh');

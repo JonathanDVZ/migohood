@@ -11,19 +11,18 @@
             <h3 class="titulo text-center">¿CUÁNTOS HUESPEDES PUEDEN HOSPEDARSE?</h3>
             <br>
             <div class="row">
-                <form id="formAddBedrooms" method="POST" action="{{ url('/create-space/add-bedrooms') }}">
+                <form id="formAddBedrooms" method="POST" action="{{ url('/create-workspace/add-bedrooms') }}">
                     <div class="col-sm-6 col-sm-offset-3">
                         <div class="form-group text-right">
                             <div class="text-left">
-                                <input type="number" name="guests_number" min="1" max="20" class="form-control" id="guests_number" step="1" placeholder="0" required>
+                               <input type="number" name="guests_number" min="1" max="20" class="form-control" step="1" placeholder="0" value="@if(isset($result[0]['num_guest']) AND !empty($result[0]['num_guest'])){{ $result[0]['num_guest'] }}@endif" required>
                             </div>
                         </div>
                         <div class="form-group text-right">
                             <div class="text-left">
                                 <label>¿Cuántas Habitaciones ofrece?:</label>
-                                <input type="number" name="bedrooms_number" min="1" max="20" class="form-control" step="1" placeholder="0" required>
-                                <input name="service" type="hidden" value="{{ $id }}">
-
+                                <input type="number" name="bedrooms_number" min="1" max="20" class="form-control" step="1" placeholder="0" value="@if(isset($result[0]['num_bedroom']) AND !empty($result[0]['num_bedroom'])){{$result[0]['num_bedroom']}}@endif" required>
+                                <input name="service_id" type="hidden" value="{{ $id }}">
                             </div>
                         </div>
 
@@ -54,7 +53,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-space/place-type')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-workspace/place-type')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">

@@ -9,9 +9,9 @@
                     <h3 class="titulo text-left">Normas de Aparcamiento</h3>
                     <span class="titulo text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illum molestiae veritatis</span>
                     <br>
-
+                     <form id="formAddListing" method="POST" action="{{url('/create-workspace/save-listing')}}">
                     <div class="text-left">
-                        <textarea class="form-control" rows="7" id="comment"></textarea>
+                        <textarea name="Desc_Otro_Evento" class="form-control" rows="5" id="comment">@if(!empty($Desc_Otro_Evento)) {{ $Desc_Otro_Evento }} @endif</textarea>
                     </div>
                     <div class="form-group text-left">
                         <div class="text-left">
@@ -24,28 +24,28 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Numero de Telefono</strong></label>
+                                <label><input name="guest_phone" type="checkbox" @if(!empty($guest_phone) AND $guest_phone == 1) {{ 'checked' }} @endif><strong>Numero de Telefono</strong></label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Dirección de Correo</strong></label>
+                                <label><input type="checkbox" name="guest_email" @if(!empty($guest_email) AND $guest_email == 1) {{ 'checked' }} @endif><strong>Dirección de Correo</strong></label>
                             </div>
                             <div class="text-left">
                                 <br>
                                 <label><strong>Requerimientos adicionales</strong></label><br>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Documento de identidad</strong></label>
+                                <label><input type="checkbox" name="guest_provided" @if(!empty($guest_provided) AND $guest_provided == 1) {{ 'checked' }} @endif><strong>Documento de identidad</strong></label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Recomendacion</strong></label>
+                                <label><input type="checkbox" name="guest_recomendation" @if(!empty($guest_recomendation) AND $guest_recomendation == 1) {{ 'checked' }} @endif><strong>Recomendacion</strong></label>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Foto de Perfil</strong></label>
+                                <label><input type="checkbox" name="guest_profile" @if(!empty($guest_profile) AND $guest_profile == 1) {{ 'checked' }} @endif><strong>Foto de Perfil</strong></label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Informacion de Pago</strong></label>
+                                <label><input type="checkbox" name="guest_payment" @if(!empty($guest_payment) AND $guest_payment == 1) {{ 'checked' }} @endif><strong>Informacion de Pago</strong></label>
                             </div>
                         </div>
                     </div>
@@ -60,23 +60,25 @@
                     </div>
                     <div class="text-left">
                         <br>
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <textarea name="Desc_Instructions" class="form-control" rows="5" id="comment">@if(!empty($Desc_Instructions)) {{ $Desc_Instructions }} @endif</textarea>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <div class="form-group text-left">
                             <br>
                             <label for="wifiName">Nombre del Wifi</label>
-                            <input name="Desc_Name_Network" type="text" class="form-control" id="wifiName">
+                            <input name="Desc_Name_Network" type="text" class="form-control" id="wifiName" value="@if(!empty($Desc_Name_Network)) {{ $Desc_Name_Network }} @endif">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                         <div class="form-group text-left">
                             <br>
                             <label for="wifiPas">Clave del Wifi</label>
-                            <input name="Password_Wifi" type="password" class="form-control" id="wifiPas">
+                           <input name="Password_Wifi" type="password" class="form-control" id="wifiPas" value="@if(!empty($Password_Wifi)) {{ $Password_Wifi }} @endif">
                         </div>
                     </div>
-
+                    <input type="hidden" name="service_id" value="{{ $id }}">
+                        {{csrf_field()}}
+                    </form>
                 </div>
             </div>
         </div>

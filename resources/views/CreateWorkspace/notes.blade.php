@@ -4,13 +4,14 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 lg-offset-3 xs-offset-3 md-offset-3 sm-offset-3">
-
+            <form name="noteAdd" id="noteAdd" method="post" action="{{ url('/create-space/save-notes') }}">
+                {{ csrf_field() }}
             <br>
             <h3 class="titulo text-center">¿Qué mas deberian saber los Invitados?</h3>
             <br>
             <p>Mencione cualquier cosa que el huesped debera traer consigo o encargarse el mismo, como el transporte.</p>
             <br>
-            <textarea onkeyup="textCounter(this,'counter',200)" id="message" class="form-control" rows="5" maxlength="200"></textarea>
+             <textarea  id="message" name="desc_anything" class="form-control note" rows="5" maxlength="200">@if(!empty($anything)) {{ $anything }} @endif</textarea>
             <input disabled value="200 caracters remaining" id="counter">
             <span id='remainingC'></span>
             <br>
@@ -25,19 +26,19 @@
                     <h4 class="text-left">Informacion de Seguridad</h4>
                     <form>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">Detector de humo <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                            <label><input @if(!empty($smoke) AND $smoke == 1) checked @endif name="bool_smoke" type="checkbox" value="">Detector de humo <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">Detector de Monoxido de Carbono <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                            <label><input name="bool_carbon" @if(!empty($carbon) AND $carbon == 1) checked @endif type="checkbox" value="">Detector de Monoxido de Carbono <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">Kit de Primeros Auxilios</label>
+                            <label><input name="bool_first" @if(!empty($first) AND $first == 1) checked @endif type="checkbox" value="">Kit de Primeros Auxilios</label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">Tarjeta de Seguridad <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
+                            <label><input name="bool_safety" @if(!empty($safety) AND $safety == 1) checked @endif type="checkbox" value="">Tarjeta de Seguridad <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i></label>
                         </div>
                         <div class="checkbox">
-                            <label><input type="checkbox" value="">Extintor</label>
+                            <label><input  name="bool_fire" @if(!empty($fire) AND $fire == 1) checked @endif type="checkbox" value="">Extintor</label>
                         </div>
                     </form>
                 </div>
@@ -52,7 +53,7 @@
                                 <label for="fireExting">Extintor de Fuego</label>
                             </div>
                             <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                <input class="form-control " type="text " id="fireExting ">
+                               <input class="form-control" value="@if(!empty($fired)) {{ $fired }} @endif" name="desc_fire" type="text " id="fireExting ">
                             </div>
 
                         </div>
@@ -61,7 +62,7 @@
                                 <label for="fireAlarm ">Alarma de Fuego</label>
                             </div>
                             <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                <input class="form-control " type="text " id="fireAlarm ">
+                                <input class="form-control " name="desc_alarm" value="@if(!empty($alarm)) {{ $alarm }} @endif" type="text " id="fireAlarm ">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -69,12 +70,12 @@
                                 <label for="gasValve ">Valvula de Gas</label>
                             </div>
                             <div class="col-offset-2 col-lg-7 col-md-7 col-sm-7 col-xs-7">
-                                <input class="form-control " type="text " id="gasValve ">
+                                 <input class="form-control " name="desc_gas" value="@if(!empty($gas)) {{ $gas }} @endif" type="text " id="gasValve ">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="Emergency">Instrucciones de la Salida de Emergencia</label>
-                            <input type="text" class="form-control" id="Emergency">
+                            <input type="text" name="desc_exit" value="@if(!empty($exit)) {{ $exit }} @endif" class="form-control" id="Emergency">
                         </div>
                         <div class="form-group">
                             <label>Numeros de Emergencia</label>
@@ -90,21 +91,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Bomberos</td>
-                                                <td>098029385029</td>
-                                            </tr>
-                                            <tr>
-                                                <td>2</td>
-                                                <td>Policia</td>
-                                                <td>123592304</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3</td>
-                                                <td>Medico</td>
-                                                <td>9285798234</td>
-                                            </tr>
+                                             @if(is_array($emergency))
+                                                    @foreach($emergency as $emg)
+                                                        <tr>
+                                                            <td>{{ $emg['id'] }}</td>
+                                                            <td>{{ $emg['name'] }}</td>
+                                                            <td>{{ $emg['number'] }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
                                         </tbody>
                                     </table>
                                 </div>
@@ -133,38 +128,24 @@
                                                                     <th>Numero</th>
                                                                 </tr>
                                                             </thead>
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td>1</td>
-                                                                    <td>Bomberos</td>
-                                                                    <td>098029385029</td>
-                                                                    <td>
-                                                                        <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
-                                                                        <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>2</td>
-                                                                    <td>Policia</td>
-                                                                    <td>123592304</td>
-                                                                    <td>
-                                                                        <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
-                                                                        <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>3</td>
-                                                                    <td>Medico</td>
-                                                                    <td>9285798234</td>
-                                                                    <td>
-                                                                        <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
-                                                                        <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
-                                                                    </td>
-                                                                </tr>
+                                                            <tbody id="contentTable2">
+                                                               @if(is_array($emergency))
+                                                                        @foreach($emergency as $emg)
+                                                                            <tr>
+                                                                                <td>{{ $emg['id'] }}</td>
+                                                                                <td>{{ $emg['name'] }}</td>
+                                                                                <td>{{ $emg['number'] }}</td>
+                                                                                <td>
+                                                                                    <button id="deleteNum" type="button" class="btn btn-default hidden"></button>
+                                                                                    <label for="deleteNum"><i class="fa fa-times" aria-hidden="true"></i></i></label>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+                                                                    @endif
                                                             </tbody>
                                                         </table>
                                                     </div>
-                                                    <button id="addMore" type="button" class="btn btn-default hidden"></button>
+                                                     <button id="addMore"  id="addnew" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#addNew"> </button>
                                                     <label for="addMore">Agregar Nuevo <i class="fa fa-plus" aria-hidden="true"></i></label>
                                                 </div>
                                             </div>
@@ -172,7 +153,7 @@
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                             </div>
                                         </div>
-
+                                         <!--fin modal-->
                                     </div>
                                 </div>
 
@@ -186,22 +167,79 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" id="addNew" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add With Badges</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="table-responsive">
+                        <form  id="formAddWithBadges" action="post">
+                            <div class="form-group">
+                                <lable>Name</lable>
+                                <input type="text" id="name" name="name" placeholder="polices" minlength="4" class="form-control name">
+                            </div>
+                            <div class="form-group">
+                                <lable>Phone Number</lable>
+                                <input type="number" id="name" name="phoneNumber" placeholder="000-000-0000" minlength="4" class="number form-control">
+                            </div>
+                            <div class="form-group">
+                                <buttom class="btn btn-default saveAdd">Save</buttom>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="container ">
     <div class="row ">
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 "></div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left ">
             <br>
             <div class="tex-left RetNex ">
-                <a href="{{url( '/create-space/baths')}} "><i class="fa fa-chevron-left " aria-hidden="true "> </i><strong>BACK</strong></a>
+                <a href="{{url( '/create-workspace/services')}} "><i class="fa fa-chevron-left " aria-hidden="true "> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right ">
             <div class="RetNex ">
                 <br>
-                <a href="{{url( '/create-space/amenities')}} "><strong>NEXT</strong><i class="fa fa-chevron-right " aria-hidden="true "></i></a>
+                <a id="noteNext"><strong>NEXT</strong><i class="fa fa-chevron-right " aria-hidden="true "></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 "></div>
     </div>
 </div>
+@endsection
+
+@section("script")
+    <script>
+        var urlEmergicy = "{{url('/create-workspace/notes/emergency-number')}}";
+        $(".note").on("keyup",function () {
+            textCounter(this,'counter',200);
+        });
+        $("#editar").on("click",function () {
+            var lista  = {
+
+            };
+        });
+
+        $("#noteNext").on("click",function(e){
+            e.preventDefault();
+            var form = $("#noteAdd");
+            form.submit();
+        });
+    </script>
+    <script src="{{url('/assets/js/notes.js')}}"></script>
 @endsection

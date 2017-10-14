@@ -16,7 +16,7 @@
                     previamente por el cliente -->
                     @for($i = 0; $i < count($bedrooms); $i++)
                         <div>
-                            <form id="form{{ $i }}" method="POST" action="{{ url('/create-space/bedrooms/edit-bedrooms/add-bed') }}">
+                            <form id="form{{ $i }}" method="POST" action="{{ url('/create-workspace/bedrooms/edit-bedrooms/add-bed') }}">
                                 <div class="titulos">
                                     <span>Habitacion {{ $i+1 }}</span>
                                     <input type="hidden" value="{{ $bedrooms[$i]['bedroom_id'] }}" name="bedroom_id">
@@ -35,7 +35,8 @@
                         <hr>
                     @endfor
 
-                    <form id="formAddBathrooms" method="POST" action="{{ url('/create-space/baths/show-bathroom') }}">
+                    <form id="formAddBathrooms" method="POST" action="{{ url('/create-workspace/bedrooms/edit-bedrooms/save-beds') }}">
+
                         <input type="hidden" value="{{ $id }}" name="service_id">
                         {{ csrf_field() }}
                     </form>
@@ -61,7 +62,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-space/bedrooms')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-workspace/bedrooms')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">

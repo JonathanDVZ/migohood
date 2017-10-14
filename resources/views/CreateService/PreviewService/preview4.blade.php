@@ -102,8 +102,8 @@
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
             <div style="margin: 1em;">
                   <h3 style="color:#0093b4">The Neigborhood</h3>
-                  <!-- error in this line -->
-                <!-- <span>Username's </span> <span>place is lcoated in</span><span> {{$overview4["city"]}} {{$overview4["state"]}} , {{$overview4["country"]}}</span> -->
+                 
+                 <span>Username's </span> <span>place is lcoated in</span><span> {{$overview4["city"]}} {{$overview4["state"]}} , {{$overview4["country"]}}</span> 
             </div>
 
             <div id="googleMap" style="width:95%;height:250px;margin:1.5em;"></div>

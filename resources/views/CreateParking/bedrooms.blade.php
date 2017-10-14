@@ -23,7 +23,6 @@
                                 <label>¿Cuántas Habitaciones ofrece?:</label>
                                <input type="number" name="bedrooms_number" min="1" max="20" class="form-control" step="1" placeholder="0" value="@if(isset($result[0]['num_bedroom']) AND !empty($result[0]['num_bedroom'])){{$result[0]['num_bedroom']}}@endif" required>
                                 <input name="service_id" type="hidden" value="{{ $id }}">
-
                             </div>
                         </div>
 

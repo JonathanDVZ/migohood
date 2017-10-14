@@ -119,9 +119,9 @@ class CreateParkingController extends Controller
         }
 
         if ($res == 'Add Type ' OR $res == 'Update Type ')
-            return redirect('/create-parking/bedrooms')/*->with(['id' => $request->input('service_id')])*/;
+            return redirect('/create-parking/bedrooms');
         else
-            return redirect('/create-parking/place-type')->with(['message-alert' => '' . $res . $request->input('service_id').  ''/*,'id' => $request->input('service_id')*/]);
+            return redirect('/create-parking/place-type')->with(['message-alert' => '' . $res . $request->input('service_id').  '']);
 
     }
 
@@ -396,6 +396,7 @@ public function Second1()
     }
 
     public function SaveThird(Request $request){
+
         $response = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-3/bathroom')
                         ->withHeaders(array(
                             'api-token:'.session()->get('user.remember_token')
@@ -497,7 +498,7 @@ public function Second1()
 
     public function SaveFourth(Request $request){
         // Enviar los datos a la API para crear nuevas habitaciones
-        $response = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-4/location')
+        $response = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-4/location')
                     ->withHeaders( array(
                         'api-token:'.session()->get('user.remember_token')
                     ))
@@ -547,7 +548,8 @@ public function Second1()
                             ->asJson( true )
                             ->get();
 
-            $security = ''; $padlock = ''; $vigilant = ''; $permission = ''; $other = ''; $valet='';
+            $security = ''; $padlock = ''; $vigilant = ''; $permission = ''; $other = ''; $valet=''; 
+            $instruction= $saved_amenites[0]['description'];
 
             if (isset($saved_amenites) AND !empty($saved_amenites) AND !is_null($saved_amenites) AND $saved_amenites != 'Not Found') {
                 foreach ($saved_amenites as $value) {
@@ -567,7 +569,7 @@ public function Second1()
                 }
             
             }
-                return view("CreateParking.amenities")->with(['id' => $id, 'security' => $security, 'padlock' => $padlock, 'vigilant' => $vigilant, 'permission' => $permission, 'other' => $other, 'valet'=>$valet, ]);
+                return view("CreateParking.amenities")->with(['id' => $id, 'security' => $security, 'padlock' => $padlock, 'vigilant' => $vigilant, 'permission' => $permission, 'other' => $other, 'valet'=>$valet,'instruction'=> $instruction ]);
         }else{
             return view("CreateParking.amenities")->with(['message-alert' => 'Ha ocurrido un problema por favor recargue la pagina']);
         }
@@ -826,9 +828,7 @@ public function Second1()
                             'guest_payment' => $guest_payment,
                             'guest_provided' => $guest_provided,
                             'guest_recomendation' => $guest_recomendation,
-                            'Desc_Instructions' => $request->input('Desc_Instructions'),
-                            'Desc_Name_Network' => $request->input('Desc_Name_Network'),
-                            'Password_Wifi' => $request->input('Password_Wifi')
+                            'Desc_Instructions' => $request->input('Desc_Instructions')
                             ) )
                         ->asJson( true )
                         ->post();
@@ -864,17 +864,75 @@ public function Second1()
         
     }
 
-            public function Eleven()
+    public function Eleven()
     {
-        return view("CreateParking.notes");
+         if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+
+            
+
+            $saved_notes = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-11/get-emergency')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+            $anything = '';
+            if (isset($saved_notes) AND !empty($saved_notes) AND !is_null($saved_notes) AND $saved_notes != 'Not Found') {
+                foreach ($saved_notes as $value) {
+                    if ($value['emergency_id'] == 11) {
+                        $anything = $value['content'];
+                    } 
+                }
+            }
+            //dd($saved_notes);
+            return view("CreateParking.notes", ['id' => $id, 'anything' => $anything]);
+
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
     }            
 
     public function SaveEleven(Request $request){
-        
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+
+            $res = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-11')
+                        ->withHeaders( array(
+                            'api-token:'.session()->get('user.remember_token')
+                        ))
+                        ->withData( array(
+                            'service_id' => $id,
+                            'desc_anything'=> !empty($request->input('desc_anything')) ? $request->input('desc_anything'):'',
+                            ) )
+                        ->asJson( true )
+                        ->post();
+            //dd($res);
+
+            if($res == "Service not found" && $res !="Update Note emergency"){
+                return redirect("create-parking/note")->with(['message-alert' =>''.$res.'']);
+            }elseif($res=="Update Note emergency" || $res == "Add Note emergency"){
+                return redirect('/create-parking/co-host');
+            }
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
     }
 
-            public function Twelve()
+    public function Twelve()
     {
+        
         return view("CreateParking.co-host");
     }
 

@@ -227,13 +227,25 @@
                 </div>
                 <div class="col-sm-8 col-xs-8">
                   @foreach($rules as $rule)
-                    <br>
-                    <span>{{$rule["type"]}}</span><br>
-                    @if($rule["description"])
-                        Descripcion:  <span>{{$rule["description"]}}</span>
-                        <br>
+                    @if($rule["check"] == 1) <br>
+                    <span>{{$rule["type"]}}</span> <br>
                     @endif
                   @endforeach
+                  @foreach($rules as $rule)
+
+                    @if($rule["description"])<br>
+                    @if($rule["type"] != 'Password Wifi')
+                        {{$rule["type"]}} <br>
+                        <span>{{$rule["description"]}}</span>
+                        <br>
+                        @else
+                        {{$rule["type"]}} <br>
+                        <span>You must be a guest to see password</span>
+                        <br>
+                    @endif
+                    @endif
+                    @endforeach
+                    <br>
                     <a href="#">Ver Calendario <span class="glyphicon glyphicon-calendar"></span></a>
                     <br>
                     <br>
@@ -263,13 +275,15 @@
                 <div class="col-sm-3 col-xs-3">
                     <h3>Seguridad</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                  @foreach($note_emergency as $note)
-                    <br>
-                    <span>{{$note["type"]}}</span><br>
-                    <span></span><br>
+                  @foreach(array_chunk($note_emergency, 5) as $chunk)
+                    <div class="col-sm-4 col-xs-4">
+                        @foreach($chunk as $note)
+                        <br>
+                        <span>{{$note["type"]}}</span><br>
+                        <span></span><br>
+                        @endforeach
+                    </div>
                   @endforeach
-                </div>
                 <div class="col-sm-4 col-xs-4">
                     {{-- <br>
                     <span>Kitchen roof</span><br>
@@ -308,16 +322,16 @@
                     <br>
                     <p>
                     @if($overview['servid'] == $overview['userid'])
-                        @if(!isset($emergencies) OR !empty($emergencies))
+                        @if(!isset($emergencies) AND !empty($emergencies))
                             @foreach($emergencies as $emergency)
-                              <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt="">{{$emergency["name"]}}   :    {{$emergency["number"]}}
+                              {{$emergency["name"]}}   :    {{$emergency["number"]}}
                               <br>
                             @endforeach
                         </p>
                         @endif
                         <br>
                         @else
-                    <p>You must be a guest to see emergency numbers</p>
+                   <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt=""> <p>You must be a guest to see emergency numbers</p>
                     @endif 
                       
                 </div>

@@ -9,7 +9,6 @@
                     <li data-target="#carousel" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-
                     <div class="item active">
                         <img class="img-responsive" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 1" />
                     </div>
@@ -104,30 +103,54 @@
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
                     <br>
                     <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
-                    <h4 class="text-center">Username</h4>
+                    <h4 class="text-center">{{$overview['name']}}</h4>
                     <br>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
-                    <h3>Espacio Habitable</h3>
-                    <span>Barcelona, Barcelona, Spain</span>
+                    <h3>{{$overview['title']}}</h3>
+                    <span>{{$overview['city']}} {{$overview['state']}}, {{$overview['country']}}</span>
                     <br>
                     <br>
                     <br>
+                    @if($type[0]['Check'] == 1)
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
                         <br>
-                        <span>Recreacional</span>
+                        <span>{{$type[0]['name']}}</span>
                     </div>
+                    @endif
+                    @if($type[1]['Check'] == 1)
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
                         <br>
-                        <span>Familiar</span>
-
+                        <span>{{$type[1]['name']}}</span>
                     </div>
+                    @endif
+                    @if($type[2]['Check'] == 1)
+                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                        <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
+                        <br>
+                        <span>{{$type[2]['name']}}</span>
+                    </div>
+                    @endif
+                    @if($type[3]['Check'] == 1)
+                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                        <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
+                        <br>
+                        <span>{{$type[3]['name']}}</span>
+                    </div>
+                    @endif
+                    @if($type[4]['Check'] == 1)
+                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                        <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
+                        <br>
+                        <span>{{$type[4]['name']}}</span>
+                    </div>
+                    @endif
                     <div class="col-sm-3 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
                         <br>
-                        <span>3 <span><span>Invitado(s)<span>
+                        <span>{{$type[0]['num_guest_service']}}<span><span>  Invitado(s)<span>
 
                     </div>
                 </div>
@@ -139,12 +162,7 @@
                 </div>
                 <div class="col-sm-8 col-xs-8">
                     <br>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    {{$description[2]['content']}}
                     <br>
                     <br>
                     <a href="" style="font-weight:bolder">Contactar anfiltrion</a>
@@ -162,42 +180,22 @@
                 </div>
                 <div class="col-sm-8 col-xs-8">
                     <br>
-                   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                   consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                   cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                   proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                   {{$description[3]['content']}}
                 </div>
                 <div class="col-sm-1 col-xs-1">
                     <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Precios</h3>
-                    <br>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <strong>Cancelacion: </strong><span>Flexible</span><br>
-                        <br>
-                    </div>
-                    <div class="col-sm-1 col-xs-1">
-                        <br>
-                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                    </div>
-                </div>
+           
                 <div class="sections">
                     <hr class="black">
                     <div class="col-sm-3 col-xs-3">
-                        <h3>Descripcion</h3>
+                        <h3>Tiempo por defecto</h3>
                     </div>
                     <div class="col-sm-8 col-xs-8">
                         <br>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
+                        <p> {{ date('h:i A', strtotime($type[0]['Entry']) )}} - {{date('h:i A', strtotime($type[0]['Until']) )}}</p>
                         <br>
                     </div>
 
@@ -207,16 +205,34 @@
                     </div>
                 </div>
                 <div class="sections">
-                    <hr class="black">
+                   
                     <div class="col-sm-3 col-xs-3">
-                        <h3>Reglas de la Casa</h3>
+                        <h3>Tiempo por servicio</h3>
+                        <br>
+                        <h4>Disponibilidad</h4>
                     </div>
                     <div class="col-sm-8 col-xs-8">
                         <br>
-                        <span>Check-in es despues de las 3PM</span><br>
-                        <br>
+                        <span>{{$type[0]['time_service']}} {{$type[0]['duration']}}</span><br>
+                        <br><br>
                         <a href="#">Ver Calendario <span class="glyphicon glyphicon-calendar"></span></a>
                         <br>
+                        <br>
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        <br>
+                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    </div>
+                </div>
+                 <div class="sections">
+                <hr class="black">
+                <div class="col-sm-3 col-xs-3">
+                    <h3>Pago</h3>
+                    <br>
+                </div>
+                <div class="col-sm-8 col-xs-8">
+                    <br>
+                    <span>{{$overview['prices']}}</span><br>
                         <br>
                     </div>
                     <div class="col-sm-1 col-xs-1">

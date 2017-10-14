@@ -67,7 +67,7 @@
                                 @endif
                             </div>
                         </div>
---}}
+                        --}}
                         <div class="form-group text-right">
                             <div class="text-left">
                                 <label>¿Agregar Cama Adicional?:</label>
