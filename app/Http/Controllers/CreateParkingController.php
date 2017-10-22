@@ -518,11 +518,22 @@ public function Second1()
                     ->asJson( true )
                     ->post();
 
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res .= $r . '\\n';
+            }
+        } else {
+            $res = $response;
+        }
 
-        if ($response == 'Add Location' OR $response == 'Update Location') {
+
+        if ($res == 'Add Location' OR $res == 'Update Location') {
             return redirect('/create-parking/amenities');
         } else {
-            return redirect('/create-parking/location')->with(['message-alert' =>''.$response.'']);
+            return redirect('/create-parking/location')->with(['message-alert' =>''.$res.'']);
         }
 
     }
@@ -549,7 +560,8 @@ public function Second1()
                             ->get();
 
             $security = ''; $padlock = ''; $vigilant = ''; $permission = ''; $other = ''; $valet=''; 
-            $instruction= $saved_amenites[0]['description'];
+           
+            $instruction='';
 
             if (isset($saved_amenites) AND !empty($saved_amenites) AND !is_null($saved_amenites) AND $saved_amenites != 'Not Found') {
                 foreach ($saved_amenites as $value) {
@@ -567,6 +579,7 @@ public function Second1()
                         $other = $value['Check'];
                     } 
                 }
+                 $instruction= $saved_amenites[0]['description'];
             
             }
                 return view("CreateParking.amenities")->with(['id' => $id, 'security' => $security, 'padlock' => $padlock, 'vigilant' => $vigilant, 'permission' => $permission, 'other' => $other, 'valet'=>$valet,'instruction'=> $instruction ]);
@@ -619,7 +632,63 @@ public function Second1()
 
         public function Sixth()
     {
-        return view("CreateParking.hosting");
+         $id = '';
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+            $currencies = Curl::to(env('MIGOHOOD_API_URL').'/currency/get-currency')
+                        ->withData( array(
+                            //'service_id' => $id,
+                            'languaje' => 'ES',
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            $durations = Curl::to(env('MIGOHOOD_API_URL').'/duration/get-duration')
+                        ->withData( array(
+                            //'service_id' => $id,
+                            'languaje' => 'ES',
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            $payments = Curl::to(env('MIGOHOOD_API_URL').'/payment/get-payment')
+                        ->withData( array(
+                            //'service_id' => $id,
+                            'languaje' => 'ES',
+                            ) )
+                        ->asJson( true )
+                        ->get();
+            // Buscamos si existen amenities guardadas para el servicio actual
+
+            $saved_hosting = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-6/get-hosting')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+            $selected_currency = ''; $selected_duration = ''; $selected_payment = ''; $price = ''; $selected_entry = ''; $selected_until = ''; $selected_departure = '';
+            if (isset($saved_hosting) AND !empty($saved_hosting) AND !is_null($saved_hosting) AND $saved_hosting != 'Not Found') {
+                $selected_currency = $saved_hosting[0]['Currency-Name'];
+                $selected_duration = $saved_hosting[0]['Type-Duration'];
+                $selected_payment = $saved_hosting[0]['Type-Payment'];
+                $price = $saved_hosting[0]['Price'];
+                $selected_entry = $saved_hosting[0]['Time-Entry'];
+                $selected_until = $saved_hosting[0]['Until'];
+                $selected_departure = $saved_hosting[0]['Departure-Time'];
+            }
+            //dd($saved_hosting);
+            //dd($payments);
+            //dd($selected_until);
+            return view("CreateParking.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments, 'selected_currency' => $selected_currency, 'selected_duration' => $selected_duration, 'selected_payment' => $selected_payment, 'price' => $price, 'selected_entry' => $selected_entry, 'selected_until' => $selected_until, 'selected_departure' => $selected_departure] );
+
+
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
     }
 
     public function SaveSixth(Request $request){
@@ -632,11 +701,6 @@ public function Second1()
         $id = '';
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
-            $msg = '';
-            if (session()->has('message-alert')) {
-                $msg = session()->get('message-alert');
-                session()->forget('message-alert');
-            }
 
             $saved_basics = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-7/get-basics')
                             ->withData( array(
@@ -701,10 +765,22 @@ public function Second1()
                         ->post();
 
             //dd($response);
-            if ($response == 'Update Step-7' OR $response == 'Add Step-7') {
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res .= $r . '\\n';
+            }
+        } else {
+            $res = $response;
+        }
+
+
+            if ($res == 'Update Step-7' OR $res == 'Add Step-7') {
                 return redirect('/create-parking/listing');
             } else {
-                return redirect('/create-parking/basics')->with(['message-alert' =>''.$response.'']);
+                return redirect('/create-parking/basics')->with(['message-alert' =>''.$res.'']);
             }
 
         } else {
@@ -868,11 +944,6 @@ public function Second1()
     {
          if (session()->has('service_id')) {
             $id = session()->get('service_id');
-            $msg = '';
-            if (session()->has('message-alert')) {
-                $msg = session()->get('message-alert');
-                session()->forget('message-alert');
-            }
 
             
 
@@ -920,6 +991,7 @@ public function Second1()
                         ->post();
             //dd($res);
 
+
             if($res == "Service not found" && $res !="Update Note emergency"){
                 return redirect("create-parking/note")->with(['message-alert' =>''.$res.'']);
             }elseif($res=="Update Note emergency" || $res == "Add Note emergency"){
@@ -942,7 +1014,76 @@ public function Second1()
 
     public function Preview1()
     {
-        return view("CreateParking.PreviewParking.preview1");
+        $data['service_id'] = session()->get('service_id');
+        $data['languaje'] = 'ES';
+
+        $type = Curl::to(env('MIGOHOOD_API_URL').'/service/services/getType')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ))
+                        ->asJson( true )
+                        ->get();
+        $note_emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/preview-note-emergency')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $amenities = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/preview-amenities')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $rules = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/preview-rules')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $overview = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/preview-overviews')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $beds = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/preview-beds')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+        $description = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/getDescription')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ))
+                        ->asJson( true )
+                        ->get();
+
+        $bedrooms = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/preview-bedrooms')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+
+        $price = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-price')
+                        ->withData( array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ) )
+                        ->asJson( true )
+                        ->get();
+          // dd( ['bedrooms'=>$bedrooms, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description,'price'=>$price,'type'=>$type]);
+
+        return view("CreateParking.PreviewParking.preview1", ['bedrooms'=>$bedrooms, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description,'price'=>$price,'type'=>$type]);
     }
 
         public function Preview2()
@@ -983,9 +1124,33 @@ public function Second1()
                                 ) )
                             ->asJson( true )
                             ->get();
-
+                      //      dd(compact('overview4','latitude','longitude'));
         return view("CreateParking.PreviewParking.preview4",['latitude' => $latitude, 'longitude' =>$longitude,'overview4'=>$overview4]);
         
+    }
+
+    public function GetStates(Request $request)
+    {
+        $states = Curl::to(env('MIGOHOOD_API_URL').'/state/get-state')
+                        ->withData( array(
+                            'country_id' => $request->input('id'),
+                            ) )
+                        ->asJson( true )
+                        ->get();
+
+        return $states;
+    }
+
+    public function GetCities(Request $request)
+    {
+        $cities = Curl::to(env('MIGOHOOD_API_URL').'/city/get-city')
+                        ->withData( array(
+                            'state_id' => $request->input('id'),
+                            ) )
+                        ->asJson( true )
+                        ->get();
+
+        return $cities;
     }
 
     public function storeTemporary(Request $request){

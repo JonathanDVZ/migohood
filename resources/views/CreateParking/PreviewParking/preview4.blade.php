@@ -97,9 +97,9 @@
             </div>
         </div>
     </div>
-    @include('CreateSpace.PreviewSpace.navbar.preview-navbar',['activo2' => 'preview4'])
+    @include('CreateParking.PreviewParking.navbar.preview-navbar',['activo2' => 'preview4'])
     <div class="container-fluid WhiteBack preBody">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 light-border">
             <div style="margin: 1em;">
                 <h3 style="color:#0093b4">The Neigborhood</h3>
                 <span>Username's </span> <span>place is lcoated in</span><span> {{$overview4["city"]}} {{$overview4["state"]}} , {{$overview4["country"]}}</span>
@@ -111,11 +111,11 @@
             <input type="hidden" name="service_id" value="$data['service_id']">
                             {{ csrf_field() }}
             <hr style="color:#ccc; margin: auto 1em;">
-            <h5 style="color:#0093b4; margin: 1em;">Similar Listing</h5>
+            <h4 style="color:#0093b4; margin: 1em;">Aparcamientos similares</h4>
+            <hr class="black">
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div id="carousel" class="carousel slide lilcarrousel" data-ride="carousel">
-                    <div class="carousel-inner carrousel2">
-
+                <div id="carousel" class="carousel slide lilcarrousel2" data-ride="carousel">
+                    <div class="carousel-inner carrousel22">
                         <div class="item active">
                             <img class="img-responsive img2" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 1" />
                         </div>
@@ -143,9 +143,8 @@
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                <div id="carousel" class="carousel slide lilcarrousel" data-ride="carousel">
-                    <div class="carousel-inner carrousel2">
-
+                <div id="carousel" class="carousel slide lilcarrousel2" data-ride="carousel">
+                    <div class="carousel-inner carrousel22">
                         <div class="item active">
                             <img class="img-responsive img2" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 1" />
                         </div>
@@ -156,10 +155,10 @@
                             <img class="img-responsive img2" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 3" />
                         </div>
                     </div>
-                    <a href="#carousel" class="left carousel-control" data-slide="prev">
+                    <a href="#carousel-example-generic" class="left carousel-control" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
-                    <a href="#carousel" class="right carousel-control" data-slide="next">
+                    <a href="#carousel-example-generic" class="right carousel-control" data-slide="next">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </div>

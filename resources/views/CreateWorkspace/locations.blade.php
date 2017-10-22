@@ -43,7 +43,8 @@
                             <div class="text-left">
                                 <label>Estado</label>
                             </div>
-                            <select id="spaceState" name="state" class="selectpicker form-control" required>
+                            <div id="resultState">
+                                    <select id="spaceState" name="state" class="selectpicker form-control" required>
                                         <option>Seleccione un Estado</option>
                                         @if(isset($states) AND !empty($states))
                                             @foreach($states as $state)
@@ -51,6 +52,7 @@
                                             @endforeach
                                         @endif
                                     </select>
+                                </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -58,7 +60,8 @@
                                     <label>Ciudad</label>
                                 </div>
                                 <div class="text-left">
-                                    <select id="spaceCities" name="city" class="selectpicker form-control" required>
+                                    <div id="resultCity">
+                                            <select id="spaceCities" name="city" class="selectpicker form-control" required>
                                                 <option>Seleccione una Ciudad</option>
                                                 @if(isset($cities) AND !empty($cities))
                                                     @foreach($cities as $city)
@@ -66,8 +69,10 @@
                                                     @endforeach
                                                 @endif
                                             </select>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                 <div class="text-left">
                                     <label>Codigo Postal</label>
@@ -87,16 +92,10 @@
                                 <a href="">Editar Direccion</a>
                                 <br>
                             </div>
-                            <div id="googleMap" style="width:100%;height:300px;"></div>
-                            <script>
-                                function myMap() {
-                                    var mapProp = {
-                                        center: new google.maps.LatLng(51.508742, -0.120850),
-                                        zoom: 5,
-                                    };
-                                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-                                }
-                            </script>
+                             <div id="googleMap" style="width:100%;height:300px;"></div>
+                                <input type="hidden" name="latitude" id="latitude" value="@if(isset($latitude) AND !empty($latitude)){{ $latitude }}@endif">
+                                <input type="hidden" name="longitude" id="longitude" value="@if(isset($longitude) AND !empty($longitude)){{ $longitude }}@endif">
+
                         </div>
                         <div>
                             <div class="form-group text-left">

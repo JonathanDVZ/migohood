@@ -102,52 +102,53 @@
             <div class="sections">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
                     <br>
-                    <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
+                    <img class="imgHom2" src="{{$overview['avatar']}}" alt="">
                     <h4 class="text-center">{{$overview['name']}}</h4>
-                    <br>
                 </div>
                 <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
+                    <br>
+                    <br>
                     <h3>{{$overview['title']}}</h3>
                     <span>{{$overview['city']}} {{$overview['state']}}, {{$overview['country']}}</span>
                     <br>
                     <br>
                     <br>
                     @if($type[0]['Check'] == 1)
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                    <div class="col-sm-2 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
                         <br>
                         <span>{{$type[0]['name']}}</span>
                     </div>
                     @endif
                     @if($type[1]['Check'] == 1)
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                    <div class="col-sm-2 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
                         <br>
                         <span>{{$type[1]['name']}}</span>
                     </div>
                     @endif
                     @if($type[2]['Check'] == 1)
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                    <div class="col-sm-2 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
                         <br>
                         <span>{{$type[2]['name']}}</span>
                     </div>
                     @endif
                     @if($type[3]['Check'] == 1)
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                    <div class="col-sm-2 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
                         <br>
                         <span>{{$type[3]['name']}}</span>
                     </div>
                     @endif
                     @if($type[4]['Check'] == 1)
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                    <div class="col-sm-2 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
                         <br>
                         <span>{{$type[4]['name']}}</span>
                     </div>
                     @endif
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
+                    <div class="col-sm-2 col-xs-3 text-center nopadding-left">
                         <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
                         <br>
                         <span>{{$type[0]['num_guest_service']}}<span><span>  Invitado(s)<span>
@@ -157,167 +158,167 @@
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Sobre este servicio</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Sobre este servicio</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    {{$description[2]['content']}}
-                    <br>
+                <div class="col-sm-8 col-xs-10">
+                    @foreach($description as $ds)
+                    @if($ds['description_id'] == 8)
+                    {{$ds['content']}}
+                    @endif
+                    @endforeach
                     <br>
                     <a href="" style="font-weight:bolder">Contactar anfiltrion</a>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-service/basics')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h4>Itinerario</h4>
-                    <br>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Itinerario</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                   {{$description[3]['content']}}
+                <div class="col-sm-8 col-xs-10">
+                   @foreach($description as $ds)
+                    @if($ds['description_id'] == 13)
+                    {{$ds['content']}}
+                    @endif
+                    @endforeach
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-service/basics')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
-           
                 <div class="sections">
                     <hr class="black">
-                    <div class="col-sm-3 col-xs-3">
-                        <h3>Tiempo por defecto</h3>
-                    </div>
-                    <div class="col-sm-8 col-xs-8">
-                        <br>
-                        <p> {{ date('h:i A', strtotime($type[0]['Entry']) )}} - {{date('h:i A', strtotime($type[0]['Until']) )}}</p>
-                        <br>
-                    </div>
-
-                    <div class="col-sm-1 col-xs-1">
-                        <br>
-                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                    </div>
+                    <div class="row config-row">
+                        <div class="col-sm-3 col-xs-12">
+                            <h3 class="font title-category-2">Tiempo por defecto</h3>
+                        </div>
+                        <div class="col-sm-8 col-xs-10">
+                             <span>{{ date('h:i A', strtotime($type[0]['Entry']) )}} - {{date('h:i A', strtotime($type[0]['Until']) )}}</span>   
+                        </div>
+                        <div class="col-sm-1 col-xs-1">
+                            <a href="{{url('/create-service/hosting')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                        </div>
+                     </div>
                 </div>
                 <div class="sections">
-                   
-                    <div class="col-sm-3 col-xs-3">
-                        <h3>Tiempo por servicio</h3>
-                        <br>
-                        <h4>Disponibilidad</h4>
+                    <div class="row config-row">
+                        <div class="col-sm-3 col-xs-12">
+                            <h3 class="font title-category-2">Tiempo por servicio</h3>
+                        </div>
+                        <div class="col-sm-8 col-xs-11">
+                            <span>{{$type[0]['time_service']}} {{$type[0]['duration']}}</span>
+                        </div>
                     </div>
-                    <div class="col-sm-8 col-xs-8">
-                        <br>
-                        <span>{{$type[0]['time_service']}} {{$type[0]['duration']}}</span><br>
-                        <br><br>
-                        <a href="#">Ver Calendario <span class="glyphicon glyphicon-calendar"></span></a>
-                        <br>
-                        <br>
+                    <div class="sections">
+                        <div class="row config-row">
+                            <div class="col-sm-3 col-xs-12">
+                                 <h3 class="font title-category-2">Disponibilidad</h3>
+                            </div>
+                            <div class="col-sm-8 col-xs-8">
+                                 <a href="#">Ver Calendario <span class="glyphicon glyphicon-calendar"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="sections">
+                    <hr class="black">
+                    <div class="col-sm-3 col-xs-12">
+                        <h3 class="font title-category-2">Pago</h3>
+                    </div>
+                    <div class="col-sm-8 col-xs-10">
+                        <span>{{$overview['prices']}}</span><br>
                     </div>
                     <div class="col-sm-1 col-xs-1">
-                        <br>
-                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                        <a href="{{url('/create-service/hosting')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                     </div>
                 </div>
-                 <div class="sections">
+               <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Pago</h3>
-                    <br>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Requerimientos</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <span>{{$overview['prices']}}</span><br>
+                @foreach(array_chunk($notes, round(count($notes)/2)) as $chunk)
+                <div class="col-sm-4 col-xs-5">
+                     @foreach($chunk as $nt)
+                     @if( $nt['check'] == 1 AND $nt['emergency_id'] < 27)
+                        {{$nt['type']}} <br>
+                        <span>{{$nt['content']}}</span><br>
                         <br>
-                    </div>
-                    <div class="col-sm-1 col-xs-1">
-                        <br>
-                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                    </div>
+                        @if($nt['type'] == '¿No tienes requerimientos?' AND $nt['emergency_id'] == 26)
+                        {{$nt['type']}} <br>
+                        Cualquiera puede disfrutar de mi experiencia <br>
+                        @endif
+                     @endif
+                     @endforeach
                 </div>
-                <div class="sections">
-                    <hr class="black">
-                    <div class="col-sm-3 col-xs-3">
-                        <h3>Tambien deberias saber</h3>
-                    </div>
-                    <div class="col-sm-8 col-xs-8">
-                        <br>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                        <br>
-                    </div>
-                    <div class="col-sm-1 col-xs-1">
-                        <br>
-                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                    </div>
-                </div>
-                <div class="sections">
-                    <hr class="black">
-                    <div class="col-sm-3 col-xs-3">
-                        <h3>Seguridad</h3>
-                    </div>
-                    <div class="col-sm-4 col-xs-4">
-                        <br>
-                        <span>Detector de Humo</span><br>
-                        <span></span><br>
-                        <span>Extintor de Fuego</span><br>
-                        <br>
-                    </div>
-                    <div class="col-sm-4 col-xs-4">
-                        <br>
-                        <span>Kitchen roof</span><br>
-                        <span></span><br>
-                        <span>Kitchen right of stove</span><br>
-                        <br>
-                    </div>
-                    <div class="col-sm-1 col-xs-1">
-                        <br>
-                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                    </div>
-                </div>
-                <div class="sections">
-                    <hr class="black">
-                    <div class="col-sm-3 col-xs-3">
-                        <h3>Instrucciones de Emergencia</h3>
-                    </div>
-                    <div class="col-sm-8 col-xs-8">
-                        <br>
-                        <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                        <br>
-                    </div>
-                    <div class="col-sm-1 col-xs-1">
-                        <br>
-                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                    </div>
-                </div>
-                <div class="sections">
-                    <hr class="black">
-                    <div class="col-sm-3 col-xs-3">
-                        <h3>Numeros de Emergencia</h3>
-                    </div>
-                    <div class="col-sm-8 col-xs-8">
-                        <br>
-                        <p>
-                            <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt=""> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero
-                            magnam eligendi minima natus voluptatum tempore eius quaerat sunt.
-                        </p>
-                        <br>
-                    </div>
-                    <div class="col-sm-1 col-xs-1">
-                        <br>
-                        <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                    </div>
+                @endforeach
+                <div class="col-sm-1 col-xs-1">
+                    <a href="{{url('/create-service/basics')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 light-border">
-
+                <div class="sections">
+                    <hr class="black">
+                     <div class="col-sm-3 col-xs-12">
+                        <h3 class="font title-category-2">Reglas de la casa</h3>
+                    </div>
+                    <div class="col-sm-8 col-xs-10">
+                        @if(isset($rules))
+                        @foreach($rules as $rule)
+                         @if($rule["check"] == 1)
+                        <p>{{$rule['type']}}</p>
+                        @endif
+                        @endforeach
+                        @endif
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        <a href="{{url('/create-space/basics')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    </div>
+                </div>
+                <div class="sections">
+                <hr class="black">
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">¿Que mas deberian saber tus invitados?</h3><br>
+                </div>
+                <div class="col-sm-8 col-xs-10">
+                    <span>{{$notes[0]['content']}}</span>
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <a href="{{url('/create-service/notes')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                </div>
+            </div>
+            <div class="sections">
+                <hr class="black">
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Ofrecimientos</h3><br>
+                </div>
+                <div class="col-sm-8 col-xs-10">
+                   
+                    @foreach(array_chunk( array_slice($notes, 3), count($notes)/2) as $chunk)
+                    <div class="col-xs-6 col-sm-6">
+                        @foreach($chunk as $nt)
+                        @if( $nt['check'] == 1 AND $nt['emergency_id'] >= 27)
+                        {{$nt['type']}} <br>
+                        <span>{{$nt['content']}}</span><br>
+                        <br>
+                        @if($nt['type'] == '¿No tienes requerimientos?' AND $nt['emergency_id'] == 33)
+                        {{$nt['type']}} <br>
+                        No estoy ofreciendo nada <br>
+                        @endif
+                        @endif
+                        @endforeach
+                    </div>
+                    @endforeach
+                </div>
+                <div class="col-sm-1 col-xs-1">
+                    <a href="{{url('/create-service/notes')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                </div>
             </div>
         </div>
-    </div>
+</div>
 
 
-    @endsection
+@endsection

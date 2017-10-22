@@ -22,17 +22,10 @@ html {
     width: auto;
 }
 
-.item .img2 {
-    padding-top: 0.9em;
-}
 
 .carousel-inner {
-    height: 25.4em;
+    height: 26.4em;
     background: none;
-}
-
-.item img {
-    padding-top: 1.5em;
 }
 
 .item {
@@ -391,6 +384,8 @@ textarea {
 
 .imgHom2 {
     width: 55%;
+    border-radius: 50%;
+    border: 2px solid #3e6780;
 }
 
 .imgHom3 {
@@ -1192,6 +1187,11 @@ footer {
     color: #fff;
 }
 
+/* Preview */
+
+.divconfig{
+    margin-top: 30px;
+}
 
 /*********************************************************************
 
@@ -1431,7 +1431,7 @@ input[type="checkbox"]#checkbox3:focus {
                                       FIRST STEP
 
  
-        **********************************************************************/
+**********************************************************************/
 
 .fs-area1 {
     background: url(../img/fondofs1.png) no-repeat;
@@ -1569,6 +1569,106 @@ a {
 /**** Final de estilo para enlaces sin href *****/
 
 
+/* Preview1 */
+
+.config-about{
+    padding-bottom: 15px;
+}
+
+.font{
+    font-size: 1.5em;
+}
+
+.margin-title{
+    margin: 0;
+    padding-bottom: 15px;
+}
+
+.price-config{
+    padding-top: 3px;
+    margin-bottom: 7px;
+}
+
+.title-category-2{
+    margin-top: 0;
+}
+
+.category-config{
+    margin-top: 4%;
+}
+
+.text-preview1{
+    padding-left: 7%;
+}
+
+.config-host{
+    padding-left: 5%;
+    color: #159bba;
+}
+
+/* Parking */
+.imgHom10{
+    width: 60px;
+    height: 60px;
+}
+
+.required-config i{
+    height: 12px;
+    width: 12px;
+}
+
+.icon-text{
+    font-size: 1.5em;
+}
+
+.imgHom22 {
+    height: 8em;
+    position: absolute;
+    top: 1em;
+    left: 2em;
+}
+
+/* carousel parking */
+
+.carrousel22{
+    height: 100%;
+}
+
+/* Service previeww */
+
+.config-row{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+/* Service */
+
+
+/* Modal Contact host */
+
+
+.modal-designe{
+    border: 5px solid #58595b;
+    background-color: #DEE2E9;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border-radius: 15px;
+}
+
+.config-coanfitriones{
+    font-size: 1.1em;
+}
+
+.img-contact{
+    height: 70%;
+    width: 70%;
+}
+
+.googglemap-config{
+    width: 96%;
+    height: 250px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
 /*********************************************************************
 
 
@@ -1673,6 +1773,10 @@ a {
     .dist1 {
         padding-top: 12em;
     }
+
+    .config-inner{
+        height: auto;
+    }
 }
 
 input[type=checkbox]#checkbox2+label {
@@ -1721,7 +1825,20 @@ input[type=checkbox]#checkbox2+label {
     }
     .divbtnbar {
         margin-bottom: 1.5em;
-        ;
+    }
+    .anfitrion-config{
+        text-align: center;
+    }
+    .img-contact{
+        width: 50%;
+        height: 50%;
+    }
+    .category-config{
+        text-align: center;
+    }
+
+    .carousel-inner{
+        height: auto;
     }
 }
 
@@ -1767,6 +1884,16 @@ input[type=checkbox]#checkbox2+label {
     body {
         padding-bottom: 765px;
     }
+        .carousel-inner{
+        height: auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1182px){
+        .carousel-inner{
+        height: auto;
+    }
+
 }
 
 @media (min-width: 1183px) {

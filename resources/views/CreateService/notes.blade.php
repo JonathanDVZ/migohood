@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 lg-offset-3 xs-offset-3 md-offset-3 sm-offset-3">
-            <form name="noteAddSErvice" id="noteAddService" method="post" action="{{ url('/create-service/save-notes') }}">
+            <form name="noteAddService" id="noteAddService" method="post" action="{{ url('/create-service/save-notes') }}">
                 {{ csrf_field() }}
             <br>
             <h3 class="titulo text-center">¿Qué mas deberian saber los Invitados?</h3>

@@ -9,7 +9,6 @@
                     <li data-target="#carousel" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
-
                     <div class="item active">
                         <img class="img-responsive" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 1" />
                     </div>
@@ -98,29 +97,41 @@
         </div>
     </div>
     @include('CreateService.PreviewService.navbar.preview-navbar',['activo2' => 'preview3'])
-    <div class="container-fluid WhiteBack preBody">
+     <div class="container-fluid WhiteBack preBody">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
             <div class="sections">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
-                    <h4 class="text-center">Tu Host</h4>
-                    <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
-                    <br>
-                    <br>
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
-                    <br>
-                    <br>
-                  
-                  <h4>{{$overview3["name"]}} {{$overview3["lastname"]}}</h4>
-                    <span>ES - Entro en Febrero</span>
-                    <br>
-                    <button class="btn btn-lg">Contactar Host</button>
-                </div>
-            </div>
-        </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                        <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
+                    </div>
+                    <div class="col-lg-3 col-md-8 col-sm-8 col-xs-12 nopadding anfitrion-config">
+                        <h3>{{$overview3["name"]}} {{$overview3["lastname"]}}</h3>
+                        <span>ES - Entro en Febrero de 2007</span>
+                        <br>
+                        <button class="btn btn-lg" data-toggle="modal" data-target="#contact-host">Contactar Host</button>
+                        <br>
+                    </div>
+                </div> 
+                <hr class="black">
 
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 light-border">
-            <h3>PRICE INFO</h3>
+            </div>
+            <div class="sections">
+                    @if($cohost == '')
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
+                        <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
+                    </div>
+                    <div class="col-lg-3 col-md-8 col-sm-8 col-xs-12 nopadding anfitrion-config">
+                        <h3>Otro usuario</h3>
+                        <span>ES - Entro en Febrero de 2007</span>
+                        <br>
+                        <button class="btn btn-lg" data-toggle="modal" data-target="#contact-host">Contactar Host</button>
+                        <br>
+                    </div>
+                </div>
+               <hr class="black">
+                    @endif 
+            </div>
         </div>
     </div>
 </div>

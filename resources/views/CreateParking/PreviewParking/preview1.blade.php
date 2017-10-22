@@ -99,223 +99,120 @@
     </div>
     @include('CreateParking.PreviewParking.navbar.preview-navbar',['activo2' => 'preview1'])
     <div class="container-fluid WhiteBack preBody">
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
+        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12 light-border">
             <div class="sections">
                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center nopadding">
                     <br>
-                    <img class="imgHom2" src="{{url('/assets/img/user-logo.svg')}}" alt="">
-                    <h4 class="text-center">Username</h4>
+                    <img class="imgHom2" src="{{$overview['avatar']}}" alt="">
+                    <h4 class="text-center">{{$overview['name']}}</h4>
                     <br>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
-                    <h3>Espacio Habitable</h3>
-                    <span>Barcelona, Barcelona, Spain</span>
-                    <br>
-                    <br>
-                    <br>
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                        <img class="imgHom3" src="{{url('/assets/img/Icon-Private-Room.png')}}" alt="">
-                        <br>
-                        <span>Habitacion Privada</span>
+                <div  class="col-lg-8 col-md-8 col-sm-8 col-xs-12 category-config">
+                    <h3>{{$overview['title']}}</h3>
+                    <span>{{$overview['city']}} {{$overview['state']}}, {{$overview['country']}}</span>
+                    <br><br>
+                    <div class="col-sm-3 col-xs-3 text-center">
+                        <img class="imgHom10" src="{{url('/assets/img/garaje2.jpg')}}" alt="">
+                        <p>{{$overview['type']}}</p>
                     </div>
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                        <img class="imgHom3" src="{{url('/assets/img/Icon-Guest.png')}}" alt="">
-                        <br>
-                        <span>1 Invitado</span>
-
-                    </div>
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                        <img class="imgHom3" src="{{url('/assets/img/Icon-Bedroom.png')}}" alt="">
-                        <br>
-                        <span>1 Habitacion<span>
-
-                    </div>
-                    <div class="col-sm-3 col-xs-3 text-center nopadding-left">
-                     <img class="imgHom3" src="{{url('/assets/img/Icon-Bed.png')}}" alt="">
-                     <br>
-                     <span>1 Cama</span>
+                    <div class="col-sm-3 col-xs-3 text-center">
+                        <img class="imgHom10" src="{{url('/assets/img/car2.jpg')}}" alt="">
+                        <p>{{$overview['num_space']}} Espacios</p>
                     </div>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>El Lugar</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Sobre este servicio</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong>Accomodates: </strong><span>1</span><br>
-                    <strong>Baños:</strong><span>1</span><br>
-                    <strong>Habitaciones: </strong><span>1</span><br>
-                    <strong>Camas: </strong><span>1</span><br>
-                    <a href="#">Reglas de la Casa</a>
-                    <br>
-                    <br>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong>Check-in: </strong><span>Despues de las 3PM</span><br>
-                    <strong>Tipo de Propiedad: </strong><span>Apartamento</span><br>
-                    <strong>Tipo de Habitacion: </strong><span>Privado</span><br>
-                    <strong>Tipo de Baño: </strong><span>Privadoe</span><br>
+                <div class="col-sm-8 col-xs-10 config-about text-justify">
+                    <p>@foreach($description as $ds)
+                    @if($ds['description_id'] == 8)
+                    {{$ds['content']}}
+                    @endif
+                    @endforeach</p>
+                    <a href="{{url('/create-parking/basics')}}" class="">Contacta al host</a>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-space/place-type')}}"><img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""></a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h4>Comodidades</h4>
-                    <br>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Requerimientos</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>Se Permiten Mascotas</span><br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Elevator.png')}}" alt=""> </strong><span>Elevador en el Edificio</span><br>
-                    <a href="#">+ Mas</a>
-                    <br>
-                    <br>
+                @foreach(array_chunk($rules, round(count($rules)/2)) as $chunk)
+                <div class="col-sm-4 col-xs-5">
+                    @foreach($chunk as $rl)
+                    @if( $rl['check'] == 1)
+                        {{$rl['type']}} <br>
+                    <p>&nbsp<i class="fa fa-mobile fa-2x" aria-hidden="true"></i> Numero de telefono</p>
+                    <p><i class="fa fa-male fa-2x" aria-hidden="true"></i> Recomendacion</p>
+                     @endif
+                     @endforeach
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Family.png')}}" alt=""> </strong><span>Familia / niños Amistoso</span><br>
-                    <strong><img class="lilicon" src="{{url('/assets/img/Icon-Wifi.png')}}" alt=""> </strong><span>Wifi</span><br>
-                </div>
+                @endforeach
+             {{--  <div class="col-sm-4 col-xs-5">
+                    <p><i class="fa fa-glass fa-2x" aria-hidden="true"></i> Edad legal para beber</p>
+                    <p><i class="fa fa-envelope fa-2x" aria-hidden="true"></i> Correo</p>
+                </div>--}} 
                 <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-parking/listing')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Precios</h3>
-                    <br>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Reglas</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <strong>Cancelacion: </strong><span>Flexible</span><br>
+                <div class="col-sm-8 col-xs-10">
+                    {{$rules[0]['description']}}
                     <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-parking/listing')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Descripcion</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">¿Que mas deberian saber tus invitados?</h3><br>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                    <br>
+                <div class="col-sm-8 col-xs-10">
+                    <span>@if(isset($note_emergency))
+                        {{$note_emergency[0]['content']}}
+                        @endif
+                    </span>
                 </div>
-
                 <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-parking/notes')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Reglas de la Casa</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Comodidades</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <span>Check-in es despues de las 3PM</span><br>
-                    <br>
-                    <a href="#">Ver Calendario <span class="glyphicon glyphicon-calendar"></span></a>
-                    <br>
-                    <br>
+                @foreach(array_chunk( $amenities, round(count($amenities)/2)) as $chunk)
+                <div class="col-sm-4 col-xs-5">
+                    @foreach($chunk as $am)
+                    @if($am['check'] == 1)
+                     <span><i class="fa fa-check icon-text" aria-hidden="true"></i>  {{$am['amenities']}} <br><br></span>
+                    @else
+                    <span><i class="fa fa-times icon-text" aria-hidden="true"></i>{{$am['amenities']}} <br><br></span>
+                    @endif
+                    @endforeach
                 </div>
+                @endforeach
+             {{--   <div class="col-sm-4 col-xs-5">
+                    <span><i class="fa fa-lock icon-text" aria-hidden="true"></i>&nbsp&nbsp Candado y llaves</span>
+                </div> --}}
                 <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
+                    <a href="{{url('/create-parking/amenities')}}"> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Tambien deberias saber</h3>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                    <br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Seguridad</h3>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <span>Detector de Humo</span><br>
-                    <span></span><br>
-                    <span>Extintor de Fuego</span><br>
-                    <br>
-                </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
-                    <span>Kitchen roof</span><br>
-                    <span></span><br>
-                    <span>Kitchen right of stove</span><br>
-                    <br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h4>Instrucciones de Emergencia</<h4></h4>>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                    <br>Overview
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-            <div class="sections">
-                <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Numeros de Emergencia</h3>
-                </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
-                    <p>
-                        <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt=""> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam
-                        eligendi minima natus voluptatum tempore eius quaerat sunt.
-                    </p>
-                    <br>
-                </div>
-                <div class="col-sm-1 col-xs-1">
-                    <br>
-                    <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 light-border">
-
-        </div>
     </div>
 </div>
-
-
 @endsection

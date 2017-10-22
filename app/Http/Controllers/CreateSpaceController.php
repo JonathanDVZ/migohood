@@ -542,7 +542,7 @@ class CreateSpaceController extends Controller
                         ->asJson( true )
                         ->get();
 
-            //dd($result);
+           // dd($result);
             $address = ''; $apartment = ''; $description = ''; $around = ''; $states = ''; $cities = ''; $longitude = ''; $latitude = '';
             if (isset($result) AND !empty($result) AND !is_null($result) AND $result != 'Not Found') {
                 foreach ($result as $key) {
@@ -685,10 +685,21 @@ class CreateSpaceController extends Controller
                     ->put();
 
 
-        if ($response == 'Add Location' OR $response == 'Update Location') {
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res .= $r . '\\n';
+            }
+        } else {
+            $res = $response;
+        }
+           
+        if ($res == 'Add Location' OR $res == 'Update Location') {
             return redirect('/create-space/amenities');
         } else {
-            return redirect('/create-space/location')->with(['message-alert' =>''.$response.'']);
+            return redirect('/create-space/location')->with(['message-alert' =>''.$res.'']);
         }
 
     }
@@ -719,6 +730,9 @@ class CreateSpaceController extends Controller
                             ))
                         ->asJson( true )
                         ->get();
+
+                 //       dd($save_amenities);
+
                 $saved_detalles = array(); $saved_ofrece = array(); $saved_lugares = array();
                 if (is_array($save_amenities)) {
                     foreach ($save_amenities as $value) {
@@ -865,7 +879,7 @@ class CreateSpaceController extends Controller
 
                 //dd($save_amenities);
             }
-            //dd($amenities);
+           // dd(['id' => $id, 'detalles1' => $detalles1, 'detalles2' => $detalles2, 'ofrece1' => $ofrece1, 'ofrece2' => $ofrece2, 'lugares1' => $lugares1, 'lugares2' => $lugares2, 'saved_detalles' => $saved_detalles, 'saved_ofrece' => $saved_ofrece, 'saved_lugares' => $saved_lugares]);
 
             return view("CreateSpace.amenities", ['id' => $id, 'detalles1' => $detalles1, 'detalles2' => $detalles2, 'ofrece1' => $ofrece1, 'ofrece2' => $ofrece2, 'lugares1' => $lugares1, 'lugares2' => $lugares2, 'saved_detalles' => $saved_detalles, 'saved_ofrece' => $saved_ofrece, 'saved_lugares' => $saved_lugares]);
 
@@ -975,8 +989,10 @@ class CreateSpaceController extends Controller
 
     public function SaveAmenities(Request $request)
     {
+        //dd( $request->input('amenities'));
 
         if (is_array($request->input('amenities'))) {
+            //dd($request);
             foreach ($request->input('amenities') as $amenitie) {
                 // Enviar los datos a la API para guardar
                 $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-5/amenities')
@@ -991,10 +1007,11 @@ class CreateSpaceController extends Controller
                                 ->post();
                 //dd($response);
                 if ($response == 'Update Step 5' OR $response == 'Add Step 5') {
-                } else
+                } else{
                     return redirect('/create-space/amenities')->with(['message-alert' =>''.$response.'']);
 
             }
+        }
             return redirect('/create-space/hosting');
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha ocurrido un problema por favor recargue la pagina']);
@@ -1007,11 +1024,7 @@ class CreateSpaceController extends Controller
         $id = '';
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
-            $msg = '';
-            if (session()->has('message-alert')) {
-                $msg = session()->get('message-alert');
-                session()->forget('message-alert');
-            }
+           
 
             $currencies = Curl::to(env('MIGOHOOD_API_URL').'/currency/get-currency')
                         ->withData( array(
@@ -1069,6 +1082,11 @@ class CreateSpaceController extends Controller
     {
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
+             $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
             // Enviar los datos a la API para guardar
             $response = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-6/hosting')
                             ->withHeaders( array(
@@ -1087,10 +1105,22 @@ class CreateSpaceController extends Controller
                             ->asJson( true )
                             ->post();
             //dd($response);
-            if ($response == 'Update Step 6' OR $response == 'Add Step-6') {
+
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res .= $r . '\\n';
+            }
+        } else {
+            $res = $response;
+        }
+
+            if ($res == 'Update Step 6' OR $res == 'Add Step-6') {
                 return redirect('/create-space/basics');
             } else
-                return redirect('/create-space/hosting')->with(['message-alert' =>''.$response.'']);
+                return redirect('/create-space/hosting')->with(['message-alert' =>''.$res.'']);
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
@@ -1102,12 +1132,6 @@ class CreateSpaceController extends Controller
         $id = '';
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
-            $msg = '';
-            if (session()->has('message-alert')) {
-                $msg = session()->get('message-alert');
-                session()->forget('message-alert');
-            }
-
             $saved_basics = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-7/get-description')
                             ->withData( array(
                                 'service_id' => $id,
@@ -1189,10 +1213,23 @@ class CreateSpaceController extends Controller
                         ->post();
 
             //dd($response);
-            if ($response == 'Update Step-7' OR $response == 'Add Step-7') {
+
+
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res .= $r . '\\n';
+            }
+        } else {
+            $res = $response;
+        }
+
+            if ($res == 'Update Step-7' OR $res == 'Add Step-7') {
                 return redirect('/create-space/listing');
             } else {
-                return redirect('/create-space/basics')->with(['message-alert' =>''.$response.'']);
+                return redirect('/create-space/basics')->with(['message-alert' =>''.$res.'']);
             }
 
         } else {
@@ -1945,7 +1982,6 @@ class CreateSpaceController extends Controller
     {
       $data['service_id'] = session()->get('service_id');
       $data['languaje'] = 'ES';
-      
 
         $exit_emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-exit-emergency')
                         ->withData( array(
@@ -2025,8 +2061,7 @@ class CreateSpaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
-       // dd($beds);
-
+       //    dd($description);
 
         return view("CreateSpace.PreviewSpace.preview1", ['bedrooms'=>$bedrooms, 'emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description, 'tknow' => $tknow, 'price'=>$price]);
     }

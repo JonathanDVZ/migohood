@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 lg-offset-3 xs-offset-3 md-offset-3 sm-offset-3">
-            <form name="noteAdd" id="noteAdd" method="post" action="{{ url('/create-parking/save-eleven') }}">
+            <form name="noteAddService" id="noteAddService" method="post" action="{{ url('/create-parking/save-eleven') }}">
                 {{ csrf_field() }}
             <br>
             <h3 class="titulo text-center">¿Qué mas deberian saber los Invitados?</h3>
@@ -32,7 +32,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right ">
             <div class="RetNex ">
                 <br>
-                <a id="noteNext"><strong>NEXT</strong><i class="fa fa-chevron-right " aria-hidden="true "></i></a>
+                <a id="AddNoteService"><strong>NEXT</strong><i class="fa fa-chevron-right " aria-hidden="true "></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 "></div>

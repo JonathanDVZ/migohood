@@ -97,7 +97,7 @@
             </div>
         </div>
     </div>
-    @include('CreateSpace.PreviewSpace.navbar.preview-navbar',['activo2' => 'preview1'])
+    @include('CreateWorkspace.PreviewWorkspace.navbar.preview-navbar',['activo2' => 'preview1'])
     <div class="container-fluid WhiteBack preBody">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">
             <div class="sections">
@@ -107,7 +107,7 @@
                     <h4 class="text-center">Username</h4>
                     <br>
                 </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding">
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding anfitrion-config">
                     <h3>Espacio Habitable</h3>
                     <span>Barcelona, Barcelona, Spain</span>
                     <br>
@@ -139,95 +139,81 @@
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>The Place</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">The Place</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
+                <div class="col-sm-4 col-xs-5">
                     <strong>Accomodates: </strong><span>1</span><br>
                     <strong>Bathrooms: </strong><span>1</span><br>
                     <strong>Bedrooms: </strong><span>1</span><br>
                     <strong>Beds: </strong><span>1</span><br>
                     <a href="#">House Rules</a>
                     <br>
-                    <br>
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
+                <div class="col-sm-4 col-xs-5">
                     <strong>Check-in: </strong><span>Ater 3PM</span><br>
                     <strong>Porperty Type: </strong><span>Apartment</span><br>
                     <strong>Room Type: </strong><span>Private</span><br>
-                    <strong>Bathroom Type: </strong><span>Private</span><br>
+                    <strong>Bathroom Type: </strong><span>Private</span><br><br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Amenities</h3>
-                    <br>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Amenities</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
+                <div class="col-sm-4 col-xs-5">
                     <strong><img class="lilicon" src="{{url('/assets/img/Icon-Pets.png')}}" alt=""> </strong><span>Pets Allowed</span><br>
                     <strong><img class="lilicon" src="{{url('/assets/img/Icon-Elevator.png')}}" alt=""> </strong><span>Elevator in biulding</span><br>
                     <a href="#">+ More</a>
                     <br>
                     <br>
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
+                <div class="col-sm-4 col-xs-5">
                     <strong><img class="lilicon" src="{{url('/assets/img/Icon-Family.png')}}" alt=""> </strong><span>Family / kid Fiendly</span><br>
                     <strong><img class="lilicon" src="{{url('/assets/img/Icon-Wifi.png')}}" alt=""> </strong><span>Wifi</span><br>
-
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Prices</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Prices</h3>
                     <br>
                 </div>
-                <div class="col-sm-8 col-xs-8">
+                <div class="col-sm-8 col-xs-10">
                     <br>
                     <strong>Cancellation: </strong><span>flexible</span><br>
                     <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Description</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Description</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
+                <div class="col-sm-8 col-xs-10 text-justify">
                     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
                     <br>
                 </div>
-
                 <div class="col-sm-1 col-xs-1">
-                    <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>House Rules</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">House Rules</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
+                <div class="col-sm-8 col-xs-10">
                     <span>Check-in is after 3PM</span><br>
                     <br>
                     <a href="#">View Calendar <span class="glyphicon glyphicon-calendar"></span></a>
@@ -235,85 +221,67 @@
                     <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Also you should know</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Also you should know</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
+                <div class="col-sm-8 col-xs-10 text-justify">
                     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                    <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Safety</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Safety</h3>
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
+                <div class="col-sm-4 col-xs-5">
                     <span>Smoke Detector</span><br>
                     <span></span><br>
-                    <span>Fire Extinguisher</span><br>
-                    <br>
+                    <span>Fire Extinguisher</span><br><br>
                 </div>
-                <div class="col-sm-4 col-xs-4">
-                    <br>
+                <div class="col-sm-4 col-xs-5">
                     <span>Kitchen roof</span><br>
                     <span></span><br>
                     <span>Kitchen right of stove</span><br>
-                    <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Emergency instructions</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Emergency instructions</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
+                <div class="col-sm-8 col-xs-10">
                     <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam eligendi minima natus voluptatum tempore eius quaerat sunt. </p>
-                    <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
             <div class="sections">
                 <hr class="black">
-                <div class="col-sm-3 col-xs-3">
-                    <h3>Emergency phone numbers</h3>
+                <div class="col-sm-3 col-xs-12">
+                    <h3 class="font title-category-2">Emergency phone numbers</h3>
                 </div>
-                <div class="col-sm-8 col-xs-8">
-                    <br>
+                <div class="col-sm-8 col-xs-10">
                     <p>
                         <img class="lilicon" src="{{url('assets/img/Icon-Information.png')}} " alt=""> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est omnis odio nulla corporis, delectus libero animi porro laboriosam numquam nisi vero magnam
                         eligendi minima natus voluptatum tempore eius quaerat sunt.
                     </p>
-                    <br>
                 </div>
                 <div class="col-sm-1 col-xs-1">
-                    <br>
                     <a href=""> <img class="edit" src="{{url('/assets/img/Icon-Edit.png')}}" alt=""> </a>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 light-border">
-
         </div>
     </div>
 </div>

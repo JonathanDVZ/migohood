@@ -167,10 +167,10 @@ class CreateServiceController extends Controller
         //dd($res);
         if ($res == 'Add Step-1' OR $res == 'Update Step-1'){
             
-            return redirect('/create-service/hosting')/*->with(['id' => $request->input('service_id')])*/;
+            return redirect('/create-service/hosting');
         }else{
             //dd($res);
-            return redirect('/create-service/category')->with(['message-alert' => '' . $res  . $request->input('service_id').  ''/*,'id' => $request->input('service_id')*/]);
+            return redirect('/create-service/category')->with(['message-alert' => '' . $res  . $request->input('service_id').  '']);
             }
         }   else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
@@ -185,7 +185,7 @@ class CreateServiceController extends Controller
             $msg = '';
             if (session()->has('message-alert')) {
                 $msg = session()->get('message-alert');
-                session()->forget('message-alert');
+              //  session()->forget('message-alert');
             }
 
             $currencies = Curl::to(env('MIGOHOOD_API_URL').'/currency/get-currency')
@@ -243,6 +243,11 @@ class CreateServiceController extends Controller
     {
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
+            $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+            }
+
             // Enviar los datos a la API para guardar
             $response = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-2/hosting')
                             ->withHeaders( array(
@@ -260,10 +265,21 @@ class CreateServiceController extends Controller
                             ->asJson( true )
                             ->post();
            // dd($response);
-            if ($response == 'Update Step 2' OR $response == 'Add Step-2') {
+
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res = $r . '\\n';
+            }
+        } else {
+            $res = $response;
+        }
+            if ($res == 'Update Step 2' OR $res == 'Add Step-2') {
                 return redirect('/create-service/basics');
             } else{
-                return redirect('/create-service/hosting')->with(['message-alert' =>''.$response.'']);
+                return redirect('/create-service/hosting')->with(['message-alert' =>'' . $res .  '']);
         } 
     }else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
@@ -284,6 +300,17 @@ class CreateServiceController extends Controller
                                 ))
                             ->asJson( true )
                             ->get();
+
+            $saved_listinga = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-3a/get-basics')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();   
+
+             //dd($saved_listinga);
+
             $AptoDe2a12 = ''; $AptoDe0a2 = ''; $SeadmitenMascotas = ''; $PermitidoFumar = ''; $Desc_Otro_Evento = ''; $guest_phone = ''; $guest_email = '';  $guest_profile = ''; $guest_payment = ''; $guest_provided = ''; $guest_recomendation = ''; $interaction = '';
              $title = ''; $description = '';
             if (isset($saved_listing) AND !empty($saved_listing) AND !is_null($saved_listing) AND $saved_listing != 'Not Found') {
@@ -310,21 +337,24 @@ class CreateServiceController extends Controller
                         $guest_provided = $value['Check'];
                     } elseif ($value['rules_id'] == 12) {
                         $guest_recomendation = $value['Check'];
-                    } elseif ($value['description_id'] == 13) {
+                    }
+                }
+            }
+
+             if (isset($saved_listinga) AND !empty($saved_listinga) AND !is_null($saved_listinga) AND $saved_listinga != 'Not Found') {
+                foreach ($saved_listinga as $value) {
+                    if ($value['description_id'] == 13) {
                         $interaction = $value['content'];
                     } elseif ($value['description_id'] == 1) {
                         $title = $value['content'];
                     } elseif ($value['description_id'] == 8) {
                         $description = $value['content'];
-                    }elseif ($value['description_id'] == 13) {
-                        $interaction = $value['content'];
                     }
                 }
             }
-            //dd($saved_listing);
             //return;
 
-            return view("CreateService.basics", ['id' => $id, 'AptoDe2a12' => $AptoDe2a12, 'AptoDe0a2' => $AptoDe0a2, 'SeadmitenMascotas' => $SeadmitenMascotas, 'PermitidoFumar' => $PermitidoFumar, 'Desc_Otro_Evento' => $Desc_Otro_Evento, 'guest_phone' => $guest_phone, 'guest_email' => $guest_email,  'guest_profile' => $guest_profile, 'guest_payment' => $guest_payment, 'guest_provided' => $guest_provided, 'guest_recomendation' => $guest_recomendation, 'interaction' => $interaction ]);
+            return view("CreateService.basics", ['id' => $id, 'AptoDe2a12' => $AptoDe2a12, 'AptoDe0a2' => $AptoDe0a2, 'SeadmitenMascotas' => $SeadmitenMascotas, 'PermitidoFumar' => $PermitidoFumar, 'Desc_Otro_Evento' => $Desc_Otro_Evento, 'guest_phone' => $guest_phone, 'guest_email' => $guest_email,  'guest_profile' => $guest_profile, 'guest_payment' => $guest_payment, 'guest_provided' => $guest_provided, 'guest_recomendation' => $guest_recomendation, 'interaction' => $interaction,'title'=>$title,'description'=>$description ]);
 
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
@@ -422,10 +452,20 @@ class CreateServiceController extends Controller
                         ->post();
 
             //dd($response);
-            if ($response == 'Update Step-3' OR $response == 'Add Step-3') {
+            $caracters = array('"','[',']',',');
+            $response = str_replace($caracters,'',$response);
+            if (is_array($response)) {
+                $res = '';
+                foreach ($response as $r) {
+                    $res = $r . '\\n';
+                }
+            } else {
+                $res = $response;
+            }
+            if ($res == 'Update Step-3' OR $res == 'Add Step-3') {
                 return redirect('/create-service/photos');
             } else {
-                return redirect('/create-service/basics')->with(['message-alert' =>''.$response.'']);
+                return redirect('/create-service/basics')->with(['message-alert' =>''.$res.'']);
             }
 
 
@@ -499,7 +539,7 @@ class CreateServiceController extends Controller
 
             $img1 = ''; $desc1 = ''; $name1 = '';
             // Verifico si me da indicio de que ya habia una foto guardada
-            if ($request->has('old1') AND $request->input('old1') == '1') {
+            if ($request->has('old1') OR $request->input('old1') == '1') {
                 //echo "string";
                 // se va a reemplazar el viejo
                 if ($request->hasFile('file1')) {
@@ -524,7 +564,7 @@ class CreateServiceController extends Controller
 
             $img2 = ''; $desc2 = ''; $name2 = '';
             // Verifico si me da indicio de que ya habia una foto guardada
-            if ($request->has('old2') AND $request->input('old2') == 1) {
+            if ($request->has('old2') OR $request->input('old2') == 1) {
                 // se va a reemplazar el viejo
                 if ($request->hasFile('file2')) {
                     $img2 = $request->file('file2');
@@ -544,21 +584,23 @@ class CreateServiceController extends Controller
 
             if (!empty($name1)) {
                 $img1->move('files/images/',$name1);
+               // dd( $request->file('file1'));
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-4/image')
-                            ->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
+                            ->withContentType('multipart/form-data')
                             ->withData( array(
                                 "service_id"=>$id,
-                                "image" => new \CURLFile('files/images/'.$name1),
+                                "image" =>  new \CurlFile('files/images/'.$name1),
                                 "description" => $desc1
                             ))
+                           // ->withFile('image',new \CurlFile('files/images/'.$name1), \File::mimeType('files/images/'.$name1), $name1)
                             ->containsFile()
                             ->post();
 
-                //unlink('files/images/'.$name1);
-                //dd($res);
+                unlink('files/images/'.$name1);
+               // dd($res);
                 if ($res == 'Duration not found' OR $res == 'Service not found' OR $res == 'false') {
                     return redirect('/create-services/photos')->with(['message-alert' =>''.$res.'']);
                 }
@@ -583,7 +625,7 @@ class CreateServiceController extends Controller
                     return redirect('/create-service/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
-           // dd($request->input('file1'));
+         //dd($request->all());
             return redirect('/create-service/location');
 
         } else {
@@ -665,6 +707,7 @@ class CreateServiceController extends Controller
 
     public function SaveLocation(Request $request)
     {
+
         // Enviar los datos a la API para crear nuevas habitaciones
         $response = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-5/location')
                     ->withHeaders( array(
@@ -685,12 +728,25 @@ class CreateServiceController extends Controller
                         ) )
                     ->asJson( true )
                     ->post();
-
-
-        if ($response == 'Add Location' OR $response == 'Update Location') {
+        $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }            
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res = $r . '\\n';
+            }
+        } else {
+            $res = $response;
+        }            
+        if ($res == 'Add Location' OR $res == 'Update Location') {
             return redirect('/create-service/notes');
         } else {
-            return redirect('/create-service/location')->with(['message-alert' =>''.$response.'']);
+            return redirect('/create-service/location')->with(['message-alert' =>''.$res.'']);
         }
 
     }
@@ -713,6 +769,9 @@ class CreateServiceController extends Controller
                                 ))
                             ->asJson( true )
                             ->get();
+
+                          //  dd($saved_notes);
+
             $anything = ''; $alcohol = ''; $certification = ''; $requiments = ''; $aditional = ''; $norequiments = ''; $food = ''; $Snacks = ''; $drinks = ''; $transport = ''; $accommodation = ''; $other = ''; $nooffers = '';$aditional2 = '';  $food2 = ''; $Snacks2 = ''; $drinks2 = ''; $transport2 = ''; $accommodation2 = ''; $other2 = ''; 
             if (isset($saved_notes) AND !empty($saved_notes) AND !is_null($saved_notes) AND $saved_notes != 'Not Found') {
                 foreach ($saved_notes as $value) {
@@ -752,7 +811,7 @@ class CreateServiceController extends Controller
                     }
                 }
             }
-            //dd($saved_notes);
+            
             return view("CreateService.notes", ['id' => $id, 'anything' => $anything, 'alcohol' => $alcohol, 'certification' => $certification, 'requiments' => $requiments, 'aditional2' => $aditional2, 'aditional' => $aditional, 'norequiments' => $norequiments, 'food' => $food, 'Snacks' => $Snacks, 'drinks' => $drinks, 'transport' => $transport, 'accommodation'=>$accommodation, 'other'=>$other,'nooffers'=>$nooffers, 'food2' => $food2, 'Snacks2' => $Snacks2, 'drinks2' => $drinks2, 'transport2' => $transport2, 'accommodation2'=>$accommodation2, 'other2'=>$other2 ]);
 
         } else {
@@ -769,7 +828,7 @@ class CreateServiceController extends Controller
                     session()->forget('message-alert');
                 }
 
-                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-6/notes')
+                $response = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-6/notes')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
@@ -800,6 +859,16 @@ class CreateServiceController extends Controller
                             ->post();
                 //dd($res);
 
+                $caracters = array('"','[',']',',');
+                $response = str_replace($caracters,'',$response);
+                if (is_array($response)) {
+                    $res = '';
+                    foreach ($response as $r) {
+                        $res = $r . '\\n';
+                    }
+                } else {
+                    $res = $response;
+                }            
                 if($res == "Service not found" && $res !="Update Note emergency"){
                     return redirect("create-service/note")->with(['message-alert' =>''.$res.'']);
                 }elseif($res=="Update Note emergency" || $res == "Add Note emergency"){
@@ -844,8 +913,22 @@ class CreateServiceController extends Controller
                             ))
                         ->asJson( true )
                         ->get();
-
-        return view("CreateService.PreviewService.preview1",compact('overview','description','type'));
+        $notes = Curl::to(env('MIGOHOOD_API_URL').'/service/services/getNotes')
+                        ->withData(array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ))
+                        ->asJson(true)
+                        ->get();
+        $rules = Curl::to(env('MIGOHOOD_API_URL').'/service/services/getRules')
+                        ->withData(array(
+                            'service_id' => $data['service_id'],
+                            'languaje' => $data['languaje'],
+                            ))
+                        ->asJson(true)
+                        ->get();
+                       //  dd($notes);
+        return view("CreateService.PreviewService.preview1",compact('overview','description','type','notes','rules'));
     }
 
     public function Preview2(Request $request)
@@ -865,8 +948,8 @@ class CreateServiceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
-
-        return view("CreateService.PreviewService.preview3",['overview3'=>$overview3]);
+        $cohost = '';                
+        return view("CreateService.PreviewService.preview3",['overview3'=>$overview3,'cohost'=>$cohost]);
     }
 
     public function Preview4(Request $request)

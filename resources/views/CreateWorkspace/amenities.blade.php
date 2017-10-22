@@ -8,63 +8,25 @@
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
                     <h3 class="titulo text-center">COMODIDADES</h3>
                     <br>
+                     <form id="formAddAmenities" method="POST" action="{{url('/create-workspace/save-amenities')}}">
                     <div class="row">
+                        @foreach(array_chunk($amenities, round(count($amenities)/2)) as $chunk )
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            @foreach($chunk as $amt)
                             <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Wifi</strong></label>
+                               
+                                <label><input   type="checkbox" name="amenities[]" value="{{$amt['code']}}"><strong>{{$amt['name']}}</strong></label>
                             </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""> <strong>Maquina de Café</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Impresora</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Scanner</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Fax</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Retroproyector</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Telefono</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Servicio de Limpieza</strong></label>
-                            </div>
+                            @endforeach
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Cocina</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""> <strong>Servicio de Correo</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Aire Acondicionado</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Seguridad</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Mensajeros</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Salon de Reuniones</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Otro</strong></label>
-                            </div>
-                            <div class="checkbox">
-                                <label><input type="checkbox" value=""><strong>Gimnasio</strong></label>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                    <label for="editar">Agregar Comodidades <i class="fa fa-pencil" aria-hidden="true"></i></label>
+                  {{--  <label for="editar">Agregar Comodidades <i class="fa fa-pencil" aria-hidden="true"></i></label>
                     <button id="editar" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#myModal">Open Modal</button>
-
+    --}}
+                    {{csrf_field()}}
+                        <input type="hidden" name="service_id" value="{{$id}}">
+                    </form>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal" role="dialog">
                         <div class="modal-dialog">
@@ -112,13 +74,13 @@
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
                 <br>
                 <div class="tex-left RetNex">
-                    <a href="{{url('/create-parking/location')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                    <a href="{{url('/create-workspace/location')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
                 </div>
             </div>
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
                 <div class="RetNex">
                     <br>
-                    <a href="{{url('/create-parking/hosting')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a id="addAmenitiesNext"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

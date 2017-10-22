@@ -93,16 +93,8 @@
                                 <br>
                             </div>
                             <div id="googleMap" style="width:100%;height:300px;"></div>
-                            <script>
-                                function myMap() {
-                                    var mapProp = {
-                                        center: new google.maps.LatLng(51.508742, -0.120850),
-                                        zoom: 5,
-                                    };
-                                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-                                }
-                            </script>
-                        </div>
+                        <input type="hidden" name="latitude" id="latitude" value="@if(isset($latitude) AND !empty($latitude)){{ $latitude }}@endif">
+                        <input type="hidden" name="longitude" id="longitude" value="@if(isset($longitude) AND !empty($longitude)){{ $longitude }}@endif">
                         <div>
                             <div class="form-group text-left">
                                 <h4 class="text-left">El Vecindario</h4>
@@ -138,7 +130,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-parking/bathroom')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-parking/baths')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">

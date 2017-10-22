@@ -28,8 +28,10 @@ $(document).ready(function() {
     });
 
     // calendarios dentro del hosting
-    $('#datetimepicker1').datetimepicker({ format: 'YYYY-MM-DD' });
-    $('#datetimepicker2').datetimepicker({ format: 'YYYY-MM-DD' });
+    $('#datetimepicker1').datetimepicker({ format: 'YYYY-MM-DD', minDate:new Date() });
+    $('#datetimepicker2').datetimepicker({ format: 'YYYY-MM-DD', minDate:new Date() });
+    $('#datetimepicker5').datetimepicker({ format: 'YYYY-MM-DD', minDate:new Date() });
+    $('#datetimepicker4').datetimepicker({ format: 'YYYY-MM-DD', minDate:new Date() });
     // $('#datetimepicker3').datetimepicker({
     //     inline: true,
     //     sideBySide: true,
