@@ -498,12 +498,12 @@ class CreateServiceController extends Controller
             $photo1 = ''; $description1 = '';$photo2 = ''; $description2 = '';
             if (isset($res) AND !empty($res) AND !is_null($res) AND $res != 'Not Found') {
                 if (isset($res[0]['ruta'])) {
-                    $photo1 = $res[0]['ruta'];
+                    $photo1 =asset( $res[0]['ruta']);
                     $description1 = $res[0]['description'];
                 }
 
                 if (isset($res[1]['ruta'])) {
-                    $photo2 = $res[1]['ruta'];
+                    $photo2 = asset( $res[1]['ruta']);
                     $description2 = $res[1]['description'];
                 }
 
@@ -583,49 +583,56 @@ class CreateServiceController extends Controller
             }
 
             if (!empty($name1)) {
-                $img1->move('files/images/',$name1);
-               // dd( $request->file('file1'));
-                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-4/image')
+                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/update-imagen')
+                            //->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
-                            ->withContentType('multipart/form-data')
                             ->withData( array(
                                 "service_id"=>$id,
-                                "image" =>  new \CurlFile('files/images/'.$name1),
-                                "description" => $desc1
+                                "image" => new \CURLFile('files/images/'.$name1),
+                               // "ruta" =>base64_encode($img1),
+                                "ruta" =>'files/images/'.$name1,
+                                "description" => $desc1,
+                                "id" =>$request->input('imageid1'),
                             ))
-                           // ->withFile('image',new \CurlFile('files/images/'.$name1), \File::mimeType('files/images/'.$name1), $name1)
-                            ->containsFile()
-                            ->post();
-
-                unlink('files/images/'.$name1);
-               // dd($res);
+                           // ->withFile( 'ruta', '/files/images/'.$name1, 'image/jpeg', $name1 )
+                            //->withFile( 'image' , 'new \CURLFile('files/images/'.$name1' )
+                            ->asJson( true )
+                            ->put();
+                $img1->move('files/images/',$name1);
+                          //  dd($res);
+                //unlink('files/images/'.$name1);
+                //dd($res);
                 if ($res == 'Duration not found' OR $res == 'Service not found' OR $res == 'false') {
-                    return redirect('/create-services/photos')->with(['message-alert' =>''.$res.'']);
+                    return redirect('/create-service/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
-
+            
             if (!empty($name2)) {
-                $img2->move('files/images/',$name2);
-                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/services/step-4/image')
-                            ->withContentType('multipart/form-data')
+                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/update-imagen')
+                            //->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
                             ->withData( array(
                                 "service_id"=>$id,
                                 "image" => new \CURLFile('files/images/'.$name2),
-                                "description" => $desc2
+                                 "ruta" =>'files/images/'.$name2,
+                                "description" => $desc2,
+                                "id" =>$request->input('imageid2'),
                             ))
-                            ->containsFile()
-                            ->post();
-                //unlink('files/images/'.$name2);
-                if ($res == 'Duration not found' OR $res == 'Service not found' OR $res == 'false') {
+                           // ->containsFile()
+                            ->asJson( true )
+                            ->put();
+                $img2->move('files/images/',$name2);
+               // dd($res);
+               // unlink('files/images/'.$name2);
+                if ($res == 'Duration not found' OR $res == 'Service not found') {
                     return redirect('/create-service/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
-         //dd($request->all());
+
             return redirect('/create-service/location');
 
         } else {
@@ -770,7 +777,7 @@ class CreateServiceController extends Controller
                             ->asJson( true )
                             ->get();
 
-                          //  dd($saved_notes);
+                         //   dd($saved_notes);
 
             $anything = ''; $alcohol = ''; $certification = ''; $requiments = ''; $aditional = ''; $norequiments = ''; $food = ''; $Snacks = ''; $drinks = ''; $transport = ''; $accommodation = ''; $other = ''; $nooffers = '';$aditional2 = '';  $food2 = ''; $Snacks2 = ''; $drinks2 = ''; $transport2 = ''; $accommodation2 = ''; $other2 = ''; 
             if (isset($saved_notes) AND !empty($saved_notes) AND !is_null($saved_notes) AND $saved_notes != 'Not Found') {
@@ -785,7 +792,7 @@ class CreateServiceController extends Controller
                         $requiments = $value['content'];
                     } elseif ($value['emergency_id'] == 25) {
                         $aditional = $value['check'];
-                        $aditional = $value['content'];
+                        $aditional2 = $value['content'];
                     } elseif ($value['emergency_id'] == 26) {
                         $norequiments = $value['check'];
                     } elseif ($value['emergency_id'] == 27) {
@@ -887,8 +894,17 @@ class CreateServiceController extends Controller
 
     public function Preview1(Request $request)
     {
-        $data['service_id'] = session()->get('service_id');
-        $data['languaje'] = 'ES';
+       // dd($request->input('service_id'));
+       if(session()->has('service_id')){
+          $data['service_id'] = session()->get('service_id');
+          
+        }else{
+            session::forget('service_id');
+          $data['service_id'] = $request->input('service_id');
+          session::put('service_id', $request->input('service_id'));
+        }
+          $data['languaje'] = 'ES';
+
 
         $overview = Curl::to(env('MIGOHOOD_API_URL').'/service/services/preview-overviews')
                         ->withData( array(
@@ -927,13 +943,40 @@ class CreateServiceController extends Controller
                             ))
                         ->asJson(true)
                         ->get();
-                       //  dd($notes);
-        return view("CreateService.PreviewService.preview1",compact('overview','description','type','notes','rules'));
+
+
+        $img = Curl::to(env('MIGOHOOD_API_URL').'/service/get-imagen')
+                        ->withData(array(
+                            'service_id'=>$data['service_id'],
+                            ))
+                        ->asJson(true)
+                        ->get();
+
+                       //  dd($img);
+                        $id = session::get('user.id');
+        if($overview != "Not Found"){
+        return view("CreateService.PreviewService.preview1",compact('overview','description','type','notes','rules','img','id'));
+        }else{
+             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor rellenen los campos del formularios que faltan.']);
+        }
+        
     }
 
     public function Preview2(Request $request)
     {
-        return view("CreateService.PreviewService.preview2");
+        $data['service_id'] = session()->get('service_id');
+        $data['languaje'] = 'ES';
+       // dd($data);
+      
+        $img = Curl::to(env('MIGOHOOD_API_URL').'/service/get-imagen')
+                        ->withData(array(
+                            'service_id'=>$data['service_id'],
+                            ))
+                        ->asJson(true)
+                        ->get();
+                    
+
+        return view("CreateService.PreviewService.preview2",compact('img'));
     }
 
     public function Preview3(Request $request)
@@ -948,15 +991,22 @@ class CreateServiceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
-        $cohost = '';                
-        return view("CreateService.PreviewService.preview3",['overview3'=>$overview3,'cohost'=>$cohost]);
+        $cohost = '';  
+
+        $img = Curl::to(env('MIGOHOOD_API_URL').'/service/get-imagen')
+                        ->withData(array(
+                            'service_id'=>$data['service_id'],
+                            ))
+                        ->asJson(true)
+                        ->get();              
+        return view("CreateService.PreviewService.preview3",['overview3'=>$overview3,'cohost'=>$cohost,'img'=>$img]);
     }
 
     public function Preview4(Request $request)
     {
         $data['service_id'] = session()->get('service_id');
           $data['languaje'] = 'ES';
-
+          if($data['service_id'] != null){
           $overview4 = Curl::to(env('MIGOHOOD_API_URL').'/service/services/preview-map-neighborhood')
                         ->withData( array(
                             'service_id' => $data['service_id'],
@@ -981,7 +1031,15 @@ class CreateServiceController extends Controller
                             ->asJson( true )
                             ->get();
 
-        return view("CreateService.PreviewService.preview4",['latitude' => $latitude, 'longitude' =>$longitude,'overview4'=>$overview4]);
+
+        $img = Curl::to(env('MIGOHOOD_API_URL').'/service/get-imagen')
+                        ->withData(array(
+                            'service_id'=>$data['service_id'],
+                            ))
+                        ->asJson(true)
+                        ->get();
+                    }
+        return view("CreateService.PreviewService.preview4",['latitude' => $latitude, 'longitude' =>$longitude,'overview4'=>$overview4,'img'=>$img]);
     }
 
     public function GetStates(Request $request)

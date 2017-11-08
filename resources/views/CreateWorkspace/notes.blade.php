@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 lg-offset-3 xs-offset-3 md-offset-3 sm-offset-3">
-            <form name="noteAdd" id="noteAdd" method="post" action="{{ url('/create-space/save-notes') }}">
+            <form name="noteAdd" id="noteAdd" method="post" action="{{ url('/create-workspace/save-notes') }}">
                 {{ csrf_field() }}
             <br>
             <h3 class="titulo text-center">¿Qué mas deberian saber los Invitados?</h3>
@@ -18,8 +18,8 @@
 
             <div>
                 <div class="form-group text-left">
-                    <h4 class="text-left">Seguridad de la Casa</h4>
-                    <p>Si sucede alguna emergencia, ayuda a tus invitados a estar preparado.<a href="#">Aprende mas sobre seguridad</a></p>
+                    <h4 class="text-left">Seguridad</h4>
+                    <p>Si sucede alguna emergencia, ayuda a tus invitados a estar preparado.</p>
                 </div>
 
                 <div class="form-group text-left">

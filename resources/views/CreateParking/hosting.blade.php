@@ -1,15 +1,15 @@
 @extends('layouts.master') @section('title', 'Hosting') @section('class', 'contenedor') @section( 'content') @include('CreateParking.navbar.navbar',['activo' => 'hosting'])
 <div class="container-fluid">
     <div class="row">
+        <form id="formAddHosting" method="POST" action="{{url('/create-parking/save-sixth')}}">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-2">
-                    <br>
-                    <br>
-                    <br>
-                    <div style="overflow:hidden;">
-                        <div class="form-group">
+                    <div style="overflow:hidden; ">
+                        <div class="form-group" style="overflow:hidden;">
                             <div id="datetimepicker3"></div>
+                            <div id="calendar" style="overflow:hidden;"></div>
+
                         </div>
                     </div>
                     <h4>Disponibilidad</h4>
@@ -94,10 +94,10 @@
                             <br>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <input type="text" name="quantity" class="form-control">
-                            <input type="text" name="quantity" class="form-control">
-                            <input type="text" name="quantity" class="form-control">
-                            <input type="text" name="quantity" class="form-control">
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price1" >
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price2" >
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price3" >
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price4" >
                         </div>
                     </div>
 
@@ -185,8 +185,8 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <br>
                                 <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker1'>
-                                        <input type='text' class="form-control" />
+                                    <div class='input-group date'>
+                                        <input type='text' class="form-control"  id='datetimepicker1' name="startDate" value="@if(isset($startDate) AND !empty($startDate)){{ $startDate }}@endif"/>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -196,8 +196,8 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <br>
                                 <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker2'>
-                                        <input type='text' class="form-control" />
+                                    <div class='input-group date' >
+                                        <input type='text' class="form-control" id='datetimepicker2' name="endDate" value="@if(isset($endDate) AND !empty($endDate)){{ $endDate }}@endif"/>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -210,7 +210,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="text-left">
                                     <span class="textwhite">Price for the night:</span>
-                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
+                                    <input value="@if(isset($price) AND !empty($price)){{ $price }}@endif" type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price" required/>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
@@ -237,11 +237,12 @@
                         <button type="button" class="btn btn-md works2" data-toggle="button">Cancel</button>
                     </div>
                     <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Save</button>
+                        <button type="submit" class="btn btn-md works2" >Save</button>
                     </div>
                 </div>
             </div>
         </div>
+    </form>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2"></div>
 </div>
@@ -258,7 +259,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
             <div class="RetNex">
                 <br>
-                <a href="{{url('/create-parking/basics')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                <a  id="addHostingNext"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
             </div>
         </div>
         <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

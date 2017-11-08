@@ -20,7 +20,7 @@ class CustomAuth
             if ($request->ajax()) {
                 return response('Unauthorized', 401);
             } else {
-                return back();
+                return view('auth.access-user-front');
             }
         }
         return $next($request);

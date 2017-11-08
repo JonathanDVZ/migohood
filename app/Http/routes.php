@@ -140,7 +140,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::post('/create-parking/save-twelve','CreateParkingController@SaveTwelve');
 
     Route::get('/create-parking/preview-overview','CreateParkingController@Preview1');
-    Route::get('/create-parking/preview-reviews','CreateSpaceController@Preview2');
+    Route::get('/create-parking/preview-reviews','CreateParkingController@Preview2');
     Route::get('/create-parking/preview-host','CreateParkingController@Preview3');
     Route::get('/create-parking/preview-location','CreateParkingController@Preview4');
     
@@ -174,6 +174,7 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::post('/create-workspace/save-amenities','CreateWorkspaceController@SaveFifth');
 
     Route::get('/create-workspace/hosting','CreateWorkspaceController@Sixth');
+    Route::post('/create-workspace/save-hosting','CreateWorkspaceController@SaveSixth');
 
     Route::get('/create-workspace/basics','CreateWorkspaceController@Seventh');
     Route::post('/create-workspace/save-basics','CreateWorkspaceController@SaveSeventh');
@@ -188,10 +189,12 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::post('/create-workspace/save-services','CreateWorkspaceController@SaveTenth');
 
     Route::get('/create-workspace/notes','CreateWorkspaceController@Eleven');
+    Route::post('/create-workspace/save-notes','CreateWorkspaceController@SaveEleven');
     Route::get('/create-workspace/notes/emergency-number','CreateWorkspaceController@ElevenEmergency');
     Route::post('/create-workspace/notes/emergency-number','CreateWorkspaceController@ElevenEmergecyAdd');
 
     Route::get('/create-workspace/co-host','CreateWorkspaceController@Twelve');
+    
     Route::get('/create-workspace/preview-overview','CreateWorkspaceController@Preview1');
     Route::get('/create-workspace/preview-reviews','CreateWorkspaceController@Preview2');
     Route::get('/create-workspace/preview-host','CreateWorkspaceController@Preview3');

@@ -7,10 +7,10 @@
             <br>
             <div class="text-right">
                 <div class="row">
-                    <div class="col-sm-8 col-sm-offset-4">
-                        <h3 class="titulo text-center">AYUDA A LOS INVITADOS A ENCONTRAR TU ESPACIO</h3>
-                        <br>
                         <form id="formAddLocation" action="{{ url('/create-parking/save-fourth') }}" method="POST">
+                    <div class="col-sm-8 col-sm-offset-4">
+                        <h3 class="titulo text-center">AYUDA A LOS INVITADOS A ENCONTRAR TU APARCAMIENTO</h3>
+                        <br>
                         <div class="form-group text-right">
                             <div class="text-left">
                                 <div class="text-left">
@@ -89,7 +89,8 @@
                                 <br>
                                  <span id="selectedAddress"></span><span id="selectedZipcode"></span><span id="selectedCity"></span><span id="selectedState"></span><span id="selectedCountry"></span></span>
                                 <br>
-                                <a href="">Editar Direccion</a>
+                                
+                                
                                 <br>
                             </div>
                             <div id="googleMap" style="width:100%;height:300px;"></div>
@@ -110,19 +111,19 @@
 
                     </div>
                 </div>
-            </div>
-        </div> 
         <input type="hidden" name="service_id" value="{{$id}}">
                             {{ csrf_field() }}
-</form>
+    </form>
+            </div>
+        </div> 
+        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+    </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="Wbox">
                 <p>Tu direccion exacta solo sera mostrada a personas que tengan una reservacion confirmada</p>
                 <br>
             </div>
         </div>
-        <div class="col-lg-2 col-md-2 col-sm-2"></div>
-    </div>
 </div>
 <div class="container">
     <div class="row">
@@ -130,7 +131,7 @@
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-left">
             <br>
             <div class="tex-left RetNex">
-                <a href="{{url('/create-parking/baths')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+                <a href="{{url('/create-parking/place-type')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">

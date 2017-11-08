@@ -93,49 +93,57 @@
         
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-            <div class="Wbox">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="container-fluid">
-                            <div class="text-center">
-                                <div class="cheks"><label for="selectin">Desde:   </label></div>
-                                <div class="cheks">
-                                    <select class="selectpicker form-control required" name="time_entry">
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '00:00:00') {{ 'selected' }} @endif value="00:00:00">12 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '01:00:00') {{ 'selected' }} @endif value="01:00:00">1 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '02:00:00') {{ 'selected' }} @endif value="02:00:00">2 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '03:00:00') {{ 'selected' }} @endif value="03:00:00">3 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '04:00:00') {{ 'selected' }} @endif value="04:00:00">4 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '05:00:00') {{ 'selected' }} @endif value="05:00:00">5 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '06:00:00') {{ 'selected' }} @endif value="06:00:00">6 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '07:00:00') {{ 'selected' }} @endif value="07:00:00">7 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '08:00:00') {{ 'selected' }} @endif value="08:00:00">8 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '09:00:00') {{ 'selected' }} @endif value="09:00:00">9 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '10:00:00') {{ 'selected' }} @endif value="10:00:00">10 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '11:00:00') {{ 'selected' }} @endif value="11:00:00">11 AM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '12:00:00') {{ 'selected' }} @endif value="12:00:00">12 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '13:00:00') {{ 'selected' }} @endif value="13:00:00">1 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '14:00:00') {{ 'selected' }} @endif value="14:00:00">2 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '15:00:00') {{ 'selected' }} @endif value="15:00:00">3 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '16:00:00') {{ 'selected' }} @endif value="16:00:00">4 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '17:00:00') {{ 'selected' }} @endif value="17:00:00">5 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '18:00:00') {{ 'selected' }} @endif value="18:00:00">6 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '19:00:00') {{ 'selected' }} @endif value="19:00:00">7 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '20:00:00') {{ 'selected' }} @endif value="20:00:00">8 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '21:00:00') {{ 'selected' }} @endif value="21:00:00">9 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '22:00:00') {{ 'selected' }} @endif value="22:00:00">10 PM</option>
-                                        <option @if(!empty($selected_entry) AND $selected_entry == '23:00:00') {{ 'selected' }} @endif value="23:00:00">11 PM</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <br>
-                        </div>
+        <div class="Wbox">
+             <div class="title-hosting text-center">
+                        <h2 class="title-hosting">Horario disponible</h2>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                        <div class="container-fluid">
-                            <div class="text-center">
-                                <div class="cheks"><label for="selectin">Hasta:   </label></div>
-                                <div class="cheks black">
+                    <hr style="margin: 0;">
+         <div class="box-hosting">
+                    <div class="row">
+                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                     <div class="container-fluid">
+                         <div class="text-center">
+                             <div class="row">
+                                 <div class="cheks col-lg-6 col-md-6"><label for="selectin">Desde:   </label></div>
+                                 <div class="cheks col-lg-6 col-md-6">
+                                     <select class="selectpicker form-control required" name="time_entry">
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '00:00:00') {{ 'selected' }} @endif value="00:00:00">12 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '01:00:00') {{ 'selected' }} @endif value="01:00:00">1 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '02:00:00') {{ 'selected' }} @endif value="02:00:00">2 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '03:00:00') {{ 'selected' }} @endif value="03:00:00">3 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '04:00:00') {{ 'selected' }} @endif value="04:00:00">4 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '05:00:00') {{ 'selected' }} @endif value="05:00:00">5 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '06:00:00') {{ 'selected' }} @endif value="06:00:00">6 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '07:00:00') {{ 'selected' }} @endif value="07:00:00">7 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '08:00:00') {{ 'selected' }} @endif value="08:00:00">8 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '09:00:00') {{ 'selected' }} @endif value="09:00:00">9 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '10:00:00') {{ 'selected' }} @endif value="10:00:00">10 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '11:00:00') {{ 'selected' }} @endif value="11:00:00">11 AM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '12:00:00') {{ 'selected' }} @endif value="12:00:00">12 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '13:00:00') {{ 'selected' }} @endif value="13:00:00">1 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '14:00:00') {{ 'selected' }} @endif value="14:00:00">2 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '15:00:00') {{ 'selected' }} @endif value="15:00:00">3 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '16:00:00') {{ 'selected' }} @endif value="16:00:00">4 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '17:00:00') {{ 'selected' }} @endif value="17:00:00">5 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '18:00:00') {{ 'selected' }} @endif value="18:00:00">6 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '19:00:00') {{ 'selected' }} @endif value="19:00:00">7 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '20:00:00') {{ 'selected' }} @endif value="20:00:00">8 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '21:00:00') {{ 'selected' }} @endif value="21:00:00">9 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '22:00:00') {{ 'selected' }} @endif value="22:00:00">10 PM</option>
+                                         <option @if(!empty($selected_entry) AND $selected_entry == '23:00:00') {{ 'selected' }} @endif value="23:00:00">11 PM</option>
+                                     </select>
+                                 </div>
+                                                          </div>
+                             </div>
+                         <br>
+                     </div>
+                 </div>
+                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                     <div class="container-fluid">
+                         <div class="text-center">
+                            <div class="row">
+                                 <div class="cheks col-lg-6 col-md-6"><label for="selectin">Hasta:   </label></div>
+                                <div class="cheks col-lg-6 col-md-6">
                                     <select class="selectpicker form-control required" name="until">
                                         <option @if(!empty($selected_until) AND $selected_until == '00:00:00') {{ 'selected' }} @endif value="00:00:00">12 AM</option>
                                         <option @if(!empty($selected_until) AND $selected_until == '01:00:00') {{ 'selected' }} @endif value="01:00:00">1 AM</option>
@@ -163,26 +171,31 @@
                                         <option @if(!empty($selected_until) AND $selected_until == '23:00:00') {{ 'selected' }} @endif value="23:00:00">11 PM</option>
                                         </select>
                                 </div>
+                                                         </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
-               
-                <hr>
-                <div class="text-center">
+                     </div>
+                 </div>
+             </div>
+                            
+             <hr>
+           <div class="row">
+            <div class="col-lg-1"></div>        
+                 <div class="text-center col-lg-10">
+                   <h4>Cantidad de personas</h4>
+                   <input type="number" min="0" step="0" class="form-control" placeholder="0" required/>
+                   <h3>Total: 4$</h3>
 
-                    <span>Cantidad de personas</span>
-                    <br>
-                    <br>
-                    <input type="number" min="0" step="0" class="form-control" placeholder="0" required/>
-                </div>
-                <div class="text-center">
-                    <br>
-                    <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Reservar</button>
-                    </div>
-                </div>
-            </div>
+               </div>
+            <div class="col-lg-1"></div>      
+           </div>
+           <hr>
+             <div class="text-center">
+                 <div class="cheks">
+                     <button type="submit" class="btn btn-lg works2" >Reservar</button>
+                 </div>
+             </div>
+          </div>
+         </div>
         </div>
     </div>
     </form>

@@ -1,18 +1,17 @@
 @extends('layouts.master') @section('title', 'Hosting') @section('class', 'contenedor') @section( 'content') @include('CreateWorkspace.navbar.navbar',['activo' => 'hosting'])
 <div class="container-fluid">
     <div class="row">
+                    <form id="formAddHosting" method="POST" action="{{url('/create-workspace/save-hosting')}}">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
                 <div class="col-sm-10 col-sm-offset-2">
-                    <br>
-                    <br>
-                    <br>
-                    <div style="overflow:hidden;">
-                        <div class="form-group">
+                    <div style="overflow:hidden; ">
+                        <div class="form-group" style="overflow:hidden;">
                             <div id="datetimepicker3"></div>
+                            <div id="calendar" style="overflow:hidden;"></div>
+
                         </div>
                     </div>
-                    <form id="formAddHosting" method="POST" action="{{url('/create-space/save-hosting')}}">
                     <h4>Disponibilidad</h4>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 lilpadding">
@@ -51,6 +50,7 @@
                             <br>
                             </button>
 
+                        </div>
                     </div>
 
                     <div class="text-left">
@@ -68,7 +68,7 @@
                                 <label><input type="checkbox" value="">mes</label>
                             </div>
                             <div class="checkbox">
-                                <label><input type="checkbox" value="">Detector de Monoxido de Carbono</label>
+                                <label><input type="checkbox" value="">hora</label>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
@@ -94,10 +94,10 @@
                             <br>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <input type="text" name="quantity" class="form-control">
-                            <input type="text" name="quantity" class="form-control">
-                            <input type="text" name="quantity" class="form-control">
-                            <input type="text" name="quantity" class="form-control">
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price1" >
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price2" >
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price3" >
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price4" >
                         </div>
                     </div>
 
@@ -108,7 +108,7 @@
                                     <label class="textwhite">Check-out:</label>
                                 </div>
                                 <div class="text-left">
-                                     <select class="selectpicker form-control required" name="departure_time">
+                                    <select class="selectpicker form-control required" name="departure_time">
                                             <option @if(!empty($selected_departure) AND $selected_departure == '00:00:00') {{ 'selected' }} @endif value="00:00:00">12 AM</option>
                                             <option @if(!empty($selected_departure) AND $selected_departure == '01:00:00') {{ 'selected' }} @endif value="01:00:00">1 AM</option>
                                             <option @if(!empty($selected_departure) AND $selected_departure == '02:00:00') {{ 'selected' }} @endif value="02:00:00">2 AM</option>
@@ -162,14 +162,110 @@
                                     </div>
                                 </div>
                             </div>
-                            @endforeach
-                      </div>
-                       <input type="hidden" name="service_id" value="{{ $id }}">
-                        {{ csrf_field() }}
-                    </form>
+                        @endforeach
+                    </div>
                 </div>
             </div>
         </div>
+        <input type="hidden" name="service_id" value="{{ $id }}">
+                        {{ csrf_field() }}
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <div class="Wbox">
+                <div class="text-center">
+                    <div class="cheks">
+                        <button type="button" class="btn btn-md works2" data-toggle="button">Available</button>
+                    </div>
+                    <div class="cheks">
+                        <button type="button" class="btn btn-md works2" data-toggle="button">Blocked</button>
+                    </div>
+                </div>
+                <div class="bootstrap-iso">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <br>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input type='text' class="form-control" name="startDate" value="@if(isset($startDate) AND !empty($startDate)){{ $startDate }}@endif"/>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <br>
+                                <div class="form-group">
+                                    <div class='input-group date' id='datetimepicker2'>
+                                        <input type='text' class="form-control" name="endDate" value="@if(isset($endDate) AND !empty($endDate)){{ $endDate }}@endif"/>
+                                        <span class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                <div class="text-left">
+                                    <span class="textwhite">Price for the night:</span>
+                                    <input value="@if(isset($price) AND !empty($price)){{ $price }}@endif" type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price" required/>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-left">
+                    <br>
+                    <span>TIP:20$</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam neque dolore expedita est sed voluptatibus.</p>
+                    <button type="button" id="show" class="btn btn-md works" data-toggle="button" onclick="">Add note <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                    <br>
+                    <div id="Hidden">
+                        <br>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="text-center">
+                    <br>
+                    <div class="cheks">
+                        <button type="button" class="btn btn-md works2" data-toggle="button">Cancel</button>
+                    </div>
+                    <div class="cheks">
+                        <button type="submit" class="btn btn-md works2" >Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+    </div>
+    <div class="col-lg-2 col-md-2 col-sm-2"></div>
+</div>
+</div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-lg-offset-1 col-md-offset-1 col-sm-offset1 col-xs-offset-1 text-left">
+            <br>
+            <div class="tex-left RetNex">
+                <a href="{{url('/create-workspace/amenities')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
+            <div class="RetNex">
+                <br>
+                <a id="addHostingNext"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+            </div>
+        </div>
+        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+    </div>
+</div>
+
 
                             <!-- Modal -->
                             <div class="modal fade" id="myModal" role="dialog">
@@ -266,99 +362,4 @@
                             </div>
                         </div>
                         <!-- Fin modal-->
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
-            <div class="Wbox">
-                <div class="text-center">
-                    <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Available</button>
-                    </div>
-                    <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Blocked</button>
-                    </div>
-                </div>
-                <div class="bootstrap-iso">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <br>
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker1'>
-                                        <input type='text' class="form-control" />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <br>
-                                <div class="form-group">
-                                    <div class='input-group date' id='datetimepicker2'>
-                                        <input type='text' class="form-control" />
-                                        <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                <div class="text-left">
-                                    <span class="textwhite">Price for the night:</span>
-                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="text-left">
-                    <br>
-                    <span>TIP:20$</span>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam neque dolore expedita est sed voluptatibus.</p>
-                    <button type="button" id="show" class="btn btn-md works" data-toggle="button" onclick="">Add note <i class="fa fa-chevron-down" aria-hidden="true"></i></button>
-                    <br>
-                    <div id="Hidden">
-                        <br>
-                        <div class="form-group">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="text-center">
-                    <br>
-                    <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Cancel</button>
-                    </div>
-                    <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Save</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-lg-2 col-md-2 col-sm-2"></div>
-</div>
-</div>
-</div>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 col-lg-offset-1 col-md-offset-1 col-sm-offset1 col-xs-offset-1 text-left">
-            <br>
-            <div class="tex-left RetNex">
-                <a href="{{url('/create-workspace/amenities')}}"><i class="fa fa-chevron-left" aria-hidden="true"> </i><strong>BACK</strong></a>
-            </div>
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
-            <div class="RetNex">
-                <br>
-                <a href="{{url('/create-workspace/basics')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-            </div>
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
-    </div>
-</div>
 @endsection

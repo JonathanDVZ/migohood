@@ -4,15 +4,14 @@
         <div class="col-lg-1 col-md-1 col-sm-1"></div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="row">
-                <h4>¿Qué tipo de aparcamiento esta ofreciendo?</h4>
                  <form id="formPlaceType" method="POST" action="{{ url('/create-workspace/save-first') }}">
                     <input type="hidden" name="service_id" value="{{ $id }}">
                      {{ csrf_field() }}
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-group">
                             <div class="text-left">
-                                <label>¿Qué ofrece?:</label>
                             </div>
+                            <h4>¿Qué tipo de espacio de trabajo esta ofreciendo?</h4>
                             <br>
                             <select class="selectpicker form-control required" name="type">
                                     @foreach($types as $type)
@@ -22,10 +21,11 @@
                             </select>
                             <br>
                             <br>
+                                <label>¿Qué espacio tendrán tus huéspedes?</label>
                             <select class="selectpicker form-control required">
                                     <option>Todo el espacio</option>
-                                    <option>Garage</option>
-                                    <option>Garage</option>
+                                    <option>espacio</option>
+                                    <option>espacio</option>
                             </select>
                             <br>
                             <br>

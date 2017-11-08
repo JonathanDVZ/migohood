@@ -35,7 +35,142 @@
                     </div>
                     <div class="col-lg-2 col-md-2 col-sm-12 col-xs-1"></div>
                 </div>
-                <div class="text-center how">
+                <br><br>
+                <div class="row container-fluid config-home">
+                    <div class="text-center col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                        <div class="col-lg-4"></div>
+                      <div class=" col-lg-4">  
+                        <h2 class="title-text-box opacity-home"> Espacio Habitable</h2>
+                    </div>
+                    <div class="col-lg-4"></div>
+                     </div>
+                    <div class="col-lg-1 col-md-1"></div>
+                        <div class="col-lg-10 col-md-10">
+                            <div class="row ">
+                                @if(isset($space) AND !empty($space) AND $space !='Not Found')
+                                @foreach($space as $sp)
+                                <div class="sections col-xs-12 col-sm-4 col-md-4 col-lg-3 contenedor-home opacity-home">
+                                    <img src="{{asset($sp['ruta'])}}" alt="{{$sp['imgdesc']}}" class="img-home-config img-thumbnail">
+                                    <div class="caption-home">
+                                         <p class="text-limit" align="justify" >{{$sp['title']}}</p>
+                                        
+                                        <span class="price-home"><b>{{$sp['price']}} {{$sp['currency_iso'] }} por {{$sp['duration']}}</b></span>
+                                        <div class="contenedor-home">
+                                            <form action="{{url('/create-space/preview-overview')}}" method="GET">
+                                                {{csrf_field()}}
+                                                <input hidden value="{{$sp['service_id']}}" name="service_id"></input>
+                                                <button type="submit" class="btn btn-primary">ver mas</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @endif
+                            </div>
+                        </div>
+
+                <div class="row container-fluid config-home">
+                    <div class="text-center col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                        <div class="col-lg-4"></div>
+                      <div class=" col-lg-4">  
+                        <h2 class="title-text-box opacity-home">Servicio</h2>
+                    </div>
+                    <div class="col-lg-4"></div>
+                     </div>
+                    <div class="col-lg-1 col-md-1"></div>
+                        <div class="col-lg-10 col-md-10">
+                            <div class="row ">
+                                @if(isset($service) AND !empty($service) AND $service !='Not Found')
+                                 @foreach($service as $sv)
+                                <div class="sections col-xs-12 col-sm-4 col-md-4 col-lg-3 contenedor-home opacity-home">
+                                    <img src="{{asset($sv['ruta'])}}" alt="{{$sv['imgdesc']}}" class="img-home-config img-thumbnail">
+                                    <div class="caption-home">
+                                         <p class="text-limit" align="justify">{{$sv['title']}}</p>
+                                         <span class="price-home"><b>{{$sv['price']}} {{$sv['currency_iso'] }} por {{$sv['duration']}}</b></span>
+                                        <div class="contenedor-home">
+                                            <form action="{{url('/create-service/preview-overview')}}" method="GET">
+                                                {{csrf_field()}}
+                                                <input hidden value="{{$sv['service_id']}}" name="service_id"></input>
+                                                <button type="submit" class="btn btn-primary">ver mas</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @endif
+                            </div>
+                        </div>
+
+
+                <div class="row container-fluid config-home">
+                    <div class="text-center col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                        <div class="col-lg-4"></div>
+                      <div class=" col-lg-4">  
+                        <h2 class="title-text-box opacity-home">Aparcamiento</h2>
+                    </div>
+                    <div class="col-lg-4"></div>
+                     </div>
+                    <div class="col-lg-1 col-md-1"></div>
+                        <div class="col-lg-10 col-md-10">
+                            <div class="row ">
+                                @if(isset($parking) AND !empty($parking) AND $parking !='Not Found')
+                                 @foreach($parking as $pk)
+                                <div class="sections col-xs-12 col-sm-4 col-md-4 col-lg-3 contenedor-home opacity-home">
+                                    <img src="{{asset($pk['ruta'])}}" alt="{{$pk['imgdesc']}}" class="img-home-config img-thumbnail">
+                                    <div class="caption-home">
+                                         <p class="text-limit" align="justify">{{$pk['title']}}</p>
+                                         <span class="price-home"><b>{{$pk['price']}} {{$pk['currency_iso'] }} por {{$pk['duration']}}</b></span>
+                                        <div class="contenedor-home">
+                                            <form action="{{url('/create-parking/preview-overview')}}" method="GET">
+                                                {{csrf_field()}}
+                                                <input hidden value="{{$pk['service_id']}}" name="service_id"></input>
+                                                <button type="submit" class="btn btn-primary">ver mas</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @endif
+                            </div>
+                        </div>
+
+
+
+                <div class="row container-fluid config-home">
+                    <div class="text-center col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                        <div class="col-lg-4"></div>
+                      <div class=" col-lg-4">  
+                        <h2 class="title-text-box opacity-home">Lugar de Trabajo</h2>
+                    </div>
+                    <div class="col-lg-4"></div>
+                     </div>
+                    <div class="col-lg-1 col-md-1"></div>
+                        <div class="col-lg-10 col-md-10">
+                            <div class="row ">
+                                @if(isset($workspace) AND !empty($workspace) AND $workspace !='Not Found')
+                                 @foreach($workspace as $ws)
+                                <div class="sections col-xs-12 col-sm-4 col-md-4 col-lg-3 contenedor-home opacity-home">
+                                    <img src="{{asset($ws['ruta'])}}" alt="{{$ws['imgdesc']}}" class="img-home-config img-thumbnail">
+                                    <div class="caption-home">
+                                         <p class="text-limit" align="justify">{{$ws['title']}}</p>
+                                         <span class="price-home"><b>78$ por persona</b></span>
+                                        <div class="contenedor-home">
+                                            <form action="{{url('/create-workspace/preview-overview')}}" method="GET">
+                                                {{csrf_field()}}
+                                                <input hidden value="{{$ws['service_id']}}" name="service_id"></input>
+                                                <button type="submit" class="btn btn-primary">ver mas</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                                @endif
+                            </div>
+                        </div>
+
+
+
+                    <div class="col-lg-1 col-md-1"></div>
                 </div>
                 <div class="row headerRow">
                     <div class="col-lg-1 col-md-1 col-sm-1 "></div>

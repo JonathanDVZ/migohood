@@ -10,7 +10,7 @@
             <br>
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-4">
-                    <h3 class="titulo text-left">CUENTALE A LOS VIAJEROS SOBRE TU LUGAR</h3>
+                    <h3 class="titulo text-left">CUENTALE SOBRE TU OFICINA</h3>
                     <span class="titulo text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illum molestiae veritatis</span>
                     <br>
                     <form id="formAddBasics" method="POST" action="{{url('/create-workspace/save-basics')}}">
@@ -32,7 +32,7 @@
                             <label>El Espacio</label>
                         </div>
                         <div class="text-left">
-                            <input type="text" name="crib" class="form-control" value="@if(!empty($place)) {{ $place }} @endif">
+                            <input type="text" name="crib" class="form-control"  value="@if(!empty($place)) {{ $place }} @endif">
                         </div>
                     </div>
                     <div class="form-group text-right">
@@ -40,10 +40,10 @@
                             <label>Acceso de Invitados</label>
                         </div>
                         <div class="text-left">
-                            <input type="text" name="acc" class="form-control" value="@if(!empty($access)) {{ $access }} @endif">
+                            <input type="text" name="acc" class="form-control"  value="@if(!empty($access)) {{ $access }} @endif">
                         </div>
                     </div>
-                    <div class="form-group text-left">
+                <!--    <div class="form-group text-left">
                         <div class="text-left">
                             <label>Interaccion con los invitados</label>
                         </div>
@@ -71,7 +71,7 @@
                         <div class="text-center">
                             <input type="text" name="des_note" class="form-control" value="@if(!empty($other)) {{ $other }} @endif">
                             </div>
-                    </div>
+                    </div> -->
 
                  <!--   <div class="text-center">
                         <div class="cheks">

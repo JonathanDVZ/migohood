@@ -42,16 +42,16 @@
                         </div>
                         <h4 class="text-left">¿Ofreces algo para tus invitados?</h4>
                         <div class="checkbox">
-                            <label><input name="bool_food" value="@if(!empty($food)) {{ $food }} @endif" type="checkbox" value="">Comida</label>
+                            <label><input name="bool_food"  @if(!empty($food) AND $food == 1) checked @endif type="checkbox" value="">Comida</label>
                         </div>
                         <div class="text-right">
                             <input type="text" name="desc_food" value="@if(!empty($food2)) {{ $food2 }} @endif" class="form-control" placeholder="Arroz con pollo">
                         </div>
                         <div class="checkbox">
-                            <label><input @if(!empty($snacks) AND $snacks == 1) checked @endif name="bool_snacks" type="checkbox" value="">Bocadillos</label>
+                            <label><input @if(!empty($Snacks) AND $Snacks == 1) checked @endif name="bool_snacks" type="checkbox" value="">Bocadillos</label>
                         </div>
                         <div class="text-right">
-                            <input type="text" name="desc_snacks" value="@if(!empty($snacks2)) {{ $snacks2 }} @endif" class="form-control" placeholder="Empanaditas">
+                            <input type="text" name="desc_snacks" value="@if(!empty($Snacks2)) {{ $Snacks2 }} @endif" class="form-control" placeholder="Empanaditas">
                         </div>
                         <div class="checkbox">
                             <label><input @if(!empty($drinks) AND $drinks == 1) checked @endif name="bool_drinks" type="checkbox" value="">Bebidas</label>
@@ -75,9 +75,9 @@
                             <label><input @if(!empty($other) AND $other == 1) checked @endif name="bool_other" type="checkbox" value="">Otro</label>
                         </div>
                         <div class="text-right">
-                            <textarea name="desc_other" class="form-control" rows="5" maxlength="200" placeholder="Porfavor indique que esta ofreciendo">@if(!empty($other)) {{ $other }} @endif</textarea>
+                            <textarea name="desc_other" class="form-control" rows="5" maxlength="200" placeholder="Porfavor indique que esta ofreciendo">@if(!empty($other2)) {{ $other2 }} @endif</textarea>
                         </div>
-                        <h4 class="text-left">¿No tienes requerimientos?</h4>
+                        <h4 class="text-left">¿No estás ofreciendo nada para tus invitados?</h4>
                         <div class="checkbox">
                             <label><input @if(!empty($nooffers) AND $nooffers == 1) checked @endif name="bool_nooffers" type="checkbox" value="">No estoy ofreciendo nada</label>
                         </div>

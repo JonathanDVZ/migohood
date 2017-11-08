@@ -4,7 +4,7 @@
         <h3 class="titulo text-center">AGREGA TUS SERVICIOS</h3>
         <br>
     </div>
-    <form id="formAddServices" method="POST" action="{{url('/create-space/save-services')}}" enctype="multipart/form-data">
+    <form id="formAddServices" method="POST" action="{{url('/create-space/save-services')}}" enctype="multipart/form-data" encoding='multipart/form-data'>
         <div class="row">
             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
                 <div class="row">

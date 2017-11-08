@@ -10,7 +10,7 @@
                         <br>
                     </div>
                     <br>
-                    <form id="formAddPhotos" method="POST" action="{{url('/create-space/save-photos')}}" enctype="multipart/form-data">
+                    <form id="formAddPhotos" method="POST" action="{{url('/create-space/save-photos')}}" enctype="multipart/form-data" encoding='multipart/form-data'>
                         <div class="row">
                             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
                                 <input class="fileinputs thumb file1" data-idFile="1" type="file" id="files1" name="file1"/>
@@ -18,6 +18,7 @@
 
                             </div>
                             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <input hidden value="@if(!empty($imageid1)) {{ $imageid1 }} @endif" name="imageid1">
                                 <textarea name="description1" class="form-control textA" rows="5" placeholder="Coloque un pie de pagina a esta foto" id="comment">@if(!empty($description1)) {{ $description1 }} @endif</textarea>
                             </div>
                         </div>
@@ -28,6 +29,7 @@
                                 <label class="Giant text-center" for="files2" @if(!empty($photo2)) style="padding: 0px;" @endif>@if(empty($photo2))<span class="add">+</span> @else <input type="hidden" name="old2" value="1"> @endif <output id="list2" @if(!empty($photo2)) style="padding: 0px" @endif > @if(!empty($photo2)) <img id="img2" style="width:100%;height:11.5em;margin:0px;" class="thumb" src="{{ $photo2 }}" title="{{ $description2 }}"/> @endif </output></label>
                             </div>
                             <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7">
+                                <input hidden value="@if(!empty($imageid2)) {{ $imageid2 }} @endif" name="imageid2">
                                 <textarea name="description2" class="form-control textA" placeholder="Coloque un pie de pagina a esta foto" rows="5" id="comment">@if(!empty($description2)) {{ $description2 }} @endif</textarea>
                             </div>
                         </div>

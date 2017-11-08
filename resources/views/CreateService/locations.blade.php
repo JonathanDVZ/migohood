@@ -1,10 +1,11 @@
 @section('title', 'Locations') @extends('layouts.master') @section('class', 'contenedor') @section( 'content') @include('CreateService.navbar.navbar',['activo' => 'location'])
 
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-            <br>
             <form id="formAddLocationService" action="{{ url('/create-service/save-location') }}" method="POST">
+    <div class="row">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <br>
                 <div class="text-right">
                     <h3 class="titulo text-center">Agrega un lugar de Reunion</h3>
                     <br>
@@ -96,7 +97,7 @@
                             <span id="selectedAddress"></span><span id="selectedZipcode"></span><span id="selectedCity"></span><span id="selectedState"></span><span id="selectedCountry"></span></span>
                             <br>
                             <br>
-                            <a href="">Editar Direccion</a>
+                            
                             <br>
                         </div>
                         <div id="googleMap" style="width:100%;height:300px;"></div>
@@ -111,15 +112,15 @@
                     </div>
                     <input type="hidden" name="service_id" value="{{$id}}"> {{ csrf_field() }}
                 </div>
-            </form>
         </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
             <div class="Wbox">
                 <p>Tu direccion exacta solo sera mostrada a personas que tengan una reservacion confirmada</p>
                 <br>
             </div>
         </div>
     </div>
+    </form>
 </div>
 
 <div class="container">

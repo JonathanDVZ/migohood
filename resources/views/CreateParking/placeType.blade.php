@@ -9,7 +9,7 @@
                     <div class="col-sm-8 col-sm-offset-2">
                         <div class="form-group">
                             <div class="text-left">
-                                <label>¿Qué ofrece?:</label>
+                                
                             </div>
                             <br>
                             <select class="selectpicker form-control required" name="type">
@@ -30,6 +30,7 @@
                                 </div>
                             </div>
                             <br>
+                            <label>Número de espacios:</label>
                             <input type="number" name="num_space" min="1" max="20" class="form-control quantity" step="1" placeholder="0" value="@if(isset($result['num_space']) AND !empty($result['num_space'])){{ $result['num_space'] }}@endif" required>
                             <div>
                             </div>
@@ -43,13 +44,13 @@
 
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="Wbox">
-                <span><strong>Lugar Entero</strong></span>
+                
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla deleniti ipsum, aspernatur voluptatum neque provident ipsam.</p>
                 <br>
-                <span><strong>Habitacion Privada</strong></span>
+                
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla deleniti ipsum, aspernatur voluptatum neque provident ipsam.</p>
                 <br>
-                <span><strong>Habitacion Compartida</strong></span>
+                
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla deleniti ipsum, aspernatur voluptatum neque provident ipsam.</p>
                 <br>
             </div>

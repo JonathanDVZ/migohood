@@ -30,6 +30,8 @@ html {
 
 .item {
     background-size: cover;
+    width: 100%;
+    height: 300px;
 }
 
 .edit2 {
@@ -472,10 +474,8 @@ textarea {
 
 .Wbox {
     margin-top: 4em;
-    border-style: solid;
-    border-color: #fff;
+    border: 2px solid #fff;
     font-size: 15px;
-    padding: 1.5em;
 }
 
 .Wbox p,
@@ -1004,10 +1004,9 @@ header .navbar-toggle {
 }
 
 .works2 {
-    border-radius: 15px;
     background: #0093B4;
     color: #fff;
-    border-color: #fff;
+    box-shadow: 0px 2px 2px #000;
 }
 
 .works2:active {
@@ -1669,6 +1668,89 @@ a {
     margin-right: 2%;
 }
 
+/* Line of home */
+
+.img-home-config{
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-home{
+    padding: 0 5px;
+}
+
+.config-home{
+    margin-bottom: 5%;
+    margin-top: 2%;
+    color: #fff;
+}
+
+.title-text-box{
+    font-size: 3.3em;
+    margin-bottom: 2%;
+    color: #fff;
+    text-shadow: 1px 2px 1px #000, 1px 2px 1px #000, 1px 2px 1px #000, 1px 2px 1px #000;
+}
+
+.caption-home{
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 1.1em;
+    color:#fff;
+}
+.price-home{
+    color: #76bfd3;
+}
+
+.star-home{
+    font-size: 1em;
+}
+
+.opacity-home{
+    background-color: rgba(0, 0, 0, .7);
+    border-radius: 12px;
+}
+
+.caption-home{
+    min-height: 100px;
+}
+.text-limit{
+    padding-left: 0 !important;
+    min-height: 70px;
+}
+
+/* button home */
+
+.btn-home{
+    background-color: #46b0c8;
+    color: #fff;
+
+}
+.img-carousel{
+    height: 100% !important; 
+    width: 100% !important;
+}
+
+.item{
+    height: 100%;
+
+}
+
+.title-hosting{
+    background-color: #023859;
+    color: #fff;
+    padding: 8px;
+}
+
+.title-hosting h2{
+    margin: 0;
+    vertical-align: middle;
+}
+
+.box-hosting{
+    padding: 1em;
+}
+
 /*********************************************************************
 
 
@@ -1725,6 +1807,12 @@ a {
     input[type="checkbox"]#checkbox3:focus {
         outline: none;
     }
+
+    .caption-home{
+        background-color: rgba(0, 0, 0, .6);
+
+    }
+
     /*********************************************************************
 
 
@@ -1776,6 +1864,9 @@ a {
 
     .config-inner{
         height: auto;
+    }
+    .caption-home{
+        background-color: rgba(0, 0, 0, .6);
     }
 }
 
@@ -1887,11 +1978,19 @@ input[type=checkbox]#checkbox2+label {
         .carousel-inner{
         height: auto;
     }
+
+    .caption-home{
+        background-color: rgba(0, 0, 0, .6);
+    }
+
 }
 
 @media (min-width: 768px) and (max-width: 1182px){
         .carousel-inner{
         height: auto;
+    }
+    .caption-home{
+        background-color: rgba(0, 0, 0, .6);
     }
 
 }

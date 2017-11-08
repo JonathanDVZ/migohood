@@ -1,6 +1,7 @@
 @extends('layouts.master') @section('title', 'Hosting') @section('class', 'contenedor') @section( 'content') @include('CreateSpace.navbar.navbar',['activo' => 'hosting'])
 <div class="container-fluid">
     <div class="row">
+                    <form id="formAddHosting" method="POST" action="{{url('/create-space/save-hosting')}}">
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-3">
@@ -14,7 +15,6 @@
 
                         </div>
                     </div>
-                    <form id="formAddHosting" method="POST" action="{{url('/create-space/save-hosting')}}">
                         <div class="text-left">
                             <label class="textwhite">Precio</label>
                             <br>
@@ -207,13 +207,13 @@
                         </div>
                         <input type="hidden" name="service_id" value="{{ $id }}">
                         {{ csrf_field() }}
-                    </form>
+                    
                 </div>
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="Wbox">
-                <!--<div class="text-center">
+                <div class="text-center">
                     <div class="cheks">
                         <button type="button" class="btn btn-md works2" data-toggle="button">Available</button>
                     </div>
@@ -228,7 +228,7 @@
                                 <br>
                                 <div class="form-group">
                                     <div class='input-group date' id='datetimepicker1'>
-                                        <input type='text' class="form-control" />
+                                        <input type='text' class="form-control" name="startDate" value="@if(isset($startDate) AND !empty($startDate)){{ $startDate }}@endif"/>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -239,7 +239,7 @@
                                 <br>
                                 <div class="form-group">
                                     <div class='input-group date' id='datetimepicker2'>
-                                        <input type='text' class="form-control" />
+                                        <input type='text' class="form-control" name="endDate" value="@if(isset($endDate) AND !empty($endDate)){{ $endDate }}@endif"/>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -252,7 +252,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="text-left">
                                     <span class="textwhite">Price for the night:</span>
-                                    <input type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" required/>
+                                    <input value="@if(isset($price) AND !empty($price)){{ $price }}@endif" type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price" required/>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
@@ -279,12 +279,12 @@
                         <button type="button" class="btn btn-md works2" data-toggle="button">Cancel</button>
                     </div>
                     <div class="cheks">
-                        <button type="button" class="btn btn-md works2" data-toggle="button">Save</button>
+                        <button type="submit" class="btn btn-md works2" >Save</button>
                     </div>
-                </div>-->
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima nihil fuga atque dolores, eaque, velit iste nostrum, odio repellendus quas similique maxime suscipit facere, accusamus et reiciendis vero expedita quidem.
+                </div>
             </div>
         </div>
+        </form>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2"></div>
 </div>

@@ -15,6 +15,10 @@ use validator;
 
 class CreateWorkspaceController extends Controller
 {
+     public function __construct()
+    {
+        $this->middleware('customAuth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -116,7 +120,7 @@ class CreateWorkspaceController extends Controller
         }
 
         if ($res == 'Add Type ' OR $res == 'Update Type ')
-            return redirect('/create-workspace/bedrooms');
+            return redirect('/create-workspace/location');
         else
             return redirect('/create-workspace/place-type')->with(['message-alert' => '' . $res . $request->input('service_id').  '']);
 
@@ -560,7 +564,7 @@ class CreateWorkspaceController extends Controller
                             ->get();
                           
                           // $amenities= array_merge($amenities,$saved_amenites);
-                          // dd($amenities);
+                         //  dd($saved_amenites);
                           // dd(array_chunk($amenities, round(count($amenities)/2)));
                 return view("CreateWorkspace.amenities")->with(['id' => $id, 'amenities'=>$amenities,'saved_amenites'=>$saved_amenites]);
         }else{
@@ -569,16 +573,20 @@ class CreateWorkspaceController extends Controller
     }
 
     public function SaveFifth(Request $request){
-       // dd($request);
+        //dd($request);
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+
         if (is_array($request->input('amenities'))) {
             //dd($request);
+            $bool_amt = '';
             foreach ($request->input('amenities') as $amenitie) {
-
-                 if ($amenitie !== null) {
-                        $bool_amt = true;
-                    } else {
-                        $bool_amt = false;
-                    }
+             if ($amenitie !== null) {
+                            $bool_amt[] = ($amenitie == 'on') ? true:false;
+                        } else {
+                            $bool_amt[] = false;
+                        }
+                   // dd($bool_amt);
                 // Enviar los datos a la API para guardar
                 $response = Curl::to(env('MIGOHOOD_API_URL').'/service/workspace/step-5/amenities')
                                 ->withHeaders( array(
@@ -592,17 +600,29 @@ class CreateWorkspaceController extends Controller
                                 ->asJson( true )
                                 ->post();
                 //dd($response);
-                if ($response == 'Update Step 5' OR $response == 'Add Step 5') {
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res .= $r . '\\n';
+            }
+        } else {
+            $res = $response;
+        }
+
+                if ($res == 'Update Step 5' OR $res == 'Add Step 5' OR $res =='') {
                 } else{
-                    return redirect('/create-workspace/amenities')->with(['message-alert' =>''.$response.'']);
+                    return redirect('/create-workspace/amenities')->with(['message-alert' =>''.$res.'']);
 
             }
         }
             return redirect('/create-workspace/hosting');
-        } else {
-            return redirect('/becomeahost')->with(['message-alert' => 'Ha ocurrido un problema por favor recargue la pagina']);
+        }else {
+            return redirect('/create-workspace/amenities')->with(['message-alert' =>'Debe Seleccionar al menos 1 de los opciones']);
         }
     }
+}
     
 
         public function Sixth()
@@ -651,11 +671,13 @@ class CreateWorkspaceController extends Controller
                 $selected_entry = $saved_hosting[0]['Time-Entry'];
                 $selected_until = $saved_hosting[0]['Until'];
                 $selected_departure = $saved_hosting[0]['Departure-Time'];
+                $startDate = $saved_hosting[0]['startDate'];
+                $endDate = $saved_hosting[0]['endDate'];
             }
             //dd($saved_hosting);
             //dd($payments);
             //dd($selected_until);
-            return view("CreateWorkspace.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments, 'selected_currency' => $selected_currency, 'selected_duration' => $selected_duration, 'selected_payment' => $selected_payment, 'price' => $price, 'selected_entry' => $selected_entry, 'selected_until' => $selected_until, 'selected_departure' => $selected_departure] );
+            return view("CreateWorkspace.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments, 'selected_currency' => $selected_currency, 'selected_duration' => $selected_duration, 'selected_payment' => $selected_payment, 'price' => $price, 'selected_entry' => $selected_entry, 'selected_until' => $selected_until, 'selected_departure' => $selected_departure,'startDate' =>$startDate, 'endDate' =>$endDate] );
 
 
         } else {
@@ -664,6 +686,56 @@ class CreateWorkspaceController extends Controller
     }
 
     public function SaveSixth(Request $request){
+    if (session()->has('service_id')) {
+                $id = session()->get('service_id');
+                 $msg = '';
+                if (session()->has('message-alert')) {
+                    $msg = session()->get('message-alert');
+                    session()->forget('message-alert');
+                }
+                // Enviar los datos a la API para guardar
+                $response = Curl::to(env('MIGOHOOD_API_URL').'/service/workspace/step-6/hosting')
+                                ->withHeaders( array(
+                                    'api-token:'.session()->get('user.remember_token')
+                                ))
+                                ->withData( array(
+                                    'service_id' => $id,
+                                    'currency_id' => 188,
+                                    'price' => $request->input('price'),
+                                    'price1' => $request->input('price1'),
+                                    'price2' => $request->input('price2'),
+                                    'price3' => $request->input('price3'),
+                                    'price4' => $request->input('price4'),
+                                    'duration_code' => 5,
+                                    'politic_payment_code' => $request->input('politic_payment'),
+                                    'time_entry' => $request->input('time_entry'),
+                                    'until' => $request->input('until'),
+                                    'departure_time' => $request->input('departure_time'),
+                                    'startDate' => $request->input('startDate'),
+                                    'endDate' => $request->input('endDate')
+                                    ) )
+                                ->asJson( true )
+                                ->post();
+                //dd($response);
+
+            $caracters = array('"','[',']',',');
+            $response = str_replace($caracters,'',$response);
+            if (is_array($response)) {
+                $res = '';
+                foreach ($response as $r) {
+                    $res .= $r . '\\n';
+                }
+            } else {
+                $res = $response;
+            }
+
+                if ($res == 'Update Step 6' OR $res == 'Add Step-6' OR $res="") {
+                    return redirect('/create-workspace/basics');
+                } else
+                    return redirect('/create-workspace/hosting')->with(['message-alert' =>''.$res.'']);
+            } else {
+                return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+            }
 
     }
     
@@ -972,12 +1044,12 @@ class CreateWorkspaceController extends Controller
             $photo1 = ''; $description1 = '';$photo2 = ''; $description2 = '';
             if (isset($res) AND !empty($res) AND !is_null($res) AND $res != 'Not Found') {
                 if (isset($res[0]['ruta'])) {
-                    $photo1 = $res[0]['ruta'];
+                    $photo1 =asset( $res[0]['ruta']);
                     $description1 = $res[0]['description'];
                 }
 
                 if (isset($res[1]['ruta'])) {
-                    $photo2 = $res[1]['ruta'];
+                    $photo2 = asset( $res[1]['ruta']);
                     $description2 = $res[1]['description'];
                 }
 
@@ -1055,43 +1127,51 @@ class CreateWorkspaceController extends Controller
             }
 
             if (!empty($name1)) {
-                $img1->move('files/images/',$name1);
-                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
-                            ->withContentType('multipart/form-data')
+                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/update-imagen')
+                            //->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
                             ->withData( array(
                                 "service_id"=>$id,
                                 "image" => new \CURLFile('files/images/'.$name1),
-                                "description" => $desc1
+                               // "ruta" =>base64_encode($img1),
+                                "ruta" =>'files/images/'.$name1,
+                                "description" => $desc1,
+                                "id" =>$request->input('imageid1'),
                             ))
+                           // ->withFile( 'ruta', '/files/images/'.$name1, 'image/jpeg', $name1 )
                             //->withFile( 'image' , 'new \CURLFile('files/images/'.$name1' )
-                            ->containsFile()
-                            ->post();
-
-                unlink('files/images/'.$name1);
+                            ->asJson( true )
+                            ->put();
+                $img1->move('files/images/',$name1);
+                          //  dd($res);
+                //unlink('files/images/'.$name1);
                 //dd($res);
-                if ($res == 'Duration not found' OR $res == 'Service not found') {
-                    return redirect('/create-space/photos')->with(['message-alert' =>''.$res.'']);
+                if ($res == 'Duration not found' OR $res == 'Service not found' OR $res == 'false') {
+                    return redirect('/create-workspace/photos')->with(['message-alert' =>''.$res.'']);
                 }
             }
-
+            
             if (!empty($name2)) {
-                $img2->move('files/images/',$name2);
-                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-9/image')
-                            ->withContentType('multipart/form-data')
+                $res = Curl::to(env('MIGOHOOD_API_URL').'/service/update-imagen')
+                            //->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
                             ->withData( array(
                                 "service_id"=>$id,
                                 "image" => new \CURLFile('files/images/'.$name2),
-                                "description" => $desc2
+                                 "ruta" =>'files/images/'.$name2,
+                                "description" => $desc2,
+                                "id" =>$request->input('imageid2'),
                             ))
-                            ->containsFile()
-                            ->post();
-                unlink('files/images/'.$name2);
+                           // ->containsFile()
+                            ->asJson( true )
+                            ->put();
+                $img2->move('files/images/',$name2);
+               // dd($res);
+               // unlink('files/images/'.$name2);
                 if ($res == 'Duration not found' OR $res == 'Service not found') {
                     return redirect('/create-workspace/photos')->with(['message-alert' =>''.$res.'']);
                 }
@@ -1144,7 +1224,7 @@ class CreateWorkspaceController extends Controller
             $photo1 = ''; $description1 = '';$photo2 = ''; $description2 = ''; $selected_duration1 = '';  $selected_duration2 = ''; $selected_currency1 = ''; $selected_currency2 = ''; $price1 = ''; $price2 = '';
             if (isset($res) AND !empty($res) AND !is_null($res) AND $res != 'Not Found') {
                 if (isset($res[0]['ruta'])) {
-                    $photo1 = $res[0]['ruta'];
+                    $photo1 = asset($res[0]['ruta']);
                     $description1 = $res[0]['description'];
                     $selected_duration1 = $res[0]['type'];
                     $selected_currency1 = $res[0]['currency_iso'];
@@ -1152,7 +1232,7 @@ class CreateWorkspaceController extends Controller
                 }
 
                 if (isset($res[1]['ruta'])) {
-                    $photo2 = $res[1]['ruta'];
+                    $photo2 =asset( $res[1]['ruta']);
                     $description2 = $res[1]['description'];
                     $selected_duration2 = $res[1]['type'];
                     $selected_currency2 = $res[1]['currency_iso'];
@@ -1171,6 +1251,7 @@ class CreateWorkspaceController extends Controller
 
     public function SaveTenth(Request $request){
 
+        
         if (session()->has('service_id')) {
             $id = session()->get('service_id');
             $msg = '';
@@ -1187,7 +1268,7 @@ class CreateWorkspaceController extends Controller
             if($validator->fails())
             {
                 //return response()->json($validator->errors()->all());
-                return redirect('/create-space/photos')->with(['message-alert' =>''.$validator->errors()->all().'']);
+                return redirect('/create-workspace/photos')->with(['message-alert' =>''.$validator->errors()->all().'']);
             }
             $img1 = ''; $desc1 = ''; $name1 = ''; $price1 = '';
             // Verifico si me da indicio de que ya habia una foto guardada
@@ -1207,7 +1288,7 @@ class CreateWorkspaceController extends Controller
                 if ($request->has('price1')) {
                     $price1 = $request->input('price1');
                 } else {
-                    return redirect('/create-space/photos')->with(['message-alert' =>'Debes incluir el Precio de tu Servicio']);
+                    return redirect('/create-workspace/photos')->with(['message-alert' =>'Debes incluir el Precio de tu Servicio']);
                 }
             } elseif ($request->hasFile('file1')) {
                 //echo "string3";
@@ -1221,7 +1302,7 @@ class CreateWorkspaceController extends Controller
                 if ($request->has('price1')) {
                     $price1 = $request->input('price1');
                 } else {
-                    return redirect('/create-space/photos')->with(['message-alert' =>'Debes incluir el Precio de tu Servicio']);
+                    return redirect('/create-workspace/photos')->with(['message-alert' =>'Debes incluir el Precio de tu Servicio']);
                 }
             }
 
@@ -1240,7 +1321,7 @@ class CreateWorkspaceController extends Controller
                 if ($request->has('price2')) {
                     $price2 = $request->input('price2');
                 } else {
-                    return redirect('/create-space/photos')->with(['message-alert' =>'Debes incluir el Precio de tu Servicio']);
+                    return redirect('/create-workspace/photos')->with(['message-alert' =>'Debes incluir el Precio de tu Servicio']);
                 }
             } elseif ($request->hasFile('file2')) {
                 $img2 = $request->file('file2');
@@ -1251,14 +1332,14 @@ class CreateWorkspaceController extends Controller
                 if ($request->has('price2')) {
                     $price2 = $request->input('price2');
                 } else {
-                    return redirect('/create-space/photos')->with(['message-alert' =>'Debes incluir el Precio de tu Servicio']);
+                    return redirect('/create-workspace/photos')->with(['message-alert' =>'Debes incluir el Precio de tu Servicio']);
                 }
             }
-
+           // dd($img1);
             if (!empty($name1)) {
                 $img1->move('files/service_images/',$name1);
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-10/service')
-                            ->withContentType('multipart/form-data')
+                         //   ->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
@@ -1268,22 +1349,24 @@ class CreateWorkspaceController extends Controller
                                 "description" => $desc1,
                                 'duration_code' => $request->input('duration1'),
                                 'price' => $price1,
-                                'currency_id'=> $request->input('currency1')
+                                'currency_id'=> $request->input('currency1'),
+                                 "ruta" =>'files/service_images/'.$name1,
                             ))
-                            ->containsFile()
+                         //   ->containsFile()
+                            ->asJson( true )
                             ->post();
+                           // dd($res);
 
-                unlink('files/service_images/'.$name1);
+                //unlink('files/service_images/'.$name1);
                 //dd($res);
                 if ($res == 'Duration not found' OR $res == 'Service not found') {
-                    return redirect('/create-space/services')->with(['message-alert' =>''.$res.'']);
+                    return redirect('/create-workspace/services')->with(['message-alert' =>''.$res.'']);
                 }
             }
 
             if (!empty($name2)) {
-                $img2->move('files/service_images/',$name2);
                 $res = Curl::to(env('MIGOHOOD_API_URL').'/service/space/step-10/service')
-                            ->withContentType('multipart/form-data')
+                           // ->withContentType('multipart/form-data')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
                             ))
@@ -1293,11 +1376,14 @@ class CreateWorkspaceController extends Controller
                                 "description" => $desc2,
                                 'duration_code' => $request->input('duration2'),
                                 'price' => $price2,
-                                'currency_id'=> $request->input('currency2')
+                                'currency_id'=> $request->input('currency2'),
+                                 "ruta" =>'files/service_images/'.$name2,
                             ))
-                            ->containsFile()
+                          //  ->containsFile()
+                            ->asJson( true )
                             ->post();
-                unlink('files/service_images/'.$name2);
+                $img2->move('files/service_images/',$name2);
+              //  unlink('files/service_images/'.$name2);
                 if ($res == 'Duration not found' OR $res == 'Service not found') {
                     return redirect('/create-workspace/services')->with(['message-alert' =>''.$res.'']);
                 }
@@ -1308,6 +1394,7 @@ class CreateWorkspaceController extends Controller
         } else {
             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
         }
+
 
     }
             
@@ -1514,10 +1601,18 @@ class CreateWorkspaceController extends Controller
     }
     
 
-    public function Preview1()
+    public function Preview1(Request $request)
     {
-         $data['service_id'] = session()->get('service_id');
-      $data['languaje'] = 'ES';
+        if(session()->has('service_id')){
+          $data['service_id'] = session()->get('service_id');
+          
+        }else{
+            session::forget('service_id');
+          $data['service_id'] = $request->input('service_id');
+          session::put('service_id', $request->input('service_id'));
+        }
+          $data['languaje'] = 'ES';
+        //dd($data);
 
         $exit_emergency = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-exit-emergency')
                         ->withData( array(
@@ -1552,7 +1647,7 @@ class CreateWorkspaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
-        $overview = Curl::to(env('MIGOHOOD_API_URL').'/service/space/preview-overviews')
+        $overview = Curl::to(env('MIGOHOOD_API_URL').'/service/workspace/preview-overviews')
                         ->withData( array(
                             'service_id' => $data['service_id'],
                             'languaje' => $data['languaje'],
@@ -1597,14 +1692,37 @@ class CreateWorkspaceController extends Controller
                             ) )
                         ->asJson( true )
                         ->get();
-       //    dd($description);
 
-        return view("CreateWorkspace.PreviewWorkspace.preview1", ['bedrooms'=>$bedrooms, 'emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description, 'tknow' => $tknow, 'price'=>$price]);
+                        $id = session::get('user.id');
+       //    dd($description);
+        //if($overview != "Not Found"){
+       return view("CreateWorkspace.PreviewWorkspace.preview1", ['bedrooms'=>$bedrooms, 'emergencies' => $emergencies, 'exit_emergency' => $exit_emergency, 'note_emergency' => $note_emergency, 'amenities' => $amenities, 'rules' => $rules, 'overview' => $overview, 'beds' => $beds, 'description' => $description, 'tknow' => $tknow, 'price'=>$price,'id'=>$id]);
+       /* }else{
+             return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor rellenen los campos del formularios que faltan.']);
+        }*/
+        
     }
 
-        public function Preview2()
+        public function Preview2(Request $request)
     {
-        return view("CreateWorkspace.PreviewWorkspace.preview2");
+        if(session()->has('service_id')){
+          $data['service_id'] = session()->get('service_id');
+          
+        }else{
+          session::forget('service_id');
+          $data['service_id'] = $request->input('service_id');
+          session::put('service_id', $request->input('service_id'));
+        }
+        $data['languaje'] = 'ES';
+        $img='';
+        $img = Curl::to(env('MIGOHOOD_API_URL').'/service/get-imagen')
+                        ->withData(array(
+                            'service_id'=>$data['service_id'],
+                            ))
+                        ->asJson(true)
+                        ->get();
+                       
+        return view("CreateWorkspace.PreviewWorkspace.preview2",compact('img'));
     }
 
         public function Preview3()

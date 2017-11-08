@@ -6,10 +6,44 @@
             <br>
             <div class="row">
                 <div class="col-sm-11 col-sm-offset-1">
-                    <h3 class="titulo text-left">Normas de Aparcamiento</h3>
+                    <h3 class="titulo text-left">Normas del Espacio de Trabajo</h3>
                     <span class="titulo text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit illum molestiae veritatis</span>
                     <br>
                      <form id="formAddListing" method="POST" action="{{url('/create-workspace/save-listing')}}">
+                        <div class="row">
+                            <br>
+                            
+                            <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                                <div class="form-group text-left">
+                                    <label><strong>Se permiten niños (de 2 a 12 años)</strong></label>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label><strong></strong>¿Pueden hospedarse mascotas? <i class="fa fa-question-circle" data-toggle="tooltip" title="Hooray!" aria-hidden="true"></i>
+                                    </label>
+                                </div>
+                                <div class="form-group text-left">
+                                    <label><strong></strong>¿Fumar esta permitido?</label>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                                <label class="switch">
+                                    <input name="AptoDe2a12" @if(!empty($AptoDe2a12) AND $AptoDe2a12 == 1) {{ 'checked' }} @endif type="checkbox">
+                                    <div class="slider round"></div>
+                                </label>
+                                <br>
+                                <label class="switch">
+                                    <input name="SeadmitenMascotas" type="checkbox" @if(!empty($SeadmitenMascotas) AND $SeadmitenMascotas == 1) {{ 'checked' }} @endif>
+                                    <div class="slider round"></div>
+                                </label>
+                                <br>
+                                <label class="switch">
+                                    <input name="PermitidoFumar" type="checkbox" @if(!empty($PermitidoFumar) AND $PermitidoFumar == 1) {{ 'checked' }} @endif>
+                                    <div class="slider round"></div>
+                                </label>
+                            </div>
+                        </div>
+                        <label>Normas adicionales</label>
                     <div class="text-left">
                         <textarea name="Desc_Otro_Evento" class="form-control" rows="5" id="comment">@if(!empty($Desc_Otro_Evento)) {{ $Desc_Otro_Evento }} @endif</textarea>
                     </div>
@@ -51,7 +85,7 @@
                     </div>
                     <div class="text-left">
                         <br>
-                        <label><strong>Manual de Aparcamiento</strong></label><br>
+                        <label><strong>Manual del Espacio de Trabajo</strong></label><br>
                         <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta quo, corrupti id veniam, sit omnis fugiat </span>
                     </div>
                     <div class="text-left">

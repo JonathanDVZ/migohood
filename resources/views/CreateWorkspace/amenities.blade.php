@@ -10,16 +10,29 @@
                     <br>
                      <form id="formAddAmenities" method="POST" action="{{url('/create-workspace/save-amenities')}}">
                     <div class="row">
+                        @if(isset($saved_amenites) AND $saved_amenites != 'Not Found')
+                        @foreach(array_chunk($saved_amenites, round(count($saved_amenites)/2)) as $chunk )
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            @foreach($chunk as $amt)
+                            <div class="checkbox">
+                               
+                                <label><input @if($amt['check'] == '1') {{'checked'}} @endif  type="checkbox" name="amenities[]" value="{{$amt['code']}}"><strong>{{$amt['name']}}</strong></label>
+                            </div>
+                            @endforeach
+                        </div>
+                        @endforeach
+                        @else
                         @foreach(array_chunk($amenities, round(count($amenities)/2)) as $chunk )
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             @foreach($chunk as $amt)
                             <div class="checkbox">
                                
-                                <label><input   type="checkbox" name="amenities[]" value="{{$amt['code']}}"><strong>{{$amt['name']}}</strong></label>
+                                <label><input type="checkbox" name="amenities[]" value="{{$amt['code']}}"><strong>{{$amt['name']}}</strong></label>
                             </div>
                             @endforeach
                         </div>
                         @endforeach
+                        @endif
                     </div>
                   {{--  <label for="editar">Agregar Comodidades <i class="fa fa-pencil" aria-hidden="true"></i></label>
                     <button id="editar" type="button" class="btn btn-info btn-sm hidden" data-toggle="modal" data-target="#myModal">Open Modal</button>
@@ -80,7 +93,7 @@
             <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-right">
                 <div class="RetNex">
                     <br>
-                    <a id="addAmenitiesNext"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                    <a id="addAmenitiesNext3" href="{{url('/create-workspace/location')}}"><strong>NEXT</strong><i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div>
             </div>
             <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>

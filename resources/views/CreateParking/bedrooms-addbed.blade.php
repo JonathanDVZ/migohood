@@ -22,7 +22,7 @@
                                 <div>
                                     <span class="text-left">Habitacion {{ $refer+1 }}</span>
                                     <br>
-                                    <span class="text-left">Camas {{ ($beds['quantity'] != null AND $beds['quantity'] != '') ? $beds['quantity'] : '0' }}</span>
+                                    <span class="text-left">Camas {{ (isset($beds['quantity']) AND $beds['quantity'] != null AND $beds['quantity'] != '') ? $beds['quantity'] : '0' }}</span>
                                 </div>
                             </div>
                         </div>

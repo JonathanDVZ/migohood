@@ -1,33 +1,31 @@
 @extends('layouts.master') @section('title', 'Preview Created Space') @section('class', 'contenedor') @section( 'content')
 <div class="container-fluid lilmargin firstPart">
+  
+{{--@include('partials.slider')--}}
     <div class="row">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 nopadding-right">
             <div id="carousel" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel" data-slide-to="1"></li>
-                    <li data-target="#carousel" data-slide-to="2"></li>
-                </ol>
+               
+                
                 <div class="carousel-inner">
-
                     <div class="item active">
-                        <img class="img-responsive" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 1" />
+                        <img class="img-responsive" src="{{asset('assets/img/fondofs1.png')}}" alt=""  />
                     </div>
-                    <div class="item">
-                        <img class="img-responsive" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 2" />
-                    </div>
-                    <div class="item">
-                        <img class="img-responsive" src="{{url('/assets/img/fondofs1.png')}}" alt="Slide 3" />
+                    <div class="item ">
+                        <img class="img-responsive" src="{{asset('assets/img/fondofs1.png')}}" alt=""  />
                     </div>
                 </div>
+              
                 <a href="#carousel" class="left carousel-control" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left"></span>
                 </a>
                 <a href="#carousel" class="right carousel-control" data-slide="next">
                     <span class="glyphicon glyphicon-chevron-right"></span>
                 </a>
+                
+                </div>
             </div>
-        </div>
+        
         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 nopadding-left">
             <div class="bootstrap-iso BlueBack">
                 <div class="row">
@@ -97,6 +95,7 @@
             </div>
         </div>
     </div>
+    
     @include('CreateWorkspace.PreviewWorkspace.navbar.preview-navbar',['activo2' => 'preview4'])
     <div class="container-fluid WhiteBack preBody">
         <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 light-border">

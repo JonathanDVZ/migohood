@@ -37,9 +37,10 @@ class SocialController extends Controller {
             session()->forget('provider');
 
             if($usersocialite = Socialite::driver($provider)->stateless()->user()){
+                
                 // Si la accion es login se hace el proceso de inicio de sesion
                 if (strcmp($action,'login')==0){
-           
+               
                     //comenzando validacion	
                  	$user = Curl::to(env('MIGOHOOD_API_URL').'/user/login-oauth')
                             	->withData( array(                                       
@@ -66,6 +67,7 @@ class SocialController extends Controller {
                 } elseif (strcmp($action,'signup')==0) { // Se hace el proceso de registro
                     try
                     {
+                        
                         $user = Curl::to(env('MIGOHOOD_API_URL').'/user/set-user-oauth')
                                     ->withData( array( 
                                         'name' => $usersocialite->name,                       
