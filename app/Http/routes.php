@@ -207,6 +207,8 @@ Route::get('/choose-space','CreateSpaceController@ChooseSpace');
     Route::get('/create-workspace/get-service-day','CreateWorkspaceController@GetServiceDay');
 //}
 
+//Special Date
+    Route::post('/service/add-specialdate','CreateSpaceController@SaveSpecialDate');
 //Social Login{
 //Route::get('social/{provider?}', 'SocialController@getSocialAuth');
 Route::get('social/callback/{provider?}', 'SocialController@getSocialAuthCallback');

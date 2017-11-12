@@ -667,24 +667,46 @@ public function Second1()
                             ->asJson( true )
                             ->get();
 
-                           // dd($saved_hosting);
-            $selected_currency = ''; $selected_duration = ''; $selected_payment = ''; $price = ''; $selected_entry = ''; $selected_until = ''; $selected_departure = ''; $startDate = ''; $endDate = '';
+                          //  dd($saved_hosting);
+            $selected_currency = ''; $selected_duration = ''; $selected_payment = ''; $price = ''; $selected_entry = ''; $selected_until = ''; $selected_departure = ''; $price2=''; $price3=''; $price4='';
             if (isset($saved_hosting) AND !empty($saved_hosting) AND !is_null($saved_hosting) AND $saved_hosting != 'Not Found') {
                 $selected_currency = $saved_hosting[0]['Currency-Name'];
-                $selected_duration = $saved_hosting[0]['Type-Duration'];
                 $selected_payment = $saved_hosting[0]['Type-Payment'];
-                $price = $saved_hosting[0]['Price'];
                 $selected_entry = $saved_hosting[0]['Time-Entry'];
                 $selected_until = $saved_hosting[0]['Until'];
                 $selected_departure = $saved_hosting[0]['Departure-Time'];
-                $startDate = $saved_hosting[0]['startDate'];
-                $endDate = $saved_hosting[0]['endDate'];
+                foreach ($saved_hosting as $value) {
+                    if($value['code'] == 3){
+                        $price2=$value['Price'];
+                    }elseif($value['code'] == 7){
+                        $price=$value['Price'];
+                    }elseif($value['code'] == 4){
+                        $price3=$value['Price'];
+                    }elseif($value['code'] == 2){
+                        $price4=$value['Price'];
+                    }
+                }
             }
             
-           // $startDate = date('Y-m-d', strtotime($startDate));
-           // $endDate = date('Y-m-d', strtotime($endDate));
+            //dd($price2);
 
-            return view("CreateParking.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments, 'selected_currency' => $selected_currency, 'selected_duration' => $selected_duration, 'selected_payment' => $selected_payment, 'price' => $price, 'selected_entry' => $selected_entry, 'selected_until' => $selected_until, 'selected_departure' => $selected_departure,'startDate' =>$startDate, 'endDate' =>$endDate] );
+            $specialdate =  Curl::to(env('MIGOHOOD_API_URL').'/service/get-specialdate')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+
+            $price1=''; $startDate=''; $endDate=''; $note='';
+            if (isset($specialdate) AND !empty($specialdate) AND !is_null($specialdate) AND $specialdate != 'Not Found') {
+                $price1=$specialdate['price'];
+                $startDate=$specialdate['startDate'];
+                $endDate=$specialdate['endDate'];
+                $note=$specialdate['note'];
+            }
+
+            return view("CreateParking.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments, 'selected_currency' => $selected_currency, 'selected_duration' => $selected_duration, 'selected_payment' => $selected_payment, 'price' => $price, 'selected_entry' => $selected_entry, 'selected_until' => $selected_until, 'selected_departure' => $selected_departure,'startDate' =>$startDate, 'endDate' =>$endDate,'price1'=>$price1, 'note'=>$note,'price2'=>$price2,'price3'=>$price3,'price4'=>$price4] );
 
 
         } else {
@@ -701,6 +723,8 @@ public function Second1()
                 session()->forget('message-alert');
             }
             // Enviar los datos a la API para guardar
+
+            //dd($request);
             $response = Curl::to(env('MIGOHOOD_API_URL').'/service/parking/step-6/hosting')
                             ->withHeaders( array(
                                 'api-token:'.session()->get('user.remember_token')
@@ -709,7 +733,6 @@ public function Second1()
                                 'service_id' => $id,
                                 'currency_id' => 188,
                                 'price' => $request->input('price'),
-                                'price1' => $request->input('price1'),
                                 'price2' => $request->input('price2'),
                                 'price3' => $request->input('price3'),
                                 'price4' => $request->input('price4'),

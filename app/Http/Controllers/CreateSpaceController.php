@@ -1066,7 +1066,7 @@ class CreateSpaceController extends Controller
                                 ))
                             ->asJson( true )
                             ->get();
-            $selected_currency = ''; $selected_duration = ''; $selected_payment = ''; $price = ''; $selected_entry = ''; $selected_until = ''; $selected_departure = '';
+            $selected_currency = ''; $selected_duration = ''; $selected_payment = ''; $price = ''; $selected_entry = ''; $selected_until = ''; $selected_departure = ''; 
             if (isset($saved_hosting) AND !empty($saved_hosting) AND !is_null($saved_hosting) AND $saved_hosting != 'Not Found') {
                 $selected_currency = $saved_hosting[0]['Currency-Name'];
                 $selected_duration = $saved_hosting[0]['Type-Duration'];
@@ -1075,13 +1075,27 @@ class CreateSpaceController extends Controller
                 $selected_entry = $saved_hosting[0]['Time-Entry'];
                 $selected_until = $saved_hosting[0]['Until'];
                 $selected_departure = $saved_hosting[0]['Departure-Time'];
-                $startDate = $saved_hosting[0]['startDate'];
-                $endDate = $saved_hosting[0]['endDate'];
             }
-            //dd($saved_hosting);
+
+            $specialdate =  Curl::to(env('MIGOHOOD_API_URL').'/service/get-specialdate')
+                            ->withData( array(
+                                'service_id' => $id,
+                                'languaje' => 'ES'
+                                ))
+                            ->asJson( true )
+                            ->get();
+
+            $price1=''; $startDate=''; $endDate=''; $note='';
+            if (isset($specialdate) AND !empty($specialdate) AND !is_null($specialdate) AND $specialdate != 'Not Found') {
+                $price1=$specialdate['price'];
+                $startDate=$specialdate['startDate'];
+                $endDate=$specialdate['endDate'];
+                $note=$specialdate['note'];
+            }
+           // dd($specialdate);
             //dd($payments);
             //dd($selected_until);
-            return view("CreateSpace.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments, 'selected_currency' => $selected_currency, 'selected_duration' => $selected_duration, 'selected_payment' => $selected_payment, 'price' => $price, 'selected_entry' => $selected_entry, 'selected_until' => $selected_until, 'selected_departure' => $selected_departure,'startDate' =>$startDate, 'endDate' =>$endDate] );
+            return view("CreateSpace.hosting", ['id' => $id, 'currencies' => $currencies, 'durations' => $durations, 'payments' => $payments, 'selected_currency' => $selected_currency, 'selected_duration' => $selected_duration, 'selected_payment' => $selected_payment, 'price' => $price, 'selected_entry' => $selected_entry, 'selected_until' => $selected_until, 'selected_departure' => $selected_departure,'startDate' =>$startDate, 'endDate' =>$endDate,'price1'=>$price1, 'note'=>$note] );
 
 
         } else {
@@ -1140,6 +1154,49 @@ class CreateSpaceController extends Controller
         }
     }
 
+    public function SaveSpecialDate(Request $request){
+        if (session()->has('service_id')) {
+            $id = session()->get('service_id');
+             $msg = '';
+            if (session()->has('message-alert')) {
+                $msg = session()->get('message-alert');
+                session()->forget('message-alert');
+            }
+            // Enviar los datos a la API para guardar
+            $response = Curl::to(env('MIGOHOOD_API_URL').'/service/specialdate')
+                            ->withHeaders( array(
+                                'api-token:'.session()->get('user.remember_token')
+                            ))
+                            ->withData( array(
+                                'service_id' => $id,
+                                'price1' => $request->input('price1'),
+                                'startDate' => $request->input('startDate'),
+                                'endDate' => $request->input('endDate'),
+                                'note' =>$request->input('note')
+                                ) )
+                            ->asJson( true )
+                            ->post();
+            //dd($response);
+
+        $caracters = array('"','[',']',',');
+        $response = str_replace($caracters,'',$response);
+        if (is_array($response)) {
+            $res = '';
+            foreach ($response as $r) {
+                $res .= $r . '\\n';
+            }
+        } else {
+            $res = $response;
+        }
+
+            if ($res == 'Update Step 6' OR $res == 'Add Step-6') {
+                return redirect('/create-space/hosting');
+            } else
+                return back()->with(['message-alert' =>''.$res.'']);
+        } else {
+            return redirect('/becomeahost')->with(['message-alert' => 'Ha habido un problema por favor recargue la pagina']);
+        }
+    }
 
     public function Seventh()
     {

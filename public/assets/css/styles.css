@@ -170,8 +170,7 @@ html {
 }
 
 .rating>label:before {
-    margin: 5px;
-    font-size: 1.25em;
+    font-size: 1em;
     font-family: FontAwesome;
     display: inline-block;
     content: "\f005";
@@ -183,7 +182,7 @@ html {
 }
 
 .rating>label {
-    color: #ddd;
+    color: #76bfd3;
     float: right;
 }
 
@@ -409,7 +408,7 @@ textarea {
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
-    background: url('../img/FondoAzulDegradado.png') no-repeat center center;
+/*    background: url('../img/FondoAzulDegradado.png') no-repeat center center;*/
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
@@ -706,7 +705,7 @@ body {
     margin-top: -4%;
     height: 1000px;
     color: #f8f8f8;
-    background: url(../img/Fondo.png) no-repeat center center;
+/*    background: url(../img/Fondo.png) no-repeat center center;*/
     background-size: cover;
 }
 
@@ -974,8 +973,6 @@ header .navbar-toggle {
 }
 
 .first {
-    background: url(../img/Fondo.png) no-repeat center center;
-    background-size: 100% 100%;
     height: auto;
     margin-top: 6em;
     padding-bottom: 6em;
@@ -1252,7 +1249,6 @@ footer {
     padding-bottom: 70px;
     text-align: center;
     color: #f8f8f8;
-    background: url(../img/fondo-azul.png) no-repeat center center;
     background-size: cover;
 }
 
@@ -1261,8 +1257,112 @@ footer {
     padding-top: 5%;
 }
 
-.darkbluecolor {
-    background-color: #023859;
+
+/********** carrousel home *******************/ 
+
+.col-item
+{
+    border: 1px solid #E1E1E1;
+    border-radius: 5px;
+    background: #FFF;
+}
+.col-item .photo img
+{
+    margin: 0 auto;
+    width: 100%;
+}
+
+.col-item .info
+{
+    padding: 10px;
+    border-radius: 0 0 5px 5px;
+    margin-top: 1px;
+    height: auto;
+}
+
+.col-item:hover .info {
+    background-color: #F5F5DC;
+}
+.col-item .price
+{
+    /*width: 50%;*/
+    float: left;
+    margin-top: 5px;
+}
+
+.col-item .price h5
+{
+    line-height: 20px;
+    margin: 0;
+}
+
+.price-text-color
+{
+    color: #219FD1;
+}
+
+.col-item .info .rating
+{
+    color: #777;
+}
+
+.col-item .rating
+{
+    /*width: 50%;*/
+    float: left;
+    font-size: 17px;
+    text-align: right;
+    line-height: 52px;
+    margin-bottom: 10px;
+    height: 52px;
+}
+
+.col-item .separator
+{
+    border-top: 1px solid #E1E1E1;
+}
+
+.clear-left
+{
+    clear: left;
+}
+
+.col-item .separator p
+{
+    line-height: 20px;
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.col-item .separator p i
+{
+    margin-right: 5px;
+}
+.col-item .btn-add
+{
+    width: 50%;
+    float: left;
+}
+
+.col-item .btn-add
+{
+    border-right: 1px solid #E1E1E1;
+}
+
+.col-item .btn-details
+{
+    width: 50%;
+    float: left;
+    padding-left: 10px;
+}
+.controls
+{
+    margin-top: 20px;
+}
+[data-slide="prev"]
+{
+    margin-right: 10px;
 }
 
 
@@ -1673,6 +1773,7 @@ a {
 .img-home-config{
     width: 100%;
     height: 100%;
+    max-height: 350px; 
 }
 
 .contenedor-home{
@@ -1680,16 +1781,14 @@ a {
 }
 
 .config-home{
-    margin-bottom: 5%;
     margin-top: 2%;
     color: #fff;
 }
 
 .title-text-box{
-    font-size: 3.3em;
-    margin-bottom: 2%;
-    color: #fff;
-    text-shadow: 1px 2px 1px #000, 1px 2px 1px #000, 1px 2px 1px #000, 1px 2px 1px #000;
+    font-size: 2.7em;
+    color: #023859;
+    margin-bottom: 30px;
 }
 
 .caption-home{
@@ -1700,14 +1799,16 @@ a {
 }
 .price-home{
     color: #76bfd3;
+    margin-bottom: 2px;
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-left: 0 !important;
 }
 
-.star-home{
-    font-size: 1em;
-}
 
 .opacity-home{
-    background-color: rgba(0, 0, 0, .7);
     border-radius: 12px;
 }
 
@@ -1715,9 +1816,13 @@ a {
     min-height: 100px;
 }
 .text-limit{
+    color: #000;
+    min-height: 35px;
+    margin: 0;
     padding-left: 0 !important;
-    min-height: 70px;
 }
+
+
 
 /* button home */
 
@@ -1751,6 +1856,125 @@ a {
     padding: 1em;
 }
 
+.scroll-bar{
+    overflow-y: auto;
+    max-height: 480px;
+}
+
+/********* 1er carrousel  **********/
+
+.text-limit {
+    min-height: 40px;
+}
+
+.text-limit h4 {
+    font-size: 14px;
+    margin: 0;
+}
+
+.position-star{
+    margin-top: -15px;
+    padding-left: 0;
+}
+
+ .info{
+    padding-bottom: 20px !important;
+    height: auto;
+ }
+
+
+.col-item .info{
+    height: auto;
+   
+}
+
+.text-limit {
+    height: 60px;
+     overflow-y: auto;
+}
+.carousel-home{
+    height: auto !important;
+ }
+
+.button-home-more{
+    position: absolute;
+    left: 25px;
+    bottom: 3%;
+}
+
+#flexiselDemo1 {
+    display:none;
+}
+
+#flexiselDemo2 {
+    display:none;
+}
+
+
+/* 2do Carrousel home responsive */
+
+.button-home-more2{
+    position:relative;
+    left: 0;
+
+}
+
+.price-home2{
+    color: #76bfd3;
+    margin-top: 10px;
+    padding-left: 15px !important;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.text-limit2{
+    min-height: 35px;
+}
+
+.text-limit2 h4 {
+    padding:  0 15px 0 15px;
+}
+
+.control-home2{
+    bottom: 25% !important;
+    background-image: none !important; 
+    color: white;
+}
+
+.img-config-home{
+    width: 100%;
+    height: auto !important;
+}
+
+.position-star2{
+    margin-left: 15px;
+}
+
+.btn-service-home{
+    position: absolute;
+    right: 12%;
+    bottom: 11%;
+}
+
+.first-seccion{
+    margin-top: 50px;
+}
+
+
+
+
+/* ********  Line home css *******/
+
+
+
+
+.thumbnail{
+    margin: 0 5px;
+}
+
 /*********************************************************************
 
 
@@ -1772,7 +1996,7 @@ a {
         padding-bottom: 70px;
         text-align: center;
         color: #f8f8f8;
-        background: url(../img/fondo-azul.png) no-repeat center center;
+      /*  background: url(../img/fondo-azul.png) no-repeat center center;*/
         background-size: cover;
     }
     .intro-message1 {
@@ -1808,10 +2032,7 @@ a {
         outline: none;
     }
 
-    .caption-home{
-        background-color: rgba(0, 0, 0, .6);
 
-    }
 
     /*********************************************************************
 
@@ -1821,7 +2042,7 @@ a {
 
         **********************************************************************/
     .area1 {
-        background: url(../img/fondobah1.png) no-repeat;
+        /*background: url(../img/fondobah1.png) no-repeat;*/
         background-size: auto 100%;
         height: 75em;
         margin-top: 6em;
@@ -1832,7 +2053,7 @@ a {
         margin-bottom: 0px;
     }
     .area3 {
-        background: url(../img/fondobah2.png) no-repeat center center;
+  /*      background: url(../img/fondobah2.png) no-repeat center center;*/
         background-size: 100% 100%;
     }
     .dist1 {
@@ -1864,9 +2085,6 @@ a {
 
     .config-inner{
         height: auto;
-    }
-    .caption-home{
-        background-color: rgba(0, 0, 0, .6);
     }
 }
 
@@ -1955,7 +2173,7 @@ input[type=checkbox]#checkbox2+label {
         padding-bottom: 70px;
         text-align: center;
         color: #f8f8f8;
-        background: url(../img/fondo-azul.png) no-repeat center center;
+/*        background: url(../img/fondo-azul.png) no-repeat center center;*/
         background-size: auto;
     }
     .col-bah-area2 {
@@ -1979,18 +2197,12 @@ input[type=checkbox]#checkbox2+label {
         height: auto;
     }
 
-    .caption-home{
-        background-color: rgba(0, 0, 0, .6);
-    }
 
 }
 
 @media (min-width: 768px) and (max-width: 1182px){
         .carousel-inner{
         height: auto;
-    }
-    .caption-home{
-        background-color: rgba(0, 0, 0, .6);
     }
 
 }

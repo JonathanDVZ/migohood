@@ -94,10 +94,10 @@
                             <br>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price1" >
-                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price2" >
-                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price3" >
-                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price4" >
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price" value="@if(isset($price) AND !empty($price)){{ $price }}@endif">
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price2" value="@if(isset($price2) AND !empty($price2)){{ $price2 }}@endif">
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price3" value="@if(isset($price3) AND !empty($price3)){{ $price3 }}@endif">
+                            <input  type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price4" value="@if(isset($price4) AND !empty($price4)){{ $price4 }}@endif">
                         </div>
                     </div>
 
@@ -169,6 +169,11 @@
         </div>
         <input type="hidden" name="service_id" value="{{ $id }}">
                         {{ csrf_field() }}
+        
+    </form>
+    <form method="POST" action="{{url('/service/add-specialdate')}}">
+            <input type="hidden" name="service_id" value="{{ $id }}">
+                        {{ csrf_field() }}
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="Wbox">
                 <div class="text-center">
@@ -185,8 +190,8 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <br>
                                 <div class="form-group">
-                                    <div class='input-group date'>
-                                        <input type='text' class="form-control"  id='datetimepicker1' name="startDate" value="@if(isset($startDate) AND !empty($startDate)){{ $startDate }}@endif"/>
+                                    <div class='input-group date' id='datetimepicker1'>
+                                        <input type='text' class="form-control" name="startDate" value="@if(isset($startDate) AND !empty($startDate)){{ $startDate }}@endif"/>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -196,8 +201,8 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <br>
                                 <div class="form-group">
-                                    <div class='input-group date' >
-                                        <input type='text' class="form-control" id='datetimepicker2' name="endDate" value="@if(isset($endDate) AND !empty($endDate)){{ $endDate }}@endif"/>
+                                    <div class='input-group date' id='datetimepicker2'>
+                                        <input type='text' class="form-control" name="endDate" value="@if(isset($endDate) AND !empty($endDate)){{ $endDate }}@endif"/>
                                         <span class="input-group-addon">
                                             <span class="glyphicon glyphicon-calendar"></span>
                                         </span>
@@ -210,7 +215,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="text-left">
                                     <span class="textwhite">Price for the night:</span>
-                                    <input value="@if(isset($price) AND !empty($price)){{ $price }}@endif" type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price" required/>
+                                    <input value="@if(isset($price1) AND !empty($price1)){{ $price1 }}@endif" type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price1" required/>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
@@ -226,7 +231,7 @@
                     <div id="Hidden">
                         <br>
                         <div class="form-group">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <textarea class="form-control" rows="5" id="comment" name="note">@if(isset($note) AND !empty($note)){{ $note }}@endif</textarea>
                         </div>
 
                     </div>
@@ -242,7 +247,7 @@
                 </div>
             </div>
         </div>
-    </form>
+        </form>
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2"></div>
 </div>

@@ -207,10 +207,14 @@
                         </div>
                         <input type="hidden" name="service_id" value="{{ $id }}">
                         {{ csrf_field() }}
-                    
                 </div>
             </div>
         </div>
+
+        </form>
+        <form method="POST" action="{{url('/service/add-specialdate')}}">
+            <input type="hidden" name="service_id" value="{{ $id }}">
+                        {{ csrf_field() }}
         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
             <div class="Wbox">
                 <div class="text-center">
@@ -252,7 +256,7 @@
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                 <div class="text-left">
                                     <span class="textwhite">Price for the night:</span>
-                                    <input value="@if(isset($price) AND !empty($price)){{ $price }}@endif" type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price" required/>
+                                    <input value="@if(isset($price1) AND !empty($price1)){{ $price1 }}@endif" type="number" min="0.01" step="0.01" max="2500" class="form-control" placeholder="$" name="price1" required/>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"></div>
@@ -268,7 +272,7 @@
                     <div id="Hidden">
                         <br>
                         <div class="form-group">
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
+                            <textarea class="form-control" rows="5" id="comment" name="note">@if(isset($note) AND !empty($note)){{ $note }}@endif</textarea>
                         </div>
 
                     </div>
